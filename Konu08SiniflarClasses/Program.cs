@@ -81,7 +81,6 @@ namespace Konu08SiniflarClasses
 			var toplamasonucu = metotKullanimi.ToplamaYap(10, 8);// kaç değer girildiyse yazılmalı (içine)
 			Console.WriteLine("toplamasonucu: " + toplamasonucu);
 
-
 			Console.WriteLine("Statik Değişken: " + SiniftaMetotKullanimi.StatikDegisken);// nesne oluşturmayı ve new demeyi beklemez statik değişken takısı değişir direkt kullanılır
 			Console.WriteLine("Dinamik Değişken: " + metotKullanimi.DinamikDegisken);// statik gibi sınıftan değil metottan ulaşılır dinamik değişkene
 
