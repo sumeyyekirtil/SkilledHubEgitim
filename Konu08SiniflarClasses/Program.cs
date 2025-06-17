@@ -91,7 +91,7 @@ namespace Konu08SiniflarClasses
 				Durum = true,
 				Fiyati = 999,
 				Markasi = "Piranha",
-				UrunAciklamasi = "Işıklı yanar dönerli"
+				UrunAciklamasi = "Işıklı yanardönerli"
 			};
 			Urun mouse = new()
 			{
