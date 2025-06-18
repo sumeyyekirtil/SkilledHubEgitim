@@ -1,7 +1,4 @@
-﻿using System;
-using System.Data.SqlTypes;
-
-namespace Konu10StringSinifi
+﻿namespace Konu10StringSinifi
 {
 	internal class Program
 	{
