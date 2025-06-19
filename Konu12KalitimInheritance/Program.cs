@@ -6,7 +6,7 @@ namespace Konu12KalitimInheritance
 	class Arac
 	{
 		public string AracTuru;
-			public void KornaCal()
+		public void KornaCal()
 		{
 			Console.WriteLine("Kornaya Basıldı!");
 		}
@@ -39,8 +39,8 @@ namespace Konu12KalitimInheritance
 			Console.WriteLine();
 
 			Kategori kategori = new()
-			{ 
-				Name ="Elektronik",
+			{
+				Name = "Elektronik",
 				UstMenudeGoster = true,
 				CreateDate = DateTime.Now
 			};
@@ -57,10 +57,22 @@ namespace Konu12KalitimInheritance
 				CreateDate = DateTime.Now
 			};
 			Console.WriteLine("Ürün Bilgileri");
-			Console.WriteLine($"Adı: {urun.Name}");		
-			Console.WriteLine($"Fiyat: {urun.Fiyat}");		
-			Console.WriteLine($"Kdv: {urun.Kdv}");		
+			Console.WriteLine($"Adı: {urun.Name}");
+			Console.WriteLine($"Fiyat: {urun.Fiyat}");
+			Console.WriteLine($"Kdv: {urun.Kdv}");
 			Console.WriteLine($"Eklenme Tarihi: {urun.CreateDate}");
+
+			Cizici[] birCizici = new Cizici[5];
+			birCizici[0] = new DogruCiz();
+			birCizici[1] = new DaireCiz();
+			birCizici[2] = new KareCiz();
+			birCizici[3] = new SilindirCiz();
+			birCizici[4] = new Cizici();
+
+			foreach (var item in birCizici)
+			{
+				item.Ciz(); //çiz metodunu çalıştır
+			}
 		}
 		//Polimorfizim - Çokbiçimlilik
 		public class Cizici
@@ -72,9 +84,30 @@ namespace Konu12KalitimInheritance
 		}
 		public class DogruCiz : Cizici
 		{
-			public override void Ciz() 
+			public override void Ciz()
 			{
 				Console.WriteLine("Düz Çizgi");
+			}
+		}
+		public class DaireCiz : Cizici
+		{
+			public override void Ciz()
+			{
+				Console.WriteLine("Daire");
+			}
+		}
+		public class KareCiz : Cizici
+		{
+			public override void Ciz()
+			{
+				Console.WriteLine("Kare");
+			}
+		}
+		public class SilindirCiz : Cizici
+		{
+			public override void Ciz()
+			{
+				Console.WriteLine("Silindir");
 			}
 		}
 	}
