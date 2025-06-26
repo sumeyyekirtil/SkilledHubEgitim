@@ -46,7 +46,7 @@ namespace Konu12KalitimInheritance
 			};
 			if (kategori.UstMenudeGoster == true)
 			{
-				Console.WriteLine($"kategori bilgileri :\n Adı : {kategori.Name} - Eklme Tarihi : {kategori.CreateDate}");
+				Console.WriteLine($"kategori bilgileri :\n Adı : {kategori.Name} - Ekleme Tarihi : {kategori.CreateDate}");
 			}
 			Console.WriteLine();
 			Urun urun = new()
