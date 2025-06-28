@@ -101,6 +101,35 @@ namespace Konu08SiniflarClasses
 			else
 				Console.WriteLine("Giriş Başarısız!");
 			*/
+			Console.WriteLine();
+
+			Araba araba = new() //araba yerine başka isim verilebilir, sınıf ile karışmamalı
+			{
+				Id = 1,
+				KasaTipi = "Sedan",
+				Marka = "Dacia",
+				Model = "Logan",
+				Renk = "Bordo",
+				VitesTipi = "Manuel",
+				YakitTipi = "Dizel"
+			};
+			Console.WriteLine("Araç Bilgisi");
+			Console.WriteLine($"\n Marka : {araba.Marka} \n Model : {araba.Model} \n Renk : {araba.Renk}");
+			Console.WriteLine();
+			Araba araba2 = new() //araba yerine başka isim verilebilir, sınıf ile karışmamalı
+			{
+				Id = 2,
+				KasaTipi = "Sedan",
+				Marka = "Audi",
+				Model = "AB Long",
+				Renk = "Siyah",
+				VitesTipi = "Otomatik",
+				YakitTipi = "Dizel"
+			};
+			Console.WriteLine("Araç Bilgisi");
+			Console.WriteLine($"\n Marka : {araba2.Marka} \n Model : {araba2.Model} \n Renk : {araba2.Renk}");
+			Console.WriteLine();
+
 			Kategori kategori = new()
 			{
 				Id = 1,
@@ -116,10 +145,9 @@ namespace Konu08SiniflarClasses
 				Id = 3,
 				KategoriAdi = "Telefon"
 			};
-			Console.WriteLine();
 			Console.WriteLine("Kategori : " + kategori.KategoriAdi);
-			Console.WriteLine("Kategori2 : " + kategori2.KategoriAdi);
-			Console.WriteLine("Kategori3 : " + kategori3.KategoriAdi);
+			Console.WriteLine("Kategori 2 : " + kategori2.KategoriAdi);
+			Console.WriteLine("Kategori 3 : " + kategori3.KategoriAdi);
 			Console.WriteLine();
 
 			SiniftaMetotKullanimi metotKullanimi = new();
@@ -129,11 +157,11 @@ namespace Konu08SiniflarClasses
 				Console.WriteLine("Giriş Başarılı!");
 			}
 			else
-				Console.WriteLine("Giriş Başarısız!");
-
+				Console.WriteLine("Giriş Başarısız!"); //sifre eksik yazıldığından false sonuç
+			Console.WriteLine();
 			var toplamasonucu = metotKullanimi.ToplamaYap(10, 8);// kaç değer girildiyse yazılmalı (içine)
 			Console.WriteLine("toplamasonucu: " + toplamasonucu);
-
+			Console.WriteLine();
 			Console.WriteLine("Statik Değişken: " + SiniftaMetotKullanimi.StatikDegisken);// nesne oluşturmayı ve new demeyi beklemez statik değişken takısı değişir direkt kullanılır
 			Console.WriteLine("Dinamik Değişken: " + metotKullanimi.DinamikDegisken);// statik gibi sınıftan değil metottan ulaşılır dinamik değişkene
 
@@ -203,5 +231,15 @@ namespace Konu08SiniflarClasses
 		internal string Email;
 		internal string Adi;
 		internal string Soyadi;
+	}
+	class Araba
+	{
+		internal int Id;
+		internal string Marka;
+		internal string Model;
+		internal string KasaTipi;
+		internal string YakitTipi;
+		internal string VitesTipi;
+		internal string Renk;
 	}
 }
