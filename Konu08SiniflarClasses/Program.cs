@@ -1,7 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using System.Collections.Concurrent;
-
-namespace Konu08SiniflarClasses
+﻿namespace Konu08SiniflarClasses
 {
 	internal class Ev //sınıf tanımlama
 	{
@@ -33,8 +30,8 @@ namespace Konu08SiniflarClasses
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Siniflar-Classes!");//c# nesne yönül programlama dilidir
-			#region Ornek1 //region-endregion pop olarak kapatır, bölümleştirmeyi kolaylaştırır
+			Console.WriteLine("Siniflar-Classes!");//C# nesne yönelimli programlama dilidir
+			#region Ornek1 //region-endregion pop-up olarak kapatır, bölümleştirmeyi kolaylaştırır
 			Ev ilkEv = new Ev(); //soyut bir yapı olan ev sınıfından, somut bir nesne olan ilkev i oluşturduk
 			ilkEv.sokakAdi = "Çiçek sk"; //. ile tanımlanan özelliklere erişilir
 			ilkEv.kapiNo = 10;
@@ -116,7 +113,7 @@ namespace Konu08SiniflarClasses
 			Console.WriteLine("Araç Bilgisi");
 			Console.WriteLine($"\n Marka : {araba.Marka} \n Model : {araba.Model} \n Renk : {araba.Renk}");
 			Console.WriteLine();
-			Araba araba2 = new() //araba yerine başka isim verilebilir, sınıf ile karışmamalı
+			Araba araba2 = new()
 			{
 				Id = 2,
 				KasaTipi = "Sedan",
@@ -158,11 +155,12 @@ namespace Konu08SiniflarClasses
 			}
 			else
 				Console.WriteLine("Giriş Başarısız!"); //sifre eksik yazıldığından false sonuç
+			
 			Console.WriteLine();
 			var toplamasonucu = metotKullanimi.ToplamaYap(10, 8);// kaç değer girildiyse yazılmalı (içine)
 			Console.WriteLine("toplamasonucu: " + toplamasonucu);
 			Console.WriteLine();
-			Console.WriteLine("Statik Değişken: " + SiniftaMetotKullanimi.StatikDegisken);// nesne oluşturmayı ve new demeyi beklemez statik değişken takısı değişir direkt kullanılır
+			Console.WriteLine("Statik Değişken: " + SiniftaMetotKullanimi.StatikDegisken);// nesne oluşturmayı ve new demeyi gerek duymaz statik değişken takısı değişir direkt kullanılır
 			Console.WriteLine("Dinamik Değişken: " + metotKullanimi.DinamikDegisken);// statik gibi sınıftan değil metottan ulaşılır dinamik değişkene
 
 			Urun urun = new()
@@ -181,6 +179,7 @@ namespace Konu08SiniflarClasses
 				Markasi = "A4 Tech",
 				UrunAciklamasi = "Kablolu"
 			};
+			Console.WriteLine();
 			Console.WriteLine("Ürün Bilgileri");
 			Console.WriteLine($"Ürün Adı {urun.Adi}");
 			Console.WriteLine($"Ürün Fiyatı {urun.Fiyati}");
@@ -192,35 +191,36 @@ namespace Konu08SiniflarClasses
 			Console.WriteLine($"Ürün Açıklaması {mouse.UrunAciklamasi}");
 			Console.WriteLine();
 
-			Console.WriteLine("Urun Data Metotları");
-			UrunDataMetotlari urunDataMetotlari = new();
-			urunDataMetotlari.UrunEkle(mouse);
+			Console.WriteLine("Ürün Data Metotları");
+			UrunDataMetotlari urunDataMetotlari = new(); //statik olmadığı için nesne oluşturduk
+			urunDataMetotlari.UrunEkle(mouse); //metot çalışması için bir ürün nesnesi yollamalısın uyarısı veriyor (mouse)
 			urunDataMetotlari.UrunGuncelle(mouse);
 			urunDataMetotlari.UrunSil(mouse);
 
+			Console.WriteLine();
 			Console.WriteLine("\t\tÜrünler");
 			Console.WriteLine();
-			foreach (var item in urunDataMetotlari.Urunler())
-			{
+			foreach (var item in urunDataMetotlari.Urunler()) //birden fazla kayıt yazdırmak için foreach
+			{ //item ismi Urun tipi
 				Console.WriteLine($"\tÜrün Adı {item.Adi}");
 				Console.WriteLine($"\tÜrün Fiyatı {item.Fiyati}");
-				Console.WriteLine($"\tÜrün Açıklaması {mouse.UrunAciklamasi}");
-				Console.WriteLine($"\tÜrün Durumu {mouse.Durum}");
+				Console.WriteLine($"\tÜrün Açıklaması {item.UrunAciklamasi}");
+				Console.WriteLine($"\tÜrün Durumu {item.Durum}");
 				Console.WriteLine();
 			}
-			User user = new();
-			Console.WriteLine("Email Giriniz: ");
-			user.Email = Console.ReadLine();
+
+			User user = new(); //User sınıfından nesne oluşturuldu
+			Console.WriteLine("Email Giriniz: "); //kullanıcıdan veri istendi
+			user.Email = Console.ReadLine(); //gönderilen değeri okuduk
 			Console.WriteLine("Şifre Giriniz: ");
 			user.Password = Console.ReadLine();
-			var giris = user.KullaniciGiris(user.Email, user.Password);
+			var giris = user.KullaniciGiris(user.Email, user.Password); //metot çağırıldı (parametrelerle)
 			if (giris == true)
 			{
 				Console.WriteLine("Hoşgeldiniz!");
 			}
 			else
 				Console.WriteLine("Giriş Başarısız!");
-
 		}
 	}
 	class Kullanici

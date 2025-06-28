@@ -12,10 +12,10 @@
 		public bool KullaniciGiris(string mail, string sifre)
 		{
 			string veritabanindaKayitliMail = "info@uygulama.com";
-			string veritabanindaKayitliSifre = "info@123456.com";
-			bool islemSonucu = false;
+			string veritabanindaKayitliSifre = "123456";
+			bool islemSonucu = false; //işlem başarısızsa her türlü false döner
 
-			if (mail == veritabanindaKayitliMail && sifre == veritabanindaKayitliSifre)
+			if (mail == veritabanindaKayitliMail && sifre == veritabanindaKayitliSifre) //işlem doğru ise true döner 
 			{
 				islemSonucu = true;
 			}

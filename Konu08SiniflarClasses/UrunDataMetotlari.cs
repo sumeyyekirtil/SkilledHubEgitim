@@ -2,7 +2,7 @@
 {
 	public class UrunDataMetotlari
 	{
-		internal void UrunEkle(Urun urun)
+		internal void UrunEkle(Urun urun) //parametre direkt urun alındı
 		{
 			Console.WriteLine(urun.Adi + " ürünü eklendi!");
 		}
@@ -14,7 +14,7 @@
 		{
 			Console.WriteLine(urun.Adi + " ürünü silindi!");
 		}
-		internal Urun UrunGetir()
+		internal Urun UrunGetir() //veri dönüş değeri urun sınıfından nesne
 		{
 			Urun urun = new Urun()
 			{
@@ -24,9 +24,9 @@
 			};
 			return urun;
 		}
-		internal Urun[] Urunler()
+		internal Urun[] Urunler() //Urun dizisi oluşturduk
 		{
-			return new Urun[]
+			return new Urun[] //dönüş değeri Urun
 			{
 				new()
 				{
@@ -43,7 +43,7 @@
 					Durum = false,
 					Fiyati = 48000,
 					Id = 2,
-					Markasi = "Monster",
+					Markasi = "Toshiba",
 					UrunAciklamasi = "Dizüstü",
 				},
 				new()
