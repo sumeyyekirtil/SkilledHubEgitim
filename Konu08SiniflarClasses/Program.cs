@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using System.Collections.Concurrent;
 
 namespace Konu08SiniflarClasses
 {
@@ -7,31 +8,40 @@ namespace Konu08SiniflarClasses
 		internal string sokakAdi;
 		internal int kapiNo;
 	}
-	/*C# nesne yönelimli bir programlama dili olduğu için her şey sınıflar içinde tanımlanır.
-    sınıflara ve sınıf öğelerine erişim kısıtlanabilir veya belirli düzeylerde erişime izin verilebilir.
-    Öğelere erişimi kısıtlayan ya da yetki veren anahtar sözcüklere "Erişim Belirteçleri" (acces modifiers) denir.
-    *Erişim belirteçleri 4 ana sınıfa ayrılır
+	/*C# nesne yönelimli bir programlama dili olduğu için herşey sınıflar içinde tanımlanır.
+    Sınıflara ve sınıf öğelerine erişim kısıtlanabilir veya belirli düzeylerde erişime izin verilebilir.
+    Öğelere erişimi kısıtlayan ya da yetki veren anahtar sözcüklere "Erişim Belirteçleri" (access modifiers) denir.
+    * Erişim belirteçleri 4 ana sınıfa ayrılır
     * public    : Erişim kısıtı yoktur, her yerden erişilebilir
     * protected : Ait olduğu sınıftan ve o sınıftan türetilen sınıflardan erişilebilir
     * internal  : Etkin projeye ait sınıflardan erişilebilir, onların dışında erişilemez
     * private   : Yalnız bulunduğu sınıftan erişilebilir, dıştaki sınıflardan erişilemez
     * Bir öğe yalnızca 1 erişim belirteci alabilir
     * namespace erişim belirteci almaz çünkü o daima public tir
-    * Sınıflar public yada internal nitelemesi alabilirler ama protected yada private nitelemesi alamazlar
+    * Sınıflar public ya da internal nitelemesi alabilirler ama protected ya da private nitelemesi alamazlar
     * enum erişim belirteci almaz çünkü daima public tir
     */
+	public class deneme //deneme class ı public olduğundan erişilebilir dolayısıyla alt öğelere de erişilebilir
+	{
+		public string UrunAdi = "public öğeye herkes erişebilir";
+		protected class test //Ait olduğu sınıftan ve o sınıftan türetilen sınıflardan erişilebilir
+		{
+			string UrunAdi;
+		}
+	}
 	internal class Program
 	{
 		static void Main(string[] args)
 		{
 			Console.WriteLine("Siniflar-Classes!");//c# nesne yönül programlama dilidir
+			#region Ornek1 //region-endregion pop olarak kapatır, bölümleştirmeyi kolaylaştırır
 			Ev ilkEv = new Ev(); //soyut bir yapı olan ev sınıfından, somut bir nesne olan ilkev i oluşturduk
-			ilkEv.sokakAdi = "Çiçek sk";
+			ilkEv.sokakAdi = "Çiçek sk"; //. ile tanımlanan özelliklere erişilir
 			ilkEv.kapiNo = 10;
 			Console.WriteLine("ilkEv sokak adı: " + ilkEv.sokakAdi);
 			Console.WriteLine("ilkEv kapı no: " + ilkEv.kapiNo);
-
 			Console.WriteLine();
+
 			Ev yazlikEv = new();
 			yazlikEv.sokakAdi = "Deniz sk.";
 			yazlikEv.kapiNo = 18;
@@ -39,16 +49,58 @@ namespace Konu08SiniflarClasses
 			Console.WriteLine("yazlikEv kapı no: " + yazlikEv.kapiNo);
 			Console.WriteLine();
 
-			Ev koyEvi = new()
+			Ev koyEvi = new() //sınıfı diğer şekilde somut tanımlama yolu
 			{
-				sokakAdi = "Pınar sk", //bu kullanımda ; yerine öğeler arasına  , koymamız gerekli çünkü {} var 
-			    kapiNo = 34
+				sokakAdi = "Pınar sk", //bu kullanımda ; yerine öğeler arasına , koymamız gerekli çünkü {} var 
+				kapiNo = 34
 			};
 			Console.WriteLine("koyEvi sokak adı: " + koyEvi.sokakAdi);
 			Console.WriteLine("koyEvi kapı no: " + koyEvi.kapiNo);
 			Console.WriteLine();
-
+			#endregion
+			#region Ornek2
+			Kullanici kullanici = new()
+			{
+				Adi = "Hanife",
+				Soyadi = "Çoban",
+				Email = "hanife@coban.com",
+				Id = 1,
+				KullaniciAdi = "hanifec",
+				Sifre = "123"
+			};
+			Kullanici selim = new()
+			{
+				Adi = "Selim",
+				Soyadi = "Ak",
+				Email = "selim@ak.com",
+				Id = 2,
+				KullaniciAdi = "selima",
+				Sifre = "456"
+			};
+			Console.WriteLine("Kullanıcı Bilgileri : ");
+			Console.WriteLine("Adı : " + kullanici.Adi);
+			Console.WriteLine("Soyadı : " + kullanici.Soyadi);
+			Console.WriteLine("Email : " + kullanici.Email);
 			Console.WriteLine();
+			Console.WriteLine("Kullanıcı Bilgileri : ");
+			Console.WriteLine("Adı : " + selim.Adi);
+			Console.WriteLine("Soyadı : " + selim.Soyadi);
+			Console.WriteLine("Email : " + selim.Email);
+			Console.WriteLine("KullaniciAdi : " + selim.KullaniciAdi);
+			Console.WriteLine();
+			#endregion
+			/*
+			Console.WriteLine("Kullanıcı Adınız: ");
+			var kullaniciAdi = Console.ReadLine();
+			Console.WriteLine("Şifreniz : ");
+			var sifre = Console.ReadLine();
+			if (kullaniciAdi == selim.Adi && sifre == selim.Sifre) // Ve operatörü(&&): iki değeri de T&T olursa sonuç 1 döner
+			{
+				Console.WriteLine("Hoşgeldin : " + selim.Adi + " " + selim.Soyadi);
+			}
+			else
+				Console.WriteLine("Giriş Başarısız!");
+			*/
 			Kategori kategori = new()
 			{
 				Id = 1,
@@ -64,14 +116,15 @@ namespace Konu08SiniflarClasses
 				Id = 3,
 				KategoriAdi = "Telefon"
 			};
+			Console.WriteLine();
 			Console.WriteLine("Kategori : " + kategori.KategoriAdi);
 			Console.WriteLine("Kategori2 : " + kategori2.KategoriAdi);
 			Console.WriteLine("Kategori3 : " + kategori3.KategoriAdi);
-
 			Console.WriteLine();
+
 			SiniftaMetotKullanimi metotKullanimi = new();
 			var sonuc = metotKullanimi.LoginKontrol("admin", "1234");
-			if(sonuc == true)
+			if (sonuc == true)
 			{
 				Console.WriteLine("Giriş Başarılı!");
 			}
@@ -132,12 +185,23 @@ namespace Konu08SiniflarClasses
 			user.Email = Console.ReadLine();
 			Console.WriteLine("Şifre Giriniz: ");
 			user.Password = Console.ReadLine();
-			var giris = user.KullaniciGiris(user.Email ,user.Password);
+			var giris = user.KullaniciGiris(user.Email, user.Password);
 			if (giris == true)
 			{
 				Console.WriteLine("Hoşgeldiniz!");
-			}else
+			}
+			else
 				Console.WriteLine("Giriş Başarısız!");
+
 		}
+	}
+	class Kullanici
+	{
+		internal int Id;
+		internal string KullaniciAdi;
+		internal string Sifre;
+		internal string Email;
+		internal string Adi;
+		internal string Soyadi;
 	}
 }
