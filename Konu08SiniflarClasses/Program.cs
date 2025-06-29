@@ -160,7 +160,7 @@
 			var toplamasonucu = metotKullanimi.ToplamaYap(10, 8);// kaç değer girildiyse yazılmalı (içine)
 			Console.WriteLine("toplamasonucu: " + toplamasonucu);
 			Console.WriteLine();
-			Console.WriteLine("Statik Değişken: " + SiniftaMetotKullanimi.StatikDegisken);// nesne oluşturmayı ve new demeyi gerek duymaz statik değişken takısı değişir direkt kullanılır
+			Console.WriteLine("Statik Değişken: " + SiniftaMetotKullanimi.StatikDegisken);// nesne oluşturmayı ve new demeye gerek duymaz statik değişken takısı değişir direkt kullanılır
 			Console.WriteLine("Dinamik Değişken: " + metotKullanimi.DinamikDegisken);// statik gibi sınıftan değil metottan ulaşılır dinamik değişkene
 
 			Urun urun = new()
