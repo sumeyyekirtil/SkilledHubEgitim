@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsForms
-{
+{//()içinde hangi form yazılı olursa başlangıçta onu çalıştırır
+ //windows form projesi çalıştırıldığında hangi formun açılacağını buradan ayarlıyoruz.
 	public partial class Form3 : Form
 	{
 		public Form3()
@@ -19,10 +20,14 @@ namespace WindowsForms
 
 		private void Form3_Load(object sender, EventArgs e)
 		{
-			////timer1.Start Enabled = true; //timer1 nesnesi sayfa yüklenirken aktif hale getiriyoruz.
-			//timer1.Interval = 400; //timer ın süresi milisaniye cinsinden bu şekilde ayarlayabiliriz.
-			//Random renk = new Random();//renk isminde rastgele sayı üretene nesne oluşturduk
-			//this.BackColor = Color.FormArgb(renk.Next()1, 100), renk.Next(1, 100);// Burada this sınıfı geçerli formu  i temsil ediyor. Form3 in arkaplan rengine rastgele 1 ile 100 arası RGB renk kodlarını oluşturacak sayılar üretecek
+			timer1.Enabled = true;//timer1 nesnesini sayfa yüklenirken aktif hale getiriyoruz
+			timer1.Interval = 1000; //timer ın milisaniye cinsinden bu şekilde ayarlayabiliriz
+		}
+
+		private void timer1_Tick(object sender, EventArgs e)
+		{
+			Random renk = new Random(); //renk isminde rastgele sayı üreten nesne oluşturuldu
+			this.BackColor = Color.FromArgb(renk.Next(1, 100), renk.Next(1, 100), renk.Next(1, 100)); //Burada this sınıfı geçerli formu temsil ediyor. Formun arkaplan rengine rastgele 1 ve 100 arası RGB renk kodlarını oluşturacak sayılar üretilecek
 		}
 	}
 }
