@@ -20,7 +20,7 @@
 			Console.WriteLine("Seçilen öğrenci no: " + ogrenciler[5]);
 			//ogrenciler[6] = 666; //Dizilere başlangıçta kaç elemandan oluşacağı tanımlanmışsa o sayının dışına çıktığımızda hata alırız!
 
-			string[] isimler = new string[6];
+			string[] isimler = new string[6]; //Dizi tanımlama şekli 1
 			isimler[0] = "Alp";
 			isimler[1] = "Ali";
 			isimler[2] = "Sümeyye";
@@ -29,7 +29,7 @@
 			isimler[5] = "Selim";
 			Console.WriteLine("isimler[5]: " + isimler[5]);
 
-			int[] ogrenciler2 = { 100, 200, 300, 400, 500 };
+			int[] ogrenciler2 = { 100, 200, 300, 400, 500 }; //Dizi tanımlama şekli 2
 			Console.WriteLine("Seçilen öğrenci no: " + ogrenciler2[3]); 
 			ogrenciler2[3] = 550;
 			Console.WriteLine("Seçilen öğrenci no: " + ogrenciler2[3]); //output:550
@@ -42,7 +42,7 @@
 			Console.WriteLine();
 
 			string[] urunler = { "Ürün 1", "Ürün 2", "Ürün 3" };
-			Console.WriteLine(urunler[1]);
+			Console.WriteLine(urunler[1]); //index numaralı elemanı yazdırır
 		}
 	}
 }
