@@ -43,7 +43,7 @@
 			};
 			if (kategori.UstMenudeGoster == true)
 			{
-				Console.WriteLine($"kategori bilgileri :\n Adı : {kategori.Name} - Ekleme Tarihi : {kategori.CreateDate}");
+				Console.WriteLine($"kategori bilgileri :\nAdı : {kategori.Name} - Ekleme Tarihi : {kategori.CreateDate}");
 			}
 			
 			Console.WriteLine();
@@ -84,7 +84,6 @@
 		{
 			public override void Ciz()
 			{
-				base.Ciz();
 				Console.WriteLine("Düz Çizgi");
 			}
 		}

@@ -1,7 +1,11 @@
 ﻿using System.Globalization;
-
 namespace Konu13KapsullemeEncapsulation
-{
+{//OOP de kapsülleme : veri-metot başka yerden görülmeyecek şekilde üstünün kapatılmasıdır.
+ //Soyut veri tipi abstract datatype(ADT) denir
+ //Kullanım amacı basit yanlışlarla kodların bozulmasını önlemek
+ //Korunmak istenen veriler private(özel) olarak nitelendirilir
+ //Get/Set ile veri erişimi sağlanır
+ //Property ile veri erişimin 2. yoludur.
 	public class Bolum //(ilaç)
 	{
 		private string BolumAdi; //dışarıda erişime kapalı değişken : private
@@ -20,7 +24,7 @@ namespace Konu13KapsullemeEncapsulation
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Kapsülleme-Encapsulation!"); //ilaç dış kapsülüne benzer (olası yanlışları engeller yani başka yerden ulaşılmaması gereken içerik)
+			Console.WriteLine("Kapsülleme - Encapsulation!"); //ilaç dış kapsülüne benzer (olası yanlışları engeller yani başka yerden ulaşılmaması gereken içerik)
 			Bolum bolum = new Bolum();
 			Console.WriteLine("Kurumumuzdaki Bölümler:");
 			Console.WriteLine("1-Elektronik");
@@ -62,14 +66,14 @@ namespace Konu13KapsullemeEncapsulation
 
 		}
 	}
-		//Yalnız okunur (Read only property)
-		public class University
+	//Yalnız okunur (Read only property)
+	public class University
+	{
+		private string bolum;
+		public University(string str)
 		{
-			private string bolum;
-			public University(string str)
-			{
-				bolum = str;
-			}
-			public string Bolum { get { return bolum; ; } }
+			bolum = str;
 		}
+		public string Bolum { get { return bolum; ; } }
+	}
 }
