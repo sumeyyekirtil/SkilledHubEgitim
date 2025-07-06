@@ -1,12 +1,9 @@
-﻿using System.Net.WebSockets;
-using System.Threading.Channels;
-
-namespace Konu12KalitimInheritance
+﻿namespace Konu12KalitimInheritance
 {
 	class Arac
 	{
-		public string AracTuru;
-		public void KornaCal()
+		public string AracTuru; //konu başlığı
+		public void KornaCal() //ortak özellik atanır
 		{
 			Console.WriteLine("Kornaya Basıldı!");
 		}
@@ -17,7 +14,7 @@ namespace Konu12KalitimInheritance
 		public string Model { get; set; }
 	}
 	class Yat : Arac
-	{
+	{//öznel özellikler tanımlanıyor
 		public int Uzunluk { get; set; }
 		public int Kamara { get; set; }
 	}
@@ -27,7 +24,7 @@ namespace Konu12KalitimInheritance
 		{
 			Console.WriteLine("Kalıtım, Miras Alma (Inheritance)!");
 			Arac arac = new Arac(); //nesne türettik
-			arac.AracTuru = "Araba"; //değişken atadık
+			arac.AracTuru = "Araba"; //değişkene değer atadık
 			Console.WriteLine("arac.AracTuru = " + arac.AracTuru);
 
 			Otomobil otomobil = new();
@@ -48,6 +45,7 @@ namespace Konu12KalitimInheritance
 			{
 				Console.WriteLine($"kategori bilgileri :\n Adı : {kategori.Name} - Ekleme Tarihi : {kategori.CreateDate}");
 			}
+			
 			Console.WriteLine();
 			Urun urun = new()
 			{
@@ -74,7 +72,7 @@ namespace Konu12KalitimInheritance
 				item.Ciz(); //çiz metodunu çalıştır
 			}
 		}
-		//Polimorfizim - Çokbiçimlilik
+		//Polimorfizm - Çokbiçimlilik
 		public class Cizici
 		{
 			public virtual void Ciz() //virtual keyword ü ile bu metodu override-ezilebilir hale getiriyoruz
@@ -86,6 +84,7 @@ namespace Konu12KalitimInheritance
 		{
 			public override void Ciz()
 			{
+				base.Ciz();
 				Console.WriteLine("Düz Çizgi");
 			}
 		}

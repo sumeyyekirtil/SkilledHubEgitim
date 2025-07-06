@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Konu12KalitimInheritance
+﻿namespace Konu12KalitimInheritance
 {
 	public class Kategori : OrtakOzellikler //kalıtım alındı
 	{
