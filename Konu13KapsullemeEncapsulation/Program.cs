@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-namespace Konu13KapsullemeEncapsulation
+﻿namespace Konu13KapsullemeEncapsulation
 {//OOP de kapsülleme : veri-metot başka yerden görülmeyecek şekilde üstünün kapatılmasıdır.
  //Soyut veri tipi abstract datatype(ADT) denir
  //Kullanım amacı basit yanlışlarla kodların bozulmasını önlemek
@@ -10,12 +9,15 @@ namespace Konu13KapsullemeEncapsulation
 	{
 		private string BolumAdi; //dışarıda erişime kapalı değişken : private
 								 //Accessor (Getter)
-		public string GetBolumAdi() { return BolumAdi; } //Geriye private BolumAdi değişkenini döndüren metot
-		public void SetBolumAdi(string istenenEgitimi)
+		public string GetBolumAdi()
+		{
+			return BolumAdi;
+		} //Geriye private BolumAdi değişkenini döndüren metot
+		public void SetBolumAdi(string istenenEgitimi) //değer ataması yapılacak metot
 		{
 			if (istenenEgitimi == "Yazılım Mühendisliği")
 			{
-				Console.WriteLine("Ünüversitemizde {0} bölümü bulunmamaktadır!", istenenEgitimi);
+				Console.WriteLine("Üniversitemizde {0} bölümü bulunmamaktadır!", istenenEgitimi);
 			}
 			else BolumAdi = istenenEgitimi;
 		}
@@ -35,45 +37,48 @@ namespace Konu13KapsullemeEncapsulation
 			bolum.SetBolumAdi(bolumAdi); //bolum içerisindeki SetBolumAdi metoduna bolum adını gönderdik, private değişkenine atama yapıldı
 			Console.WriteLine("Kayıt Olunacak Bölüm Adı : " + bolum.GetBolumAdi()); //bolum içerisindeki GetBolumAdi() metodunu direkt ekrana yazdırdık çünkü GetBolumAdi()
 
-			Fakulte fakulte = new Fakulte();
+			Fakulte fakulte = new Fakulte
 			{
-				Bolum = "Yazılım Mühendisliği";
-			}
-			;
+				Bolum = "Yazılım Mühendisliği"
+			};
 			Console.WriteLine("Fakülte = {0} {1} ", fakulte.Bolum, "2.değer");
 
 			University universite = new("Maliye");
-			Console.WriteLine("Üniversite Bölümğ : " + universite.Bolum);
-			universite.Bolum = ""; //bu şekilde bir veri gönderimi yapamayız çünkü property read only (set bloğu kaldırıldı) 
+			Console.WriteLine("Üniversite Bölümü : " + universite.Bolum);
+			//universite.Bolum = ""; 
+			//hatalı veri gönderimi
+			//bu şekilde bir veri gönderimi yapamayız! çünkü property read only (set bloğu kaldırıldı) 
 		}
 	}
 	//Özgen (Property) kullanarak kapsülleme
 	public class Fakulte
-	{//property i metoda çevirme işlemi
+	{
 		private string bolum; //Fakülte sınıfının içindeki bolum değişkenini private tanımlayarak kapsüllemiş olduk, böylece bu değişkene sadece aşağıdaki get, set metotlarıya erişilebilir
+
+		//PROPERTY İ METOTA ÇEVİRME İŞLEMİ
 		public string Bolum //bölümün değeri okunmak istenirse get bloğu çalışıyor
-		{
+		{//public string Bolum {get; set;} açık hali:
 			get { return bolum; } //{get; set;} //set : ayarlamak
 								  //get bloğu içindeki return(dön) komutundan anlaşılacağı üzere geriye içerideki private tanımladığımız kapsüllenen bolum değişkenine atanan veriyi döndürür
-			set
+
+			set //bölüme dışarıdan veri atanırsa set bloğu çalışır
 			{//set bloğunun 'value' özelliği
 				if (value == "Yazılım Mühendisliği")
 				{
 					Console.WriteLine("Ünüversitemizde {0} bölümü bulunmamaktadır!", value);
 				}
 				else bolum = value;
-			} //set bloğu dışarıya açık Bolum değişlenine atanan veriy alıp içeride kapsüllediğimiz private bolum değişkenine atar
-
+			} //set bloğu dışarıya açık Bolum değişkenine atanan veriyi alıp içeride kapsüllediğimiz private bolum değişkenine atar
 		}
 	}
 	//Yalnız okunur (Read only property)
 	public class University
-	{
+	{ //atama yapılmaz sadece bölüm gönderilir
 		private string bolum;
 		public University(string str)
 		{
 			bolum = str;
 		}
-		public string Bolum { get { return bolum; ; } }
+		public string Bolum { get { return bolum; } } //set iptal edildiğinde read only olur
 	}
 }
