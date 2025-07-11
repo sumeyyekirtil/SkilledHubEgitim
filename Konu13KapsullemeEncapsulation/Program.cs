@@ -45,7 +45,7 @@
 
 			University universite = new("Maliye");
 			Console.WriteLine("Üniversite Bölümü : " + universite.Bolum);
-			//universite.Bolum = ""; 
+			//universite.Bolum = "a"; 
 			//hatalı veri gönderimi
 			//bu şekilde bir veri gönderimi yapamayız! çünkü property read only (set bloğu kaldırıldı) 
 		}

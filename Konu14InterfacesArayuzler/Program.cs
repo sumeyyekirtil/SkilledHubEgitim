@@ -1,12 +1,12 @@
 ﻿namespace Konu14InterfacesArayuzler
-{//class yerine insterface yazıyoruz
+{//class yerine interface yazıyoruz
  //erişim belirteci yazıp-yazmamak kullanıcıya bağlı
- //Miras alındığında (:) Interface e yazılan değer classın içinde olmak zorunda; bu bir metot veya property olabilir
+ //Miras alındığında (:) Interface e yazılan değer classın içinde kullanılmak zorunda; bu bir metot veya property olabilir
 	interface OrnekArayuz
 	{
 		public int Id { get; set; }
 	}
-	interface IDemo
+	interface IDemo //I/A kullanılır başında
 	{//interface e metot yazılmaz metot imzası yazılır
 		void Goster();//geriye değer döndürmeyecek
 					  //() boş olduğundan dışarıdan parametre almıyor
@@ -22,21 +22,21 @@
 		int ToplamaYap();
 
 	}
-	class ArayuzKullanimi : icerebilecekleri
+	class ArayuzKullanimi : icerebilecekleri 
+		//classın içinde olması kesinlikle zorunlu denilen şeyleri önce interface de tanımlayıp, class da yapılacak işlemler yazılır
+		//class a interface implament etmek : interface içindeki özellikleri, metotları class a yazmak demek
 	{
-		public int sayi1 { get; set; }
+		public int sayi1 { get; set; } //throw yerine geçebilir
 		public int sayi { get; set; }
 		public void Goster()
 		{
 			Console.WriteLine(sayi1);
 		}
-
 		public void Topla()
 		{
 			Console.WriteLine();
 		}
-
-		public int ToplamaYap()
+		public int ToplamaYap() //void değerde cw kullanılabilir
 		{
 			return 18;
 		}
@@ -47,7 +47,7 @@
 		{
 			Console.WriteLine("Interfaces-Arayüzler!");//her programlama dilinde yok
 			ArayuzKullanimi arayuzKullanimi = new();
-			arayuzKullanimi.sayi1 = 18;
+			arayuzKullanimi.sayi1 = 21;
 			arayuzKullanimi.Goster();
 
 			Urun urun = new Urun();
