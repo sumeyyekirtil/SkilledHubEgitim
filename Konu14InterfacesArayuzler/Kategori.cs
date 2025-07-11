@@ -1,6 +1,8 @@
 ﻿namespace Konu14InterfacesArayuzler
 {
-	public class Kategori : ISinifGereksinimleri //class interface içindeki tüm propertylere sahip olduğu için 'replement interface' yapmaya gerek kalmıyor
+	public class Kategori : ISinifGereksinimleri
+	//class interface içindeki tüm propertylere sahip olduğu için 'implement interface' yapmaya gerek kalmıyor
+	//interface deki tüm prop ları copy-paste yaparak hataları düzeltebiliriz 'throw hatalarını':(get; set; leri düzeltmemek için)
 	{//metotlarda tanımlamak zorundayız
 		public int Id { get; set; }
 		public string Name { get; set; }
