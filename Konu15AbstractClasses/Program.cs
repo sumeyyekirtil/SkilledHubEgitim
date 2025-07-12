@@ -50,12 +50,10 @@
 		{
 			Console.WriteLine("Oracle den silindi");
 		}
-
 		public override void Get()
 		{
 			Console.WriteLine("Oracle Get çalıştı");
 		}
-
 		public override void Update()
 		{
 			Console.WriteLine("Oracle güncellendi");

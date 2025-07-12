@@ -46,10 +46,11 @@
 		static void Main(string[] args)
 		{
 			Console.WriteLine("Interfaces-Arayüzler!");//her programlama dilinde yok
+			//örnek
 			ArayuzKullanimi arayuzKullanimi = new();
 			arayuzKullanimi.sayi1 = 21;
 			arayuzKullanimi.Goster();
-
+			//örnek
 			Urun urun = new Urun();
 			Console.WriteLine("Ürün Adı Giriniz:");
 			var urunadi = Console.ReadLine();
@@ -61,7 +62,7 @@
 			else
 				Console.WriteLine("Ürün Adı Boş Geçilemez!");
 			Console.WriteLine();
-
+			//örnek
 			Console.WriteLine("Kategori Adı Giriniz:");
 			Kategori kategori = new Kategori();
 			KategoriDBIslemleri kategoriDBIslemleri = new();
@@ -72,7 +73,7 @@
 				kategoriDBIslemleri.Add(kategoriadi);
 			}
 			else
-				Console.WriteLine("Ürün Adı Boş Geçilemez!");
+				Console.WriteLine("Kategori Adı Boş Geçilemez!");
 		}
 	}
 }

@@ -12,22 +12,18 @@
 		public int Stock { get; set; }
 		public string? Image { get; set; }
 		public int KategoriId { get; set; }
-
 		public void Add(string name)
 		{
 			Console.WriteLine(name + "ürünü eklendi");
 		}
-
 		public void Delete(int id)
 		{
 			Console.WriteLine(id + "li ürün silindi");
 		}
-
 		public void GetAll()
 		{
 			throw new NotImplementedException();
 		}
-
 		public void Update(int id)
 		{
 			Console.WriteLine(id + "li ürün güncellendi");
