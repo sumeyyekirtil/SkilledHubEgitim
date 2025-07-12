@@ -1,5 +1,4 @@
-﻿using System.Collections.Concurrent;
-namespace Konu02TipDonusumleri
+﻿namespace Konu02TipDonusumleri
 {
 	internal class Program
 	{

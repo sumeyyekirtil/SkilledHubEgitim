@@ -22,9 +22,9 @@
 		int ToplamaYap();
 
 	}
-	class ArayuzKullanimi : icerebilecekleri 
-		//classın içinde olması kesinlikle zorunlu denilen şeyleri önce interface de tanımlayıp, class da yapılacak işlemler yazılır
-		//class a interface implament etmek : interface içindeki özellikleri, metotları class a yazmak demek
+	class ArayuzKullanimi : icerebilecekleri
+	//classın içinde olması kesinlikle zorunlu denilen şeyleri önce interface de tanımlayıp, class da yapılacak işlemler yazılır
+	//class a interface implament etmek : interface içindeki özellikleri, metotları class a yazmak demek
 	{
 		public int sayi1 { get; set; } //throw yerine geçebilir
 		public int sayi { get; set; }
@@ -46,7 +46,7 @@
 		static void Main(string[] args)
 		{
 			Console.WriteLine("Interfaces-Arayüzler!");//her programlama dilinde yok
-			//örnek
+													   //örnek
 			ArayuzKullanimi arayuzKullanimi = new();
 			arayuzKullanimi.sayi1 = 21;
 			arayuzKullanimi.Goster();

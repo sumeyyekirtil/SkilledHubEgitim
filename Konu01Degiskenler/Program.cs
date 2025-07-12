@@ -7,7 +7,7 @@
 									//C# ta değişken tanımlama
 									//C# büyük-küçük harfe duyarlı bir dil olup boşluklara da duyardılır string içindeki ve + ile yapılanlara
 									//Tanımlamalar başta struck(yapı), sonra variable(varsayılan değer) ile atamalar(=) yapılır
-//Tamsayı veri tipleri
+									//Tamsayı veri tipleri
 byte plaka_kodu; // 0-255 arası değer alır, 1 byte yer kaplar
 plaka_kodu = 34; // değişkene değer atama
 Console.WriteLine(plaka_kodu); // değişkeni ekrana yazdırma
@@ -87,7 +87,7 @@ Console.WriteLine("sonuc" + sonuc.GetType());
 
 sonuc = true;
 //sonuc = 18;//var ile tanımlanan bir değişkenin türü sonradan değiştirilemez ,ancak içindeki değer değiştirilebilir.
-Console.WriteLine("sonuc:" +sonuc);
+Console.WriteLine("sonuc:" + sonuc);
 
 Console.WriteLine("object veri tipi:");
 object nesne = "Bu bir nesnedir"; //Bu değişken türüne her türden veri atanabilir.

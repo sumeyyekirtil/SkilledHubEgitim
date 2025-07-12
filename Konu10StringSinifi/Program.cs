@@ -1,6 +1,4 @@
-﻿using System.Threading.Channels;
-
-namespace Konu10StringSinifi
+﻿namespace Konu10StringSinifi
 {
 	internal class Program
 	{

@@ -99,7 +99,6 @@
 				Console.WriteLine("Giriş Başarısız!");
 			*/
 			Console.WriteLine();
-
 			Araba araba = new() //araba yerine başka isim verilebilir, sınıf ile karışmamalı
 			{
 				Id = 1,
@@ -155,7 +154,7 @@
 			}
 			else
 				Console.WriteLine("Giriş Başarısız!"); //sifre eksik yazıldığından false sonuç
-			
+
 			Console.WriteLine();
 			var toplamasonucu = metotKullanimi.ToplamaYap(10, 8);// kaç değer girildiyse yazılmalı (içine)
 			Console.WriteLine("toplamasonucu: " + toplamasonucu);

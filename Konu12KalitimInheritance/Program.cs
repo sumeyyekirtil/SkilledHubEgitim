@@ -45,7 +45,7 @@
 			{
 				Console.WriteLine($"kategori bilgileri :\nAdı : {kategori.Name} - Ekleme Tarihi : {kategori.CreateDate}");
 			}
-			
+
 			Console.WriteLine();
 			Urun urun = new()
 			{
@@ -72,6 +72,7 @@
 				item.Ciz(); //çiz metodunu çalıştır
 			}
 		}
+
 		//Polimorfizm - Çokbiçimlilik
 		public class Cizici
 		{

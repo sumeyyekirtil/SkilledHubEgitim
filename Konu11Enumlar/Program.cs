@@ -32,14 +32,14 @@
 		}
 		static void Ornek1(int SiparisDurum)
 		{
-			if(SiparisDurum == (int)SiparisDurumu.Hazırlanıyor)
-			Console.WriteLine("Siparişiniz Hazırlanıyor!");
-			if(SiparisDurum == (int)SiparisDurumu.Hazırlandı)
-			Console.WriteLine("Siparişiniz Hazırlandı!");
-			if(SiparisDurum == (int)SiparisDurumu.KargoBekliyor)
-			Console.WriteLine("Siparişiniz Hazır!");
-			if(SiparisDurum == (int)SiparisDurumu.Kargolandı)
-			Console.WriteLine("Siparişiniz Kargoda!");
+			if (SiparisDurum == (int)SiparisDurumu.Hazırlanıyor)
+				Console.WriteLine("Siparişiniz Hazırlanıyor!");
+			if (SiparisDurum == (int)SiparisDurumu.Hazırlandı)
+				Console.WriteLine("Siparişiniz Hazırlandı!");
+			if (SiparisDurum == (int)SiparisDurumu.KargoBekliyor)
+				Console.WriteLine("Siparişiniz Hazır!");
+			if (SiparisDurum == (int)SiparisDurumu.Kargolandı)
+				Console.WriteLine("Siparişiniz Kargoda!");
 		}
 	}
 }

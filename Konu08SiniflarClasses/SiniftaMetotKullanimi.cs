@@ -1,7 +1,4 @@
-﻿using System.Data.SqlTypes;
-using System.Resources;
-
-namespace Konu08SiniflarClasses
+﻿namespace Konu08SiniflarClasses
 {
 	public class SiniftaMetotKullanimi
 	{

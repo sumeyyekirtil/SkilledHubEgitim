@@ -50,7 +50,7 @@
 			Console.WriteLine((saat < 18) ? "İyi günler Saat :" + saat : " : İyi Akşamlar. Saat :" + saat);
 			*/
 			Console.WriteLine("switch case yapısı ile akış kontrolü");
-			int ay = DateTime.Now.Month; 
+			int ay = DateTime.Now.Month;
 			//Convert.ToInt32(Console.ReadLine());
 			Console.WriteLine("Bulunduğumuz ay :" + ay);
 			switch (ay) //sağlanılan durum
