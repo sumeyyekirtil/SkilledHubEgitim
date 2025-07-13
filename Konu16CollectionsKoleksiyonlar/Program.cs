@@ -1,12 +1,12 @@
-﻿using System.Collections.Specialized;
+﻿using System.Collections.Specialized;//seçilen kütüphane : specialized
 using System.Collections;//hazır kütüphanelerin gelmesi için ekleme yapılabilir
 using System.Text;//using kısmını biz ekledik
 
 namespace Konu16CollectionsKoleksiyonlar
-{//ekleme-çıkarma yapılabilir, birden fazla değişken tutar içinde
+{//ekleme-çıkarma yapılabilir, içinde birden fazla değişken tutar
 	internal class Program
 	{
-		static void Main(string[] args)//args : birden fazla string değişkeni bir yerde tutmaya yarar
+		static void Main(string[] args)//args : birden fazla string değişkenini bir yerde tutmaya yarar
 		{
 			Console.WriteLine("Collections-Koleksiyonlar!");
 			//Ornek1();//main metotunda çağırıldı
@@ -20,12 +20,12 @@ namespace Konu16CollectionsKoleksiyonlar
 			//StringBuilderKullanimi();
 			ListKullanimi();
 		}
-		static void Ornek1()
+		static void Ornek1() //arrayList ile aynı tür veri listelenmesi
 		{
-			ArrayList arraylist = new();//dizi listedi oluşturuldu
+			ArrayList arraylist = new();//dizi listesi oluşturuldu
 			arraylist.Add(1);//()içine değer verilmez ise kabul etmiyor
-			arraylist.Add(2);//istenilen veri türü saklanabilir
-			arraylist.Add(3);
+			arraylist.Add(2);//arraylist de istenilen veri türü saklanabilir
+			arraylist.Add(3);//Add: veri ekleme
 			foreach (var item in arraylist)
 			{
 				Console.WriteLine(item); //listedeki elemanları ekrana yazdır
@@ -35,11 +35,11 @@ namespace Konu16CollectionsKoleksiyonlar
 			Console.WriteLine("ArrayList ikinci eleman : " + arraylist[1]);
 			Console.WriteLine("ArrayList üçüncü eleman : " + arraylist[2]);
 		}
-		static void Ornek2()
+		static void Ornek2() //arrayList ile string veri listelenmesi
 		{
-			ArrayList arraylist = new();//dizi listedi oluşturuldu
-			arraylist.Add("İstanbul");//()içine değer verilmez ise kabul etmiyor
-			arraylist.Add("Ankara");//istenilen veri türü saklanabilir
+			ArrayList arraylist = new();//dizi listesi oluşturuldu
+			arraylist.Add("İstanbul");
+			arraylist.Add("Ankara");
 			arraylist.Add("İzmir");
 			arraylist.Add("Erzincan");
 			arraylist.Add("Çankırı");
@@ -48,21 +48,21 @@ namespace Konu16CollectionsKoleksiyonlar
 				Console.WriteLine(item); //listedeki elemanları ekrana yazdır
 			}
 			Console.WriteLine();
-			Console.WriteLine("ArrayList ilk eleman : " + arraylist[0]); //listedeki index numarasına göre çağırılır
-			Console.WriteLine("ArrayList ikinci eleman : " + arraylist[1]);
-			Console.WriteLine("ArrayList üçüncü eleman : " + arraylist[2]);
+			Console.WriteLine("ArrayList ilk eleman : " + arraylist[0]);
 			Console.WriteLine();
-			Console.WriteLine("ArrayList de sıralama yapabiliriz");
+
+			Console.WriteLine("ArrayList de sıralama yapabiliriz!");
 			arraylist.Sort();//alfanumeric sıralama metotu
 			foreach (var item in arraylist)
 			{
 				Console.WriteLine(item);//listedeki elemanları ekrana yazdırır (tümünü)
 			}
 			Console.WriteLine();
+
 			arraylist.Reverse();
 			foreach (var item in arraylist)
 			{
-				Console.WriteLine(item);//reverse metotu ile sondan sıralar
+				Console.WriteLine(item);//reverse metotu ile sondan-başa sıralar
 			}
 		}
 		static void Ornek3()
@@ -79,11 +79,11 @@ namespace Konu16CollectionsKoleksiyonlar
 			}
 			Console.WriteLine();
 			for (int i = 0; i < arrayList.Count; i++)//for döngüsü
-			{
+			{//count: index numaralarını sıralıyor(bir sayı vermemiz gerektiği için)
 				Console.WriteLine(arrayList[i]);
 			}
 		}
-		static void Ornek4()
+		static void Ornek4()//StringCollection yapısı
 		{
 			var strings = new StringCollection();
 			//strings.Add(24); //sadece string değer atanabilir
@@ -97,7 +97,7 @@ namespace Konu16CollectionsKoleksiyonlar
 				Console.WriteLine(item);
 			}
 		}
-		static void Ornek5()
+		static void Ornek5() //StringDictionary yapısı
 		{
 			var dictionary = new StringDictionary(); //key-value şeklinde veri saklayabilir
 			dictionary.Add("18", "Çankırı");
@@ -125,10 +125,10 @@ namespace Konu16CollectionsKoleksiyonlar
 				Console.WriteLine(item);
 			}
 		}
-		static void Ornek6()
+		static void Ornek6()//STACT yapısı
 		{
 			Stack stack = new(); //Stack sınıfı programlamada LIFO - son giren ilk çıkar kuralıyla çalışır.
-								 // stack.add(); stack de listeye add metoduyla ekleme yapışmaz
+								 // stack.add(); stack de listeye add metoduyla ekleme yapılmaz!
 			stack.Push("Çankırı");
 			stack.Push("Ankara");
 			stack.Push("İzmir");
@@ -142,7 +142,7 @@ namespace Konu16CollectionsKoleksiyonlar
 				Console.WriteLine(stack.Pop()); //stack de nesneler üst üste koyulmuş gibidir verilere de üstten çekerek ulaşılır
 			}
 		}
-		static void Ornek7()
+		static void Ornek7()//QUEUE yapısı
 		{
 			Queue queue = new(); // Queue sınıfı programlamada FIFO- ilk giren ilk çıkar mantığıyla çalışır
 			queue.Enqueue("Lale");
@@ -155,9 +155,9 @@ namespace Konu16CollectionsKoleksiyonlar
 				Console.WriteLine(queue.Dequeue());
 			}
 		}
-		static void Ornek8()
+		static void Ornek8() //Dictionary yapısı
 		{
-			Dictionary<string, string> dictionary = new(); //hangi veri tipinden oluşacapını bizim belirlediğimiz liste sistemi
+			Dictionary<string, string> dictionary = new(); //hangi veri tipinden oluşacağını bizim belirlediğimiz liste sistemi
 			dictionary.Add("book", "kitap");
 			dictionary.Add("18", "Çankırı");
 			dictionary.Add("34", "İstanbul");
@@ -188,7 +188,7 @@ namespace Konu16CollectionsKoleksiyonlar
 				Console.WriteLine(item.Key + " " + item.Value);
 			}
 		}
-		static void StringBuilderKullanimi()
+		static void StringBuilderKullanimi() //StringBuilder yapısı
 		{ //String Builder : birleştirmeye yarar
 			Console.WriteLine("String Builder Kullanımı");
 			var sb = new StringBuilder();
@@ -204,7 +204,7 @@ namespace Konu16CollectionsKoleksiyonlar
 			sb2.Append("Mersin");
 			Console.WriteLine("sb2: " + sb2.ToString());
 			Console.WriteLine();
-			
+
 			StringBuilder sb3 = new();
 			sb3.Append(" Ankara ");
 			sb3.Append(Environment.NewLine); //Yeni satır ekler arasına
@@ -222,9 +222,9 @@ namespace Konu16CollectionsKoleksiyonlar
 			sb4.AppendLine("Mersin");
 			Console.WriteLine("sb4: " + sb4.ToString());
 			Console.WriteLine();
-			
+
 		}
-		static void ListKullanimi() //User sınıfı kullanıldı
+		static void ListKullanimi() //List yapısı (User sınıfı kullanıldı)
 		{
 			List<string> sehirler = new(); //string veri tipi alabilen bir liste
 			sehirler.Add("Ankara");
@@ -292,7 +292,7 @@ namespace Konu16CollectionsKoleksiyonlar
 			}
 			Console.WriteLine();
 			Console.WriteLine("Listedeki kayıt sayısı : " + kullanicilar.Count); //Count ile toplam veri sayısını alır (değerin boş olup olmadığına bakar)
-																				 //foreach ile açık veriler yazırılabilir
+																				 //foreach ile açık veriler yazdırılabilir
 			Console.WriteLine();
 			kullanicilar.Insert(0, yenikullanici); //Insert metodu ile ekleme yapıldı (index değeri ile birlikte ekleme yapar)
 			foreach (var item in kullanicilar)

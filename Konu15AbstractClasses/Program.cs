@@ -1,7 +1,7 @@
 ﻿namespace Konu15AbstractClasses
 {//interface: property-metot imzası tutulur
  //class: property-metot kendileri tutulur
- //interface ve class ların mix hali hem interface hem classın yaptığını yapıyor. Abstract sınıflarda interface gibi metot bildirimi yapılabilir ayrıca metot tanımlanabilir.
+ //interface ve class ların mix hali hem interface hem classın yaptığını yapıyor. Abstract sınıflarda interface gibi metot bildirimi yapılıp class gibi metot tanımlanabilir.
  //Bir sınıfa en fazla 1 abstract sınıf inherit(kalıtım) edilebiliyor ancak aynı sınıfta 1 den fazla interface inherit edilebiliyor.
  //kalıtım yöntemiyle abstract classdan alınıp sınıf oluşturulur ise metot kullanılabilir, new ile yeni nesne oluşturulamaz
  //TAMAMİYLE kalıtım amaçlı oluşturulmuş sınıf türüdür.
@@ -11,7 +11,7 @@
 		static void Main(string[] args)
 		{
 			Console.WriteLine("Abstract-Classes!");
-			Database database = new Oracle();//Database sınıfından yeni bir oracle nesnesi oluşturuyoruz. Database nesnesi oluşturulmuyor!
+			Database database = new Oracle();//Database sınıfından yeni bir oracle nesnesi oluşturuyoruz. Database nesnesi oluşturulmuyor!(abstract olduğu için)
 			database.Add();
 			database.Delete();
 			Console.WriteLine();
