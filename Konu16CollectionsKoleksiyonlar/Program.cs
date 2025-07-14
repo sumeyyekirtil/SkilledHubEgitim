@@ -63,7 +63,7 @@ namespace Konu16CollectionsKoleksiyonlar
 			arraylist.Reverse();
 			foreach (var item in arraylist)
 			{
-				Console.WriteLine(item);//reverse metotu ile sondan-başa sıralar
+				Console.WriteLine(item);//reverse metotu sondan-başa sıralar
 			}
 			Console.WriteLine();
 		}
@@ -155,7 +155,7 @@ namespace Konu16CollectionsKoleksiyonlar
 			queue.Enqueue("Sümbül");
 			queue.Enqueue("Kasımpatı");
 			queue.Enqueue("Zambak");
-			queue.Enqueue(18); //obje aldığı için her türlü veri kabul eder
+			queue.Enqueue(18); //object olduğu için her türlü veri kabul eder
 			Console.WriteLine();
 			while (queue.Count > 0)
 			{
