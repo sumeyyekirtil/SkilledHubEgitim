@@ -3,21 +3,21 @@ using System.Collections;//hazır kütüphanelerin gelmesi için ekleme yapılab
 using System.Text;//using kısmını biz ekledik
 
 namespace Konu16CollectionsKoleksiyonlar
-{//ekleme-çıkarma yapılabilir, içinde birden fazla değişken tutar
+{//veri işlemlerinde çok kullanılır. Arama-ekleme-çıkarma yapılabilir, içinde birden fazla değişken tutar
 	internal class Program
 	{
 		static void Main(string[] args)//args : birden fazla string değişkenini bir yerde tutmaya yarar
 		{
 			Console.WriteLine("Collections-Koleksiyonlar!");
-			//Ornek1();//main metotunda çağırıldı
-			//Ornek2();
-			//Ornek3();
-			//Ornek4();
-			//Ornek5();
-			//Ornek6();
-			//Ornek7();
-			//Ornek8();
-			//StringBuilderKullanimi();
+			Ornek1();//main metotunda çağırıldı
+			Ornek2();
+			Ornek3();
+			Ornek4();
+			Ornek5();
+			Ornek6();
+			Ornek7();
+			Ornek8();
+			StringBuilderKullanimi();
 			ListKullanimi();
 		}
 		static void Ornek1() //arrayList ile aynı tür veri listelenmesi
@@ -125,10 +125,10 @@ namespace Konu16CollectionsKoleksiyonlar
 				Console.WriteLine(item);
 			}
 		}
-		static void Ornek6()//STACT yapısı
+		static void Ornek6()//STACT-YIĞIN yapısı (Push-Pop)
 		{
 			Stack stack = new(); //Stack sınıfı programlamada LIFO - son giren ilk çıkar kuralıyla çalışır.
-								 // stack.add(); stack de listeye add metoduyla ekleme yapılmaz!
+								 //stack.add(); stack de listeye add metoduyla ekleme yapılmaz!
 			stack.Push("Çankırı");
 			stack.Push("Ankara");
 			stack.Push("İzmir");
@@ -142,10 +142,11 @@ namespace Konu16CollectionsKoleksiyonlar
 				Console.WriteLine(stack.Pop()); //stack de nesneler üst üste koyulmuş gibidir verilere de üstten çekerek ulaşılır
 			}
 		}
-		static void Ornek7()//QUEUE yapısı
-		{
+		static void Ornek7()//QUEUE yapısı (Enqueue-Dequeue)
+		{//her türlü veri tipi ile çalışır
 			Queue queue = new(); // Queue sınıfı programlamada FIFO- ilk giren ilk çıkar mantığıyla çalışır
 			queue.Enqueue("Lale");
+			queue.Enqueue("Karanfil");
 			queue.Enqueue("Sümbül");
 			queue.Enqueue("Kasımpatı");
 			queue.Enqueue("Zambak");
@@ -155,7 +156,7 @@ namespace Konu16CollectionsKoleksiyonlar
 				Console.WriteLine(queue.Dequeue());
 			}
 		}
-		static void Ornek8() //Dictionary yapısı
+		static void Ornek8() //Dictionary yapısı (veri tiplerini biz ayarlıyoruz)
 		{
 			Dictionary<string, string> dictionary = new(); //hangi veri tipinden oluşacağını bizim belirlediğimiz liste sistemi
 			dictionary.Add("book", "kitap");
@@ -164,12 +165,14 @@ namespace Konu16CollectionsKoleksiyonlar
 			dictionary.Add("06", "Ankara");
 			Console.WriteLine(dictionary["book"]); //book anahtarın değerini getirir
 			Console.WriteLine();
+
 			Dictionary<int, string> dictionary2 = new(); //int değerler için
 			dictionary2.Add(1, "kitap");
 			dictionary2.Add(18, "Çankırı");
 			dictionary2.Add(34, "İstanbul");
 			dictionary2.Add(06, "Ankara");
 			Console.WriteLine();
+
 			Console.WriteLine("dictionary2 Values");
 			foreach (var item in dictionary2)
 			{
@@ -206,6 +209,7 @@ namespace Konu16CollectionsKoleksiyonlar
 			Console.WriteLine();
 
 			StringBuilder sb3 = new();
+			sb3.Append(Environment.NewLine);
 			sb3.Append(" Ankara ");
 			sb3.Append(Environment.NewLine); //Yeni satır ekler arasına
 			sb3.Append(" İstanbul ");
@@ -216,16 +220,13 @@ namespace Konu16CollectionsKoleksiyonlar
 			Console.WriteLine();
 
 			StringBuilder sb4 = new();
-			sb4.AppendLine("Erzincan"); //satıra ekle metodu: AppendLine
+			sb4.AppendLine("Erzincan"); //satıra ekleyip alta geç metodu: AppendLine
 			sb4.AppendLine("İstanbul");
-			sb4.Append(Environment.NewLine);
 			sb4.AppendLine("Mersin");
 			Console.WriteLine("sb4: " + sb4.ToString());
-			Console.WriteLine();
-
 		}
 		static void ListKullanimi() //List yapısı (User sınıfı kullanıldı)
-		{
+		{//veri tipini biz belirliyoruz
 			List<string> sehirler = new(); //string veri tipi alabilen bir liste
 			sehirler.Add("Ankara");
 			sehirler.Add("İstanbul");
@@ -238,7 +239,7 @@ namespace Konu16CollectionsKoleksiyonlar
 			}
 			Console.WriteLine();
 
-			List<User> users = new(); //User içindeki property lere değer atandı
+			List<User> users = new List<User>(); //User içindeki property lere değer atandı
 			users.Add(new User
 			{
 				Id = 1,
@@ -247,15 +248,16 @@ namespace Konu16CollectionsKoleksiyonlar
 			});
 			users.Add(new User
 			{
-				Id = 1,
+				Id = 2,
 				Name = "Selim",
 				Password = "456"
 			});
-			Console.WriteLine("Kullanıcılar: ");
+			Console.WriteLine("Kullanıcılar:");
 			foreach (var item in users)
 			{
 				Console.WriteLine(item.Name);
 			}
+
 			List<User> kullanicilar = new() //liste oluşturmanın bir diğer yöntemi 'dizi gibi'
 			{
 				new User
@@ -277,23 +279,27 @@ namespace Konu16CollectionsKoleksiyonlar
 			{
 				Console.WriteLine(kullanici.Name);
 			}
+
 			var yenikullanici = new User()
 			{
 				Id = 5,
 				Name = "Alp",
 				Password = "678"
 			};
-			Console.WriteLine("Kullanıcılar listesinde yenikullanici var mı? " + kullanicilar.Contains(yenikullanici)); //Contains metodu yeni değer var ise yazdırır
-			kullanicilar.Add(yenikullanici); //Add ile eklenen yeni üye artık Contains ile true dönebilir ekleme gerçekleşti
-			Console.WriteLine("Kullanıcılar listesinde yenikullanici var mı? " + kullanicilar.Contains(yenikullanici));
+
+			Console.WriteLine("Kullanıcılar listesinde yenikullanici var mı? " + kullanicilar.Contains(yenikullanici)); //Contains metodu ilgili değer var ise yazdırır
+			kullanicilar.Add(yenikullanici); //Add ile eklenen yeni üye artık Contains ile true dönebilir, ekleme gerçekleşti
+			Console.WriteLine("Kullanıcılar listesinde yenikullanici var mı? " + kullanicilar.Contains(yenikullanici)); //true
+			Console.WriteLine();
 			foreach (var item in kullanicilar)
 			{
 				Console.WriteLine(item.Name);
 			}
+
+			Console.WriteLine("Listedeki kayıt sayısı : " + kullanicilar.Count); //Count ile değerin boş olup olmadığına bakıp toplam veri sayısını alır
+			 //foreach ile açık veriler yazdırılabilir
 			Console.WriteLine();
-			Console.WriteLine("Listedeki kayıt sayısı : " + kullanicilar.Count); //Count ile toplam veri sayısını alır (değerin boş olup olmadığına bakar)
-																				 //foreach ile açık veriler yazdırılabilir
-			Console.WriteLine();
+
 			kullanicilar.Insert(0, yenikullanici); //Insert metodu ile ekleme yapıldı (index değeri ile birlikte ekleme yapar)
 			foreach (var item in kullanicilar)
 			{
