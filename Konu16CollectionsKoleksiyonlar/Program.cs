@@ -34,6 +34,7 @@ namespace Konu16CollectionsKoleksiyonlar
 			Console.WriteLine("ArrayList ilk eleman : " + arraylist[0]); //listedeki index numarasına göre çağırılır
 			Console.WriteLine("ArrayList ikinci eleman : " + arraylist[1]);
 			Console.WriteLine("ArrayList üçüncü eleman : " + arraylist[2]);
+			Console.WriteLine();
 		}
 		static void Ornek2() //arrayList ile string veri listelenmesi
 		{
@@ -64,6 +65,7 @@ namespace Konu16CollectionsKoleksiyonlar
 			{
 				Console.WriteLine(item);//reverse metotu ile sondan-başa sıralar
 			}
+			Console.WriteLine();
 		}
 		static void Ornek3()
 		{//farklı türleri farklı sınıflandırırken arrayList ile tümünü sıralayabiliriz
@@ -79,9 +81,10 @@ namespace Konu16CollectionsKoleksiyonlar
 			}
 			Console.WriteLine();
 			for (int i = 0; i < arrayList.Count; i++)//for döngüsü
-			{//count: index numaralarını sıralıyor(bir sayı vermemiz gerektiği için)
+			{//count: index numaralarını sıralıyor (bir sayı vermemiz gerektiği için)
 				Console.WriteLine(arrayList[i]);
 			}
+			Console.WriteLine();
 		}
 		static void Ornek4()//StringCollection yapısı
 		{
@@ -119,6 +122,7 @@ namespace Konu16CollectionsKoleksiyonlar
 			{
 				Console.WriteLine(item);
 			}
+			Console.WriteLine();
 			Console.WriteLine("String Dictionary Values"); //değerleri sıralar
 			foreach (var item in dictionary.Values)
 			{
@@ -136,6 +140,7 @@ namespace Konu16CollectionsKoleksiyonlar
 			stack.Push("Denizli");
 			stack.Push(34);
 			stack.Push(56);
+			Console.WriteLine();
 			Console.WriteLine("Stack");
 			while (stack.Count > 0)
 			{
@@ -151,6 +156,7 @@ namespace Konu16CollectionsKoleksiyonlar
 			queue.Enqueue("Kasımpatı");
 			queue.Enqueue("Zambak");
 			queue.Enqueue(18); //obje aldığı için her türlü veri kabul eder
+			Console.WriteLine();
 			while (queue.Count > 0)
 			{
 				Console.WriteLine(queue.Dequeue());
@@ -164,7 +170,6 @@ namespace Konu16CollectionsKoleksiyonlar
 			dictionary.Add("34", "İstanbul");
 			dictionary.Add("06", "Ankara");
 			Console.WriteLine(dictionary["book"]); //book anahtarın değerini getirir
-			Console.WriteLine();
 
 			Dictionary<int, string> dictionary2 = new(); //int değerler için
 			dictionary2.Add(1, "kitap");
@@ -190,6 +195,7 @@ namespace Konu16CollectionsKoleksiyonlar
 			{
 				Console.WriteLine(item.Key + " " + item.Value);
 			}
+			Console.WriteLine();
 		}
 		static void StringBuilderKullanimi() //StringBuilder yapısı
 		{ //String Builder : birleştirmeye yarar
@@ -202,9 +208,9 @@ namespace Konu16CollectionsKoleksiyonlar
 			Console.WriteLine();
 
 			StringBuilder sb2 = new();
-			sb2.Append("Ankara");
-			sb2.Append("İstanbul");
-			sb2.Append("Mersin");
+			sb2.Append(" Ankara ");
+			sb2.Append(" İstanbul ");
+			sb2.Append(" Mersin ");
 			Console.WriteLine("sb2: " + sb2.ToString());
 			Console.WriteLine();
 
@@ -305,6 +311,7 @@ namespace Konu16CollectionsKoleksiyonlar
 			{
 				Console.WriteLine(item.Name);
 			}
+			Console.WriteLine("Listedeki kayıt sayısı : " + kullanicilar.Count);
 		}
 	}
 }
