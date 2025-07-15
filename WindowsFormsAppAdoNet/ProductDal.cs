@@ -36,5 +36,68 @@ namespace WindowsFormsAppAdoNet
 			cmd.Dispose(); //sql komut nesnesini yok et
 			return products; //geriye dönüş değeri
 		}
+
+		//ikinci bağlantı-veri çekme yöntemi
+		public DataTable GetDataTable()
+		{
+			DataTable dt = new DataTable(); //dt sınıfından bir nesne oluşturduk
+			ConnectionKontrol(); //Bağlantı kontrolü
+			SqlCommand cmd = new SqlCommand("select * from Urunler", _connection);
+
+			SqlDataReader reader = cmd.ExecuteReader();
+
+			dt.Load(reader); //vt daki okunulan veriyi boş dt a yüklüyoruz
+			reader.Close();//sırayla vt okuyucuyu kapat
+			_connection.Close(); //vt bağlantısını kapat
+			cmd.Dispose(); //sql komut nesnesini yok et
+
+			return dt;
+		}
+
+		//ekle butonu için
+		public int Add(Product product)
+		{
+			int sonuc = 0;
+			ConnectionKontrol();
+			SqlCommand command = new SqlCommand("Insert into Urunler values (@UrunAdi, @UrunFiyati, @StokMiktari, @Durum)", _connection); //tüm column lar gelecekse eklemeyedebiliriz
+			command.Parameters.AddWithValue("@UrunAdi", product.UrunAdi); //addWithValue metodu 2 değişken alır parametre aracılığıyla ekrana yolluyoruz (sqlInjection ile saldırıyı önlemiş oluyoruz)
+			command.Parameters.AddWithValue("@UrunFiyati", product.UrunFiyati);
+			command.Parameters.AddWithValue("@StokMiktari", product.StokMiktari);
+			command.Parameters.AddWithValue("@Durum", product.Durum);
+			sonuc = command.ExecuteNonQuery(); //add metodu geriye değer olarak 0 dan büyük değer döndürürse işlem başarılı olup çıkış yaptırır
+			command.Dispose();
+			_connection.Close();
+			return sonuc;
+		}
+
+		//Güncelle kısmı için bağlantı
+		public int Update(Product product)
+		{//id ye göre güncelle(hepsini değil)
+			int sonuc = 0;
+			ConnectionKontrol();
+			SqlCommand command = new SqlCommand("Update Urunler set UrunAdi=@UAdi, UrunFiyati=@UrunFiyati, StokMiktari=@StokMiktari, Durum=@Durum where Id=@id", _connection); //tüm column lar gelecekse eklemeyedebiliriz
+			command.Parameters.AddWithValue("@UAdi", product.UrunAdi); //addWithValue metodu 2 değişken alır parametre aracılığıyla ekrana yolluyoruz (sqlInjection ile saldırıyı önlemiş oluyoruz)
+			command.Parameters.AddWithValue("@UrunFiyati", product.UrunFiyati);
+			command.Parameters.AddWithValue("@StokMiktari", product.StokMiktari);
+			command.Parameters.AddWithValue("@Durum", product.Durum);
+			command.Parameters.AddWithValue("@id", product.Id);
+			sonuc = command.ExecuteNonQuery(); //add metodu geriye değer olarak 0 dan büyük değer döndürürse işlem başarılı olup çıkış yaptırır
+			command.Dispose();
+			_connection.Close();
+			return sonuc;
+		}
+
+		//sil için event oluşturduk
+		public int Delete(int id)
+		{//id ye göre güncelle(hepsini değil)
+			int sonuc = 0;
+			ConnectionKontrol();
+			SqlCommand command = new SqlCommand("Delete From Urunler where Id=@id", _connection);
+			command.Parameters.AddWithValue("@id", id);
+			sonuc = command.ExecuteNonQuery(); //add metodu geriye değer olarak 0 dan büyük değer döndürürse işlem başarılı olup çıkış yaptırır
+			command.Dispose();
+			_connection.Close();
+			return sonuc;
+		}
 	}
 }
