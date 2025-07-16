@@ -18,8 +18,8 @@ namespace Konu17HataYonetimi
 			catch (Exception hata) //Exception a hata ismini verdik bu bize oluşan hatayı verir
 			{
 				Console.WriteLine("Hata Oluştu! Lütfen sadece sayısal değer giriniz!"); //kullanıcıya yönelik hata fırlatır
-																						// throw; bu yine hata fırlatır
-																						//oluşan hatayı loglayabiliriz
+							  // throw; bu yine hata fırlatır
+							  //oluşan hatayı loglayabiliriz
 				Console.WriteLine(hata.Message);
 			}
 			finally

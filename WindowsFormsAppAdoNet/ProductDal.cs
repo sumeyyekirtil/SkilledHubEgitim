@@ -38,21 +38,7 @@ namespace WindowsFormsAppAdoNet
 		}
 
 		//ikinci bağlantı-veri çekme yöntemi
-		public DataTable GetDataTable()
-		{
-			DataTable dt = new DataTable(); //dt sınıfından bir nesne oluşturduk
-			ConnectionKontrol(); //Bağlantı kontrolü
-			SqlCommand cmd = new SqlCommand("select * from Urunler", _connection);
-
-			SqlDataReader reader = cmd.ExecuteReader();
-
-			dt.Load(reader); //vt daki okunulan veriyi boş dt a yüklüyoruz
-			reader.Close();//sırayla vt okuyucuyu kapat
-			_connection.Close(); //vt bağlantısını kapat
-			cmd.Dispose(); //sql komut nesnesini yok et
-
-			return dt;
-		}
+	
 
 		//ekle butonu için
 		public int Add(Product product)

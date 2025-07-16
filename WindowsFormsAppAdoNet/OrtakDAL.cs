@@ -14,5 +14,20 @@ namespace WindowsFormsAppAdoNet
 				_connection.Open(); //vt(veritabanı) bağlantısını aç
 			}
 		}
+		public DataTable GetDataTable(string sqlSorgu)
+		{
+			DataTable dt = new DataTable(); //dt sınıfından bir nesne oluşturduk
+			ConnectionKontrol(); //Bağlantı kontrolü
+			SqlCommand cmd = new SqlCommand(sqlSorgu, _connection);
+
+			SqlDataReader reader = cmd.ExecuteReader();
+
+			dt.Load(reader); //vt daki okunulan veriyi boş dt a yüklüyoruz
+			reader.Close();//sırayla vt okuyucuyu kapat
+			_connection.Close(); //vt bağlantısını kapat
+			cmd.Dispose(); //sql komut nesnesini yok et
+
+			return dt;
+		}
 	}
 }

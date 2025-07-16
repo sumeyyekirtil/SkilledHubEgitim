@@ -22,7 +22,7 @@ namespace WindowsFormsAppAdoNet
 			//dgvUrunListesi.DataSource = productDal.GetAll(); //productDal nesnesi içerisinde yazdığımız GetAll() metodundan gelen ürün listesini çek ve ekrandaki dgvUrunListesi ne veri kaynağı olarak yolla.
 			
 			//ikinci yöntem dgv yazdırma
-			dgvUrunListesi.DataSource = productDal.GetDataTable(); //dt ile getir
+			dgvUrunListesi.DataSource = productDal.GetDataTable("select * from Urunler"); //dt ile getir
 		}
 
 		private void btnEkle_Click(object sender, EventArgs e)
