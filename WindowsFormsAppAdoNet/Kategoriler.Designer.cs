@@ -30,15 +30,15 @@
 		{
 			this.dgvKategoriler = new System.Windows.Forms.DataGridView();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.txtKategoriAdi = new System.Windows.Forms.TextBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.checkBox1 = new System.Windows.Forms.CheckBox();
-			this.txtKategoriAciklamasi = new System.Windows.Forms.RichTextBox();
-			this.btnEkle = new System.Windows.Forms.Button();
-			this.btnGuncelle = new System.Windows.Forms.Button();
 			this.btnSil = new System.Windows.Forms.Button();
+			this.btnGuncelle = new System.Windows.Forms.Button();
+			this.btnEkle = new System.Windows.Forms.Button();
+			this.txtKategoriAciklamasi = new System.Windows.Forms.RichTextBox();
+			this.cbDurum = new System.Windows.Forms.CheckBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
+			this.txtKategoriAdi = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.dgvKategoriler)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
@@ -53,7 +53,7 @@
 			this.dgvKategoriler.RowTemplate.Height = 24;
 			this.dgvKategoriler.Size = new System.Drawing.Size(489, 426);
 			this.dgvKategoriler.TabIndex = 0;
-			this.dgvKategoriler.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKategoriler_CellContentClick);
+			this.dgvKategoriler.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKategoriler_CellClick);
 			// 
 			// groupBox1
 			// 
@@ -61,7 +61,7 @@
 			this.groupBox1.Controls.Add(this.btnGuncelle);
 			this.groupBox1.Controls.Add(this.btnEkle);
 			this.groupBox1.Controls.Add(this.txtKategoriAciklamasi);
-			this.groupBox1.Controls.Add(this.checkBox1);
+			this.groupBox1.Controls.Add(this.cbDurum);
 			this.groupBox1.Controls.Add(this.label3);
 			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.label1);
@@ -73,30 +73,52 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Kategori Bilgileri";
 			// 
-			// txtKategoriAdi
+			// btnSil
 			// 
-			this.txtKategoriAdi.Location = new System.Drawing.Point(164, 19);
-			this.txtKategoriAdi.Name = "txtKategoriAdi";
-			this.txtKategoriAdi.Size = new System.Drawing.Size(100, 22);
-			this.txtKategoriAdi.TabIndex = 0;
+			this.btnSil.Location = new System.Drawing.Point(28, 382);
+			this.btnSil.Name = "btnSil";
+			this.btnSil.Size = new System.Drawing.Size(75, 23);
+			this.btnSil.TabIndex = 10;
+			this.btnSil.Text = "Sil";
+			this.btnSil.UseVisualStyleBackColor = true;
 			// 
-			// label1
+			// btnGuncelle
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(25, 22);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(80, 16);
-			this.label1.TabIndex = 3;
-			this.label1.Text = "Kategori Adı";
+			this.btnGuncelle.Location = new System.Drawing.Point(28, 353);
+			this.btnGuncelle.Name = "btnGuncelle";
+			this.btnGuncelle.Size = new System.Drawing.Size(75, 23);
+			this.btnGuncelle.TabIndex = 9;
+			this.btnGuncelle.Text = "Güncelle";
+			this.btnGuncelle.UseVisualStyleBackColor = true;
+			this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
 			// 
-			// label2
+			// btnEkle
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(25, 105);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(63, 16);
-			this.label2.TabIndex = 4;
-			this.label2.Text = "Açıklama";
+			this.btnEkle.Location = new System.Drawing.Point(28, 324);
+			this.btnEkle.Name = "btnEkle";
+			this.btnEkle.Size = new System.Drawing.Size(75, 23);
+			this.btnEkle.TabIndex = 8;
+			this.btnEkle.Text = "Ekle";
+			this.btnEkle.UseVisualStyleBackColor = true;
+			this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
+			// 
+			// txtKategoriAciklamasi
+			// 
+			this.txtKategoriAciklamasi.Location = new System.Drawing.Point(28, 136);
+			this.txtKategoriAciklamasi.Name = "txtKategoriAciklamasi";
+			this.txtKategoriAciklamasi.Size = new System.Drawing.Size(231, 165);
+			this.txtKategoriAciklamasi.TabIndex = 7;
+			this.txtKategoriAciklamasi.Text = "";
+			// 
+			// cbDurum
+			// 
+			this.cbDurum.AutoSize = true;
+			this.cbDurum.Location = new System.Drawing.Point(164, 62);
+			this.cbDurum.Name = "cbDurum";
+			this.cbDurum.Size = new System.Drawing.Size(68, 20);
+			this.cbDurum.TabIndex = 6;
+			this.cbDurum.Text = "Durum";
+			this.cbDurum.UseVisualStyleBackColor = true;
 			// 
 			// label3
 			// 
@@ -107,50 +129,30 @@
 			this.label3.TabIndex = 5;
 			this.label3.Text = "Durum";
 			// 
-			// checkBox1
+			// label2
 			// 
-			this.checkBox1.AutoSize = true;
-			this.checkBox1.Location = new System.Drawing.Point(164, 62);
-			this.checkBox1.Name = "checkBox1";
-			this.checkBox1.Size = new System.Drawing.Size(95, 20);
-			this.checkBox1.TabIndex = 6;
-			this.checkBox1.Text = "checkBox1";
-			this.checkBox1.UseVisualStyleBackColor = true;
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(25, 105);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(63, 16);
+			this.label2.TabIndex = 4;
+			this.label2.Text = "Açıklama";
 			// 
-			// txtKategoriAciklamasi
+			// label1
 			// 
-			this.txtKategoriAciklamasi.Location = new System.Drawing.Point(28, 136);
-			this.txtKategoriAciklamasi.Name = "txtKategoriAciklamasi";
-			this.txtKategoriAciklamasi.Size = new System.Drawing.Size(231, 165);
-			this.txtKategoriAciklamasi.TabIndex = 7;
-			this.txtKategoriAciklamasi.Text = "";
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(25, 22);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(80, 16);
+			this.label1.TabIndex = 3;
+			this.label1.Text = "Kategori Adı";
 			// 
-			// btnEkle
+			// txtKategoriAdi
 			// 
-			this.btnEkle.Location = new System.Drawing.Point(28, 324);
-			this.btnEkle.Name = "btnEkle";
-			this.btnEkle.Size = new System.Drawing.Size(75, 23);
-			this.btnEkle.TabIndex = 8;
-			this.btnEkle.Text = "Ekle";
-			this.btnEkle.UseVisualStyleBackColor = true;
-			// 
-			// btnGuncelle
-			// 
-			this.btnGuncelle.Location = new System.Drawing.Point(28, 353);
-			this.btnGuncelle.Name = "btnGuncelle";
-			this.btnGuncelle.Size = new System.Drawing.Size(75, 23);
-			this.btnGuncelle.TabIndex = 9;
-			this.btnGuncelle.Text = "Güncelle";
-			this.btnGuncelle.UseVisualStyleBackColor = true;
-			// 
-			// btnSil
-			// 
-			this.btnSil.Location = new System.Drawing.Point(28, 382);
-			this.btnSil.Name = "btnSil";
-			this.btnSil.Size = new System.Drawing.Size(75, 23);
-			this.btnSil.TabIndex = 10;
-			this.btnSil.Text = "Sil";
-			this.btnSil.UseVisualStyleBackColor = true;
+			this.txtKategoriAdi.Location = new System.Drawing.Point(164, 19);
+			this.txtKategoriAdi.Name = "txtKategoriAdi";
+			this.txtKategoriAdi.Size = new System.Drawing.Size(100, 22);
+			this.txtKategoriAdi.TabIndex = 0;
 			// 
 			// Kategoriler
 			// 
@@ -174,7 +176,7 @@
 
 		private System.Windows.Forms.DataGridView dgvKategoriler;
 		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.CheckBox checkBox1;
+		private System.Windows.Forms.CheckBox cbDurum;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;

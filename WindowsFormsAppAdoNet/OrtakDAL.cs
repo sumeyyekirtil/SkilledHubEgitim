@@ -18,6 +18,7 @@ namespace WindowsFormsAppAdoNet
 		{
 			DataTable dt = new DataTable(); //dt sınıfından bir nesne oluşturduk
 			ConnectionKontrol(); //Bağlantı kontrolü
+			
 			SqlCommand cmd = new SqlCommand(sqlSorgu, _connection);
 
 			SqlDataReader reader = cmd.ExecuteReader();

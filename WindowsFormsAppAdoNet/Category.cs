@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace WindowsFormsAppAdoNet
 {
 	public class Category
@@ -12,6 +7,6 @@ namespace WindowsFormsAppAdoNet
 		public string Name { get; set; }
 		public string Description { get; set; }
 		public bool Durum { get; set; }
-		public DateTime CreatDate { get; set; }
+		public DateTime CreateDate { get; set; }
 	}
 }
