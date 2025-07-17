@@ -85,5 +85,20 @@ namespace WindowsFormsAppAdoNet
 				MessageBox.Show("Hata Oluştu!" + hata.Message);
 			}
 		}
+
+		private void btnSil_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				//int sonuc = categoryDal.Delete(int)dgvKategoriler.CurrentRow(Select * from Kategoriler);
+				{
+					//dgvKategoriler.DataSource
+				};
+			}
+			catch (Exception hata)
+			{
+				MessageBox.Show("Hata Oluştu!" + hata.Message);
+			}
+		}
 	}
 }
