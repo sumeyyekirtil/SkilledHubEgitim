@@ -56,6 +56,7 @@
 			this.dgvUrunListesi.RowTemplate.Height = 24;
 			this.dgvUrunListesi.Size = new System.Drawing.Size(421, 396);
 			this.dgvUrunListesi.TabIndex = 0;
+			this.dgvUrunListesi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrunListesi_CellClick);
 			// 
 			// groupBox1
 			// 
@@ -87,6 +88,7 @@
 			this.btnSil.TabIndex = 10;
 			this.btnSil.Text = "Sil";
 			this.btnSil.UseVisualStyleBackColor = false;
+			this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
 			// 
 			// btnGüncelle
 			// 
@@ -97,6 +99,7 @@
 			this.btnGüncelle.TabIndex = 10;
 			this.btnGüncelle.Text = "Güncelle";
 			this.btnGüncelle.UseVisualStyleBackColor = true;
+			this.btnGüncelle.Click += new System.EventHandler(this.btnGüncelle_Click);
 			// 
 			// btnEkle
 			// 
@@ -106,6 +109,7 @@
 			this.btnEkle.TabIndex = 9;
 			this.btnEkle.Text = "Ekle";
 			this.btnEkle.UseVisualStyleBackColor = true;
+			this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
 			// 
 			// cbDurum
 			// 
@@ -201,7 +205,7 @@
 			this.Controls.Add(this.dgvUrunListesi);
 			this.Name = "Form1";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Form1";
+			this.Text = "Entity Framework Ürün Yönetimi";
 			this.Load += new System.EventHandler(this.Form1_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dgvUrunListesi)).EndInit();
 			this.groupBox1.ResumeLayout(false);
