@@ -1,4 +1,4 @@
-﻿using ClassLibrary1;
+﻿using ClassLibrary1; //class library sınıfı açıp projeye ekledik
 
 namespace Konu17HataYonetimi
 {
@@ -10,25 +10,31 @@ namespace Konu17HataYonetimi
 			Console.WriteLine();
 			Console.WriteLine("Kdv Hesaplamak İçin Fiyat Giriniz : ");
 			var sayi = Console.ReadLine();
-			//KdvHesapla(int.Parse(sayi)); //yanına para cinsi yazılması, boşluk karakteri olması durumunda hata fırlatıyor
+			//KdvHesapla(int.Parse(sayi)); //yanına para cinsi yazılmalı, boşluk karakteri olması durumunda hata fırlatıyor
+			//hata yönetimi için try-catch bloğu kullanıyoruz, dolayısıyla parse metodu devre dışı kalıyor
 			try
 			{
-				KdvHesapla(int.Parse(sayi));
+				KdvHesapla(int.Parse(sayi)); //kodları çalıştırmayı dene
 			}
 			catch (Exception hata) //Exception a hata ismini verdik bu bize oluşan hatayı verir
 			{
 				Console.WriteLine("Hata Oluştu! Lütfen sadece sayısal değer giriniz!"); //kullanıcıya yönelik hata fırlatır
-							  // throw; bu yine hata fırlatır
-							  //oluşan hatayı loglayabiliriz
+
+				// throw; bu yine hata fırlatır
+
+				//oluşan hatayı loglayabiliriz: hata içindeki mesaj verisini ekrana bastırabiliriz
 				Console.WriteLine(hata.Message);
 			}
-			finally
+			finally //zorunlu değil (try a da girse catkh de girse sonuçta ne yapayım işlemi)
 			{
+				Console.WriteLine();
 				Console.WriteLine("try-catch bloğından sonra her seferinde çalışmasını istediğimiz bir işlem varsa bu blokta çalıştırabilirz. Kullanımı zorunlu değil!");
+				Console.WriteLine();
 				Console.WriteLine("Bir Sayı Giriniz: ");
 				var sayi2 = Console.ReadLine();
 				KdvHesapla(double.Parse(sayi2));
 			}
+			Console.WriteLine();
 			Category category = new Category(); //ClassLibrary den bağlantı alındı
 			category.Name = "Elektronik";
 			Console.WriteLine(category.Name);
