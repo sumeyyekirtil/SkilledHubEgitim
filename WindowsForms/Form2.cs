@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace WindowsForms
 {
-	public partial class Form2 : Form
+	public partial class Form2 : Form //miras alındı
 	{
 		public Form2() //constructor
 		{
 			InitializeComponent();
 		}
-		public string AdSoyad { get; set; }
+		public string AdSoyad { get; set; } //değer tanımlaması önce burada yapılıyor
 		private void Form2_Load(object sender, EventArgs e)
 		{
 			lblMesaj.Text = "Hoşgeldin " + AdSoyad;
@@ -26,17 +26,17 @@ namespace WindowsForms
 		private void button1_Click(object sender, EventArgs e)
 		{
 			Form1 form1 = new Form1();
-			form1.ShowDialog();
+			form1.ShowDialog(); //dialog: işlemin tamamlanmasını bekler
 		}
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			Close();
+			Close(); //kapat
 		}
 
 		private void button3_Click(object sender, EventArgs e)
 		{
-			Application.Exit();
+			Application.Exit(); //uygulamayı kapat
 		}
 	}
 }
