@@ -111,6 +111,190 @@
     
     <hr>
     
+    <table>
+        <tr>
+            <td><a href="anasayfa.html">Anasayfa</a></td>
+            <td><a href="index.html"></a>index</td>
+            <td><a href="#">iletişim</a></td>
+        </tr>
+    </table>
+    <hr>
 
-</body>
+    <table>
+        <tr>
+            <th>Kategori No</th>
+            <th>Kategori Adı</th>
+            <th>Durum</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Yazılım</td>
+            <td>Aktif</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Donanım</td>
+            <td>Pasif</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Elektronik</td>
+            <td>Aktif</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h3>Tablolarda Satır ve Sütunları Birleştirme</h3>
+    <table border="1">
+        <tr>
+            <th rowspan="2">Kategori No</th>
+            <th rowspan="2">Kategori Adı</th>
+        </tr>
+        <tr>
+            <th>ADI</th>
+            <th>DURUM</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Yazılım</td>
+            <td>Aktif</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Donanım</td>
+            <td>Pasif</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Elektronik</td>
+            <td>Aktif</td>
+        </tr>
+    </table>
+
+     <hr>
+     <i>i elementi italik (eğik) yazar</i>
+     <br>
+     <b>b elementi</b>
+     <br>
+     <strong>strong elementi</strong>
+     <br>
+     <em>em elementi</em>
+     <br> 
+     <u>u lementi</u>
+     <br>
+     <mark>mark elementi</mark>
+     <br>
+     <del>del elementi</del>
+     <br>
+     <ins>ins elementi</ins>
+     <br>
+     <h2>Başlık içinde <small>small elementi</small>kullanma</h2>
+     <br>
+     <h2>Başlık içinde <sub>sub elementi</sub>kullanma</h2>
+     <br>
+     <h2>Başlık içinde <sup>sup elementi</sup>kullanma</h2>
+     <br>
+
+     <h3>
+        Html liste elementleri
+     </h3>
+
+     <p>
+        Sıralı, sırasız, acıklamalı olmak üzere 3 farklı liste elementi var
+    </p>
+
+    <ul>
+        <li>Unordered list - ul - sırasız liste</li>
+        <li>sırasız liste oluşturur</li>
+        <li>ul elementi altına li eklenerek oluşturulur</li>
+    </ul>
+
+    <h4>Ordered List - Sıralı Liste</h4>
+    <ol>
+        <li>Elektronik</li>
+        <li>Bilgisayar</li>
+        <li>Telefon</li>
+    </ol>
+
+    <h4>
+        Açıklamalı Liste
+    </h4>
+    <dl>
+        <dt>Html</dt>
+        <dd>Html, web sayfalarını oluşturmak için kullanılan bir işaretleme dilidir</dd>
+        <dt>css</dt>
+        <dd>Css, web sayfalarının stilini ve düzenini belirlemek için kullanılır</dd>
+        <dt>JavaScript</dt>
+        <dd>JavaScript, web sayfalarının etkileşim ve dinamik özellikler eklemek için kullanılır</dd>
+    </dl>
+    <h3>Html koduna yorum satırı ekleme</h3>
+    <p>
+        kod editöründe html kodları arasına bir yorum satırı eklemek istersek ilgili metni seçiğ ctrl+k+c kısayoluyla yorum satırı yapabiliriz
+        <br>
+        Yorum satırını açmak için ctrl tuşuna basılı tutarken k + c tuşları yorum satırına alır metni
+    </p>
+    
+    <!-- Burası yorum alanı kod bitişi -->
+     <h3>Fieldset elementi</h3>
+     <fieldset>
+        <legend>Kullanıcı Girişi</legend>
+        <form action="" method="post">
+            <table>
+                <tr>
+                    <td>Parola:</td>
+                    <td><input type="submit" value="Giriş Yap" placeholder="Parola"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                    <input type="submit" value="Giriş Yap">
+                    </td>
+                </tr>
+            </table>
+        </form>
+     </fieldset>
+
+     <h2>Semantik html5 Elementleri</h2>
+     <div>
+        Htmlye sonradan eklenen ve tsasarımları daha anlaşılabilir hale getirmeyi hedefleyen elementlerdir.
+     </div>
+
+     <header>
+        Web sayfalarının en üst bölümü bu element içinde yer alır.
+        <nav>
+            <ul>
+            <li><a href="anasayfa.html">Anasayfa</a></li>
+            <li><a href="index.html"></a>index</li>
+            <li><a href="#">iletişim</a></li>
+            </ul>
+        </nav>
+     </header>
+
+     <section>
+        section web sayfamızın ana gövdesini tutmak için kullanılabilir.
+        <aside>
+            <h3>Yan Menü</h3>
+             <ul>
+            <li><a href="#">Link1</a></li>
+            <li><a href="#">Link2</a></li>
+            <li><a href="#">Link3</a></li>
+            </ul>
+        </aside>
+    </section>
+
+    <article>
+        article elementi bilgi verme amaçlı haber, makale vb gibi içerik kapsayıcısı olarak kullanılabilir
+    </article>
+
+    <figure>
+        <img src="/Resimler/logo.avif" alt="Örnek Resim">
+        <figcaption>BU bir figcaption açıklama metnidir.</figcaption>
+    </figure>
+
+    <footer>
+        footer elementi ise web sayfalarının en alt kısmını çevrelemek için kullanılabilir.
+    </footer>
+    
+    
+    </body>
 </html>
