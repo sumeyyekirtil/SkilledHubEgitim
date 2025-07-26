@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 //form çalışmazsa arka planda çalışıyor hatası çözümü görev yöneticisinden kapatılmasıdır.
 
+//SAYFA GEÇİŞLERİ-KAPAT-UYGULAMA KAPATMA
 namespace WindowsForms
 //WindowsForms windows a özel masaüstü uygulaması
 //kullanıcının gördüğü ekranı tasarlıyoruz

@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//KULLANICIYA MESAJ VERDİRME!
 namespace WindowsForms
-{
+{//form-sağ click-property startposition: centerscreen ayarlandı
 	public partial class Form4 : Form
 	{
 		public Form4()
@@ -21,11 +22,11 @@ namespace WindowsForms
 		{
 			if (!string.IsNullOrWhiteSpace(textBox1.Text)) //eğer textBox1 boş değilse
 			{
-				MessageBox.Show("Merhaba " + textBox1.Text);// MessageBox sınıfındaki Show metodu ekranda uyarı penceresi çıkartmamızı sağlar
+				MessageBox.Show("Merhaba " + textBox1.Text);// MessageBox sınıfındaki Show metodu, ekranda uyarı penceresi çıkartmamızı sağlar
 			}
 			else
-			{
-				MessageBox.Show("Lütfen Adınızı Giriniz!","Uyarı!", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+			{//Show metodunun text, caption, buttons, icon parameters kullanıldı.
+				MessageBox.Show("Lütfen Adınızı Giriniz!", "Uyarı!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				//MessageBoxButtons.OKCancel(farklı seçenekleri var)
 			}
 		}

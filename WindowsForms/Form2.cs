@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//SAYFA GEÇİŞLERİ-KAPAT-UYGULAMA KAPAT!
 namespace WindowsForms
 {
 	public partial class Form2 : Form //miras alındı

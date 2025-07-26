@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//TIMER NESNESİ (ZAMANLAYICI) KULLANIMI
 namespace WindowsForms
 {//program.cs de : ()içinde hangi form yazılı olursa başlangıçta onu çalıştırır
  //windows form projesi çalıştırıldığında hangi formun açılacağını buradan ayarlıyoruz.
