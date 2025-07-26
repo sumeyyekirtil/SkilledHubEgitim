@@ -21,8 +21,6 @@ namespace WindowsForms
 //label: başlık yazdırır (text özelliği ile)
 //button: buton açar
 //textbox: içine değer yazdırır klavyeden, property-name isim verilir her isim benzersiz olmalı
-//datagridview:
-//groupbox:
 {
 	public partial class Form1 : Form
 	{ //proje .alışmaya devam ettiği sürece herhangi bir değişiklik yapılamaz
