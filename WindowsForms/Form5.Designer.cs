@@ -28,6 +28,19 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Televizyon");
+			System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Ses Sistemi");
+			System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Elektronik", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9});
+			System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Masaüstü");
+			System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Dizüstü");
+			System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Tablet");
+			System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Bilgisayar", new System.Windows.Forms.TreeNode[] {
+            treeNode11,
+            treeNode12,
+            treeNode13});
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.btnGiris = new System.Windows.Forms.Button();
 			this.txtSifre = new System.Windows.Forms.TextBox();
@@ -58,10 +71,24 @@
 			this.linkLabel1 = new System.Windows.Forms.LinkLabel();
 			this.label10 = new System.Windows.Forms.Label();
 			this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+			this.tabControl1 = new System.Windows.Forms.TabControl();
+			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.tabPage3 = new System.Windows.Forms.TabPage();
+			this.label11 = new System.Windows.Forms.Label();
+			this.label12 = new System.Windows.Forms.Label();
+			this.label13 = new System.Windows.Forms.Label();
+			this.treeView1 = new System.Windows.Forms.TreeView();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).BeginInit();
 			this.panel1.SuspendLayout();
+			this.tabControl1.SuspendLayout();
+			this.tabPage1.SuspendLayout();
+			this.tabPage2.SuspendLayout();
+			this.tabPage3.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// groupBox1
@@ -186,7 +213,7 @@
             "Bilgisayar",
             "Telefon",
             "Tablet"});
-			this.cbKategoriler.Location = new System.Drawing.Point(276, 14);
+			this.cbKategoriler.Location = new System.Drawing.Point(276, 19);
 			this.cbKategoriler.Name = "cbKategoriler";
 			this.cbKategoriler.Size = new System.Drawing.Size(121, 24);
 			this.cbKategoriler.TabIndex = 10;
@@ -279,25 +306,25 @@
 			// dgvUrunler
 			// 
 			this.dgvUrunler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvUrunler.Location = new System.Drawing.Point(288, 199);
+			this.dgvUrunler.Location = new System.Drawing.Point(642, 185);
 			this.dgvUrunler.Name = "dgvUrunler";
 			this.dgvUrunler.RowHeadersWidth = 51;
 			this.dgvUrunler.RowTemplate.Height = 24;
-			this.dgvUrunler.Size = new System.Drawing.Size(240, 150);
+			this.dgvUrunler.Size = new System.Drawing.Size(240, 355);
 			this.dgvUrunler.TabIndex = 4;
 			// 
 			// panel1
 			// 
 			this.panel1.Controls.Add(this.label9);
-			this.panel1.Location = new System.Drawing.Point(552, 199);
+			this.panel1.Location = new System.Drawing.Point(288, 199);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(200, 150);
+			this.panel1.Size = new System.Drawing.Size(160, 150);
 			this.panel1.TabIndex = 5;
 			// 
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(62, 39);
+			this.label9.Location = new System.Drawing.Point(40, 39);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(81, 16);
 			this.label9.TabIndex = 14;
@@ -312,9 +339,9 @@
             "Bilgisayar",
             "Telefon",
             "Televizyon"});
-			this.listBox1.Location = new System.Drawing.Point(770, 199);
+			this.listBox1.Location = new System.Drawing.Point(469, 199);
 			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(120, 148);
+			this.listBox1.Size = new System.Drawing.Size(149, 148);
 			this.listBox1.TabIndex = 6;
 			// 
 			// linkLabel1
@@ -344,11 +371,118 @@
 			this.maskedTextBox1.Size = new System.Drawing.Size(100, 22);
 			this.maskedTextBox1.TabIndex = 9;
 			// 
+			// tabControl1
+			// 
+			this.tabControl1.Controls.Add(this.tabPage2);
+			this.tabControl1.Controls.Add(this.tabPage1);
+			this.tabControl1.Controls.Add(this.tabPage3);
+			this.tabControl1.Location = new System.Drawing.Point(44, 412);
+			this.tabControl1.Name = "tabControl1";
+			this.tabControl1.SelectedIndex = 0;
+			this.tabControl1.Size = new System.Drawing.Size(330, 100);
+			this.tabControl1.TabIndex = 10;
+			// 
+			// tabPage1
+			// 
+			this.tabPage1.Controls.Add(this.label12);
+			this.tabPage1.Location = new System.Drawing.Point(4, 25);
+			this.tabPage1.Name = "tabPage1";
+			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage1.Size = new System.Drawing.Size(322, 71);
+			this.tabPage1.TabIndex = 0;
+			this.tabPage1.Text = "Ürün Açıklaması";
+			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// tabPage2
+			// 
+			this.tabPage2.Controls.Add(this.label11);
+			this.tabPage2.Location = new System.Drawing.Point(4, 25);
+			this.tabPage2.Name = "tabPage2";
+			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage2.Size = new System.Drawing.Size(322, 71);
+			this.tabPage2.TabIndex = 1;
+			this.tabPage2.Text = "Ürün Yorumları";
+			this.tabPage2.UseVisualStyleBackColor = true;
+			// 
+			// tabPage3
+			// 
+			this.tabPage3.Controls.Add(this.label13);
+			this.tabPage3.Location = new System.Drawing.Point(4, 25);
+			this.tabPage3.Name = "tabPage3";
+			this.tabPage3.Size = new System.Drawing.Size(322, 71);
+			this.tabPage3.TabIndex = 2;
+			this.tabPage3.Text = "Yorum Ekle";
+			this.tabPage3.UseVisualStyleBackColor = true;
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Location = new System.Drawing.Point(132, 27);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(58, 16);
+			this.label11.TabIndex = 3;
+			this.label11.Text = "Ürün Adı";
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Location = new System.Drawing.Point(134, 27);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(55, 16);
+			this.label12.TabIndex = 2;
+			this.label12.Text = "Markası";
+			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.Location = new System.Drawing.Point(113, 27);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(96, 16);
+			this.label13.TabIndex = 14;
+			this.label13.Text = "Ürün Özellikleri";
+			// 
+			// treeView1
+			// 
+			this.treeView1.Location = new System.Drawing.Point(376, 355);
+			this.treeView1.Name = "treeView1";
+			treeNode8.Name = "Node1";
+			treeNode8.Text = "Televizyon";
+			treeNode9.Name = "Node3";
+			treeNode9.Text = "Ses Sistemi";
+			treeNode10.Name = "Node0";
+			treeNode10.Text = "Elektronik";
+			treeNode11.Name = "Node4";
+			treeNode11.Text = "Masaüstü";
+			treeNode12.Name = "Node5";
+			treeNode12.Text = "Dizüstü";
+			treeNode13.Name = "Node6";
+			treeNode13.Text = "Tablet";
+			treeNode14.Name = "Node2";
+			treeNode14.Text = "Bilgisayar";
+			this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode10,
+            treeNode14});
+			this.treeView1.Size = new System.Drawing.Size(121, 157);
+			this.treeView1.TabIndex = 11;
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox1.Location = new System.Drawing.Point(518, 366);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(100, 146);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox1.TabIndex = 12;
+			this.pictureBox1.TabStop = false;
+			// 
 			// Form5
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(923, 564);
+			this.Controls.Add(this.pictureBox1);
+			this.Controls.Add(this.treeView1);
+			this.Controls.Add(this.tabControl1);
 			this.Controls.Add(this.maskedTextBox1);
 			this.Controls.Add(this.label10);
 			this.Controls.Add(this.linkLabel1);
@@ -369,6 +503,14 @@
 			((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
+			this.tabControl1.ResumeLayout(false);
+			this.tabPage1.ResumeLayout(false);
+			this.tabPage1.PerformLayout();
+			this.tabPage2.ResumeLayout(false);
+			this.tabPage2.PerformLayout();
+			this.tabPage3.ResumeLayout(false);
+			this.tabPage3.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -406,5 +548,14 @@
 		private System.Windows.Forms.LinkLabel linkLabel1;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+		private System.Windows.Forms.TabControl tabControl1;
+		private System.Windows.Forms.TabPage tabPage2;
+		private System.Windows.Forms.TabPage tabPage1;
+		private System.Windows.Forms.TabPage tabPage3;
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.Label label12;
+		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.TreeView treeView1;
+		private System.Windows.Forms.PictureBox pictureBox1;
 	}
 }
