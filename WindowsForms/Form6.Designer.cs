@@ -60,9 +60,9 @@
 			// cbFontlar
 			// 
 			this.cbFontlar.FormattingEnabled = true;
-			this.cbFontlar.Location = new System.Drawing.Point(327, 231);
+			this.cbFontlar.Location = new System.Drawing.Point(244, 231);
 			this.cbFontlar.Name = "cbFontlar";
-			this.cbFontlar.Size = new System.Drawing.Size(121, 24);
+			this.cbFontlar.Size = new System.Drawing.Size(278, 24);
 			this.cbFontlar.TabIndex = 2;
 			this.cbFontlar.SelectedIndexChanged += new System.EventHandler(this.cbFontlar_SelectedIndexChanged);
 			// 

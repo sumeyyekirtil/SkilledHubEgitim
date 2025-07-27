@@ -62,16 +62,16 @@
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(133, 87);
+			this.textBox1.Location = new System.Drawing.Point(133, 90);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(100, 22);
 			this.textBox1.TabIndex = 3;
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(274, 85);
+			this.button1.Location = new System.Drawing.Point(274, 86);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.Size = new System.Drawing.Size(75, 26);
 			this.button1.TabIndex = 4;
 			this.button1.Text = "Başla";
 			this.button1.UseVisualStyleBackColor = true;
@@ -88,7 +88,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(519, 450);
 			this.Controls.Add(this.progressBar1);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.textBox1);
@@ -96,6 +96,7 @@
 			this.Controls.Add(this.dateTimePicker2);
 			this.Controls.Add(this.dateTimePicker1);
 			this.Name = "Form7";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Form7";
 			this.ResumeLayout(false);
 			this.PerformLayout();
