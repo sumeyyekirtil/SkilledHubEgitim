@@ -44,32 +44,33 @@
 			this.groupBox1.Controls.Add(this.txtKullaniciAdi);
 			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Location = new System.Drawing.Point(31, 12);
+			this.groupBox1.Location = new System.Drawing.Point(156, 107);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(200, 129);
+			this.groupBox1.Size = new System.Drawing.Size(235, 151);
 			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Kullanıcı Bilgileri";
 			// 
 			// btnGiris
 			// 
-			this.btnGiris.Location = new System.Drawing.Point(92, 93);
+			this.btnGiris.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.btnGiris.Location = new System.Drawing.Point(119, 115);
 			this.btnGiris.Name = "btnGiris";
 			this.btnGiris.Size = new System.Drawing.Size(100, 30);
 			this.btnGiris.TabIndex = 4;
 			this.btnGiris.Text = "Giriş Yap";
-			this.btnGiris.UseVisualStyleBackColor = true;
+			this.btnGiris.UseVisualStyleBackColor = false;
 			// 
 			// txtSifre
 			// 
-			this.txtSifre.Location = new System.Drawing.Point(92, 51);
+			this.txtSifre.Location = new System.Drawing.Point(119, 72);
 			this.txtSifre.Name = "txtSifre";
 			this.txtSifre.Size = new System.Drawing.Size(100, 22);
 			this.txtSifre.TabIndex = 3;
 			// 
 			// txtKullaniciAdi
 			// 
-			this.txtKullaniciAdi.Location = new System.Drawing.Point(92, 28);
+			this.txtKullaniciAdi.Location = new System.Drawing.Point(119, 44);
 			this.txtKullaniciAdi.Name = "txtKullaniciAdi";
 			this.txtKullaniciAdi.Size = new System.Drawing.Size(100, 22);
 			this.txtKullaniciAdi.TabIndex = 2;
@@ -77,7 +78,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(6, 51);
+			this.label2.Location = new System.Drawing.Point(6, 78);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(34, 16);
 			this.label2.TabIndex = 1;
@@ -86,7 +87,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(6, 28);
+			this.label1.Location = new System.Drawing.Point(6, 47);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(79, 16);
 			this.label1.TabIndex = 0;
@@ -96,8 +97,10 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+			this.ClientSize = new System.Drawing.Size(557, 450);
 			this.Controls.Add(this.groupBox1);
+			this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.Name = "Login";
 			this.Text = "Login";
 			this.groupBox1.ResumeLayout(false);

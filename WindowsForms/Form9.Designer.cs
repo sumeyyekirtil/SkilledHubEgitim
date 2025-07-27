@@ -37,7 +37,7 @@
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(57, 25);
+			this.button1.Location = new System.Drawing.Point(15, 25);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(96, 47);
 			this.button1.TabIndex = 0;
@@ -48,18 +48,18 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(185, 40);
+			this.label1.Location = new System.Drawing.Point(127, 25);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(44, 16);
+			this.label1.Size = new System.Drawing.Size(77, 16);
 			this.label1.TabIndex = 1;
-			this.label1.Text = "label1";
+			this.label1.Text = "Dosya Yolu";
 			// 
 			// pictureBox1
 			// 
-			this.pictureBox1.Location = new System.Drawing.Point(331, 25);
+			this.pictureBox1.Location = new System.Drawing.Point(130, 60);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(440, 399);
-			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox1.Size = new System.Drawing.Size(712, 364);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureBox1.TabIndex = 2;
 			this.pictureBox1.TabStop = false;
 			// 
@@ -71,11 +71,12 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(890, 450);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.button1);
 			this.Name = "Form9";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Form9";
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
