@@ -24,6 +24,7 @@ namespace WindowsForms
  //checkedlistbox - smart tag:edit items ile seçenek girilebilir.
  //datetimepicker: tarih seçici component
  //datagridview: veri gösterimi için kullanılan alan (vt dan veri gösterimi için de kullanılır).
+ //datagridview kolonu boyutunu doldurması için : property-columnautosizemode -> fill seçeneği ile yapılır. 
  //panel: içine label ekleyip yazı gösterebiliriz.
  //listbox: combobox ın açık hali. edit items ile satır seçeneklerini doldurabiliriz.
  //linklabel: buton yerine metin şeklinde link oluşturmaya yarar.
@@ -68,8 +69,21 @@ namespace WindowsForms
 				}
 			}
 		}
+
 		private void button1_Click(object sender, EventArgs e)
-		{//buton ile kayıt gerçekleştiğine dair geri dönüt alınması için
+		{
+			//datagridview e kayıt ekleme
+			dgvUrunler.ColumnCount = 3; //kaç kolon veri ekleyeceğimizi ayarladık.
+			
+			//veri listesinim üst satırındaki başlıkları ayarlıyoruz.
+			dgvUrunler.Columns[0].Name = "Kategorisi";
+			dgvUrunler.Columns[1].Name = "Ürün Adı";
+			dgvUrunler.Columns[2].Name = "Fiyatı";
+
+			//Satıra yeni ürün bilgisi ekleme
+			dgvUrunler.Rows.Add(cbKategoriler.SelectedItem.ToString(), txtUrunAdi.Text, txtFiyati.Text);
+			
+			//buton ile kayıt gerçekleştiğine dair geri dönüt alınması için
 			MessageBox.Show(cbKategoriler.SelectedItem + " Kategorisine " + txtUrunAdi.Text + " Ürünü Eklendi!");
 		}
 	}

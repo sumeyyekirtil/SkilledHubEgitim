@@ -37,7 +37,7 @@
 			// 
 			// numericUpDown1
 			// 
-			this.numericUpDown1.Location = new System.Drawing.Point(46, 26);
+			this.numericUpDown1.Location = new System.Drawing.Point(328, 90);
 			this.numericUpDown1.Name = "numericUpDown1";
 			this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
 			this.numericUpDown1.TabIndex = 0;
@@ -50,7 +50,7 @@
 			// 
 			// domainUpDown1
 			// 
-			this.domainUpDown1.Location = new System.Drawing.Point(46, 73);
+			this.domainUpDown1.Location = new System.Drawing.Point(328, 170);
 			this.domainUpDown1.Name = "domainUpDown1";
 			this.domainUpDown1.Size = new System.Drawing.Size(120, 22);
 			this.domainUpDown1.TabIndex = 1;
@@ -60,7 +60,7 @@
 			// cbFontlar
 			// 
 			this.cbFontlar.FormattingEnabled = true;
-			this.cbFontlar.Location = new System.Drawing.Point(46, 119);
+			this.cbFontlar.Location = new System.Drawing.Point(327, 231);
 			this.cbFontlar.Name = "cbFontlar";
 			this.cbFontlar.Size = new System.Drawing.Size(121, 24);
 			this.cbFontlar.TabIndex = 2;
@@ -69,7 +69,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(202, 31);
+			this.label1.Location = new System.Drawing.Point(211, 301);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(137, 16);
 			this.label1.TabIndex = 3;
@@ -85,6 +85,7 @@
 			this.Controls.Add(this.domainUpDown1);
 			this.Controls.Add(this.numericUpDown1);
 			this.Name = "Form6";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Form6";
 			this.Load += new System.EventHandler(this.Form6_Load);
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

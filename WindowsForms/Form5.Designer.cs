@@ -28,18 +28,18 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Televizyon");
-			System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Ses Sistemi");
-			System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Elektronik", new System.Windows.Forms.TreeNode[] {
-            treeNode8,
-            treeNode9});
-			System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Masaüstü");
-			System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Dizüstü");
-			System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Tablet");
-			System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Bilgisayar", new System.Windows.Forms.TreeNode[] {
-            treeNode11,
-            treeNode12,
-            treeNode13});
+			System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Televizyon");
+			System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Ses Sistemi");
+			System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Elektronik", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+			System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Masaüstü");
+			System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Dizüstü");
+			System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Tablet");
+			System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Bilgisayar", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5,
+            treeNode6});
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.btnGiris = new System.Windows.Forms.Button();
@@ -72,11 +72,11 @@
 			this.label10 = new System.Windows.Forms.Label();
 			this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
-			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
-			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.label11 = new System.Windows.Forms.Label();
+			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.label12 = new System.Windows.Forms.Label();
+			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.label13 = new System.Windows.Forms.Label();
 			this.treeView1 = new System.Windows.Forms.TreeView();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -85,8 +85,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
-			this.tabPage1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
+			this.tabPage1.SuspendLayout();
 			this.tabPage3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
@@ -194,6 +194,7 @@
 			this.button1.TabIndex = 12;
 			this.button1.Text = "Kaydet";
 			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// cbDurum
 			// 
@@ -305,12 +306,13 @@
 			// 
 			// dgvUrunler
 			// 
+			this.dgvUrunler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvUrunler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvUrunler.Location = new System.Drawing.Point(642, 185);
 			this.dgvUrunler.Name = "dgvUrunler";
 			this.dgvUrunler.RowHeadersWidth = 51;
 			this.dgvUrunler.RowTemplate.Height = 24;
-			this.dgvUrunler.Size = new System.Drawing.Size(240, 355);
+			this.dgvUrunler.Size = new System.Drawing.Size(240, 327);
 			this.dgvUrunler.TabIndex = 4;
 			// 
 			// panel1
@@ -376,22 +378,11 @@
 			this.tabControl1.Controls.Add(this.tabPage2);
 			this.tabControl1.Controls.Add(this.tabPage1);
 			this.tabControl1.Controls.Add(this.tabPage3);
-			this.tabControl1.Location = new System.Drawing.Point(44, 412);
+			this.tabControl1.Location = new System.Drawing.Point(40, 412);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
 			this.tabControl1.Size = new System.Drawing.Size(330, 100);
 			this.tabControl1.TabIndex = 10;
-			// 
-			// tabPage1
-			// 
-			this.tabPage1.Controls.Add(this.label12);
-			this.tabPage1.Location = new System.Drawing.Point(4, 25);
-			this.tabPage1.Name = "tabPage1";
-			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(322, 71);
-			this.tabPage1.TabIndex = 0;
-			this.tabPage1.Text = "Ürün Açıklaması";
-			this.tabPage1.UseVisualStyleBackColor = true;
 			// 
 			// tabPage2
 			// 
@@ -404,16 +395,6 @@
 			this.tabPage2.Text = "Ürün Yorumları";
 			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
-			// tabPage3
-			// 
-			this.tabPage3.Controls.Add(this.label13);
-			this.tabPage3.Location = new System.Drawing.Point(4, 25);
-			this.tabPage3.Name = "tabPage3";
-			this.tabPage3.Size = new System.Drawing.Size(322, 71);
-			this.tabPage3.TabIndex = 2;
-			this.tabPage3.Text = "Yorum Ekle";
-			this.tabPage3.UseVisualStyleBackColor = true;
-			// 
 			// label11
 			// 
 			this.label11.AutoSize = true;
@@ -423,6 +404,17 @@
 			this.label11.TabIndex = 3;
 			this.label11.Text = "Ürün Adı";
 			// 
+			// tabPage1
+			// 
+			this.tabPage1.Controls.Add(this.label12);
+			this.tabPage1.Location = new System.Drawing.Point(4, 25);
+			this.tabPage1.Name = "tabPage1";
+			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage1.Size = new System.Drawing.Size(322, 71);
+			this.tabPage1.TabIndex = 0;
+			this.tabPage1.Text = "Ürün Açıklaması";
+			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
 			// label12
 			// 
 			this.label12.AutoSize = true;
@@ -431,6 +423,16 @@
 			this.label12.Size = new System.Drawing.Size(55, 16);
 			this.label12.TabIndex = 2;
 			this.label12.Text = "Markası";
+			// 
+			// tabPage3
+			// 
+			this.tabPage3.Controls.Add(this.label13);
+			this.tabPage3.Location = new System.Drawing.Point(4, 25);
+			this.tabPage3.Name = "tabPage3";
+			this.tabPage3.Size = new System.Drawing.Size(322, 71);
+			this.tabPage3.TabIndex = 2;
+			this.tabPage3.Text = "Yorum Ekle";
+			this.tabPage3.UseVisualStyleBackColor = true;
 			// 
 			// label13
 			// 
@@ -445,23 +447,23 @@
 			// 
 			this.treeView1.Location = new System.Drawing.Point(376, 355);
 			this.treeView1.Name = "treeView1";
-			treeNode8.Name = "Node1";
-			treeNode8.Text = "Televizyon";
-			treeNode9.Name = "Node3";
-			treeNode9.Text = "Ses Sistemi";
-			treeNode10.Name = "Node0";
-			treeNode10.Text = "Elektronik";
-			treeNode11.Name = "Node4";
-			treeNode11.Text = "Masaüstü";
-			treeNode12.Name = "Node5";
-			treeNode12.Text = "Dizüstü";
-			treeNode13.Name = "Node6";
-			treeNode13.Text = "Tablet";
-			treeNode14.Name = "Node2";
-			treeNode14.Text = "Bilgisayar";
+			treeNode1.Name = "Node1";
+			treeNode1.Text = "Televizyon";
+			treeNode2.Name = "Node3";
+			treeNode2.Text = "Ses Sistemi";
+			treeNode3.Name = "Node0";
+			treeNode3.Text = "Elektronik";
+			treeNode4.Name = "Node4";
+			treeNode4.Text = "Masaüstü";
+			treeNode5.Name = "Node5";
+			treeNode5.Text = "Dizüstü";
+			treeNode6.Name = "Node6";
+			treeNode6.Text = "Tablet";
+			treeNode7.Name = "Node2";
+			treeNode7.Text = "Bilgisayar";
 			this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode10,
-            treeNode14});
+            treeNode3,
+            treeNode7});
 			this.treeView1.Size = new System.Drawing.Size(121, 157);
 			this.treeView1.TabIndex = 11;
 			// 
@@ -479,7 +481,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(923, 564);
+			this.ClientSize = new System.Drawing.Size(935, 563);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.treeView1);
 			this.Controls.Add(this.tabControl1);
@@ -504,10 +506,10 @@
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.tabControl1.ResumeLayout(false);
-			this.tabPage1.ResumeLayout(false);
-			this.tabPage1.PerformLayout();
 			this.tabPage2.ResumeLayout(false);
 			this.tabPage2.PerformLayout();
+			this.tabPage1.ResumeLayout(false);
+			this.tabPage1.PerformLayout();
 			this.tabPage3.ResumeLayout(false);
 			this.tabPage3.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
