@@ -57,8 +57,81 @@
                 //window.open("https://www.google.com.tr/") //bu sayfayı yeni sekmede açtırmak için
             }
         }
+
+        function urunSil() {
+                if (confirm("Ürünü silmek ister misiniz?")) { //confirm ile tamam-iptal seçeneği sunulur
+                    //burada ürün sildirilir
+                    alert("Ürün Silindi!")
+            }
+        }
     </script>
     <input type="button" value="Sayfadan Ayrıl" onclick="kontrol()"/>
+    <input type="button" value="Ürün Sil" onclick="urunSil()"/>
+    <input type="button" value="Selam Ver" onclick="alert('selam merhaba')"/>
     
+    <hr>
+
+    <h2>onMouseOver Olayı</h2>
+    <p>
+        Ekrandaki herhangi bir nesne üzerine geldiğimizde çalışır
+    </p>
+    <a href="#" onmouseover="alert('onMouseOver çalıştı')">onMouseOver</a>
+    <a href="#" onmouseout="alert('onMouseOut çalıştı')">onMouseOut</a>
+
+    <hr>
+
+    <h2>onFocus Olayı</h2>
+    <p>
+        Ekrandaki herhangi bir element seçildiğinde çalışır.
+    </p>
+    <input type="text" name="name" value="Buraya Tıkla" onfocus="this.value='Focus çalıştı'"/>
+
+    <input type="text" name="name" value="Buraya Tıkla" onfocus="value='Focus çalıştı'"/>
+
+    <hr>
+
+    <h2>onBlur Olayı</h2>
+    <p>
+        Ekrandaki herhangi bir element seçilip elementten çıkılınca çalışır.
+    </p>
+    <input type="text" name="name" value="Buraya Tıkla" onfocus="this.value='Focus çalıştı'" onblur="this.value='Focus çalıştı'"/>
+
+    <h2>onChange Olayı</h2>
+    <p>
+        Sayfadaki elementlerde değişiklik olduğunda çalışır
+    </p>
+
+    <form>
+        <select name="liste" onchange="window.open(sec(this))">
+            <option value="#">Bir arama motoru seçiniz</option>
+            <option value="https:www.google.com.tr/"></option>
+            <option value="https:www.bind.com.tr/"></option>
+            <option value="https:www.yahoo.com.tr/"></option>
+            <option value="https:www.yandex.com.tr/"></option>
+        </select>
+    </form>
+    <script>
+        function sec(s) {
+            return s.options[s.selectedIndex].value
+        }
+    </script>
+
+    <hr>
+
+    <h2 id="olayBaslik">AddEventListener - Olay Dinleyici Kullanımı</h2>
+    <p>
+        Javascript ile sayfamızdaki gerçekleşecek olayları takip edip gerçekleştiğinde işlem yaptırabiliriz.
+    </p>
+    <script>
+        function myfunction() {
+            alert('AddEventListener çalıştı!')
+        }
+        document.getElementById("olayBaslik").AddEventListener("click",myfunction)
+        
+        function removeHandler() {
+        document.getElementById("olayBaslik").AddEventListener("click",myfunction)
+        }
+    </script>
+    <button onclick="removeHandler()">removeEventListener</button>
 </body>
 </html>
