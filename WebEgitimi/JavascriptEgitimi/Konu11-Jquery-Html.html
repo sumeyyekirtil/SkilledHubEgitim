@@ -38,6 +38,39 @@
         var metin = document.getElementById("jsileal").textContent
         document.getElementById("jsmetin").textContent = metin
     </script>
-    
+
+    <hr>
+
+    <h2>Elementlere İçeriği Html Olarak Ekleme</h2>
+    <div id="texticerik"></div>
+    <div id="htmlicerik"></div>
+    <div id="jstexticerik"></div>
+    <div id="jsinnertexticerik"></div>
+    <div id="jshtmlicerik"></div>
+    <script>
+        //Jquery ile
+        $("#texticerik").text("<h2>Elementlere İçeriği Html Olarak Ekleme</h2>")
+        $("#htmlicerik").html("<h2>Elementlere İçeriği Html Olarak Ekleme</h2>")
+        //Js ile
+       document.getElementById("jstexticerik").textContent = "<h2>Elementlere İçeriği Html Olarak Ekleme</h2>" //text olarak basar
+       document.getElementById("jsinnertexticerik").innerText = "<h2>Elementlere İçeriği Html Olarak Ekleme</h2>" //text olarak basar
+       document.getElementById("jshtmlicerik").innerHTML = "<h2>Elementlere İçeriği Html Olarak Ekleme</h2>" //html elementleri işleviyle basar
+    </script>
+
+    <hr>
+
+    <h2>Elementleri Html İçeriklerini Alma</h2>
+    <h3>Jquery ile Alma</h3>
+    <div id="jqueryileal"></div>
+    <h3>javascript ile Alma</h3>
+    <div id="javascriptileal"></div>
+    <script>
+        //Jquery ile
+        var icerik = $("#htmlicerik").html() //htmlicerik id li elementin içindeki html yi al
+        $("#jqueryileal").html(icerik) //jqueryileal id li elementin içindeki html yi ekle
+        //Js ile
+        var content
+    </script>
+
 </body>
 </html>
