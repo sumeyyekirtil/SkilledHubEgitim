@@ -83,7 +83,71 @@
     <input type="button" id="button4" value="Html elementleri sil"/>
     <script>
         $("#button4").on("click", function (){
-            $("#silinecek").remove() //silinecek id li elementi sil
+           //  $("#silinecek").remove() //silinecek id li elementi sil
+           // $("#silinecek").empty() //silinecek id li elementi boşalt (içini boşaltarak gizler)
+
+           document.getElementById("silinecek").remove() //js ile kaldırma
+        });
+    </script>
+
+    <hr>
+
+    <h2>Jquery ile Html Elementleri Gçzleme/Gösterme</h2>
+    <ul>
+        <li id="anasayfaLink">Anasayfa</li>
+        <li id="hakkimizdaLink">Hakkımızda</li>
+        <li id="urunlerimizLink">Ürünlerimiz</li>
+        <li id="iletsimLink">İletişim</li>
+    </ul>
+    <div id="anasayfa" style="border: 1px dashed red;">
+        Anasayfa İçeriği
+    </div>
+    <div id="hakkimizda" style="display: none; border: 1px dashed red;">
+        Hakkımızda İçeriği
+    </div>
+    <div id="urunlerimiz" style="display: none; border: 1px dashed red;">
+        Ürünlerimiz İçeriği
+    </div>
+    <div id="iletisim" style="display: none; border: 1px dashed red;">
+        İletişim Sayfası İçeriği
+    </div>
+    <script>
+        $("#hakkimizdaLink").on("click", function (){
+           $("#anasayfa").hide()
+           $("#hakkimizda").show()
+           $("#iletisim").hide()
+           $("#urunlerimiz").hide()
+        });
+        $("#urunlerimizLink").on("click", function (){
+           $("#anasayfa").hide()
+           $("#hakkimizda").hide()
+           $("#iletisim").hide()
+           $("#urunlerimiz").show()
+        });
+    </script>
+
+    <hr>
+
+    <h2>Jquery ile Change Olayı Yakalama</h2>
+    <input type="text" id="degisim">
+    <h3 id="jqchange"></h3>
+
+    <h4>Kategoriler</h4>
+    <select class="degisim">
+        <option value="Elektronik">Elektronik</option>
+        <option value="Telefon">Telefon</option>
+        <option value="Tablet">Tablet</option>
+        <option value="Televizyon">Televizyon</option>
+    </select>
+    <script>
+        $(".degisim").on("change", function () {
+            $("#jqchange").html($(this).val())
+        });
+        $(".degisim").change( function () {
+            $("#jqchange").text($(this).val())
+        });
+        $(".degisim").on("keyup", function () {
+            $("#jqchange").text($(this).val())
         });
     </script>
 </body>
