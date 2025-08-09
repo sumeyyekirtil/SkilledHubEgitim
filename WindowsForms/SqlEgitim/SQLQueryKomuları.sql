@@ -1,13 +1,18 @@
         --CRUD ÝÞLEMLERÝ
 --Tablolara kayýt ekleme, kayýtlarý çekme, kayýt güncelleme ve silme iþlemlerine kýsaca C(Create), R(Read), U(Update), D(Delete) deriz.
+
 --Tabloya veri ekleme
 --Insert Into Personel (PersonelID, Adi, Soyadi) values (1, 'Mehmet', 'CENGÝZ')
+
 --Eklenen Verileri Çekme
 --select * from Personel
+
 -- Tabloda Tüm Alanlara Veri Ekleme
 --Insert Into Personel values (3, 'Memati', 'Baþ', null, null, null)
+
 --Tabloda Güncelleme Yapma
 --update Personel set Adi = 'Alp', Soyadi = 'Arslan' where PersonelID = 2 --þart koyulmazsa hepsini günceller 
+
 --Kayýt Silme
 --delete from Personel where PersonelID = 3
 --Veritabanýnýn Yedeðini Alma
