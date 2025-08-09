@@ -7,15 +7,16 @@
 --Eklenen Verileri Çekme
 --select * from Personel
 
--- Tabloda Tüm Alanlara Veri Ekleme
---Insert Into Personel values (3, 'Memati', 'Baþ', null, null, null)
+--Tabloda Tüm Alanlara Veri Ekleme
+--Insert Into Personel values (4, 'Memet', 'alii', null, null, null)
 
 --Tabloda Güncelleme Yapma
---update Personel set Adi = 'Alp', Soyadi = 'Arslan' where PersonelID = 2 --þart koyulmazsa hepsini günceller 
+--Update Personel set Adi = 'Alp', Soyadi = 'Arslan' where PersonelID = 2 --þart koyulmazsa hepsini günceller 
 
 --Kayýt Silme
---delete from Personel where PersonelID = 3
---Veritabanýnýn Yedeðini Alma
+--delete from Personel where PersonelID = 4
+
+--Veritabanýnýn Yedeðini Alma (Veri kurtarmak için)
 --BACKUP DATABASE OrnekDb TO DISK = 'C:\DBYedek.bak';
 --Veritabaný Yedekten Geri Yükleme
 /*

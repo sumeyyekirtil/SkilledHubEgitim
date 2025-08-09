@@ -69,5 +69,23 @@ kolon adlarý yazýlýdýr
 
 /*
 Insert Into : veri ekleme
+Select * from : veri çekme
+Update : veri güncelleme
+delete from : veri silme
+where : þart / koþul
+Drop TABLE : tabloyu silme
+TRUNCATE TABLE : tablodaki tüm verileri silme
+*/
 
+/*
+BACKUP DATABASE OrnekDb TO DISK = 'C:\DBYedek.bak';  : Veritabaný yedekleme
+yedek vt uzantýlarý .bak olur
+*/
+
+/* Yedek Alýnan yerden geri yükleme :
+USE master;
+GO
+RESTORE DATABASE OrnekDb
+FROM DISK = 'D:\DBYedek.bak'
+WITH REPLACE;
 */
