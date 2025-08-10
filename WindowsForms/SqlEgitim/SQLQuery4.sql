@@ -1,7 +1,8 @@
-  --SQL SORGULAMA
+                  --SQL SORGULAMA
 --Tablodaki Tüm Verileri Çekme
 --select * from Products
 --select * from Categories
+
 --Tablodaki Bazý Sütunlarý Çekme
 --select ProductName, UnitPrice from Products --seçili kolonlarý getirir
 
@@ -9,22 +10,26 @@
 --select ProductName as [Ürün Adý], UnitPrice as [Ürün Fiyatý] from Products
  
 --Tabloya Alias(Takma Ýsim) vererek çaðýrma
---select p.ProductName as [Ürün Adý], UnitPrice as [Ürün Fiyatý] from Products p
+--select p.ProductName as [Ürün Adý], p.UnitPrice as [Ürün Fiyatý] from Products p
 --select kat.CategoryName as KategoriAdi from Categories kat
+
 /*
-  Select Top Ýfadesi
+                   Select Top Ýfadesi
   Sorgu sonucunda tüm kayýtlar yerine belirli sayýda kaydý çekmemizi saðlar
 
-SELECT TOP (50) * FROM Products--50 veri alýr
+SELECT TOP (50) * FROM Products --50 veri alýr
 
-select top (10) ProductName, UnitPrice, UnitsInStock from [Products Above Average Price]--ürünler tablosundan üðstten 10 ürünü seç veProductNmae, UnitsPrice, UniteInStock alanlarý getir
+select top (10) ProductName, UnitPrice, UnitsInStock from Products  --ürünler tablosundan üðstten 10 ürünü seç ve ProductName, UnitPrice, UnitsInStock alanlarý getir
+*/
+/*
+                   Order By ile sýralama 
+SELECT * FROM Products order by UnitsInStock asc --ürünleri UnitsInStock alanýna göre küçükten büyüðe doðru sýralayarak getirir
 
-SELECT * FROM Products order by UnitsInStock asc --ürünleri UnitsInStock alanýna göre küçükten büyüðe doðru sralayarak getirir
-
-SELECT * FROM Products order by UnitsInStock desc --Ürünleri UnitsInStock alanýna göre büyükten küçüðe doðru sýrala
-
-          SQL Operatörleri
-	1-SQL Aritmetik Operatörler
+SELECT * FROM Products order by UnitsInStock desc --Ürünleri UnitsInStock alanýna göre büyükten küçüðe doðru sýralar
+*/
+/*
+                   SQL OPERATÖRLERÝ
+	          1-SQL Aritmetik Operatörler
 
 --Toplama (+)
 SELECT 10 + 8
@@ -37,24 +42,22 @@ SELECT 36/2
 --Modulo (%)
 SELECT 18 % 2
      
-	  2-SQL Karþýlaþtýrma Operatörleri
---Eþittir (=)
+	             2-SQL Karþýlaþtýrma Operatörleri
+  --Eþittir (=)
 SELECT * FROM Products WHERE UnitPrice = 18;
 
 --select * from Products where CategoryID = 3; --CategoryID si 3 e eþit olanlarý getir
 --select * from Products where ProductName = 'pavlova' --sql de string '' ile gösterilir
 
 --Büyüktür (>)
-
 SELECT * FROM Products WHERE UnitPrice > 18;
+
 --Küçüktür (<)
 SELECT * FROM Products WHERE UnitPrice < 18;
-
 SELECT * FROM Products Where UnitsInStock < 1;
+
 --Büyük Eþittir(>=)
-
 SELECT * FROM Products WHERE UnitPrice >= 18;
-
 SELECT * FROM Products Where UnitsInStock >= 99;
 
 --Küçük Eþittir (<=)
@@ -64,59 +67,64 @@ SELECT * FROM Products Where UnitPrice <= 18;
 SELECT * FROM Products Where UnitPrice <> 18;
 SELECT * FROM Products Where UnitPrice != 18;
 
-         3-Mantýksal Operatörler
+                   3-Mantýksal Operatörler
 
---And (&) Ve Operatörü ile çoklu filtre
+         --And (&) Ve Operatörü ile çoklu filtre
 Select * from Products Where SupplierID = 1 and CategoryID = 1 --Supplier(tedarikçi) ürünlerden ýd si 1 olan ve kategori ýd si 1 olan ürünleri gösterir
---Or (|) Veya Operatörü ile çoklu filtre
-Select * from Products Where SupplierID = 1 or CategoryID = 1 
 
---Not (!) Deðil Operatörü ile çoklu filtre
-Select * from Products Where  not SupplierID = 1 and CategoryID = 1 
-    
-	4- Diðer Operatörler
+         --Or (|) Veya Operatörü ile çoklu filtre
+Select * from Products Where SupplierID = 1 or CategoryID = 1
+
+         --Not (!) Deðil Operatörü ile çoklu filtre
+Select * from Products Where  not SupplierID = 1 and CategoryID = 1
+
+
+	               4- Diðer Operatörler
 
 --SQL BETWEEN Operatörü 
- SELECT * FROM Products Where UnitPrice BETWEEN 10 AND 20;
- SELECT * FROM Products Where UnitPrice NOT BETWEEN 10 AND 20;
+SELECT * FROM Products Where UnitPrice BETWEEN 10 AND 20; --arasýnda olan deðerleri getir
+SELECT * FROM Products Where UnitPrice NOT BETWEEN 10 AND 20; --deðerler dýþýnda kalan verileri getir
 
 --Like Operatörü Ýle Arama, Filtreleme Ýþlemi
---select * from Products where ProductName like 'a%'; --ürünlerden ürün adýn a ile baþlayanlarý getir
---select * from Customers where ContactName LÝKE 'a%';-- müþterilerden adý a ile baþlayanlarý getir
---SELECT * FROM Customers WHERE ContactName LÝKE '%a' ;--müþterilerden adý a ile bitenleri getir
---select * from Customers where ContactName LÝKE '%or%' ;--müþterilerden adý or içerenleri getir
+--select * from Products where ProductName like 'a%'; --ürünlerden ürün adý a ile baþlayanlarý getir
+--select * from Customers where ContactName LIKE 'a%';-- müþterilerden adý a ile baþlayanlarý getir
+--SELECT * FROM Customers WHERE ContactName LIKE '%a'; --müþterilerden adý a ile bitenleri getir
+--select * from Customers where ContactName LIKE '%or%'; --müþterilerden adý or içerenleri getir
      
-	  SQL IN-Not IN Operatörü
-	ilgili sütunda istediðimiz deðerleri içerenleri in ile içermeyenleri not in ile filtreleyebilirsiniz
+	       SQL IN-Not IN Operatörü
+Ýlgili sütunda istediðimiz deðerleri içerenleri in ile içermeyenleri not in ile filtreleyebilirsiniz
 
-SELECT * FROM Customers Where Country IN('Germany', 'France', 'UK'); --customers tablosundaki müþterilerden country kolonu 'Germany', 'France', 'UK' deðerlerini içereni getir.
+SELECT * FROM Customers Where Country IN ('Germany', 'France', 'UK'); --customers tablosundaki müþterilerden country kolonu 'Germany', 'France', 'UK' deðerlerini getirir.
 
---SELECT * FROM Customers Where Country Not IN ('Germany', 'France', 'UK');
---Ýç içe iliþkili veri okuma
+--SELECT * FROM Customers Where Country Not IN ('Germany', 'France', 'UK'); --deðerleri içermeyen verileri getirir
+   
+        --Ýç içe iliþkili veri okuma
 SELECT * FROM Customers WHERE Country in (select Country from Suppliers)--müþterilerden country alanýnda Suppliers(tedarikçi) tablosunun ülke alanýnda geçenleri getir
 
-    Tablodan Veri Okurken Hesaplama
-  *Ürün stoklarý eritildiðinde kazanýlacak para
+        -- Tablodan Veri Okurken Hesaplama
+    *Ürün stoklarý eritildiðinde kazanýlacak para
 
-select p.ProductName as [Ürün Adý], p.UnitPrace as [Ürün Fiyatý], p.UnitsInStock [Stok Miktarý], * p.UnitsInStock  * p.UnitPrace as [Toplam Kazanç] from Products p 
+select p.ProductName as [Ürün Adý], p.UnitPrice as [Ürün Fiyatý], p.UnitsInStock as [Stok Miktarý], p.UnitsInStock * p.UnitPrice as [Toplam Kazanç]
+from Products p --toplam kazanç kolonu ekleyip çarpma operatörü kullanýp hesaplama yapar
 
-    --SQL NULL DEÐERLER
+        --SQL NULL DEÐERLER
 select ShipName, ShipRegion from Orders where ShipRegion is null --sipariþlerden shipname ve shipregion alanlarýný shipregion alaný null olanlara göre çek
-select ShipName, ShipRegion from Orders where ShipRegion is not null
 
---SQL SELECT DISTINCT Kullanýmý : sorgu sonucunda kayýt tekrarýný engellemeyi saðlar
-SELECT Country FROM Customers order by Country
+select ShipName, ShipRegion from Orders where ShipRegion is not null --kolondaki deðer null deðilmi
 
-SELECT Country FROM Customers
+         --SQL SELECT DISTINCT Kullanýmý : sorgu sonucunda kayýt tekrarýný engellemeyi saðlar
+SELECT Country FROM Customers order by Country --hepsini getirir
 
-    --SQL Joins ile Tablolarda Birleþik Sorgu Oluþturma
- --SQL JOIN Türleri
-   1-(INNER)JOIN: her iki tabloda da eþleþen deðerlere sahip kayýrlarý döndürür
-   2-LEFT (OUTER)JOIN: Soldaki tablodan tüm kayýrlarý ve sað tablodan eþleþen kayýtlarý döndürür
+SELECT DISTINCT Country FROM Customers --ayný olan verilerden seçerek 1 tane getirir
+
+         --SQL Joins ile Tablolarda Birleþik Sorgu Oluþturma
+                     --SQL JOIN Türleri
+   1-(INNER)JOIN: her iki tabloda da eþleþen deðerlere sahip kayýtlarý döndürür
+   2-LEFT (OUTER)JOIN: Soldaki tablodan tüm kayýtlarý ve sað tablodan eþleþen kayýtlarý döndürür
    3-RÝGHT (OUTER)JOIN: sað tablodan tüm kayýtlarý ve soldaki tablodan eþleþen kayýtlarý döndürür
    4-FULL (OUTER)JOIN: Sol ve sað tabloda bir eþleþme olduðunda tüm kayýtlarý döndürür
  
-     --SQL INNER JOIN
+      --SQL INNER JOIN
 select * from Products
 select * from Categories
 
@@ -130,7 +138,7 @@ FROM Orders
 INNER JOIN
 Customers ON Orders.CustomerID=Customers.CustomerID;
 
---Join ile ikiden fazla tablo birleþtirme
+     --Join ile ikiden fazla tablo birleþtirme
 SELECT Orders.OrderID, Customers.ContactName, Shippers.CompanyName
 FROM((Orders
 INNER JOIN Customers ON Orders.Customers.CustomerID = Customers.CustomerID)
