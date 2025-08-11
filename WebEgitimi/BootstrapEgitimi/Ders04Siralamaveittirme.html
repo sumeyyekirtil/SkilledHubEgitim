@@ -14,11 +14,25 @@
         </p>
         <div class="row">
             <div class="col">col 1</div>
-            <div class="col">col 2</div>
+            <div class="col order-5">col 2</div>
             <div class="col">col 3</div>
-            <div class="col">col 4</div>
-            <div class="col">col 5</div>
+            <div class="col order-3">col 4</div>
+            <div class="col order-1">col 5</div>
         </div>
+        <h2>Kolonları İttirme</h2>
+        <div class="row">
+            <div class="col-md-4">
+                col-md-4 class lı div ölçüsü ve üzeri cihazlarda 4 birimlik yer kaplar.
+            </div>
+            <div class="col-md-3 offset-md-3">
+                Bootstrap offset classını kullanarak kolonları soldan sağa doğru ittirebiliriz
+                <br>
+                col-md-3 classını md ekranlarda 3 birimlik genişlik verir, offset-md-3 ise md ekranlardan itibaren kolonu 3 birim ileri iter.
+            </div>
+        </div>
+        <p>
+            offset class ı her kırılım için 0 ile 11 arası değer alarak çalışır.
+        </p>
     </div>
 </body>
 </html>
