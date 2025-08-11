@@ -259,29 +259,33 @@ end
 
 --2-FOREIGN KEY - YABANCI ANAHTAR KISITLAYICI (diðer tabloyu kontrol etmesi için tablolar arasý baðlantý - kontrol saðlar)
 
---3-UNIQUE Tekil alan kýsýtlayýcýsý
+--3-UNIQUE Tekil Alan Kýsýtlayýcýsý
+--table - desing - foreign key column - property(ýndexes/keys) - add - ýxkullanicilar - name writed - columns - tc - ýs unique ->yes - type - unique key
+--email, tc gibi column lara kullanýlabilir
 --truncate table kullanicilar
 
---Triggers-Tetikleyiciler: 
+--Triggers-TETÝKLEYÝCÝLER: 
 --yapýlan bir eylem sonrasý baþka bir eylemin yapýlmasý tetiklenebilir
 /*
-   MsSql de 2 çeþit tetikleyici vardýr
+         -- MsSql de 2 çeþit tetikleyici vardýr:
      1-Ardý sýra tetikleyiciler; iþlem den sonra iþlem tetikleyici
      2-Yerine Tetikleyiciler; bir iþlem yerine tetikleyici
 
-    --STORED PROSEDURE(Saklý Yordam) ve Fonksiyon Kullanýmý
---Örn: Crud iþlemleri komutlarý, try catch kullanýlabilir
+       --STORED PROSEDURE(Saklý Yordam) ve Fonksiyon Kullanýmý
+--Table - stored procedure (default olarak içindekiler gelir) - sistem procedure - db oluþtuðunda eklenir otomatik
+--Örn: Crud iþlemleri komutlarý (insert - update - delete), try catch kullanýlabilir
 --Yeni Stored Procedure(Saklý Yordam Oluþturma)
-CREATE PROCEDURE sp_CalisanBolum --sp_CalisanBolum isminde bir SP oluþturduj
+
+CREATE PROCEDURE sp_CalisanBolum --sp_CalisanBolum isminde bir SP oluþturduk
 AS
 BEGIN
-select Bolumler.Bolum_Adi, Calisanlar.Adi From Bolumler INNER JOIN Calisanlar ON Bolumler.Bolum_No = Calisanlar.Bolum_No--sp_CalisanBolum ün yapacaðý iþlem için ilgili select komutunu yazdýk
+select Bolumler.Bolum_adi, Calisanlar.Adi From Bolumler INNER JOIN Calisanlar ON Bolumler.Bolum_No = Calisanlar.Bolum_No--sp_CalisanBolum ün yapacaðý iþlem için ilgili select komutunu yazdýk
 END
 GO
 
 exec sp_CalisanBolum --STORED PROCEDURE Çalýþtýrma
 
-CREATE PROCEDURE sp_UrunListele(@UrunSayisiParametresi int)--SP ye dýþarýan gelecek ürün sayýsý paremetresine göer ürünleri liseleyeceðiz
+CREATE PROCEDURE sp_UrunListele(@UrunSayisiParametresi int)--SP ye dýþarýdan gelecek ürün sayýsý paremetresine göre ürünleri listeleyeceðiz
 AS
 BEGIN
 select * from Urunler where Urun_Sayisi > @UrunSayisiParametresi
@@ -289,15 +293,16 @@ END
 
 exec sp_UrunListele 18--deðer vermemizi isterse sayýsal deðer verme biçimi
 
---SP Güncelleme
-ALTER PROCEDURE sp_UrunListele(@UrunSayisiParametresi int = 0)--SP ye dýþarýan gelecek ürün sayýsý paremetresine göer ürünleri liseleyeceðiz
+         --SP Güncelleme Yapma
+ALTER PROCEDURE sp_UrunListele(@UrunSayisiParametresi int = 0)--SP ye dýþarýdan gelecek ürün sayýsý paremetresine göer ürünleri liseleyeceðiz
 AS --=0 eklendi fakar alter kullanýlmsaý gerekiyor
 BEGIN
 select * from Urunler where Urun_Sayisi > @UrunSayisiParametresi
 END
 
-exec sp_UrunListele --artýk hata getirmiyor
+exec sp_UrunListele -- deðer göndermesekde artýk hata getirmiyor
 
+         --SP Ekleme Yapma
 CREATE PROCEDURE sp_BolumEkle
 (
 @BolumAdi nvarchar(50)
@@ -307,11 +312,14 @@ BEGIN
 INSERT INTO Bolumler(Bolum_Adi) VALUES (@BolumAdi)
 END
 
---KULLANIMI
-EXEC sp_BolumEkle 'Aksesuar' --bolum no alaný için deðer bekliyo (identity yes yapmamýz lazým)
+          --KULLANIMI
+EXEC sp_BolumEkle 'Aksesuar' --bolum no alaný için deðer bekliyor  (identity yes yapmamýz lazým)
 
-      --Fonksiyonlar
+*/
+/*
+                        --FONKSÝYONLAR
 --Kullanýcý tanýmlý fonksiyonlar, kullanýcýlar tarafýndan tanýmlanan tek bir deðer veya tablo döndürmek için kullanýlan iliþkisel veritabaný nesneleridir
+--c# daki yardýmcý metotlara benzer
 
     CREATE FUNCTION : Fonksiyon oluþturmak için kullanýlýr
 	ALTER FUNCTION : Fonksiyonda deðiþiklik yapmak için kullanýlýr
@@ -327,27 +335,30 @@ SET @urunAdedi=(SELECT Urun_Sayisi FROM Urunler WHERE Urun_Adi=@urunAdi)
 RETURN @urunAdedi--selecet sorgusuyla bulunan urunadedi deðiþken deðerini döndürür
 END
 
---Fonksiyon kullanýmý:
+                   --Fonksiyon kullanýmý:
 select dbo.UrunAdet('Bilgisayar') as UrunAdedi
 
---Tablo Deðerli Fonksiyonlar 
+                --Tablo Deðerli Fonksiyonlar 
 create function fn_CalisanlariListele()
 returns table
 as
 return select * from Calisanlar
 
---Fonksiyon Kullanýmý:
+                 --Fonksiyon Kullanýmý:
 select * from fn_CalisanlariListele()
 
-   --SQL Server Fonksiyonlarý
---SQL String Fonksiyonlarý
+                
+			     --SQL Server Fonksiyonlarý
+              
+			  --SQL String Fonksiyonlarý
 SELECT LEFT('Left Kullanýmý', 6)--ilk 6 karakteri yazdýrýr
-SELECT Right('Left Kullanýmý', 6)
-SELECT LEN('Len Kullanýmý')
+SELECT Right('Left Kullanýmý', 6) --sondan 6 karakter yazdýr
+SELECT LEN('Len Kullanýmý') --kaç karakter var
 
-Select ProductName, LEN(ProductName) as [Ürün adý karakter sayýsý] from Products
+Select ProductName, LEN(ProductName) as [Ürün adý karakter sayýsý] from Products --northwind db
 
 SELECT LOWER('Küçük HARFE çEvir') as KüçükHarf
+
 Select ProductName, LOWER(ProductName) as [Ürün adýný küçük harfe çevir], LEN(ProductName) as [Ürün adý karakter sayýsý] from Products
 
 SELECT UPPER('Büyük HARFE çEVÝR') --Metni büyük harfe çeviren fonksiyon

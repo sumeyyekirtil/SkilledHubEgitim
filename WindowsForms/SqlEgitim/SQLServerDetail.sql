@@ -354,8 +354,122 @@ end
   --3-UNIQUE Tekil alan kýsýtlayýcýsý
 --truncate table kullanicilar
 
-  --Triggers-Tetikleyiciler: 
---yapýlan bir eylem sonrasý baþka bir eylemin yapýlmasý tetiklenebilir
-
+  --Triggers-TETÝKLEYÝCÝLER: 
+--Yapýlan bir eylem sonrasý baþka bir eylemin yapýlmasý tetiklenebilir
 */
+/*
+               --MsSql de 2 çeþit tetikleyici vardýr:
+     1-Ardý sýra tetikleyiciler; iþlem den sonra diðer iþlemi tetikleyici
+     2-Yerine Tetikleyiciler; bir iþlem yerine geçip önceki iþlemi tetikleyici
+
+           --STORED PROSEDURE(Saklý Yordam) ve Fonksiyon Kullanýmý
+--Table - stored procedure (default olarak içindekiler gelir) - sistem procedure - db oluþtuðunda eklenir otomatik
+--Örn: Crud iþlemleri komutlarý (insert - update - delete), try catch kullanýlabilir
+--Yeni Stored Procedure(Saklý Yordam Oluþturma)
+
+--procedure oluþturma:
+CREATE PROCEDURE sp_CalisanBolum --sp_CalisanBolum isminde bir SP oluþturduk
+AS
+BEGIN
+select Bolumler.Bolum_adi, Calisanlar.Adi From Bolumler INNER JOIN Calisanlar ON Bolumler.Bolum_No = Calisanlar.Bolum_No--sp_CalisanBolum ün yapacaðý iþlem için ilgili select komutunu yazdýk
+END
+GO
+
+exec sp_CalisanBolum --STORED PROCEDURE Çalýþtýrma
+
+--example 2
+CREATE PROCEDURE sp_UrunListele(@UrunSayisiParametresi int)--SP ye dýþarýdan gelecek ürün sayýsý paremetresine göre ürünleri listeleyeceðiz
+AS
+BEGIN
+select * from Urunler where Urun_Sayisi > @UrunSayisiParametresi --stock a göre listeler (int þeklinde parametre aldý)
+END 
+
+exec sp_UrunListele 18--deðer vermemizi isterse sayýsal deðer verme biçimi
+
+                 --SP Güncelleme Yapma
+ALTER PROCEDURE sp_UrunListele(@UrunSayisiParametresi int = 0)--SP ye dýþarýdan gelecek ürün sayýsý paremetresine göre ürünleri listeleyeceðiz
+AS --=0 eklendi fakar alter kullanýlmsaý gerekiyor
+BEGIN
+select * from Urunler where Urun_Sayisi > @UrunSayisiParametresi
+END
+
+exec sp_UrunListele -- deðer göndermesekde artýk hata getirmiyor
+
+                 --SP Ekleme Yapma
+CREATE PROCEDURE sp_BolumEkle
+(
+@BolumAdi nvarchar(50)
+)
+AS
+BEGIN
+INSERT INTO Bolumler(Bolum_Adi) VALUES (@BolumAdi)
+END
+
+      --KULLANIMI
+EXEC sp_BolumEkle 'Aksesuar' --bolum no alaný için deðer bekliyor (hata için : identity yes yapmamýz lazým)
+*/
+/*
+                  --IDENTITY DEÐÝÞTÝRME (kimlik)
+--güvenilir, benzersiz, deðiþtirilemez, sql tarafýndan korunur.
+--table - desing - propery - identity column - (data type : int column)seç
+--column properties - identity speccification - is identity yes (kaçtan baþlasýn(seed), kaç kaç artsýn(increment))
+*/
+/*
+                        --FONKSÝYONLAR
+--table - functions :
+                     --1-table valued function
+					 --2-scalar-valued function
+					 --3-aggregate function
+					 --4-system function (default)
+--Kullanýcý tanýmlý fonksiyonlar, kullanýcýlar tarafýndan tanýmlanan TEK BÝR DEÐER veya TABLO döndürmek için kullanýlan iliþkisel veritabaný nesneleridir.
+--c# daki yardýmcý metotlara benzer
+
+    CREATE FUNCTION : Fonksiyon oluþturmak için kullanýlýr
+	ALTER FUNCTION : Fonksiyonda deðiþiklik yapmak için kullanýlýr
+	DROP FUNCTION : Mevcut olan fonksiyonu silmek için kullanýlýr
+
+CREATE FUNCTION UrunAdet(@urunAdi nvarchar(50))
+RETURNS int
+AS
+BEGIN
+DECLARE @urunAdedi int --veri tipi int olan bir deðiþken oluþturduk
+SET @urunAdedi=(SELECT Urun_Sayisi FROM Urunler WHERE Urun_Adi=@urunAdi)
+RETURN @urunAdedi--selecet sorgusuyla bulunan urunadedi deðiþken deðerini döndürür
+END
+
+                       --Fonksiyon kullanýmý:
+select dbo.UrunAdet('Bilgisayar') as UrunAdedi
+
+                      --Tablo Deðerli Fonksiyonlar 
+create function fn_CalisanlariListele()
+returns table
+as
+return select * from Calisanlar
+
+                          --Fonksiyon Kullanýmý:
+select * from fn_CalisanlariListele()
+*/
+/*
+                        --SQL Server Fonksiyonlarý
        
+	   --SQL String Fonksiyonlarý
+SELECT LEFT('Left Kullanýmý', 6)--ilk 6 karakteri yazdýrýr
+SELECT Right('Left Kullanýmý', 6)--sondan 6 karakter yazdýr
+SELECT LEN('Len Kullanýmý') --char sayýsý?
+
+Select ProductName, LEN(ProductName) as [Ürün adý karakter sayýsý] from Products --northwind db
+       
+	   --Küçük harfe çevir
+SELECT LOWER('Küçük HARFE çEvir') as KüçükHarf
+
+Select ProductName, LOWER(ProductName) as [Ürün adýný küçük harfe çevir], LEN(ProductName) as [Ürün adý karakter sayýsý] from Products
+
+       --Büyük harfe çevir
+SELECT UPPER('Büyük HARFE çEVÝR') --Metni büyük harfe çeviren fonksiyon
+
+       --AVG() Fonksiyonu : bir ifadenin ortalama deðerini döndürür
+SELECT AVG(UnitPrice) AS OrtalamaÜrünFiyatý FROM Products;
+SELECT Min(UnitPrice) AS EnDüþükÜrünFiyatý FROM Products;
+
+SELECT Max(UnitPrice) AS EnYüksekÜrünFiyatý FROM Products;
+*/
