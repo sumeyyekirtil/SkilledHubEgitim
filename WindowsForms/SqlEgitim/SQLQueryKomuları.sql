@@ -1,4 +1,4 @@
-        --CRUD ÝÞLEMLERÝ
+                   --CRUD ÝÞLEMLERÝ
 --Tablolara kayýt ekleme, kayýtlarý çekme, kayýt güncelleme ve silme iþlemlerine kýsaca C(Create), R(Read), U(Update), D(Delete) deriz.
 
 --Tabloya veri ekleme

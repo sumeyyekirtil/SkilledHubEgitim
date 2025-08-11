@@ -1,4 +1,4 @@
-            --SQL SERVER PROGRAMI TANITIMI
+                   --SQL SERVER PROGRAMI TANITIMI
 
 --Microsoft un ürünüdür.
 --Veri takibi için genellikle sql kullanýlýr.
@@ -13,7 +13,7 @@ SSMS (Sql Server Management Studio) Download:
 SSMS Kurulum (EXE): Yapay zeka 
 */
 
-            --Baðlantý Ekraný
+                        --Baðlantý Ekraný
 /*
 Baðlantý adresine : Localhost / .  yazýlýp baðlanýlýr.
 
@@ -211,58 +211,151 @@ SELECT DISTINCT Country FROM Customers --output : 21 rows
 select * from Products
 select * from Categories
 
+        --farklý tablolarý birleþtirme
 select ProductName, UnitsInStock, CategoryName from Products
-join
+join    --categoryname i çekip yanýna yazdý
 Categories
 on Products.CategoryID = Categories.CategoryID --categoryname olmadýðý için join edip birleþtirdik
 
         --Join ile ikiden fazla tablo birleþtirme
 SELECT Orders.OrderID, Customers.ContactName, Shippers.CompanyName
 FROM((Orders
-INNER JOIN Customers ON Orders.Customers.CustomerID = Customers.CustomerID)
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
 INNER JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID);
 
-       --SQL LEFT JOIN
+        --SQL LEFT JOIN (solda birleþtir)
 select Customers.ContactName, Orders.OrderID --Customers tablosundan ContactName alanýný Orders tablosundan OrderID alanýný getir
 From Customers --Customers tablosundan 
-LEFT JOIN Orders --left join ile solda birleþtirme iþlemi yaplýr ve customer ablosunda olan ama orders tablosunda olmayan kayýtlar da getirilir, ineer join den farký budyr ineer join sadece eþleþen kayýtlarý getirir
-ON Customers.CustomerID = Orders.CustomerID--TABLOLARIMIZI ortak noktalarý olan CustomersId YE GÖRE EÞELTÝRDÝLK
-Order by Customers.ContactName
+LEFT JOIN Orders --left join ile solda birleþtirme iþlemi yaplýr ve Customers tablosunda olan ama orders tablosunda olmayan kayýtlar da getirilir, inner join den farký budur inner join sadece eþleþen kayýtlarý getirir
+ON Customers.CustomerID = Orders.CustomerID--Tablolarýmýzý ortak noktalarý olan CustomersID ye göre eþleþtirdik
+Order by Customers.ContactName --göre sýrala
 
-         --SQL RÝGHT JOIN
-SELECT Orders.OrdersID, Employees.LastName, Employees.FirstName
+       --SQL RÝGHT JOIN 
+--(birleþtirme yapýlan her tabloyu getirir bir tarafta veri olmasý yeterli)
+SELECT Orders.OrderID, Employees.LastName, Employees.FirstName
 FROM Orders
-RÝGHT JoIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
 ORDER BY Orders.OrderID;
 
-         --SQL FULL OUTHER JOIN
+        --SQL FULL OUTHER JOIN
 SELECT Customers.ContactName, Orders.OrderID
 FROM Customers
 FULL OUTER JOIN Orders ON Customers.CustomerID=Orders.CustomerID
 ORDER BY Customers.ContactName
 */
 /*
-       --SQL UNIOUN
+       --SQL UNION (tek parçada sorgu verir)
 --UNION komutu, iki veya daha fazla SELECT deyimini sonuç kümesini birleþtirmek için kullanýlýr.
+--her select deyimi sütunlar ayný sayýda olmak zorunda!!
+
 SELECT City FROM Customers
-UNION --her selectdeyimi ayný satýra sahip olacak,tekrar eden kayýtlar engellenir
+UNION --her select deyimi ayný satýra sahip olacak,tekrar eden kayýtlar engellenir
 SELECT City FROM Suppliers
 ORDER BY City;
 
---SQL GROUP BY (Gruplandýrma iþlemi yapar)
+       --Unýon All (hepsini getir)
+SELECT City FROM Customers
+UNION All --tekrar eden kayýtlar için all kullanýlýr
+SELECT City FROM Suppliers
+ORDER BY City;
+*/
+/*
+      --SQL GROUP BY (Gruplandýrma iþlemi yapar)
 select Country FROM Customers
-GROUP BY Country;
+GROUP BY Country; --ülkeye göre grupla, tekrar eden kayýtlarý engelle
 
---HATA DENETÝMÝ
+     --HATA DENETÝMÝ (BEGIN TRY - END TRY)
 BEGIN TRY
-    SELECT 4/0
+     SELECT 4/0 --0 a bölünme hatasý fýrlatýr
 END TRY
-BEGIN CATCH
+BEGIN CATCH  --hata yakalar (hata olursa ne yapýlacak?)
      SELECT
      ERROR_NUMBER() AS Hata_Numarasi,
 	 ERROR_SEVERITY() AS Hata_Duzeyi,
 	 ERROR_STATE() AS Hata_Durum_No,
-	 ERROR_LINE() AS Hata_Satir_No
+	 ERROR_LINE() AS Hata_Satir_No,
 	 ERROR_MESSAGE() AS Hata_Mesaj
 END CATCH
 */
+/*                 --YENÝ DATABASE:BÝLÝÞÝM EKLENDÝ
+
+create database Bilisim --bilisim database created
+go
+use bilisim
+
+CREATE TABLE Bolumler(  --bolumler table
+Bolum_No int NOT NULL,
+Bolum_Adi nchar(50) NULL,
+PRIMARY KEY (Bolum_No))
+
+create table Calisanlar( --calisanlar table
+TC_No nvarchar(11) not null,
+Adi nvarchar(100) not null,
+Bolum_No int null,
+Cinsiyet nchar(1) null
+primary key (TC_No),
+foreign key (Bolum_No) references Bolumler(Bolum_No)
+)
+create table Urunler(    --urunler table
+Urun_No int not null,
+Urun_Adi nvarchar (50) not null,
+Urun_Sayisi int null,
+Urun_Fiyati decimal(18,2) null,
+Bolum_No int NOT NULL,
+primary key (Urun_No),
+foreign key (Bolum_No) references Bolumler(Bolum_No)
+)
+create table Satislar(   --satislar table
+Satis_No int not null,
+Urun_No int null,
+Calisan_TC_No nvarchar(11) null,
+Miktar int null,
+Fiyat decimal(18,2) null,
+Tarih Date null,
+primary key (Satis_No),
+foreign key (Urun_No) references Urunler(Urun_No), --ikincil anahtar oluþturdu
+foreign key (Calisan_TC_No) references Calisanlar(TC_No)
+)
+*/
+/*
+             --Commit ve RollBack Transaction
+--Güncelleme silme iþlemleri baþarýsýz olursa transaction komutu kullanýlýr
+--Güncelleme silme iþlemleri baþarýsýz olursa rollback transaction ile geri döndürür
+--Ýþlem baþarýlýysa commit tran iþlemi tamamlýyor
+
+begin 
+begin try
+begin transaction  --iþlem baþlatýldý
+   update Calisanlar set Adi = 'Ali' where TC_No = '1234354357'
+   update Bolumler Set Bolum_Adi = 'Ev Aleti' where Bolum_No = 5
+   commit tran  --baþarýlý ise
+   Print 'KAYIT GÜNCELLENDÝ'
+end try
+begin catch
+   rollback transaction --eðer yukarýdaki kodlarda hata oluþursa deðiþiklikleri geri al
+   Print 'Kayýt güncellenemedi hata oluþtu!'
+end catch
+end
+*/
+/*
+               --SQL Constrains(Kýsýtlayýcýlar)
+--hatalarý giriþleri engellemek için kullanýlýr
+--create table , alter table ile kýsýtlayýcý oluþturulur
+
+               --KISITLAYICI ÇEÞÝTLERÝ (allow nuls iþareti kalkar)
+--içinde kayýt varken bu iþlem yapýlamaz
+  --1-PRIMARY KEY(PK) - Birincil Anahtar kýsýtlayýcý (sarý anahtar, null giriþe izin vermez, unique)
+--Bu iþlemi table - desing - istenilen column - primar key
+--Desing - property - primary key ayarlanýr
+
+  --2-FOREIGN KEY(FK) - YABANCI ANAHTAR KISITLAYICI (diðer tabloyu kontrol etmesi için tablolar arasý baðlantý - kontrol saðlar)
+--Table - Keys - New Foreign Key - Name -Table and columns specific(baðlantý eþleþmesi) - primary key-foreign key baðlantýsý
+
+  --3-UNIQUE Tekil alan kýsýtlayýcýsý
+--truncate table kullanicilar
+
+  --Triggers-Tetikleyiciler: 
+--yapýlan bir eylem sonrasý baþka bir eylemin yapýlmasý tetiklenebilir
+
+*/
+       

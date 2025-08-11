@@ -1,4 +1,4 @@
-                  --SQL SORGULAMA
+                     --SQL SORGULAMA
 --Tablodaki Tüm Verileri Çekme
 --select * from Products
 --select * from Categories
@@ -128,8 +128,9 @@ SELECT DISTINCT Country FROM Customers --ayný olan verilerden seçerek 1 tane get
 select * from Products
 select * from Categories
 
+      --farklý tablolarý birleþtirme
 select ProductName, UnitsInStock, CategoryName from Products
-join
+join    --categoryname i çekip yanýna yazdý
 Categories
 on Products.CategoryID = Categories.CategoryID --categoryname olmadýðý için join edip birleþtirdik
 
@@ -141,32 +142,32 @@ Customers ON Orders.CustomerID=Customers.CustomerID;
      --Join ile ikiden fazla tablo birleþtirme
 SELECT Orders.OrderID, Customers.ContactName, Shippers.CompanyName
 FROM((Orders
-INNER JOIN Customers ON Orders.Customers.CustomerID = Customers.CustomerID)
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
 INNER JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID);
 
---SQL LEFT JOIN
+     --SQL LEFT JOIN
 select Customers.ContactName, Orders.OrderID --Customers tablosundan ContactName alanýný Orders tablosundan OrderID alanýný getir
 From Customers --Customers tablosundan 
-LEFT JOIN Orders --left join ile solda birleþtirme iþlemi yaplýr ve customer ablosunda olan ama orders tablosunda olmayan kayýtlar da getirilir, ineer join den farký budyr ineer join sadece eþleþen kayýtlarý getirir
-ON Customers.CustomerID = Orders.CustomerID--TABLOLARIMIZI ortak noktalarý olan CustomersId YE GÖRE EÞELTÝRDÝLK
-Order by Customers.ContactName
+LEFT JOIN Orders --left join ile solda birleþtirme iþlemi yaplýr ve Customers tablosunda olan ama orders tablosunda olmayan kayýtlar da getirilir, inner join den farký budur inner join sadece eþleþen kayýtlarý getirir
+ON Customers.CustomerID = Orders.CustomerID--Tablolarýmýzý ortak noktalarý olan CustomersID ye göre eþleþtirdik
+Order by Customers.ContactName --göre sýrala
 
---SQL RÝGHT JOIN
-SELECT Orders.OrdersID, Employees.LastName, Employees.FirstName
+     --SQL RÝGHT JOIN
+SELECT Orders.OrderID, Employees.LastName, Employees.FirstName
 FROM Orders
-RÝGHT JoIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
 ORDER BY Orders.OrderID;
 
---SQL FULL OUTHER JOIN
+     --SQL FULL OUTHER JOIN
 SELECT Customers.ContactName, Orders.OrderID
 FROM Customers
 FULL OUTER JOIN Orders ON Customers.CustomerID=Orders.CustomerID
 ORDER BY Customers.ContactName
 
---SQL UNIOUN
+     --SQL UNION
 --UNION komutu, iki veya daha fazla SELECT deyimini sonuç kümesini birleþtirmek için kullanýlýr.
 SELECT City FROM Customers
-UNION --her selectdeyimi ayný satýra sahip olacak,tekrar eden kayýtlar engellenir
+UNION --her select deyimi ayný satýra sahip olacak,tekrar eden kayýtlar engellenir
 SELECT City FROM Suppliers
 ORDER BY City;
 
@@ -175,32 +176,34 @@ UNION All --tekrar eden kayýtlar için all kullanýlýr
 SELECT City FROM Suppliers
 ORDER BY City;
 
---SQL GROUP BY (Gruplandýrma iþlemi yapar)
+     --SQL GROUP BY (Gruplandýrma iþlemi yapar)
 select Country FROM Customers
-GROUP BY Country;
+GROUP BY Country; --country ye göre grupla
 
---HATA DENETÝMÝ
+     --HATA DENETÝMÝ (BEGIN TRY - END TRY)
 BEGIN TRY
-    SELECT 4/0
+     SELECT 4/0 --0 a bölünme hatasý fýrlatýr
 END TRY
-BEGIN CATCH
+BEGIN CATCH  --hata yakalar
      SELECT
      ERROR_NUMBER() AS Hata_Numarasi,
 	 ERROR_SEVERITY() AS Hata_Duzeyi,
 	 ERROR_STATE() AS Hata_Durum_No,
-	 ERROR_LINE() AS Hata_Satir_No
+	 ERROR_LINE() AS Hata_Satir_No,
 	 ERROR_MESSAGE() AS Hata_Mesaj
 END CATCH
 
---YENÝ DATABASE:BÝLÝÞÝM EKLENDÝ
+     --YENÝ DATABASE:BÝLÝÞÝM EKLENDÝ
 create database Bilisim
 go
 use bilisim
+
 CREATE TABLE Bolumler(
 Bolum_No int NOT NULL,
 Bolum_Adi nchar(50) NULL,
 PRIMARY KEY (Bolum_No))
 create table Calisanlar(
+
 TC_No nvarchar(11) not null,
 Adi nvarchar(100) not null,
 Bolum_No int null,
@@ -229,9 +232,10 @@ foreign key (Urun_No) references Urunler(Urun_No),
 foreign key (Calisan_TC_No) references Calisanlar(TC_No)
 )
 
---Commit ve RollBack
+            --Commit ve RollBack Transaction
 --güncelleme silme iþlemleri baþarýsýz olursa rollback ile geri döndürür
 --baþarýlý olursa commitler
+
 begin 
 begin try
 begin transaction
@@ -246,17 +250,20 @@ begin catch
 end catch
 end
 */
-    --SQL Constrains(Kýsýtlayýcýlar)
---hatalarý giriþleri engellemek için
---Kýsýtlayýcý Çeþitleri
---PRIMARY KEY Birincil Anahtar kýsýtlayýcý
+            --SQL Constrains(Kýsýtlayýcýlar)
+--hatalarý giriþleri engellemek için kullanýlýr
+--create table , alter table ile kýsýtlayýcý oluþturulur
+            
+			--KISITLAYICI ÇEÞÝTLERÝ
+--1-PRIMARY KEY - Birincil Anahtar kýsýtlayýcý (sarý anahtar, null giriþe izin vermez, unique)
 
---FOREIGN KET - YABANCI ANAHTAR KISITLAYICI
+--2-FOREIGN KEY - YABANCI ANAHTAR KISITLAYICI (diðer tabloyu kontrol etmesi için tablolar arasý baðlantý - kontrol saðlar)
 
---UNIQUE Tekil alan kýsýtlayýcýsý
+--3-UNIQUE Tekil alan kýsýtlayýcýsý
 --truncate table kullanicilar
 
---Triggers-Tetikleyiciler: yapýlan bir eylem sonrasý baþka bir eylemin yapýlmasý tetiklenebilir
+--Triggers-Tetikleyiciler: 
+--yapýlan bir eylem sonrasý baþka bir eylemin yapýlmasý tetiklenebilir
 /*
    MsSql de 2 çeþit tetikleyici vardýr
      1-Ardý sýra tetikleyiciler; iþlem den sonra iþlem tetikleyici
