@@ -43,7 +43,7 @@ Tablo dizayn alaný : 3 alan var
   *numeric - numaralar
   *float - kesirli sayýlar
   *datetimeoffset - dünya saat-tarih
-  *decimal - decimal
+  *decimal - decimal /(18,2) virgülden sonra 2 basamaklý
   *money - ticaret için geliþtirilmiþ parasal iþlem
   *geography - coðrafya
   *char - karakter(tc vs.) (n li olanlar dil setlerini destekler)

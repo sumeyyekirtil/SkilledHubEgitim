@@ -1,8 +1,8 @@
-﻿using System.Data; //veri işlemleri için
+﻿using System.Data; //veri işlemleri için gerekli kütüphane
 using System.Data.SqlClient; //ADO.NET kütüphaneleri
 
 namespace WindowsFormsAppAdoNet
-{
+{//ConnectionString : Veritabanı bağlantı cümlesi - management - server name copy paste - database : copy paste - Integrated Security=True; (güvenli bağlantı aktif - kendim yöneticiyim(kullanıcı adı - şifre yazabiliriz yerine))
 	public class OrtakDAL //DATA ACCESS LAYER
 	{//sql bağlantı cümlesi
 		internal SqlConnection _connection = new SqlConnection(@"server=ASUS-PRO; database=UrunYönetimiAdoNet; Integrated Security=True;"); //vt bulunduğu server bilgisini connection string olarak buraya tanımlıyorum.

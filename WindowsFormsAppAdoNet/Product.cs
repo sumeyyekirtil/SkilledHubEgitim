@@ -3,9 +3,9 @@
 	public class Product
 	{
 		public int Id { get; set; }
-		public string UrunAdi { get; set; }
-		public decimal UrunFiyati { get; set; }
-		public int StokMiktari { get; set; }
-		public bool Durum { get; set; }
+		public string UrunAdi { get; set; } //name
+		public decimal UrunFiyati { get; set; } //price
+		public int StokMiktari { get; set; } //stock
+		public bool Durum { get; set; } //active
 	}
 }

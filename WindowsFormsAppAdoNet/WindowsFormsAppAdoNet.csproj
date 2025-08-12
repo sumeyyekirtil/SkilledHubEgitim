@@ -48,11 +48,12 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="CategoryDal.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="UrunYonetimi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include=".Designer.cs">
+      <DependentUpon>UrunYonetimi.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Kategoriler.cs">
       <SubType>Form</SubType>
@@ -65,8 +66,8 @@
     <Compile Include="ProductDal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="UrunYonetimi.resx">
+      <DependentUpon>UrunYonetimi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kategoriler.resx">
       <DependentUpon>Kategoriler.cs</DependentUpon>

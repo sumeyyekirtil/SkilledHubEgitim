@@ -7,9 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//camelCase e göre isimlendirme yapıyoruz.
+//solution - project - sağ tık - set a startup project : buradan çalıştır 
 
+//Veritabanı işlemleri nasıl çalıştığı konu alındı
+//form :start position : center screen
+//textbox : txtAra
+//button : btnAra
+//datagridview : dgvUrunListesi
+//groupbox :
+//4 label
+//textbox : txtUrunAdi
+//textbox : txtUrunFiyati
+//textbox : txtStokMiktari
+//checkbox : cbDurum
+//button : btnEkle
+//form name : Ürün Yönetimi
+
+//groupbox dan alınan verileri kullanabilmek için bir class a ihtiyacımız var : add-class : product
+
+/*sql management - database -add new db - add new table - product (ürün) table - columnları oluşturuyoruz 
+product - edit top 200 rows - ürünleri ekle
+*/
+//Veri işlemleri için add - class : OrtakDAL --using System.Data; //veri işlemleri için gerekli kütüphane --using System.Data.SqlClient; //ADO.NET kütüphaneleri ekle
+//ürün takibi için (ortak metotları ortak class a al) add - class : Productdal using System; using System.Collections.Generic; using System.Data; //vt işlemleri için using System.Data.SqlClient; //ADO.NET kütüphaneleri (ortak metotları ortak class a al)
 namespace WindowsFormsAppAdoNet
 {
+	//toolbox ları çoğaltmak için ctrl ile çekip bırakabiliriz.
 	public partial class Form1 : Form
 	{
 		public Form1()
@@ -18,8 +42,8 @@ namespace WindowsFormsAppAdoNet
 		}
 		ProductDal productDal = new ProductDal(); //ProductDal nesnesi oluşturduk
 		private void Form1_Load(object sender, EventArgs e)
-		{
-			//dgvUrunListesi.DataSource = productDal.GetAll(); //productDal nesnesi içerisinde yazdığımız GetAll() metodundan gelen ürün listesini çek ve ekrandaki dgvUrunListesi ne veri kaynağı olarak yolla.
+		{ //sql e bağlanıp işlem yaptırma : form load
+			dgvUrunListesi.DataSource = productDal.GetAll(); //productDal nesnesi içerisinde yazdığımız GetAll() metodundan gelen ürün listesini çek ve ekrandaki dgvUrunListesi ne veri kaynağı olarak yolla.
 			
 			//ikinci yöntem dgv yazdırma
 			dgvUrunListesi.DataSource = productDal.GetDataTable("select * from Urunler"); //dt ile getir
