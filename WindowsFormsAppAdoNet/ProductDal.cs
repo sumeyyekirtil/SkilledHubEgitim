@@ -81,6 +81,7 @@ namespace WindowsFormsAppAdoNet
 			int sonuc = 0;
 			ConnectionKontrol();
 			SqlCommand command = new SqlCommand("Update Urunler set UrunAdi=@UAdi, UrunFiyati=@UrunFiyati, StokMiktari=@StokMiktari, Durum=@Durum where Id=@id", _connection); //tüm column lar gelecekse eklemeyedebiliriz
+			//bütün kayıtları değil bir kaydı güncellemesi için WHERE şartı kullanılır (id ye göre güncelle)
 			command.Parameters.AddWithValue("@UAdi", product.UrunAdi); //addWithValue metodu 2 değişken alır parametre aracılığıyla ekrana yolluyoruz (sqlInjection ile saldırıyı önlemiş oluyoruz)
 			command.Parameters.AddWithValue("@UrunFiyati", product.UrunFiyati);
 			command.Parameters.AddWithValue("@StokMiktari", product.StokMiktari);
@@ -98,6 +99,7 @@ namespace WindowsFormsAppAdoNet
 			int sonuc = 0;
 			ConnectionKontrol();
 			SqlCommand command = new SqlCommand("Delete From Urunler where Id=@id", _connection);
+
 			command.Parameters.AddWithValue("@id", id);
 			sonuc = command.ExecuteNonQuery(); //add metodu geriye değer olarak 0 dan büyük değer döndürürse işlem başarılı olup çıkış yaptırır
 			command.Dispose();

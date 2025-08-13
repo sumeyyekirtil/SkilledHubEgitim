@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 //camelCase e göre isimlendirme yapıyoruz.
-//solution - project - sağ tık - set a startup project : buradan çalıştır 
+//solution - project - sağ tık - set a startup project : buradan çalıştır
+//desing için buton kodlarını göndermek için önce productdal da metot tanımlaması yapıyoruz(sql sorgusu ile) sonra buton içine kod tanımlıyoruz.
 
 //Veritabanı işlemleri nasıl çalıştığı konu alındı
 //form :start position : center screen
 //textbox : txtAra
 //button : btnAra
-//datagridview : dgvUrunListesi
+//datagridview : dgvUrunListesi - property - autosizecolumn(fill) 
 //groupbox :
 //4 label
 //textbox : txtUrunAdi
@@ -51,10 +52,10 @@ namespace WindowsFormsAppAdoNet
 
 		private void btnEkle_Click(object sender, EventArgs e)
 		{
-			//hata alınca çökmemesi için
+			//hata alınca çökmemesi için try-catch
 			try
 			{
-				//ürün nesnesini de bu alana alınması gerekli
+				//ürün nesnesinin de bu alana alınması gerekli
 				var urun = new Product
 				{
 					UrunAdi = txtUrunAdi.Text,
@@ -69,7 +70,7 @@ namespace WindowsFormsAppAdoNet
 					dgvUrunListesi.DataSource = productDal.GetAll(); //ekrandaki dgv tekrar yüklüyoruz yoksa ekranda gözükmez!
 					MessageBox.Show("Kayıt Başarılı!");
 				}
-				else
+				else //kayıt başarısızsa
 				{
 					MessageBox.Show("Kayıt Başarısız! Lütfen Tüm Alanları Doldurunuz!");
 				}
@@ -80,7 +81,7 @@ namespace WindowsFormsAppAdoNet
 			}
 		}
 
-		//dgv properties de şimşek ile click eventine gidip cellclick eventi oluşturuldu
+		//dgv properties de şimşek ile click eventine gidip çift tık cellclick eventi oluşturuldu (hücre : cell)
 		private void dgvUrunListesi_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
 			//0. index ıd olduğu için 1 den başlatıldı
@@ -98,7 +99,7 @@ namespace WindowsFormsAppAdoNet
 		{
 			try
 			{
-				//ürün nesnesini de bu alana alınması gerekli
+				//btnEkle deki aynı try-catch
 				var urun = new Product
 				{
 					Id = (int)dgvUrunListesi.CurrentRow.Cells[0].Value,
@@ -108,7 +109,7 @@ namespace WindowsFormsAppAdoNet
 					Durum = cbDurum.Checked
 				};
 				//bu kısmı try a aldık
-				int sonuc = productDal.Update(urun);
+				int sonuc = productDal.Update(urun); //update komutu değişiyor.
 				if (sonuc > 0)
 				{
 					dgvUrunListesi.DataSource = productDal.GetAll(); //ekrandaki dgv tekrar yüklüyoruz yoksa ekranda gözükmez!
@@ -130,7 +131,7 @@ namespace WindowsFormsAppAdoNet
 
 		private void btnSil_Click(object sender, EventArgs e)
 		{
-			if(MessageBox.Show("Kaydı silmek istiyor musunuz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			if (MessageBox.Show("Kaydı silmek istiyor musunuz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				try
 				{

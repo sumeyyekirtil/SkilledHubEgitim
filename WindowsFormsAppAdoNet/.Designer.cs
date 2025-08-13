@@ -32,6 +32,8 @@
 			this.txtAra = new System.Windows.Forms.TextBox();
 			this.btnAra = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.btnSil = new System.Windows.Forms.Button();
+			this.btnGüncelle = new System.Windows.Forms.Button();
 			this.btnEkle = new System.Windows.Forms.Button();
 			this.cbDurum = new System.Windows.Forms.CheckBox();
 			this.txtStokMiktari = new System.Windows.Forms.TextBox();
@@ -41,8 +43,6 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
-			this.btnGüncelle = new System.Windows.Forms.Button();
-			this.btnSil = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dgvUrunListesi)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
@@ -94,6 +94,29 @@
 			this.groupBox1.TabIndex = 3;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Ürün Bilgileri";
+			// 
+			// btnSil
+			// 
+			this.btnSil.BackColor = System.Drawing.Color.Gold;
+			this.btnSil.Enabled = false;
+			this.btnSil.Location = new System.Drawing.Point(222, 175);
+			this.btnSil.Name = "btnSil";
+			this.btnSil.Size = new System.Drawing.Size(63, 37);
+			this.btnSil.TabIndex = 10;
+			this.btnSil.Text = "Sil";
+			this.btnSil.UseVisualStyleBackColor = false;
+			this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
+			// 
+			// btnGüncelle
+			// 
+			this.btnGüncelle.Enabled = false;
+			this.btnGüncelle.Location = new System.Drawing.Point(121, 175);
+			this.btnGüncelle.Name = "btnGüncelle";
+			this.btnGüncelle.Size = new System.Drawing.Size(95, 37);
+			this.btnGüncelle.TabIndex = 10;
+			this.btnGüncelle.Text = "Güncelle";
+			this.btnGüncelle.UseVisualStyleBackColor = true;
+			this.btnGüncelle.Click += new System.EventHandler(this.btnGüncelle_Click);
 			// 
 			// btnEkle
 			// 
@@ -171,29 +194,6 @@
 			this.label1.Size = new System.Drawing.Size(58, 16);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Ürün Adı";
-			// 
-			// btnGüncelle
-			// 
-			this.btnGüncelle.Enabled = false;
-			this.btnGüncelle.Location = new System.Drawing.Point(121, 175);
-			this.btnGüncelle.Name = "btnGüncelle";
-			this.btnGüncelle.Size = new System.Drawing.Size(95, 37);
-			this.btnGüncelle.TabIndex = 10;
-			this.btnGüncelle.Text = "Güncelle";
-			this.btnGüncelle.UseVisualStyleBackColor = true;
-			this.btnGüncelle.Click += new System.EventHandler(this.btnGüncelle_Click);
-			// 
-			// btnSil
-			// 
-			this.btnSil.BackColor = System.Drawing.Color.Gold;
-			this.btnSil.Enabled = false;
-			this.btnSil.Location = new System.Drawing.Point(222, 175);
-			this.btnSil.Name = "btnSil";
-			this.btnSil.Size = new System.Drawing.Size(63, 37);
-			this.btnSil.TabIndex = 10;
-			this.btnSil.Text = "Sil";
-			this.btnSil.UseVisualStyleBackColor = false;
-			this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
 			// 
 			// Form1
 			// 
