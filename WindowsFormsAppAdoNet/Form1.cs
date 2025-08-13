@@ -14,7 +14,7 @@ using System.Windows.Forms;
 //Veritabanı işlemleri nasıl çalıştığı konu alındı
 //form :start position : center screen
 //textbox : txtAra
-//button : btnAra
+//button : btnAra - property - enabled(true) - (sayfa açılışında aktif olmasını istemiyorsak seçilir.) - (seçiliyse işlem detayı için nuton click lerin içine enabled özelliklerini sonrası için false yapmalıyız)
 //datagridview : dgvUrunListesi - property - autosizecolumn(fill) 
 //groupbox :
 //4 label
@@ -50,6 +50,7 @@ namespace WindowsFormsAppAdoNet
 			dgvUrunListesi.DataSource = productDal.GetDataTable("select * from Urunler"); //dt ile getir
 		}
 
+		//buton içini boşaltma işlemi()
 		private void btnEkle_Click(object sender, EventArgs e)
 		{
 			//hata alınca çökmemesi için try-catch
