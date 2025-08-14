@@ -1,0 +1,23 @@
+﻿{//proje çalışması için bazı bağlantılar default yüklü
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "http": { //güvensiz bağlantıda çalışacağı isim / local
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:5020",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "https": { //güvenli bağlantıda çalışacağı isim / localhost
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7086;http://localhost:5020",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development" //geliştirici kısmı / production / test /
+      }
+    }
+  }
+}
