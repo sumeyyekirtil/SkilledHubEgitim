@@ -11,7 +11,6 @@ using System.Windows.Forms;
 //CTRL ile tool copy-paste yapılabilir. (Değiştirilen propertyler de aynen geçer!)
 //!!!Oluşturulmaması gerek bir click özelliği oluşturulursa ctrl+z, olmuyorsa kod kısmından silip design lısmındaki go to line ile gösterilen click satırı silinirse işlem geri alınmış olur!
 
-//
 namespace WindowsForms
 {//groupbox: ekrandaki componentleri gruplamak için kullanılır. Property text-name bilgisi değiştirilir.
  //label larda yazan detaya göre kullanıcı bilgi girer.

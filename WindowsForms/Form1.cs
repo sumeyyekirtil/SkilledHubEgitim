@@ -23,7 +23,7 @@ namespace WindowsForms
 //textbox: içine değer yazdırır klavyeden, property-name isim verilir her isim benzersiz olmalı
 {
 	public partial class Form1 : Form
-	{ //proje .alışmaya devam ettiği sürece herhangi bir değişiklik yapılamaz
+	{ //proje çalışmaya devam ettiği sürece herhangi bir değişiklik yapılamaz
 		public Form1()
 		{
 			InitializeComponent();
@@ -44,7 +44,7 @@ namespace WindowsForms
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			//this.Close(); //formu kapat
+		    this.Close(); //formu kapat
 			Application.Exit(); //uygulamayı kapat
 		}
 

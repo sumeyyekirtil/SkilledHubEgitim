@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 //KULLANICIYA MESAJ VERDİRME!
 namespace WindowsForms
-{//form-sağ click-property startposition: centerscreen ayarlandı
+{//form-sağ click-property start position: centerscreen ayarlandı
 	public partial class Form4 : Form
 	{
 		public Form4()

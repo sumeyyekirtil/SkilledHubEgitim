@@ -14,7 +14,7 @@ namespace WindowsForms
 {
 	public partial class Form2 : Form //miras alındı
 	{
-		public Form2() //constructor
+		public Form2() //constructor : yapıcı metot
 		{
 			InitializeComponent();
 		}

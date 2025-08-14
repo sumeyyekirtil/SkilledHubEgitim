@@ -40,7 +40,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.BackColor = System.Drawing.Color.Lime;
+			this.label1.BackColor = System.Drawing.Color.LightSalmon;
 			this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
 			this.label1.ForeColor = System.Drawing.Color.DarkGreen;
 			this.label1.Location = new System.Drawing.Point(91, 125);
