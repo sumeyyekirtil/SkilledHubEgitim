@@ -1,4 +1,4 @@
-﻿using ClassLibrary1; //class library sınıfı açıp projeye ekledik
+﻿using ClassLibrary1; //class library sınıfı açıp projeye dependencies ile ekledik
 
 namespace Konu17HataYonetimi
 {
@@ -28,7 +28,7 @@ namespace Konu17HataYonetimi
 			finally //zorunlu değil (try a da girse catkh de girse sonuçta ne yapayım işlemi)
 			{
 				Console.WriteLine();
-				Console.WriteLine("try-catch bloğından sonra her seferinde çalışmasını istediğimiz bir işlem varsa bu blokta çalıştırabilirz. Kullanımı zorunlu değil!");
+				Console.WriteLine("try-catch bloğından sonra her seferinde çalışmasını istediğimiz bir işlem varsa bu blokta çalıştırabiliriz. Kullanımı zorunlu değil!");
 				Console.WriteLine();
 				Console.WriteLine("Bir Sayı Giriniz: ");
 				var sayi2 = Console.ReadLine();
