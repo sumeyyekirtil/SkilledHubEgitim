@@ -164,7 +164,7 @@
 			this.groupBox2.Controls.Add(this.label3);
 			this.groupBox2.Location = new System.Drawing.Point(269, 30);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(613, 129);
+			this.groupBox2.Size = new System.Drawing.Size(607, 129);
 			this.groupBox2.TabIndex = 1;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Ürün Girişi";
@@ -294,39 +294,39 @@
             "Kararsızım"});
 			this.checkedListBox1.Location = new System.Drawing.Point(44, 199);
 			this.checkedListBox1.Name = "checkedListBox1";
-			this.checkedListBox1.Size = new System.Drawing.Size(219, 55);
+			this.checkedListBox1.Size = new System.Drawing.Size(249, 55);
 			this.checkedListBox1.TabIndex = 2;
 			// 
 			// dateTimePicker1
 			// 
-			this.dateTimePicker1.Location = new System.Drawing.Point(44, 275);
+			this.dateTimePicker1.Location = new System.Drawing.Point(44, 278);
 			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+			this.dateTimePicker1.Size = new System.Drawing.Size(249, 22);
 			this.dateTimePicker1.TabIndex = 3;
 			// 
 			// dgvUrunler
 			// 
 			this.dgvUrunler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvUrunler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvUrunler.Location = new System.Drawing.Point(642, 185);
+			this.dgvUrunler.Location = new System.Drawing.Point(759, 199);
 			this.dgvUrunler.Name = "dgvUrunler";
 			this.dgvUrunler.RowHeadersWidth = 51;
 			this.dgvUrunler.RowTemplate.Height = 24;
-			this.dgvUrunler.Size = new System.Drawing.Size(240, 327);
+			this.dgvUrunler.Size = new System.Drawing.Size(407, 327);
 			this.dgvUrunler.TabIndex = 4;
 			// 
 			// panel1
 			// 
 			this.panel1.Controls.Add(this.label9);
-			this.panel1.Location = new System.Drawing.Point(288, 199);
+			this.panel1.Location = new System.Drawing.Point(358, 199);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(160, 150);
+			this.panel1.Size = new System.Drawing.Size(195, 150);
 			this.panel1.TabIndex = 5;
 			// 
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(40, 39);
+			this.label9.Location = new System.Drawing.Point(55, 39);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(81, 16);
 			this.label9.TabIndex = 14;
@@ -341,7 +341,7 @@
             "Bilgisayar",
             "Telefon",
             "Televizyon"});
-			this.listBox1.Location = new System.Drawing.Point(469, 199);
+			this.listBox1.Location = new System.Drawing.Point(588, 199);
 			this.listBox1.Name = "listBox1";
 			this.listBox1.Size = new System.Drawing.Size(149, 148);
 			this.listBox1.TabIndex = 6;
@@ -349,7 +349,7 @@
 			// linkLabel1
 			// 
 			this.linkLabel1.AutoSize = true;
-			this.linkLabel1.Location = new System.Drawing.Point(41, 320);
+			this.linkLabel1.Location = new System.Drawing.Point(41, 316);
 			this.linkLabel1.Name = "linkLabel1";
 			this.linkLabel1.Size = new System.Drawing.Size(68, 16);
 			this.linkLabel1.TabIndex = 7;
@@ -367,10 +367,10 @@
 			// 
 			// maskedTextBox1
 			// 
-			this.maskedTextBox1.Location = new System.Drawing.Point(115, 340);
+			this.maskedTextBox1.Location = new System.Drawing.Point(127, 346);
 			this.maskedTextBox1.Mask = "(999) 000-0000";
 			this.maskedTextBox1.Name = "maskedTextBox1";
-			this.maskedTextBox1.Size = new System.Drawing.Size(100, 22);
+			this.maskedTextBox1.Size = new System.Drawing.Size(117, 22);
 			this.maskedTextBox1.TabIndex = 9;
 			// 
 			// tabControl1
@@ -381,7 +381,7 @@
 			this.tabControl1.Location = new System.Drawing.Point(40, 412);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(330, 100);
+			this.tabControl1.Size = new System.Drawing.Size(358, 114);
 			this.tabControl1.TabIndex = 10;
 			// 
 			// tabPage2
@@ -390,7 +390,7 @@
 			this.tabPage2.Location = new System.Drawing.Point(4, 25);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(322, 71);
+			this.tabPage2.Size = new System.Drawing.Size(350, 85);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Ürün Yorumları";
 			this.tabPage2.UseVisualStyleBackColor = true;
@@ -398,7 +398,7 @@
 			// label11
 			// 
 			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(132, 27);
+			this.label11.Location = new System.Drawing.Point(125, 25);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(58, 16);
 			this.label11.TabIndex = 3;
@@ -445,7 +445,7 @@
 			// 
 			// treeView1
 			// 
-			this.treeView1.Location = new System.Drawing.Point(376, 355);
+			this.treeView1.Location = new System.Drawing.Point(432, 369);
 			this.treeView1.Name = "treeView1";
 			treeNode1.Name = "Node1";
 			treeNode1.Text = "Televizyon";
@@ -470,9 +470,9 @@
 			// pictureBox1
 			// 
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(518, 366);
+			this.pictureBox1.Location = new System.Drawing.Point(588, 380);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(100, 146);
+			this.pictureBox1.Size = new System.Drawing.Size(149, 146);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureBox1.TabIndex = 12;
 			this.pictureBox1.TabStop = false;
@@ -481,7 +481,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(935, 563);
+			this.ClientSize = new System.Drawing.Size(1178, 563);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.treeView1);
 			this.Controls.Add(this.tabControl1);

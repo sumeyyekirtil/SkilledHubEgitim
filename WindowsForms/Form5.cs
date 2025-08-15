@@ -27,14 +27,14 @@ namespace WindowsForms
  //panel: içine label ekleyip yazı gösterebiliriz.
  //listbox: combobox ın açık hali. edit items ile satır seçeneklerini doldurabiliriz.
  //linklabel: buton yerine metin şeklinde link oluşturmaya yarar.
- //maskedtextbox: smart tag - set mask seçeneğinden format biçimini seçebiliriz. (maske ayarlandı)
- //radiobutton: işaretleme butonu !işaretlemeden sonra geri alınamaz-ekranı komple kapatılması lazım! (cookie lerde kullanılabilir.)
+ //maskedtextbox: smart tag - set mask seçeneğinden format biçimini seçebiliriz. (maske ayarlandı, tel-tarih gösterme biçimi)
+ //radiobutton: işaretleme butonu !işaretlemeden sonra geri alınamaz - ekranı komple kapatılması lazım! (cookie lerde kullanılabilir.)
  //tabcontrol: tab sistemi aktif ediyor (tab1-property : collections dan başlık değiştirebiliriz.)
- //tablcontrol içine label vs eklenebilir.
- //treeview: add root ile ana başlık add child ile başlık altına alt menü ekleyip ağaç formasyonu gösterim sağlar
- //treeview-smart tag: edit nodes ile add root ile menü eklenebilir.
- //picturebox:resim gösterme kutusu
- //picturebox- smart tag: choose ımage ile proje/local source den herhangi bir resim seçip import ile gösterim sağlar
+ //tabcontrol içine label vs eklenebilir.
+ //treeview: add root ile ana başlık, add child ile başlık altına alt menü ekleyip ağaç formasyonu gösterim sağlar
+ //treeview - smart tag: edit nodes ile add root ile menü eklenebilir.
+ //picturebox: resim gösterme kutusu
+ //picturebox - smart tag: choose ımage ile proje/local source den herhangi bir resim seçip import ile gösterim sağlar
  //size mode : zoom özelliği (veya farklı özellikleri) kullanılarak resim bozulmadan sergilenmiş olur.
 	public partial class Form5 : Form
 	{
@@ -74,7 +74,7 @@ namespace WindowsForms
 			//datagridview e kayıt ekleme
 			dgvUrunler.ColumnCount = 3; //kaç kolon veri ekleyeceğimizi ayarladık.
 			
-			//veri listesinim üst satırındaki başlıkları ayarlıyoruz.
+			//veri listesinin üst satırındaki başlıkları ayarlıyoruz.
 			dgvUrunler.Columns[0].Name = "Kategorisi";
 			dgvUrunler.Columns[1].Name = "Ürün Adı";
 			dgvUrunler.Columns[2].Name = "Fiyatı";
