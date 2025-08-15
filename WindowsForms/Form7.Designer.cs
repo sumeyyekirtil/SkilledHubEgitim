@@ -54,7 +54,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(33, 93);
+			this.label1.Location = new System.Drawing.Point(30, 254);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(34, 16);
 			this.label1.TabIndex = 2;
@@ -62,14 +62,14 @@
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(133, 90);
+			this.textBox1.Location = new System.Drawing.Point(114, 251);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(100, 22);
 			this.textBox1.TabIndex = 3;
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(274, 86);
+			this.button1.Location = new System.Drawing.Point(283, 249);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(75, 26);
 			this.button1.TabIndex = 4;
@@ -79,7 +79,7 @@
 			// 
 			// progressBar1
 			// 
-			this.progressBar1.Location = new System.Drawing.Point(33, 143);
+			this.progressBar1.Location = new System.Drawing.Point(33, 334);
 			this.progressBar1.Name = "progressBar1";
 			this.progressBar1.Size = new System.Drawing.Size(441, 23);
 			this.progressBar1.TabIndex = 5;

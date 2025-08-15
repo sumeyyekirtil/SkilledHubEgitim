@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//MENUSTRIP - CONTEXTMENUSTRIP - RICHTEXTBOX -
+//MENUSTRIP - CONTEXTMENUSTRIP - RICHTEXTBOX
 namespace WindowsForms
 {//menustrip: iç içe açılan alt menüsü olan menu sistemi yapar.
  //backend de tıklanınca gelir arkada saklı olarak kalır ilk satır hariç

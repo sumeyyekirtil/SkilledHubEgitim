@@ -30,7 +30,7 @@ namespace WindowsForms
 		{
 			if (!string.IsNullOrEmpty(textBox1.Text))
 			{//textbox boş değilse içindeki sayı kadar döndür.
-			 //imt sayi değişkeni oluşturup içindeki değeri i ye eşitledik
+			 //i sayi değişkeni oluşturup içindeki değeri i ye eşitledik
 				int sayi = Convert.ToInt32(textBox1.Text);
 				progressBar1.Maximum = sayi;
 
