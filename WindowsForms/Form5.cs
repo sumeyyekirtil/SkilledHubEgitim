@@ -8,22 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 //Property-name bilgilerinde türkçe karakter kullanılmaz!
-//CTRL ile tool copy-paste yapılabilir. (Değiştirilen propertyler de aynen geçer!)
-//!!!Oluşturulmaması gerek bir click özelliği oluşturulursa ctrl+z, olmuyorsa kod kısmından silip design lısmındaki go to line ile gösterilen click satırı silinirse işlem geri alınmış olur!
+//CTRL ile tool copy-paste veya gropbox gibi tool larda ctrl+c ctrl+v yapılabilir. (Değiştirilen propertyler de aynen geçer!)
+//!!!Oluşturulmaması gerek bir click özelliği oluşturulursa ctrl+z, olmuyorsa kod kısmından silip design kısmındaki go to line ile gösterilen click satırı silinirse işlem geri alınmış olur!
 
 namespace WindowsForms
 {//groupbox: ekrandaki componentleri gruplamak için kullanılır. Property text-name bilgisi değiştirilir.
  //label larda yazan detaya göre kullanıcı bilgi girer.
  //textbox dan veriyi alırız.
  //combobox: aşağı açılır menü (property-name genellikle cb ile yazılır)
- //checkbox -dropdownlist (web-select diye geçer): T/F işaretleme ile kontrol sağlar.
+ //checkbox - dropdownlist (web-select diye geçer): T/F işaretleme ile kontrol sağlar.
  //checkbox-küçük ok (smart tag): edit items ile satır değerleri(collections) girilebilir.
  //richtextbox: zengin metin yazıcı, textboxdan daha geniş ve çok karakter gösterir.
  //checkedlistbox: çoklu işaretleme seçeneği (sözleşme kabulleri gibi)
  //checkedlistbox - smart tag:edit items ile seçenek girilebilir.
- //datetimepicker: tarih seçici component
+ //datetimepicker: tarih seçtirici component
  //datagridview: veri gösterimi için kullanılan alan (vt dan veri gösterimi için de kullanılır).
- //datagridview kolonu boyutunu doldurması için : property-columnautosizemode -> fill seçeneği ile yapılır. 
+ //datagridview kolonu boyutunu doldurması için : property - columnautosizemode -> fill seçeneği ile yapılır. 
  //panel: içine label ekleyip yazı gösterebiliriz.
  //listbox: combobox ın açık hali. edit items ile satır seçeneklerini doldurabiliriz.
  //linklabel: buton yerine metin şeklinde link oluşturmaya yarar.
