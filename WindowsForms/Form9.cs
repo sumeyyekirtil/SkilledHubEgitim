@@ -13,7 +13,7 @@ namespace WindowsForms
 {//label
  //button
  //picturebox: resim seçme kutusu
- //StretchImage-picturebox ın metodu içine sığdırmak için kullanılır. (resmin okunurluğunu bozar)
+ //StretchImage - picturebox ın metodu içine sığdırmak için kullanılır. (resmin okunurluğunu bozar)
  //openfiledialog: Kullanıcıdan bir dosyayı açmasını isteyen standart bir iletişim kutusu görüntüler.
 	public partial class Form9 : Form
 	{
@@ -31,7 +31,7 @@ namespace WindowsForms
 			{
 				pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;//seçilen resmi pictureBox1 kontrolüne sığdır
 				pictureBox1.Image = Image.FromFile(openFileDialog1.FileName); //seçilen resmi yükle
-				label1.Text = openFileDialog1.FileName; //label1 e seçilen remin adını yazdır
+				label1.Text = openFileDialog1.FileName; //label1 e seçilen resmin yolunu yazdır
 			}
 		}
 	}

@@ -121,7 +121,7 @@
 			// textBox1
 			// 
 			this.textBox1.ContextMenuStrip = this.contextMenuStrip1;
-			this.textBox1.Location = new System.Drawing.Point(101, 106);
+			this.textBox1.Location = new System.Drawing.Point(96, 134);
 			this.textBox1.Multiline = true;
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(353, 152);

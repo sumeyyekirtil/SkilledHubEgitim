@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 //MENUSTRIP - CONTEXTMENUSTRIP - RICHTEXTBOX
 namespace WindowsForms
-{//menustrip: iç içe açılan alt menüsü olan menu sistemi yapar.
+{//menustrip: iç içe açılan alt menüsü olan menü sistemi yapar.
  //backend de tıklanınca gelir arkada saklı olarak kalır ilk satır hariç
  //richtextbox: smart tag - multiline işaretlendi
- //contextmenustrip: Açılır menü,üstüne tıklanmadan backend de görülmez.
- //contextmenustrip-property: contextmenustrip none değil strip olanı işaretliyoruz.
+ //contextmenustrip: Açılır menü, üstüne tıklanmadan backend de görülmez.
+ //contextmenustrip - property: contextmenustrip none değil strip olanı işaretliyoruz.
  //Contextmenü tıklandığında işlem yaptırabilmek için istediğimiz butonu çift click - eventi oluşturup
 	public partial class Form8 : Form
 	{
