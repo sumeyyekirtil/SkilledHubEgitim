@@ -12,6 +12,7 @@ namespace WindowsFormsAppAdoNet
 			var products = new List<Product>(); //boş nesne oluşturuldu, listeyi vt çekerek dolduracağız
 
 			ConnectionKontrol(); //güvenlik nedeniyle kapalı gelir kullandıktan sonra kapatmamız gerekiyor.
+			//açılmasını sağlamak için ortakDAL da _connection = open kullanılır
 
 			//sqlkomutu:
 			SqlCommand cmd = new SqlCommand("select * from Urunler", _connection); //sql de çalışan veri komutunu string olarak buraya yazıyoruz
@@ -39,7 +40,7 @@ namespace WindowsFormsAppAdoNet
 			return products; //geriye dönüş değeri
 		}
 
-		//ikinci bağlantı-veri çekme yöntemi
+		//**ikinci bağlantı-veri çekme yöntemi**
 		public DataTable GetDataTable() 
 		{
 			DataTable dt = new DataTable();
