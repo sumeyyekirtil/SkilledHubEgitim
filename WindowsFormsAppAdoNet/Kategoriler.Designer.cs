@@ -69,7 +69,7 @@
 			this.groupBox1.Controls.Add(this.txtKategoriAdi);
 			this.groupBox1.Location = new System.Drawing.Point(518, 12);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(290, 426);
+			this.groupBox1.Size = new System.Drawing.Size(304, 426);
 			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Kategori Bilgileri";
@@ -79,7 +79,7 @@
 			this.btnSil.BackColor = System.Drawing.Color.Tomato;
 			this.btnSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
 			this.btnSil.ForeColor = System.Drawing.SystemColors.MenuBar;
-			this.btnSil.Location = new System.Drawing.Point(189, 351);
+			this.btnSil.Location = new System.Drawing.Point(203, 363);
 			this.btnSil.Name = "btnSil";
 			this.btnSil.Size = new System.Drawing.Size(75, 45);
 			this.btnSil.TabIndex = 10;
@@ -91,9 +91,9 @@
 			// 
 			this.btnGuncelle.BackColor = System.Drawing.Color.Yellow;
 			this.btnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-			this.btnGuncelle.Location = new System.Drawing.Point(109, 351);
+			this.btnGuncelle.Location = new System.Drawing.Point(109, 364);
 			this.btnGuncelle.Name = "btnGuncelle";
-			this.btnGuncelle.Size = new System.Drawing.Size(75, 45);
+			this.btnGuncelle.Size = new System.Drawing.Size(88, 45);
 			this.btnGuncelle.TabIndex = 9;
 			this.btnGuncelle.Text = "Güncelle";
 			this.btnGuncelle.UseVisualStyleBackColor = false;
@@ -104,7 +104,7 @@
 			this.btnEkle.BackColor = System.Drawing.Color.Lime;
 			this.btnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
 			this.btnEkle.ForeColor = System.Drawing.SystemColors.Desktop;
-			this.btnEkle.Location = new System.Drawing.Point(28, 351);
+			this.btnEkle.Location = new System.Drawing.Point(28, 363);
 			this.btnEkle.Name = "btnEkle";
 			this.btnEkle.Size = new System.Drawing.Size(75, 45);
 			this.btnEkle.TabIndex = 8;
@@ -116,14 +116,14 @@
 			// 
 			this.txtKategoriAciklamasi.Location = new System.Drawing.Point(28, 136);
 			this.txtKategoriAciklamasi.Name = "txtKategoriAciklamasi";
-			this.txtKategoriAciklamasi.Size = new System.Drawing.Size(236, 209);
+			this.txtKategoriAciklamasi.Size = new System.Drawing.Size(250, 209);
 			this.txtKategoriAciklamasi.TabIndex = 7;
 			this.txtKategoriAciklamasi.Text = "";
 			// 
 			// cbDurum
 			// 
 			this.cbDurum.AutoSize = true;
-			this.cbDurum.Location = new System.Drawing.Point(164, 62);
+			this.cbDurum.Location = new System.Drawing.Point(178, 61);
 			this.cbDurum.Name = "cbDurum";
 			this.cbDurum.Size = new System.Drawing.Size(68, 20);
 			this.cbDurum.TabIndex = 6;
@@ -159,7 +159,7 @@
 			// 
 			// txtKategoriAdi
 			// 
-			this.txtKategoriAdi.Location = new System.Drawing.Point(164, 19);
+			this.txtKategoriAdi.Location = new System.Drawing.Point(178, 19);
 			this.txtKategoriAdi.Name = "txtKategoriAdi";
 			this.txtKategoriAdi.Size = new System.Drawing.Size(100, 22);
 			this.txtKategoriAdi.TabIndex = 0;
@@ -169,7 +169,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlLight;
-			this.ClientSize = new System.Drawing.Size(820, 450);
+			this.ClientSize = new System.Drawing.Size(834, 450);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.dgvKategoriler);
 			this.Name = "Kategoriler";

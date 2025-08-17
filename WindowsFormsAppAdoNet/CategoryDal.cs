@@ -14,7 +14,7 @@ namespace WindowsFormsAppAdoNet
 			SqlCommand command = new SqlCommand("Insert into Kategoriler (Name, Description, CreateDate, Durum) values (@Name, @Description, @CreateDate, @Durum)", _connection); //tüm column lar gelecekse eklemeyedebiliriz
 			command.Parameters.AddWithValue("@Name", category.Name); //addWithValue metodu 2 değişken alır parametre aracılığıyla ekrana yolluyoruz (sqlInjection ile saldırıyı önlemiş oluyoruz)
 			command.Parameters.AddWithValue("@Description", category.Description);
-			command.Parameters.AddWithValue("@CreatDate", category.CreateDate);
+			command.Parameters.AddWithValue("@CreateDate", category.CreateDate);
 			command.Parameters.AddWithValue("@Durum", category.Durum);
 			sonuc = command.ExecuteNonQuery(); //add metodu geriye değer olarak 0 dan büyük değer döndürürse işlem başarılı olup çıkış yaptırır
 			command.Dispose();
@@ -26,7 +26,7 @@ namespace WindowsFormsAppAdoNet
 		{
 			int sonuc = 0;
 			ConnectionKontrol();
-			SqlCommand command = new SqlCommand("Update Kategoriler (NameName=@, Description=@Description, CreateDate=@CreateDate, Durum=@Durum) where Id=@KatId", _connection); //tüm column lar gelecekse eklemeyedebiliriz
+			SqlCommand command = new SqlCommand("Update Kategoriler set Name=@Name, Description=@Description, CreateDate=@CreateDate, Durum=@Durum where Id=@KatId", _connection); //tüm column lar gelecekse eklemeyedebiliriz
 			command.Parameters.AddWithValue("@Name", category.Name); //addWithValue metodu 2 değişken alır parametre aracılığıyla ekrana yolluyoruz (sqlInjection ile saldırıyı önlemiş oluyoruz)
 			command.Parameters.AddWithValue("@Description", category.Description);
 			command.Parameters.AddWithValue("@CreateDate", category.CreateDate);
@@ -42,13 +42,19 @@ namespace WindowsFormsAppAdoNet
 		{//id ye göre güncelle(hepsini değil)
 			int sonuc = 0;
 			ConnectionKontrol();
+
 			SqlCommand command = new SqlCommand("Delete From Kategoriler where Id=@id", _connection);
-			command.Parameters.AddWithValue("@Id", id);
+
+			command.Parameters.AddWithValue("@id", id);
+
 			sonuc = command.ExecuteNonQuery(); //add metodu geriye değer olarak 0 dan büyük değer döndürürse işlem başarılı olup çıkış yaptırır
+
 			command.Dispose();
 			_connection.Close();
+
 			return sonuc;
 		}
+
 		public Category Find(int id)
 		{//id ye göre güncelle(hepsini değil)
 

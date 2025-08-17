@@ -29,7 +29,7 @@ namespace WindowsFormsAppAdoNet
 			{
 				var kategori = new Category()
 				{
-					Name =txtKategoriAdi.Text,
+					Name = txtKategoriAdi.Text,
 					Description = txtKategoriAciklamasi.Text,
 					CreateDate = DateTime.Now,
 					Durum = cbDurum.Checked
@@ -37,13 +37,19 @@ namespace WindowsFormsAppAdoNet
 				var sonuc = categoryDal.Add(kategori);
 				if (sonuc > 0)
 				{
-					dgvKategoriler.DataSource = categoryDal.GetDataTable("select * from Kategoriler");
+					dgvKategoriler.DataSource = categoryDal.GetDataTable("Select * from Kategoriler");
+
+					//ekledikten sonra textbox ları boşalt
+					txtKategoriAdi.Clear();
+					txtKategoriAciklamasi.Clear();
+					cbDurum.Checked = false;
+
 					MessageBox.Show("Kayıt Başarılı!");
 				}
 			}
-			catch (Exception)
+			catch (Exception hata)
 			{
-				MessageBox.Show("Hata Oluştu!");
+				MessageBox.Show("Hata Oluştu!" + hata);
 			}
 		}
 
@@ -74,30 +80,52 @@ namespace WindowsFormsAppAdoNet
 				if (sonuc > 0)
 				{
 					dgvKategoriler.DataSource = categoryDal.GetDataTable("select * from Kategoriler");
+
+					//güncelledikten sonra textbox ları boşalt
+					txtKategoriAdi.Clear();
+					txtKategoriAciklamasi.Clear();
+					cbDurum.Checked = false;
+
 					btnEkle.Enabled = true;
 					btnGuncelle.Enabled = false;
 					btnSil.Enabled = false;
+
 					MessageBox.Show("Kayıt Başarılı!");
 				}
 			}
 			catch (Exception hata)
 			{
-				MessageBox.Show("Hata Oluştu!" + hata.Message);
+				MessageBox.Show("Hata Oluştu!" + hata);
 			}
 		}
 
 		private void btnSil_Click(object sender, EventArgs e)
 		{
-			try
+			if (MessageBox.Show("Kaydı silmek istiyor musunuz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
-				//int sonuc = categoryDal.Delete(int)dgvKategoriler.CurrentRow(Select * from Kategoriler);
+				try
 				{
-					//dgvKategoriler.DataSource
-				};
-			}
-			catch (Exception hata)
-			{
-				MessageBox.Show("Hata Oluştu!" + hata.Message);
+					int sonuc = categoryDal.Delete((int)dgvKategoriler.CurrentRow.Cells[0].Value); //id ulaşılan yere getirdik
+					if (sonuc > 0)
+					{
+						dgvKategoriler.DataSource = categoryDal.GetDataTable("Select * from Kategoriler");
+
+						btnEkle.Enabled = true;
+						btnGuncelle.Enabled = false;
+						btnSil.Enabled = false;
+
+						//sildikten sonra textbox ları boşalt
+						txtKategoriAdi.Clear();
+						txtKategoriAciklamasi.Clear();
+						cbDurum.Checked = false;
+
+						MessageBox.Show("Kayıt Silindi!");
+					}
+				}
+				catch (Exception hata)
+				{
+					MessageBox.Show("Hata Oluştu!" + hata);
+				}
 			}
 		}
 	}

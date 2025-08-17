@@ -59,7 +59,8 @@ namespace WindowsFormsAppAdoNet
 
 			return dt; //GetDataTable() hatasını geriye değer döndürerek siler.
 		}
-		//ekle butonu için
+		
+		//ekle butonu için bağlantı
 		public int Add(Product product)
 		{
 			int sonuc = 0;
@@ -78,7 +79,7 @@ namespace WindowsFormsAppAdoNet
 
 		//Güncelle kısmı için bağlantı
 		public int Update(Product product)
-		{//id ye göre güncelle(hepsini değil)
+		{//id ye göre güncelle (hepsini değil)
 			int sonuc = 0;
 			ConnectionKontrol();
 			SqlCommand command = new SqlCommand("Update Urunler set UrunAdi=@UAdi, UrunFiyati=@UrunFiyati, StokMiktari=@StokMiktari, Durum=@Durum where Id=@id", _connection); //tüm column lar gelecekse eklemeyedebiliriz
@@ -91,10 +92,11 @@ namespace WindowsFormsAppAdoNet
 			sonuc = command.ExecuteNonQuery(); //add metodu geriye değer olarak 0 dan büyük değer döndürürse işlem başarılı olup çıkış yaptırır
 			command.Dispose();
 			_connection.Close();
+
 			return sonuc;
 		}
 
-		//sil için event oluşturduk
+		//sil butonu için bağlantı
 		public int Delete(int id)
 		{//id ye göre güncelle(hepsini değil)
 			int sonuc = 0;
@@ -105,7 +107,9 @@ namespace WindowsFormsAppAdoNet
 			sonuc = command.ExecuteNonQuery(); //add metodu geriye değer olarak 0 dan büyük değer döndürürse işlem başarılı olup çıkış yaptırır
 			command.Dispose();
 			_connection.Close();
+
 			return sonuc;
 		}
+	
 	}
 }
