@@ -61,22 +61,25 @@
 			// 
 			// txtAra
 			// 
-			this.txtAra.Location = new System.Drawing.Point(12, 12);
+			this.txtAra.BackColor = System.Drawing.Color.Tan;
+			this.txtAra.Location = new System.Drawing.Point(12, 6);
 			this.txtAra.Name = "txtAra";
 			this.txtAra.Size = new System.Drawing.Size(100, 22);
 			this.txtAra.TabIndex = 1;
 			// 
 			// btnAra
 			// 
-			this.btnAra.Location = new System.Drawing.Point(133, 10);
+			this.btnAra.BackColor = System.Drawing.Color.Tan;
+			this.btnAra.Location = new System.Drawing.Point(135, 6);
 			this.btnAra.Name = "btnAra";
-			this.btnAra.Size = new System.Drawing.Size(87, 26);
+			this.btnAra.Size = new System.Drawing.Size(66, 28);
 			this.btnAra.TabIndex = 2;
 			this.btnAra.Text = "Ara";
-			this.btnAra.UseVisualStyleBackColor = true;
+			this.btnAra.UseVisualStyleBackColor = false;
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.BackColor = System.Drawing.Color.Silver;
 			this.groupBox1.Controls.Add(this.btnSil);
 			this.groupBox1.Controls.Add(this.btnGüncelle);
 			this.groupBox1.Controls.Add(this.btnEkle);
@@ -199,6 +202,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.Gainsboro;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.btnAra);

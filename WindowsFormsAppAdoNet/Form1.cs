@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 //camelCase e göre isimlendirme yapıyoruz.
 //solution - project - sağ tık - set a startup project : buradan çalıştır
-//desing için buton kodlarını göndermek için önce productdal da metot tanımlaması yapıyoruz(sql sorgusu ile) sonra buton içine kod tanımlıyoruz.
+//desing için buton kodlarını göndermek için önce productdal da metot tanımlaması yapıyoruz (sql sorgusu ile) sonra buton içine kod tanımlıyoruz.
 
 //Veritabanı işlemleri nasıl çalıştığı konu alındı
 //form :start position : center screen
 //textbox : txtAra
-//button : btnAra - property - enabled(true) - (sayfa açılışında aktif olmasını istemiyorsak seçilir.) - (seçiliyse işlem detayı için nuton click lerin içine enabled özelliklerini sonrası için false yapmalıyız)
-//datagridview : dgvUrunListesi - property - autosizecolumn(fill) 
+//button : btnAra - property - enabled (true) - (sayfa açılışında aktif olmasını istemiyorsak seçilir.) - (seçiliyse işlem detayı için buton click lerin içine enabled özelliklerini sonrası için false yapmalıyız)
+//datagridview : dgvUrunListesi - property - autosizecolumn (fill) 
 //groupbox :
 //4 label
 //textbox : txtUrunAdi
@@ -26,6 +26,7 @@ using System.Windows.Forms;
 //form name : Ürün Yönetimi
 
 //groupbox dan alınan verileri kullanabilmek için bir class a ihtiyacımız var : add-class : product
+//buton işlemleri tamamlandıktan sonra textboxların içini boşalt (homework)
 
 /*sql management - database -add new db - add new table - product (ürün) table - columnları oluşturuyoruz 
 product - edit top 200 rows - ürünleri ekle
@@ -44,13 +45,12 @@ namespace WindowsFormsAppAdoNet
 		ProductDal productDal = new ProductDal(); //ProductDal nesnesi oluşturduk
 		private void Form1_Load(object sender, EventArgs e)
 		{ //sql e bağlanıp işlem yaptırma : form load
-			//dgvUrunListesi.DataSource = productDal.GetAll(); //productDal nesnesi içerisinde yazdığımız GetAll() metodundan gelen ürün listesini çek ve ekrandaki dgvUrunListesi ne veri kaynağı olarak yolla.
-			
+		  //dgvUrunListesi.DataSource = productDal.GetAll(); //productDal nesnesi içerisinde yazdığımız GetAll() metodundan gelen ürün listesini çek ve ekrandaki dgvUrunListesi ne veri kaynağı olarak yolla.
+
 			//ikinci yöntem dgv yazdırma
 			dgvUrunListesi.DataSource = productDal.GetDataTable("select * from Urunler"); //dt ile getir
 		}
 
-		//buton içini boşaltma işlemi()
 		private void btnEkle_Click(object sender, EventArgs e)
 		{
 			//hata alınca çökmemesi için try-catch
@@ -65,10 +65,17 @@ namespace WindowsFormsAppAdoNet
 					Durum = cbDurum.Checked
 				};
 				//bu kısmı try a aldık
-				int sonuc = productDal.Add(urun);
+				int sonuc = productDal.Add(urun); //ekleme komutu
 				if (sonuc > 0)
 				{
 					dgvUrunListesi.DataSource = productDal.GetAll(); //ekrandaki dgv tekrar yüklüyoruz yoksa ekranda gözükmez!
+					
+					//eklendikten sonra textbox ları boşalt
+					txtUrunAdi.Clear();
+					txtStokMiktari.Clear();
+					txtUrunFiyati.Clear();
+					txtAra.Clear();
+					cbDurum.Checked = false;
 					MessageBox.Show("Kayıt Başarılı!");
 				}
 				else //kayıt başarısızsa
@@ -78,7 +85,7 @@ namespace WindowsFormsAppAdoNet
 			}
 			catch (Exception hata)
 			{
-				MessageBox.Show("Hata Oluştu! Lütfen Tüm Alanları Doldurunuz!");
+				MessageBox.Show("Hata Oluştu! Lütfen Tüm Alanları Doldurunuz!" + hata);
 			}
 		}
 
@@ -110,23 +117,31 @@ namespace WindowsFormsAppAdoNet
 					Durum = cbDurum.Checked
 				};
 				//bu kısmı try a aldık
-				int sonuc = productDal.Update(urun); //update komutu değişiyor.
+				int sonuc = productDal.Update(urun); //güncelleme komutu
 				if (sonuc > 0)
 				{
 					dgvUrunListesi.DataSource = productDal.GetAll(); //ekrandaki dgv tekrar yüklüyoruz yoksa ekranda gözükmez!
 					btnEkle.Enabled = true;
 					btnGüncelle.Enabled = false;
 					btnSil.Enabled = false;
+					//güncellendikten sonra textbox ları boşalt
+					txtUrunAdi.Clear();
+					txtStokMiktari.Clear();
+					txtUrunFiyati.Clear();
+					txtAra.Clear();
+					cbDurum.Checked = false;
+
 					MessageBox.Show("Kayıt Başarılı!");
 				}
 				else
 				{
 					MessageBox.Show("Güncelleme Başarısız! Lütfen Tüm Alanları Doldurunuz!");
 				}
+
 			}
 			catch (Exception hata)
 			{
-				MessageBox.Show("Güncelleme Başarısız! Lütfen Tüm Alanları Doldurunuz!");
+				MessageBox.Show("Güncelleme Başarısız! Lütfen Tüm Alanları Doldurunuz!" + hata);
 			}
 		}
 
@@ -143,6 +158,13 @@ namespace WindowsFormsAppAdoNet
 						btnEkle.Enabled = true;
 						btnGüncelle.Enabled = false;
 						btnSil.Enabled = false;
+						//sildikten sonra textbox ları boşalt
+						txtUrunAdi.Clear();
+						txtStokMiktari.Clear();
+						txtUrunFiyati.Clear();
+						txtAra.Clear();
+						cbDurum.Checked = false;
+
 						MessageBox.Show("Kayıt Silindi!");
 					}
 				}
