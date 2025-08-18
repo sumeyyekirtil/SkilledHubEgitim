@@ -31,7 +31,7 @@
 			this.dgvUrunListesi = new System.Windows.Forms.DataGridView();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.btnSil = new System.Windows.Forms.Button();
-			this.btnGüncelle = new System.Windows.Forms.Button();
+			this.btnGuncelle = new System.Windows.Forms.Button();
 			this.btnEkle = new System.Windows.Forms.Button();
 			this.cbDurum = new System.Windows.Forms.CheckBox();
 			this.txtStokMiktari = new System.Windows.Forms.TextBox();
@@ -49,19 +49,20 @@
 			// 
 			// dgvUrunListesi
 			// 
+			this.dgvUrunListesi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvUrunListesi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvUrunListesi.Location = new System.Drawing.Point(36, 42);
 			this.dgvUrunListesi.Name = "dgvUrunListesi";
 			this.dgvUrunListesi.RowHeadersWidth = 51;
 			this.dgvUrunListesi.RowTemplate.Height = 24;
-			this.dgvUrunListesi.Size = new System.Drawing.Size(421, 396);
+			this.dgvUrunListesi.Size = new System.Drawing.Size(421, 382);
 			this.dgvUrunListesi.TabIndex = 0;
 			this.dgvUrunListesi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrunListesi_CellClick);
 			// 
 			// groupBox1
 			// 
 			this.groupBox1.Controls.Add(this.btnSil);
-			this.groupBox1.Controls.Add(this.btnGüncelle);
+			this.groupBox1.Controls.Add(this.btnGuncelle);
 			this.groupBox1.Controls.Add(this.btnEkle);
 			this.groupBox1.Controls.Add(this.cbDurum);
 			this.groupBox1.Controls.Add(this.txtStokMiktari);
@@ -71,16 +72,16 @@
 			this.groupBox1.Controls.Add(this.label3);
 			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Location = new System.Drawing.Point(463, 42);
+			this.groupBox1.Location = new System.Drawing.Point(477, 42);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(307, 219);
+			this.groupBox1.Size = new System.Drawing.Size(311, 219);
 			this.groupBox1.TabIndex = 4;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Ürün Bilgileri";
 			// 
 			// btnSil
 			// 
-			this.btnSil.BackColor = System.Drawing.Color.Gold;
+			this.btnSil.BackColor = System.Drawing.Color.OrangeRed;
 			this.btnSil.Enabled = false;
 			this.btnSil.Location = new System.Drawing.Point(222, 175);
 			this.btnSil.Name = "btnSil";
@@ -90,25 +91,27 @@
 			this.btnSil.UseVisualStyleBackColor = false;
 			this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
 			// 
-			// btnGüncelle
+			// btnGuncelle
 			// 
-			this.btnGüncelle.Enabled = false;
-			this.btnGüncelle.Location = new System.Drawing.Point(121, 175);
-			this.btnGüncelle.Name = "btnGüncelle";
-			this.btnGüncelle.Size = new System.Drawing.Size(95, 37);
-			this.btnGüncelle.TabIndex = 10;
-			this.btnGüncelle.Text = "Güncelle";
-			this.btnGüncelle.UseVisualStyleBackColor = true;
-			this.btnGüncelle.Click += new System.EventHandler(this.btnGüncelle_Click);
+			this.btnGuncelle.BackColor = System.Drawing.Color.LightCoral;
+			this.btnGuncelle.Enabled = false;
+			this.btnGuncelle.Location = new System.Drawing.Point(121, 175);
+			this.btnGuncelle.Name = "btnGuncelle";
+			this.btnGuncelle.Size = new System.Drawing.Size(95, 37);
+			this.btnGuncelle.TabIndex = 10;
+			this.btnGuncelle.Text = "Güncelle";
+			this.btnGuncelle.UseVisualStyleBackColor = false;
+			this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
 			// 
 			// btnEkle
 			// 
+			this.btnEkle.BackColor = System.Drawing.Color.LightSalmon;
 			this.btnEkle.Location = new System.Drawing.Point(24, 175);
 			this.btnEkle.Name = "btnEkle";
 			this.btnEkle.Size = new System.Drawing.Size(91, 37);
 			this.btnEkle.TabIndex = 9;
 			this.btnEkle.Text = "Ekle";
-			this.btnEkle.UseVisualStyleBackColor = true;
+			this.btnEkle.UseVisualStyleBackColor = false;
 			this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
 			// 
 			// cbDurum
@@ -180,15 +183,17 @@
 			// 
 			// btnAra
 			// 
-			this.btnAra.Location = new System.Drawing.Point(189, 10);
+			this.btnAra.BackColor = System.Drawing.Color.RosyBrown;
+			this.btnAra.Location = new System.Drawing.Point(157, 12);
 			this.btnAra.Name = "btnAra";
 			this.btnAra.Size = new System.Drawing.Size(87, 26);
 			this.btnAra.TabIndex = 5;
 			this.btnAra.Text = "Ara";
-			this.btnAra.UseVisualStyleBackColor = true;
+			this.btnAra.UseVisualStyleBackColor = false;
 			// 
 			// txtAra
 			// 
+			this.txtAra.BackColor = System.Drawing.Color.RosyBrown;
 			this.txtAra.Location = new System.Drawing.Point(36, 14);
 			this.txtAra.Name = "txtAra";
 			this.txtAra.Size = new System.Drawing.Size(100, 22);
@@ -198,6 +203,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.Gainsboro;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.txtAra);
 			this.Controls.Add(this.btnAra);
@@ -220,7 +226,7 @@
 		private System.Windows.Forms.DataGridView dgvUrunListesi;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.Button btnSil;
-		private System.Windows.Forms.Button btnGüncelle;
+		private System.Windows.Forms.Button btnGuncelle;
 		private System.Windows.Forms.Button btnEkle;
 		private System.Windows.Forms.CheckBox cbDurum;
 		private System.Windows.Forms.TextBox txtStokMiktari;
