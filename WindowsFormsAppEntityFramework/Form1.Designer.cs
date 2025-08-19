@@ -190,6 +190,7 @@
 			this.btnAra.TabIndex = 5;
 			this.btnAra.Text = "Ara";
 			this.btnAra.UseVisualStyleBackColor = false;
+			this.btnAra.Click += new System.EventHandler(this.btnAra_Click);
 			// 
 			// txtAra
 			// 

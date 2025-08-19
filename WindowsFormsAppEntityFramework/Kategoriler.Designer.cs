@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsAppAdoNet
+﻿namespace WindowsFormsAppEntityFramework
 {
 	partial class Kategoriler
 	{
@@ -28,7 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.dgvKategoriler = new System.Windows.Forms.DataGridView();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.btnSil = new System.Windows.Forms.Button();
 			this.btnGuncelle = new System.Windows.Forms.Button();
@@ -39,21 +38,10 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.txtKategoriAdi = new System.Windows.Forms.TextBox();
-			((System.ComponentModel.ISupportInitialize)(this.dgvKategoriler)).BeginInit();
+			this.dgvKategoriler = new System.Windows.Forms.DataGridView();
 			this.groupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvKategoriler)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// dgvKategoriler
-			// 
-			this.dgvKategoriler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.dgvKategoriler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvKategoriler.Location = new System.Drawing.Point(12, 12);
-			this.dgvKategoriler.Name = "dgvKategoriler";
-			this.dgvKategoriler.RowHeadersWidth = 51;
-			this.dgvKategoriler.RowTemplate.Height = 24;
-			this.dgvKategoriler.Size = new System.Drawing.Size(484, 426);
-			this.dgvKategoriler.TabIndex = 0;
-			this.dgvKategoriler.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKategoriler_CellClick);
 			// 
 			// groupBox1
 			// 
@@ -67,10 +55,10 @@
 			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Controls.Add(this.txtKategoriAdi);
-			this.groupBox1.Location = new System.Drawing.Point(518, 12);
+			this.groupBox1.Location = new System.Drawing.Point(12, 12);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(304, 426);
-			this.groupBox1.TabIndex = 1;
+			this.groupBox1.TabIndex = 2;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Kategori Bilgileri";
 			// 
@@ -85,7 +73,6 @@
 			this.btnSil.TabIndex = 10;
 			this.btnSil.Text = "Sil";
 			this.btnSil.UseVisualStyleBackColor = false;
-			this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
 			// 
 			// btnGuncelle
 			// 
@@ -164,37 +151,47 @@
 			this.txtKategoriAdi.Size = new System.Drawing.Size(100, 22);
 			this.txtKategoriAdi.TabIndex = 0;
 			// 
+			// dgvKategoriler
+			// 
+			this.dgvKategoriler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvKategoriler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvKategoriler.Location = new System.Drawing.Point(336, 12);
+			this.dgvKategoriler.Name = "dgvKategoriler";
+			this.dgvKategoriler.RowHeadersWidth = 51;
+			this.dgvKategoriler.RowTemplate.Height = 24;
+			this.dgvKategoriler.Size = new System.Drawing.Size(541, 426);
+			this.dgvKategoriler.TabIndex = 3;
+			// 
 			// Kategoriler
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.SystemColors.ControlLight;
-			this.ClientSize = new System.Drawing.Size(834, 450);
-			this.Controls.Add(this.groupBox1);
+			this.ClientSize = new System.Drawing.Size(889, 450);
 			this.Controls.Add(this.dgvKategoriler);
+			this.Controls.Add(this.groupBox1);
 			this.Name = "Kategoriler";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Kategoriler-AdoNet";
+			this.Text = "Kategoriler-EF";
 			this.Load += new System.EventHandler(this.Kategoriler_Load);
-			((System.ComponentModel.ISupportInitialize)(this.dgvKategoriler)).EndInit();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvKategoriler)).EndInit();
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.DataGridView dgvKategoriler;
 		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.Button btnSil;
+		private System.Windows.Forms.Button btnGuncelle;
+		private System.Windows.Forms.Button btnEkle;
+		private System.Windows.Forms.RichTextBox txtKategoriAciklamasi;
 		private System.Windows.Forms.CheckBox cbDurum;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox txtKategoriAdi;
-		private System.Windows.Forms.RichTextBox txtKategoriAciklamasi;
-		private System.Windows.Forms.Button btnSil;
-		private System.Windows.Forms.Button btnGuncelle;
-		private System.Windows.Forms.Button btnEkle;
+		private System.Windows.Forms.DataGridView dgvKategoriler;
 	}
 }
