@@ -27,9 +27,9 @@ namespace WindowsFormsAppEntityFramework
 		{ //uzun uzun yazmak yerine Yukle metodunu çağırmak yeterli olur
 			dgvKategoriler.DataSource = context.Categories.ToList();
 			//her işlem sonrası yazmaya gerek kalmıyor!!!
-			btnEkle.Enabled = true;
-			btnGuncelle.Enabled = false;
-			btnSil.Enabled = false;
+			//btnEkle.Enabled = true;
+			//btnGuncelle.Enabled = false;
+			//btnSil.Enabled = false;
 
 			//işlemden sonra textbox sil
 			txtKategoriAdi.Text = string.Empty;
@@ -57,9 +57,9 @@ namespace WindowsFormsAppEntityFramework
 					Yukle();
 
 					//ekledikten sonra textbox ları boşalt _> Yukle() içinde
-					//txtKategoriAdi.Clear();
-					//txtKategoriAciklamasi.Clear();
-					//cbDurum.Checked = false;
+					txtKategoriAdi.Clear();
+					txtKategoriAciklamasi.Clear();
+					cbDurum.Checked = false;
 
 					MessageBox.Show("Kayıt Başarılı!");
 				}
@@ -86,15 +86,15 @@ namespace WindowsFormsAppEntityFramework
 				Yukle();
 
 				//güncelledikten sonra textbox boşalt
-				//txtKategoriAdi.Clear();
-				//txtKategoriAciklamasi.Clear();
-				//cbDurum.Checked = false;
+				txtKategoriAdi.Clear();
+				txtKategoriAciklamasi.Clear();
+				cbDurum.Checked = false;
 
-				MessageBox.Show("Kayıt Başarılı!");
+				MessageBox.Show("Güncelleme Başarılı!");
 			}
 			else
 			{
-				MessageBox.Show("Kayıt Başarısız! Lütfen Tüm Alanları Doldurunuz!");
+				MessageBox.Show("Güncelleme Başarısız! Lütfen Tüm Alanları Doldurunuz!");
 			}
 		}
 
@@ -123,11 +123,15 @@ namespace WindowsFormsAppEntityFramework
 			{
 				Yukle();
 
-				MessageBox.Show("Kayıt Başarılı!");
+				txtKategoriAdi.Clear();
+				txtKategoriAciklamasi.Clear();
+				cbDurum.Checked = false;
+
+				MessageBox.Show("Kayıt Silme Başarılı!");
 			}
 			else
 			{
-				MessageBox.Show("Kayıt Başarısız! Lütfen Tüm Alanları Doldurunuz!");
+				MessageBox.Show("Kayıt Silme Başarısız! Lütfen Tüm Alanları Doldurunuz!");
 			}
 		}
 	}
