@@ -73,6 +73,7 @@
 			this.btnSil.TabIndex = 10;
 			this.btnSil.Text = "Sil";
 			this.btnSil.UseVisualStyleBackColor = false;
+			this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
 			// 
 			// btnGuncelle
 			// 
@@ -161,6 +162,7 @@
 			this.dgvKategoriler.RowTemplate.Height = 24;
 			this.dgvKategoriler.Size = new System.Drawing.Size(541, 426);
 			this.dgvKategoriler.TabIndex = 3;
+			this.dgvKategoriler.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKategoriler_CellClick);
 			// 
 			// Kategoriler
 			// 
