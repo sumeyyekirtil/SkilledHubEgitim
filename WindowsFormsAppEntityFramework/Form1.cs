@@ -23,6 +23,7 @@ namespace WindowsFormsAppEntityFramework
 	//Crud işlemleri ve büyük uygulama arkaplan kodlama işleminde Ado Net + Stored Procedure kullanılır.
 	//Genelde Entity Framework kullanılır küçük uygulamalarda (hızlı işlemlerde)
 	//Ado Net gibi hazır gelmiyor sonradan kütüphane olarak yükleniyor
+	//savechanges : unit of work pattern -> veritabanı işlemlerinin yönetimini kolaylaştıran ve işlemleri birbirleriyle bağlantılı bir şekilde gruplandırmayı sağlayan yazılım tasarım deseni.
 	public partial class Form1 : Form
 	{
 		public Form1()

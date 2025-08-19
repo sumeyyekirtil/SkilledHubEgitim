@@ -4,7 +4,7 @@ html { //www root da css dosyalarý tutulur
 
 @media (min-width: 768px) {
   html {
-    font-size: 16px;
+    font-size: 20px;
   }
 }
 
@@ -28,4 +28,7 @@ body {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
+}
+h2{
+    text-align : center;
 }
