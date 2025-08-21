@@ -1,4 +1,5 @@
-﻿@{ //title bir noktadan bir noktaya veri gönderir.
+﻿@{
+    //title bir noktadan bir noktaya veri gönderir.
     ViewData["Title"] = "MVC 01 Razor Syntax"; //controller sayfasında contact metot - sağ tık - add view - razor view - name : contact - add (hata çözülür sayfa açılmış ve eklenmiş oldu)
     //bu razor syntax sayesinde view lerde c# kodu yazabiliyoruz
 
@@ -24,7 +25,7 @@
         <h4>Kdv Dahil : @kdv</h4>
     </div>
 </div>
-<hr>
+<>
 
 <h4>
     Tarih ve Saat: @tarih
@@ -34,10 +35,12 @@
     Kısa Tarih: @tarih.ToShortDateString()
 </h4>
 
-@if (tarih.Hour > 10){
+@if (tarih.Hour > 10)
+{
     <h5>İyi Akşamlar</h5>
 }
-else if (tarih.Hour > 12 && tarih.Hour < 18){
+else if (tarih.Hour > 12 && tarih.Hour < 18)
+{
     <h5>İyi Günler</h5>
 }
 else
@@ -45,12 +48,70 @@ else
     <h5>İyi Sabahlar</h5>
 }
 
-        <h2>Dizideki İsimler</h2>
-        @foreach (var isim in isimler)
+<h2>Dizideki İsimler</h2>
+@foreach (var isim in isimler)
 {
-    if(isim == isimler[0])
+    if (isim == isimler[0])
     {
         <div class="active">İlk İsim : @isim</div>
     }
-    @isim
+    else
+    {
+        @isim
+        <hr>
+    }
 }
+
+<hr />
+Listedeki 2. isim : @isimler[1]
+<hr>
+@foreach (var isim in isimler)
+{
+    <h6>@isim</h6>
+}
+<hr>
+
+@foreach (var isim in isimler)
+{
+    @(isim + " ")
+    //isimleri aralarına boşluk bırakarak yazdırır
+    @:İsim : @isim -
+}
+
+<h3>For Örneği</h3>
+@for (var i = 0; i < isimler.Length; i++)
+{
+    <text>İsim : @isimler[i]</text>
+    <hr>
+    <hr />
+}
+
+<h3>For Örneği 2</h3>
+@for (var i = 0; i < isimler.Length; i++)
+{
+    @:İsim : @isimler[i]
+    <hr>
+    <hr />
+}
+
+<p>
+    info@deneme.com şeklinde at ifadesinden ince yapışık metin varsa bunun c# kodu olmadığını razor syntax anlar.
+</p>
+
+<h5>
+    Kullanıcı Adı : @@aspnet iki at kullanımı
+</h5>
+
+<p>
+    Kullanıcı adı vb başında @@ işareti olan bir metin kullanmak için çift @@ işareti eklemeliyiz.
+</p>
+
+<h3>Üretim Yılı</h3>
+
+<select>
+    <option value="">Seçiniz</option>
+    @for (int i = DateTime.Now.Year; i > 2000; i--)
+    {
+        <option value="@i">@i</option>
+    }
+</select>
