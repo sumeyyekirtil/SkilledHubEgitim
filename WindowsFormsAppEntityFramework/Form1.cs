@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsAppAdoNet;
+
 //ENTITY FRAMEWORK : import : project - sağ tık - manage NuGet packages : entity framework install - I accept
 //2. yöntemi : Solution Explorer - sağ tık - manage NuGet packages for solition - install edeceğimiz projeyi seçme işlemi yaptırır (birden fazla proje seçilebilir)
 //DB - VT işlemleri : project - sağ tık - add class -  UrunDbModel

@@ -22,7 +22,6 @@ namespace WindowsFormsAppEntityFramework
 		{
 			Yukle();
 		}
-
 		void Yukle()
 		{ //uzun uzun yazmak yerine Yukle metodunu çağırmak yeterli olur
 			dgvKategoriler.DataSource = context.Categories.ToList();
@@ -50,13 +49,14 @@ namespace WindowsFormsAppEntityFramework
 					Durum = cbDurum.Checked
 				};
 				context.Categories.Add(Category); //boş kategori ekledik
+
 				int sonuc = context.SaveChanges(); //context deki değişiklikleri kayıt ettik
 				if (sonuc > 0)
 				{
 					//dgvKategoriler.DataSource = context.Categories.ToList(); //yerine ->
 					Yukle();
 
-					//ekledikten sonra textbox ları boşalt _> Yukle() içinde
+					//ekledikten sonra textbox ları boşalt -> Yukle() içinde
 					txtKategoriAdi.Clear();
 					txtKategoriAciklamasi.Clear();
 					cbDurum.Checked = false;
@@ -123,6 +123,7 @@ namespace WindowsFormsAppEntityFramework
 			{
 				Yukle();
 
+				//silme işleminden sonra txt boşalt ->
 				txtKategoriAdi.Clear();
 				txtKategoriAciklamasi.Clear();
 				cbDurum.Checked = false;
