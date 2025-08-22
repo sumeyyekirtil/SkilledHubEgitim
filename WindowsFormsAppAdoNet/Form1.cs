@@ -28,11 +28,19 @@ using System.Windows.Forms;
 //groupbox dan alınan verileri kullanabilmek için bir class a ihtiyacımız var : add-class : product
 //buton işlemleri tamamlandıktan sonra textboxların içini boşalt (homework)
 
-/*sql management - database -add new db - add new table - product (ürün) table - columnları oluşturuyoruz 
+/* sql management - database -add new db - add new table - product (ürün) table - columnları oluşturuyoruz 
 product - edit top 200 rows - ürünleri ekle
 */
 //Veri işlemleri için add - class : OrtakDAL --using System.Data; //veri işlemleri için gerekli kütüphane --using System.Data.SqlClient; //ADO.NET kütüphaneleri ekle
 //ürün takibi için (ortak metotları ortak class a al) add - class : Productdal using System; using System.Collections.Generic; using System.Data; //vt işlemleri için using System.Data.SqlClient; //ADO.NET kütüphaneleri (ortak metotları ortak class a al)
+
+/*
+ * Çalışma Yapısı ->
+ * Form desing yapıları create edildi.
+ * Project - Class added. Class - prop yapıları oluşturulunca aynı sınıfın DAL(data access layer) sınıfı açılır.
+ * DAL -> Bağlantı nesnesi (connection string) oluşturulunca Add-Update-Delete komutlarına bağlantı - sonuç adresleri yazılıp veri türleri tanımlanır.
+ * Desing - form.cs sayfalarında 1- Class nesnesi oluşturulup, 2- DAL class da oluşturulan yükleme işlemleri button lara event yoluyla verilir.
+ */
 namespace WindowsFormsAppAdoNet
 {
 	//toolbox ları çoğaltmak için ctrl ile çekip bırakabiliriz.
@@ -99,11 +107,40 @@ namespace WindowsFormsAppAdoNet
 			cbDurum.Checked = (bool)dgvUrunListesi.CurrentRow.Cells[4].Value;
 
 			btnEkle.Enabled = false;
-			btnGüncelle.Enabled = true;
+			btnGuncelle.Enabled = true;
 			btnSil.Enabled = true;
 		}
 
-		private void btnGüncelle_Click(object sender, EventArgs e)
+		private void btnSil_Click(object sender, EventArgs e)
+		{
+			if (MessageBox.Show("Kaydı silmek istiyor musunuz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				try
+				{
+					int sonuc = productDal.Delete((int)dgvUrunListesi.CurrentRow.Cells[0].Value); //id ulaşılan yere getirdik
+					if (sonuc > 0)
+					{
+						dgvUrunListesi.DataSource = productDal.GetAll();
+						btnEkle.Enabled = true;
+						btnGuncelle.Enabled = false;
+						btnSil.Enabled = false;
+						//sildikten sonra textbox ları boşalt
+						txtUrunAdi.Clear();
+						txtStokMiktari.Clear();
+						txtUrunFiyati.Clear();
+						txtAra.Clear();
+						cbDurum.Checked = false;
+
+						MessageBox.Show("Kayıt Silindi!");
+					}
+				}
+				catch (Exception)
+				{
+					MessageBox.Show("Hata Oluştu!");
+				}
+			}
+		}
+		private void btnGuncelle_Click(object sender, EventArgs e)
 		{
 			try
 			{
@@ -121,9 +158,11 @@ namespace WindowsFormsAppAdoNet
 				if (sonuc > 0)
 				{
 					dgvUrunListesi.DataSource = productDal.GetAll(); //ekrandaki dgv tekrar yüklüyoruz yoksa ekranda gözükmez!
+
 					btnEkle.Enabled = true;
-					btnGüncelle.Enabled = false;
+					btnGuncelle.Enabled = false;
 					btnSil.Enabled = false;
+
 					//güncellendikten sonra textbox ları boşalt
 					txtUrunAdi.Clear();
 					txtStokMiktari.Clear();
@@ -142,36 +181,6 @@ namespace WindowsFormsAppAdoNet
 			catch (Exception hata)
 			{
 				MessageBox.Show("Güncelleme Başarısız! Lütfen Tüm Alanları Doldurunuz!" + hata);
-			}
-		}
-
-		private void btnSil_Click(object sender, EventArgs e)
-		{
-			if (MessageBox.Show("Kaydı silmek istiyor musunuz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-			{
-				try
-				{
-					int sonuc = productDal.Delete((int)dgvUrunListesi.CurrentRow.Cells[0].Value); //id ulaşılan yere getirdik
-					if (sonuc > 0)
-					{
-						dgvUrunListesi.DataSource = productDal.GetAll();
-						btnEkle.Enabled = true;
-						btnGüncelle.Enabled = false;
-						btnSil.Enabled = false;
-						//sildikten sonra textbox ları boşalt
-						txtUrunAdi.Clear();
-						txtStokMiktari.Clear();
-						txtUrunFiyati.Clear();
-						txtAra.Clear();
-						cbDurum.Checked = false;
-
-						MessageBox.Show("Kayıt Silindi!");
-					}
-				}
-				catch (Exception)
-				{
-					MessageBox.Show("Hata Oluştu!");
-				}
 			}
 		}
 	}

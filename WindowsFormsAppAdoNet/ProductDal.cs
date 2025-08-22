@@ -18,14 +18,14 @@ namespace WindowsFormsAppAdoNet
 			SqlCommand cmd = new SqlCommand("select * from Urunler", _connection); //sql de çalışan veri komutunu string olarak buraya yazıyoruz
 
 			//kütüphaneden gelen sql komutu yazdığımız bir sınıf
-			SqlDataReader reader = cmd.ExecuteReader(); //cmd deki sorguyu çalıştırıp reader doldurulup kayıt okuma yapılabilir
+			SqlDataReader reader = cmd.ExecuteReader(); //cmd deki sorguyu çalıştırıp reader doldurup kayıt okuma yapılabilir
 
 			while (reader.Read()) //reader nesnesi içerisinde okunacak kayıt olduğu sürece kayıt oku (t/f)
 			{
 				var product = new Product() //boş bi product oluşturup içindeki verileri reader dan çekiyoruz
 				{
 					Id = Convert.ToInt32(reader["Id"]),
-					UrunAdi = reader["UrunAdi"].ToString(), //sttring
+					UrunAdi = reader["UrunAdi"].ToString(), //string
 					StokMiktari = Convert.ToInt32(reader["StokMiktari"]), //int
 					UrunFiyati = Convert.ToDecimal(reader["UrunFiyati"]), //int
 					Durum = Convert.ToBoolean(reader["Durum"]) //bit

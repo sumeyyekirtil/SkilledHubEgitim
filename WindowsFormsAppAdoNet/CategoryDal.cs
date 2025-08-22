@@ -61,7 +61,7 @@ namespace WindowsFormsAppAdoNet
 			Category category = null;
 			ConnectionKontrol();
 			SqlCommand command = new SqlCommand("Select * From Kategoriler where Id=@id", _connection);
-			command.Parameters.AddWithValue("@Id", id);
+			command.Parameters.AddWithValue("@id", id);
 			var reader = command.ExecuteReader();
 			if (reader != null)
 			{

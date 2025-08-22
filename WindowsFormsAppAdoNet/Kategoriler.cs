@@ -122,9 +122,9 @@ namespace WindowsFormsAppAdoNet
 						MessageBox.Show("Kayıt Silindi!");
 					}
 				}
-				catch (Exception hata)
+				catch (Exception)
 				{
-					MessageBox.Show("Hata Oluştu!" + hata);
+					MessageBox.Show("Hata Oluştu!");
 				}
 			}
 		}

@@ -33,7 +33,7 @@
 			this.btnAra = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.btnSil = new System.Windows.Forms.Button();
-			this.btnGüncelle = new System.Windows.Forms.Button();
+			this.btnGuncelle = new System.Windows.Forms.Button();
 			this.btnEkle = new System.Windows.Forms.Button();
 			this.cbDurum = new System.Windows.Forms.CheckBox();
 			this.txtStokMiktari = new System.Windows.Forms.TextBox();
@@ -81,7 +81,7 @@
 			// 
 			this.groupBox1.BackColor = System.Drawing.Color.Silver;
 			this.groupBox1.Controls.Add(this.btnSil);
-			this.groupBox1.Controls.Add(this.btnGüncelle);
+			this.groupBox1.Controls.Add(this.btnGuncelle);
 			this.groupBox1.Controls.Add(this.btnEkle);
 			this.groupBox1.Controls.Add(this.cbDurum);
 			this.groupBox1.Controls.Add(this.txtStokMiktari);
@@ -110,16 +110,16 @@
 			this.btnSil.UseVisualStyleBackColor = false;
 			this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
 			// 
-			// btnGüncelle
+			// btnGuncelle
 			// 
-			this.btnGüncelle.Enabled = false;
-			this.btnGüncelle.Location = new System.Drawing.Point(121, 175);
-			this.btnGüncelle.Name = "btnGüncelle";
-			this.btnGüncelle.Size = new System.Drawing.Size(95, 37);
-			this.btnGüncelle.TabIndex = 10;
-			this.btnGüncelle.Text = "Güncelle";
-			this.btnGüncelle.UseVisualStyleBackColor = true;
-			this.btnGüncelle.Click += new System.EventHandler(this.btnGüncelle_Click);
+			this.btnGuncelle.Enabled = false;
+			this.btnGuncelle.Location = new System.Drawing.Point(121, 175);
+			this.btnGuncelle.Name = "btnGuncelle";
+			this.btnGuncelle.Size = new System.Drawing.Size(95, 37);
+			this.btnGuncelle.TabIndex = 10;
+			this.btnGuncelle.Text = "Güncelle";
+			this.btnGuncelle.UseVisualStyleBackColor = true;
+			this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
 			// 
 			// btnEkle
 			// 
@@ -235,7 +235,7 @@
 		private System.Windows.Forms.TextBox txtUrunFiyati;
 		private System.Windows.Forms.TextBox txtUrunAdi;
 		private System.Windows.Forms.Button btnEkle;
-		private System.Windows.Forms.Button btnGüncelle;
+		private System.Windows.Forms.Button btnGuncelle;
 		private System.Windows.Forms.Button btnSil;
 	}
 }
