@@ -51,6 +51,7 @@ namespace WindowsFormsAppAdoNet
 			InitializeComponent();
 		}
 		ProductDal productDal = new ProductDal(); //ProductDal nesnesi oluşturduk
+
 		private void Form1_Load(object sender, EventArgs e)
 		{ //sql e bağlanıp işlem yaptırma : form load
 		  //dgvUrunListesi.DataSource = productDal.GetAll(); //productDal nesnesi içerisinde yazdığımız GetAll() metodundan gelen ürün listesini çek ve ekrandaki dgvUrunListesi ne veri kaynağı olarak yolla.

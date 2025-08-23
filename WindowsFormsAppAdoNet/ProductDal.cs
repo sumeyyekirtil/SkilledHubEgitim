@@ -92,7 +92,7 @@ namespace WindowsFormsAppAdoNet
 			command.Parameters.AddWithValue("@Durum", product.Durum);
 			command.Parameters.AddWithValue("@Aciklama", product.Description);
 			command.Parameters.AddWithValue("@id", product.Id);
-			sonuc = command.ExecuteNonQuery(); //add metodu geriye değer olarak 0 dan büyük değer döndürürse işlem başarılı olup çıkış yaptırır
+			sonuc = command.ExecuteNonQuery(); //update metodu geriye değer olarak 0 dan büyük değer döndürürse işlem başarılı olup çıkış yaptırır
 			command.Dispose();
 			_connection.Close();
 
@@ -107,7 +107,7 @@ namespace WindowsFormsAppAdoNet
 			SqlCommand command = new SqlCommand("Delete From Urunler where Id=@id", _connection);
 
 			command.Parameters.AddWithValue("@id", id);
-			sonuc = command.ExecuteNonQuery(); //add metodu geriye değer olarak 0 dan büyük değer döndürürse işlem başarılı olup çıkış yaptırır
+			sonuc = command.ExecuteNonQuery(); //delete metodu geriye değer olarak 0 dan büyük değer döndürürse işlem başarılı olup çıkış yaptırır
 			command.Dispose();
 			_connection.Close();
 
