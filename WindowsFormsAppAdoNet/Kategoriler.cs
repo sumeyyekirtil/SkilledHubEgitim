@@ -29,10 +29,11 @@ namespace WindowsFormsAppAdoNet
 			{
 				var kategori = new Category()
 				{
+					Id = (int)dgvKategoriler.CurrentRow.Cells[0].Value,
 					Name = txtKategoriAdi.Text,
 					Description = txtKategoriAciklamasi.Text,
 					CreateDate = DateTime.Now,
-					Durum = cbDurum.Checked
+					Active = cbDurum.Checked
 				};
 				var sonuc = categoryDal.Add(kategori);
 				if (sonuc > 0)
@@ -74,7 +75,7 @@ namespace WindowsFormsAppAdoNet
 					Name = txtKategoriAdi.Text,
 					Description = txtKategoriAciklamasi.Text,
 					CreateDate = (DateTime)dgvKategoriler.CurrentRow.Cells[4].Value,
-					Durum = cbDurum.Checked
+					Active = cbDurum.Checked
 				};
 				var sonuc = categoryDal.Update(kategori);
 				if (sonuc > 0)

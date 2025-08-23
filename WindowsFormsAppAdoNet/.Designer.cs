@@ -43,6 +43,8 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
+			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+			this.txtDescription = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dgvUrunListesi)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
@@ -80,6 +82,8 @@
 			// groupBox1
 			// 
 			this.groupBox1.BackColor = System.Drawing.Color.Silver;
+			this.groupBox1.Controls.Add(this.txtDescription);
+			this.groupBox1.Controls.Add(this.richTextBox1);
 			this.groupBox1.Controls.Add(this.btnSil);
 			this.groupBox1.Controls.Add(this.btnGuncelle);
 			this.groupBox1.Controls.Add(this.btnEkle);
@@ -93,7 +97,7 @@
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Location = new System.Drawing.Point(481, 40);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(307, 219);
+			this.groupBox1.Size = new System.Drawing.Size(307, 338);
 			this.groupBox1.TabIndex = 3;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Ürün Bilgileri";
@@ -102,7 +106,7 @@
 			// 
 			this.btnSil.BackColor = System.Drawing.Color.Gold;
 			this.btnSil.Enabled = false;
-			this.btnSil.Location = new System.Drawing.Point(222, 175);
+			this.btnSil.Location = new System.Drawing.Point(222, 275);
 			this.btnSil.Name = "btnSil";
 			this.btnSil.Size = new System.Drawing.Size(63, 37);
 			this.btnSil.TabIndex = 10;
@@ -113,7 +117,7 @@
 			// btnGuncelle
 			// 
 			this.btnGuncelle.Enabled = false;
-			this.btnGuncelle.Location = new System.Drawing.Point(121, 175);
+			this.btnGuncelle.Location = new System.Drawing.Point(121, 275);
 			this.btnGuncelle.Name = "btnGuncelle";
 			this.btnGuncelle.Size = new System.Drawing.Size(95, 37);
 			this.btnGuncelle.TabIndex = 10;
@@ -123,7 +127,7 @@
 			// 
 			// btnEkle
 			// 
-			this.btnEkle.Location = new System.Drawing.Point(24, 175);
+			this.btnEkle.Location = new System.Drawing.Point(24, 275);
 			this.btnEkle.Name = "btnEkle";
 			this.btnEkle.Size = new System.Drawing.Size(91, 37);
 			this.btnEkle.TabIndex = 9;
@@ -145,21 +149,21 @@
 			// 
 			this.txtStokMiktari.Location = new System.Drawing.Point(116, 103);
 			this.txtStokMiktari.Name = "txtStokMiktari";
-			this.txtStokMiktari.Size = new System.Drawing.Size(100, 22);
+			this.txtStokMiktari.Size = new System.Drawing.Size(169, 22);
 			this.txtStokMiktari.TabIndex = 6;
 			// 
 			// txtUrunFiyati
 			// 
 			this.txtUrunFiyati.Location = new System.Drawing.Point(116, 69);
 			this.txtUrunFiyati.Name = "txtUrunFiyati";
-			this.txtUrunFiyati.Size = new System.Drawing.Size(100, 22);
+			this.txtUrunFiyati.Size = new System.Drawing.Size(169, 22);
 			this.txtUrunFiyati.TabIndex = 5;
 			// 
 			// txtUrunAdi
 			// 
 			this.txtUrunAdi.Location = new System.Drawing.Point(116, 36);
 			this.txtUrunAdi.Name = "txtUrunAdi";
-			this.txtUrunAdi.Size = new System.Drawing.Size(100, 22);
+			this.txtUrunAdi.Size = new System.Drawing.Size(169, 22);
 			this.txtUrunAdi.TabIndex = 4;
 			// 
 			// label4
@@ -197,6 +201,23 @@
 			this.label1.Size = new System.Drawing.Size(58, 16);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Ürün Adı";
+			// 
+			// richTextBox1
+			// 
+			this.richTextBox1.Location = new System.Drawing.Point(24, 188);
+			this.richTextBox1.Name = "richTextBox1";
+			this.richTextBox1.Size = new System.Drawing.Size(261, 81);
+			this.richTextBox1.TabIndex = 11;
+			this.richTextBox1.Text = "";
+			// 
+			// txtDescription
+			// 
+			this.txtDescription.AutoSize = true;
+			this.txtDescription.Location = new System.Drawing.Point(21, 169);
+			this.txtDescription.Name = "txtDescription";
+			this.txtDescription.Size = new System.Drawing.Size(63, 16);
+			this.txtDescription.TabIndex = 12;
+			this.txtDescription.Text = "Açıklama";
 			// 
 			// Form1
 			// 
@@ -237,6 +258,8 @@
 		private System.Windows.Forms.Button btnEkle;
 		private System.Windows.Forms.Button btnGuncelle;
 		private System.Windows.Forms.Button btnSil;
+		private System.Windows.Forms.Label txtDescription;
+		private System.Windows.Forms.RichTextBox richTextBox1;
 	}
 }
 

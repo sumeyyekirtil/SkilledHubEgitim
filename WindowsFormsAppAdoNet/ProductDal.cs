@@ -25,10 +25,11 @@ namespace WindowsFormsAppAdoNet
 				var product = new Product() //boş bi product oluşturup içindeki verileri reader dan çekiyoruz
 				{
 					Id = Convert.ToInt32(reader["Id"]),
-					UrunAdi = reader["UrunAdi"].ToString(), //string
-					StokMiktari = Convert.ToInt32(reader["StokMiktari"]), //int
-					UrunFiyati = Convert.ToDecimal(reader["UrunFiyati"]), //int
-					Durum = Convert.ToBoolean(reader["Durum"]) //bit
+					Name = reader["Name"].ToString(), //string
+					Stok = Convert.ToInt32(reader["Stok"]), //int
+					Price = Convert.ToDecimal(reader["Price"]), //int
+					Durum = Convert.ToBoolean(reader["Durum"]), //bit
+					Description = Convert.ToString(reader["Description"]) //string
 				};
 				products.Add(product); //db den okunan ürünü listeye ekle
 			}
@@ -65,11 +66,12 @@ namespace WindowsFormsAppAdoNet
 		{
 			int sonuc = 0;
 			ConnectionKontrol();
-			SqlCommand command = new SqlCommand("Insert into Urunler values (@UrunAdi, @UrunFiyati, @StokMiktari, @Durum)", _connection); //tüm column lar gelecekse eklemeyedebiliriz
-			command.Parameters.AddWithValue("@UrunAdi", product.UrunAdi); //addWithValue metodu 2 değişken alır parametre aracılığıyla ekrana yolluyoruz (sqlInjection ile saldırıyı önlemiş oluyoruz)
-			command.Parameters.AddWithValue("@UrunFiyati", product.UrunFiyati);
-			command.Parameters.AddWithValue("@StokMiktari", product.StokMiktari);
+			SqlCommand command = new SqlCommand("Insert into Urunler values (@UrunAdi, @UrunFiyati, @StokMiktari, @Durum, @Aciklama)", _connection); //tüm column lar gelecekse eklemeyedebiliriz
+			command.Parameters.AddWithValue("@UrunAdi", product.Name); //addWithValue metodu 2 değişken alır parametre aracılığıyla ekrana yolluyoruz (sqlInjection ile saldırıyı önlemiş oluyoruz)
+			command.Parameters.AddWithValue("@UrunFiyati", product.Price);
+			command.Parameters.AddWithValue("@StokMiktari", product.Stok);
 			command.Parameters.AddWithValue("@Durum", product.Durum);
+			command.Parameters.AddWithValue("@Aciklama", product.Description);
 			sonuc = command.ExecuteNonQuery(); //add metodu geriye değer olarak 0 dan büyük değer döndürürse işlem başarılı olup çıkış yaptırır
 			command.Dispose();
 			_connection.Close();
@@ -82,12 +84,13 @@ namespace WindowsFormsAppAdoNet
 		{//id ye göre güncelle (hepsini değil)
 			int sonuc = 0;
 			ConnectionKontrol();
-			SqlCommand command = new SqlCommand("Update Urunler set UrunAdi=@UAdi, UrunFiyati=@UrunFiyati, StokMiktari=@StokMiktari, Durum=@Durum where Id=@id", _connection); //tüm column lar gelecekse eklemeyedebiliriz
+			SqlCommand command = new SqlCommand("Update Urunler set Name=@UAdi, Price=@UrunFiyati, Stok=@StokMiktari, Durum=@Durum, Description=@Aciklama where Id=@id", _connection); //tüm column lar gelecekse eklemeyedebiliriz
 			//bütün kayıtları değil bir kaydı güncellemesi için WHERE şartı kullanılır (id ye göre güncelle)
-			command.Parameters.AddWithValue("@UAdi", product.UrunAdi); //addWithValue metodu 2 değişken alır parametre aracılığıyla ekrana yolluyoruz (sqlInjection ile saldırıyı önlemiş oluyoruz)
-			command.Parameters.AddWithValue("@UrunFiyati", product.UrunFiyati);
-			command.Parameters.AddWithValue("@StokMiktari", product.StokMiktari);
+			command.Parameters.AddWithValue("@UAdi", product.Name); //addWithValue metodu 2 değişken alır parametre aracılığıyla ekrana yolluyoruz (sqlInjection ile saldırıyı önlemiş oluyoruz)
+			command.Parameters.AddWithValue("@UrunFiyati", product.Price);
+			command.Parameters.AddWithValue("@StokMiktari", product.Stok);
 			command.Parameters.AddWithValue("@Durum", product.Durum);
+			command.Parameters.AddWithValue("@Aciklama", product.Description);
 			command.Parameters.AddWithValue("@id", product.Id);
 			sonuc = command.ExecuteNonQuery(); //add metodu geriye değer olarak 0 dan büyük değer döndürürse işlem başarılı olup çıkış yaptırır
 			command.Dispose();

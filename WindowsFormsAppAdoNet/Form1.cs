@@ -67,9 +67,10 @@ namespace WindowsFormsAppAdoNet
 				//ürün nesnesinin de bu alana alınması gerekli
 				var urun = new Product
 				{
-					UrunAdi = txtUrunAdi.Text,
-					UrunFiyati = Convert.ToDecimal(txtUrunFiyati.Text),
-					StokMiktari = Convert.ToInt32(txtStokMiktari.Text),
+					Name = txtUrunAdi.Text,
+					Price = Convert.ToDecimal(txtUrunFiyati.Text),
+					Stok = Convert.ToInt32(txtStokMiktari.Text),
+					Description = Convert.ToString(txtDescription.Text),
 					Durum = cbDurum.Checked
 				};
 				//bu kısmı try a aldık
@@ -121,9 +122,11 @@ namespace WindowsFormsAppAdoNet
 					if (sonuc > 0)
 					{
 						dgvUrunListesi.DataSource = productDal.GetAll();
+
 						btnEkle.Enabled = true;
 						btnGuncelle.Enabled = false;
 						btnSil.Enabled = false;
+
 						//sildikten sonra textbox ları boşalt
 						txtUrunAdi.Clear();
 						txtStokMiktari.Clear();
@@ -148,9 +151,10 @@ namespace WindowsFormsAppAdoNet
 				var urun = new Product
 				{
 					Id = (int)dgvUrunListesi.CurrentRow.Cells[0].Value,
-					UrunAdi = txtUrunAdi.Text,
-					UrunFiyati = Convert.ToDecimal(txtUrunFiyati.Text),
-					StokMiktari = Convert.ToInt32(txtStokMiktari.Text),
+					Name = txtUrunAdi.Text,
+					Price = Convert.ToDecimal(txtUrunFiyati.Text),
+					Stok = Convert.ToInt32(txtStokMiktari.Text),
+					Description = Convert.ToString(txtDescription.Text),
 					Durum = cbDurum.Checked
 				};
 				//bu kısmı try a aldık
