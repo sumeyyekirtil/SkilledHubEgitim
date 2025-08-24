@@ -44,9 +44,10 @@ namespace WindowsFormsAppEntityFramework
 				//ürün nesnesini de bu alana alınması gerekli
 				var urun = new Product
 				{
-					UrunAdi = txtUrunAdi.Text,
-					UrunFiyati = Convert.ToDecimal(txtUrunFiyati.Text),
-					StokMiktari = Convert.ToInt32(txtStokMiktari.Text),
+					Name = txtUrunAdi.Text,
+					Price = Convert.ToDecimal(txtUrunFiyati.Text),
+					Stok = Convert.ToInt32(txtStokMiktari.Text),
+					Description = Convert.ToString(txtDescription.Text),
 					Durum = cbDurum.Checked
 				};
 
@@ -60,6 +61,7 @@ namespace WindowsFormsAppEntityFramework
 					txtUrunAdi.Clear();
 					txtUrunFiyati.Clear();
 					txtStokMiktari.Clear();
+					txtDescription.Clear();
 					txtAra.Clear();
 					cbDurum.Checked = false;
 
@@ -77,11 +79,12 @@ namespace WindowsFormsAppEntityFramework
 		}
 
 		private void dgvUrunListesi_CellClick(object sender, DataGridViewCellEventArgs e)
-		{
+		{//sıralamalar dgv ye göre değilse hata alınır
 			//0. index ıd olduğu için 1 den başlatıldı
 			txtUrunAdi.Text = dgvUrunListesi.CurrentRow.Cells[1].Value.ToString();
 			txtUrunFiyati.Text = dgvUrunListesi.CurrentRow.Cells[2].Value.ToString();
 			txtStokMiktari.Text = dgvUrunListesi.CurrentRow.Cells[3].Value.ToString();
+			txtDescription.Text = dgvUrunListesi.CurrentRow.Cells[5].Value.ToString();
 			cbDurum.Checked = (bool)dgvUrunListesi.CurrentRow.Cells[4].Value;
 
 			btnEkle.Enabled = false;
@@ -109,6 +112,7 @@ namespace WindowsFormsAppEntityFramework
 						txtUrunAdi.Clear();
 						txtUrunFiyati.Clear();
 						txtStokMiktari.Clear();
+						txtDescription.Clear();
 						txtAra.Clear();
 						cbDurum.Checked = false;
 
@@ -130,9 +134,10 @@ namespace WindowsFormsAppEntityFramework
 				var urun = context.Products.Find(id); //db eşleşen id bulunan ürünün özelliklerini değiştir
 
 				urun.Durum = cbDurum.Checked;
-				urun.StokMiktari = Convert.ToInt32(txtStokMiktari.Text);
-				urun.UrunFiyati = Convert.ToDecimal(txtUrunFiyati.Text);
-				urun.UrunAdi = txtUrunAdi.Text;
+				urun.Description = Convert.ToString(txtDescription.Text);
+				urun.Stok = Convert.ToInt32(txtStokMiktari.Text);
+				urun.Price = Convert.ToDecimal(txtUrunFiyati.Text);
+				urun.Name = txtUrunAdi.Text;
 
 				int sonuc = context.SaveChanges(); //context deki değişiklikleri vt yansıt
 				if (sonuc > 0)
@@ -142,6 +147,7 @@ namespace WindowsFormsAppEntityFramework
 					txtUrunAdi.Clear();
 					txtUrunFiyati.Clear();
 					txtStokMiktari.Clear();
+					txtDescription.Clear();
 					txtAra.Clear();
 					cbDurum.Checked = false;
 
@@ -160,7 +166,7 @@ namespace WindowsFormsAppEntityFramework
 
 		private void btnAra_Click(object sender, EventArgs e)
 		{
-			dgvUrunListesi.DataSource = context.Products.Where(p=>p.UrunAdi.Contains(txtAra.Text)).ToList(); //p - product tablosunu simgeliyor (lambda expression)
+			dgvUrunListesi.DataSource = context.Products.Where(p=>p.Name.Contains(txtAra.Text)).ToList(); //p - product tablosunu simgeliyor (lambda expression)
 			//ürün adı içeriyorsa (contains) txtara.text e gönder
 		}
 	}

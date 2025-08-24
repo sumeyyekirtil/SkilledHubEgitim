@@ -46,7 +46,7 @@ namespace WindowsFormsAppEntityFramework
 					Name = txtKategoriAdi.Text,
 					Description = txtKategoriAciklamasi.Text,
 					CreateDate = DateTime.Now,
-					Durum = cbDurum.Checked
+					Active = cbDurum.Checked
 				};
 				context.Categories.Add(Category); //boş kategori ekledik
 
@@ -77,7 +77,7 @@ namespace WindowsFormsAppEntityFramework
 
 			kayit.Name = txtKategoriAdi.Text;
 			kayit.Description = txtKategoriAciklamasi.Text;
-			kayit.Durum = cbDurum.Checked;
+			kayit.Active = cbDurum.Checked;
 
 			int sonuc = context.SaveChanges(); //context deki değişiklikleri kayıt ettik
 			if (sonuc > 0)
@@ -107,32 +107,35 @@ namespace WindowsFormsAppEntityFramework
 			#region  Db den gelen kaydı ekrana doldur
 			txtKategoriAdi.Text = kayit.Name;
 			txtKategoriAciklamasi.Text = kayit.Description;
-			cbDurum.Checked = kayit.Durum;
+			cbDurum.Checked = kayit.Active;
 			#endregion
 		}
 
 		private void btnSil_Click(object sender, EventArgs e)
 		{
-			int id = (int)dgvKategoriler.CurrentRow.Cells[0].Value; //seçili satırdaki kaydın id sini yakaladık
-			var kayit = context.Categories.Find(id); //vt bulunan kayıt ile
-
-			context.Categories.Remove(kayit); //kaydı sil
-
-			int sonuc = context.SaveChanges(); //context deki değişiklikleri kayıt ettik
-			if (sonuc > 0)
+			if (MessageBox.Show("Kaydı silmek istiyor musunuz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
-				Yukle();
+				int id = (int)dgvKategoriler.CurrentRow.Cells[0].Value; //seçili satırdaki kaydın id sini yakaladık
+				var kayit = context.Categories.Find(id); //vt bulunan kayıt ile
 
-				//silme işleminden sonra txt boşalt ->
-				txtKategoriAdi.Clear();
-				txtKategoriAciklamasi.Clear();
-				cbDurum.Checked = false;
+				context.Categories.Remove(kayit); //kaydı sil
 
-				MessageBox.Show("Kayıt Silme Başarılı!");
-			}
-			else
-			{
-				MessageBox.Show("Kayıt Silme Başarısız! Lütfen Tüm Alanları Doldurunuz!");
+				int sonuc = context.SaveChanges(); //context deki değişiklikleri kayıt ettik
+				if (sonuc > 0)
+				{
+					Yukle();
+
+					//silme işleminden sonra txt boşalt ->
+					txtKategoriAdi.Clear();
+					txtKategoriAciklamasi.Clear();
+					cbDurum.Checked = false;
+
+					MessageBox.Show("Kayıt Silme Başarılı!");
+				}
+				else
+				{
+					MessageBox.Show("Kayıt Silme Başarısız! Lütfen Tüm Alanları Doldurunuz!");
+				}
 			}
 		}
 	}

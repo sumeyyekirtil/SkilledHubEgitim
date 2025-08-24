@@ -43,6 +43,8 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.btnAra = new System.Windows.Forms.Button();
 			this.txtAra = new System.Windows.Forms.TextBox();
+			this.txtDescription = new System.Windows.Forms.RichTextBox();
+			this.lblDescription = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dgvUrunListesi)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
@@ -61,6 +63,8 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.lblDescription);
+			this.groupBox1.Controls.Add(this.txtDescription);
 			this.groupBox1.Controls.Add(this.btnSil);
 			this.groupBox1.Controls.Add(this.btnGuncelle);
 			this.groupBox1.Controls.Add(this.btnEkle);
@@ -74,7 +78,7 @@
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Location = new System.Drawing.Point(477, 42);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(311, 219);
+			this.groupBox1.Size = new System.Drawing.Size(311, 382);
 			this.groupBox1.TabIndex = 4;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Ürün Bilgileri";
@@ -83,7 +87,7 @@
 			// 
 			this.btnSil.BackColor = System.Drawing.Color.OrangeRed;
 			this.btnSil.Enabled = false;
-			this.btnSil.Location = new System.Drawing.Point(222, 175);
+			this.btnSil.Location = new System.Drawing.Point(222, 330);
 			this.btnSil.Name = "btnSil";
 			this.btnSil.Size = new System.Drawing.Size(63, 37);
 			this.btnSil.TabIndex = 10;
@@ -95,7 +99,7 @@
 			// 
 			this.btnGuncelle.BackColor = System.Drawing.Color.LightCoral;
 			this.btnGuncelle.Enabled = false;
-			this.btnGuncelle.Location = new System.Drawing.Point(121, 175);
+			this.btnGuncelle.Location = new System.Drawing.Point(121, 330);
 			this.btnGuncelle.Name = "btnGuncelle";
 			this.btnGuncelle.Size = new System.Drawing.Size(95, 37);
 			this.btnGuncelle.TabIndex = 10;
@@ -106,7 +110,7 @@
 			// btnEkle
 			// 
 			this.btnEkle.BackColor = System.Drawing.Color.LightSalmon;
-			this.btnEkle.Location = new System.Drawing.Point(24, 175);
+			this.btnEkle.Location = new System.Drawing.Point(24, 330);
 			this.btnEkle.Name = "btnEkle";
 			this.btnEkle.Size = new System.Drawing.Size(91, 37);
 			this.btnEkle.TabIndex = 9;
@@ -200,6 +204,23 @@
 			this.txtAra.Size = new System.Drawing.Size(100, 22);
 			this.txtAra.TabIndex = 6;
 			// 
+			// txtDescription
+			// 
+			this.txtDescription.Location = new System.Drawing.Point(24, 203);
+			this.txtDescription.Name = "txtDescription";
+			this.txtDescription.Size = new System.Drawing.Size(261, 121);
+			this.txtDescription.TabIndex = 11;
+			this.txtDescription.Text = "";
+			// 
+			// lblDescription
+			// 
+			this.lblDescription.AutoSize = true;
+			this.lblDescription.Location = new System.Drawing.Point(21, 175);
+			this.lblDescription.Name = "lblDescription";
+			this.lblDescription.Size = new System.Drawing.Size(63, 16);
+			this.lblDescription.TabIndex = 12;
+			this.lblDescription.Text = "Açıklama";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -239,6 +260,8 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button btnAra;
 		private System.Windows.Forms.TextBox txtAra;
+		private System.Windows.Forms.Label lblDescription;
+		private System.Windows.Forms.RichTextBox txtDescription;
 	}
 }
 
