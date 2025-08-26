@@ -1,0 +1,47 @@
+﻿@model UyeSayfasiViewModel
+@{
+    ViewData["Title"] = "Kullanıcı Detayı";
+}
+<h1>Kullanıcı Detayı</h1>
+
+<h3> Model içerisinden gelen verileri ekranda gösterme</h3>
+
+<table class="table">
+    <tr>
+        <td>Ad</td>
+        <td>@Model.Kullanici.Ad</td>
+    </tr>
+    <tr>
+        <td>Soyad</td>
+        <td>@Model.Kullanici.KullaniciAdi</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>@Model.Kullanici.Soyad</td>
+    </tr>
+    <tr>
+        <td>Sifre</td>
+        <td>@Model.Kullanici.Email</td>
+    </tr>
+</table>
+
+<h1>Adres Bilgileri</h1>
+
+null referans hatasındn kurtulma bloğu
+@if (Model is not null)
+{
+    <table>
+        <tr>
+            <td>Şehir</td>
+            <td>@Model.Adres.Sehir</td>
+        </tr>
+        <tr>
+            <td>İlçe</td>
+            <td>@Model.Adres.Ilce</td>
+        </tr>
+        <tr>
+            <td>Açık Adres</td>
+            <td>@Model.Adres.AcikAdres</td>
+        </tr>
+    </table>
+}
