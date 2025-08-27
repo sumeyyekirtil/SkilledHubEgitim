@@ -1,3 +1,5 @@
+using MVCEgitimi.Models;
+
 namespace MVCEgitimi
 {//uygulamayý gösterir
 	public class Program
@@ -5,6 +7,8 @@ namespace MVCEgitimi
 		public static void Main(string[] args)
 		{
 			var builder = WebApplication.CreateBuilder(args);
+
+			builder.Services.AddDbContext<UyeContext>(); //projede kullanacaðýmýz dbcontext sýnýfýmýzý uygulamaya tanýtýyoruz.
 
 			// Add services to the container.
 			builder.Services.AddControllersWithViews(); //Uygulamada MVC controller view yapýsýný kullanacaðýz

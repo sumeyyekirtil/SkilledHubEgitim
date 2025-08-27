@@ -17,7 +17,15 @@ namespace MVCEgitimi.Controllers
 		[HttpPost]
 		public IActionResult YeniUye(Uye uye) //Action
 		{
-			return View(uye);
+			if (ModelState.IsValid) //Eğer modeldeki validasyon kurallarına uyulmuşsa, tersi için !ModelState.IsValid kullanılır
+			{
+				//kayıt ekle-güncelle-sil vb
+			}
+			else
+			{
+				ModelState.AddModelError("", "Lütfen Tüm Zorunlu Doldurunuz!"); //Ekrandaki validasyonkontrol alanına mesaj gönderebiliyoruz
+			}
+				return View(uye);
 		}
 	}
 }
