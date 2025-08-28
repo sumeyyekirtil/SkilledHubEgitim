@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Mvc Section Kullanımı";
+}
+
+<h2>Mvc Section Kullanımı</h2>
+
+<section>
+    Sayfa içerisinde html section elementi ile bir bölüm. <br>
+    MVC Section alt sayfalardan layout içerisine html, css, javascript kodları göndermemizi sağlar.
+</section>
+
+@*Layoutta yazılan section ı göndermemiz lazım yoksa  sayfa açılmaz*@
+@section Scripts{
+    @*<script>alert("Scripts isimli seçtion çalışıt!")</section>*@
+        <section>console.log("Bu yazı section ile gönderildi!)</section>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+}
+
+@section OzelIcerik {
+    <section class="alert alert-success">
+        Kampanyalı Ürünlerimizi Gördünüz mü?
+    </section>
+}
+
+@section OzelCss {
+    <style>
+        body { background-color: red; color: white;}
+    </style>
+}

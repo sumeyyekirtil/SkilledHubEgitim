@@ -4,6 +4,9 @@ using MVCEgitimi.Models;
 
 namespace MVCEgitimi.Controllers
 {
+	//Get açıldığında gelen gönderim yolu, Post tıklandığındaki gönderim yolu
+	//Get metodunda liste tanımlanıp gösterime açılır
+	//Post metodu olan kısma yapılacak işlem detayı girilir
 	public class MVC06CRUDController : Controller
 	{
 		private readonly UyeContext _context;
@@ -22,7 +25,8 @@ namespace MVCEgitimi.Controllers
 		// GET: MVC06CRUDController/Details/5
 		public ActionResult Details(int id)
 		{
-			return View();
+			var kayit = _context.Uyeler.Find(id); //id ye ulaşıp kayıt detaylarını yazdırma işlemi
+			return View(kayit);
 		}
 
 		// GET: MVC06CRUDController/Create
@@ -53,37 +57,46 @@ namespace MVCEgitimi.Controllers
 		// GET: MVC06CRUDController/Edit/5
 		public ActionResult Edit(int id)
 		{
-			return View();
+			var kayit = _context.Uyeler.Find(id); //uyeler tablosundan route dan gelen id ile eşleşen kaydı bul ve ekrana gönder.
+			return View(kayit);
 		}
 
 		// POST: MVC06CRUDController/Edit/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Edit(int id, IFormCollection collection)
+		public ActionResult Edit(int id, Uye collection)
 		{
 			try
 			{
-				return RedirectToAction(nameof(Index));
+				_context.Uyeler.Update(collection); //ekrandan gelen modeli veritabanındaki kaydı değiştirecek şekilde ayarla
+				_context.SaveChanges(); //değişiklikleri db kaydet
+
+				return RedirectToAction(nameof(Index)); //Index isimli action metoduna yönlendir
 			}
 			catch
 			{
-				return View();
+				ModelState.AddModelError("", "Hata Oluştu!"); //hata oluşursa yazdır
+
 			}
+			return View(collection);
 		}
 
 		// GET: MVC06CRUDController/Delete/5
 		public ActionResult Delete(int id)
 		{
-			return View();
+			var kayit = _context.Uyeler.Find(id); //id ye ulaşıp kayıt detaylarını yazdırma işlemi
+			return View(kayit);
 		}
 
 		// POST: MVC06CRUDController/Delete/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Delete(int id, IFormCollection collection)
+		public ActionResult Delete(int id, Uye collection)
 		{
 			try
 			{
+				_context.Uyeler.Remove(collection); //ekrandan gelen üye nesnesini silinecek olarak işaretle
+				_context.SaveChanges();
 				return RedirectToAction(nameof(Index));
 			}
 			catch
