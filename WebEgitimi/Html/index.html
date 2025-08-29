@@ -14,17 +14,22 @@
  head = başlık kısımları düzenlenebilir
  utf-8 = türkçe yazı stili değiştirilebilir
  body = vücut kısımları kod yazılan kısımlardır -->
+ <!-- bir web sayfasında sağ click - incele dendiğinde sayfa kod görünümüne gider -->
+ <!--  -->
+ <!--  -->
 <body>
     Html Eğitimi
     <br>html de br yazıp tab a basarak yazıyı bir alt satıra geçiriyoruz
     <br>
+    ÖNEMLİ!
     1 sayfada 1 tane html 
     1 tane head
     1 tane de body etiketi olmalıdır!
     <br>
     TEMEL HTML ELEMENTLERİ
     <br>
-    BAŞLIK ELEMENTLERİ
+    BAŞLIK ELEMENTLERİ (Başlık boyutu ayarlar)
+    Block seviye elementtir satırı kaplar. içerik boş bile olsa
     <h1>Bu bir h1 başlığıdır</h1>
     <h2>Bu bir h2 başlığıdır</h2>
     <h3>Bu bir h3 başlığıdır</h3>
@@ -32,6 +37,7 @@
     <h5>Bu bir h5 başlığıdır</h5>
     <h6>Bu bir h6 başlığıdır</h6>
     <p>
+        Block seviye elementtir
         Paragraf elemenleri
         p elementi sayfada paragraf metni oluşturmak için kullanılır.
     </p>
@@ -42,21 +48,24 @@
         her h, div ve p elementi ayrı sıralarda gösterilir, yan yana gösterilmez. Bu elementlere blok seviyesi elementleri denir
     </div>
     <h3>
-        a elementi ile sayfalar arsı bağlantı verme
+        a elementi ile sayfalar arası bağlantı verme
     </h3>
+    Link verme özelliği a href
     <a href="#">Anasayfa</a>
     <a href="https://www.google.com.tr/">Google</a>
     <br>
-    <a href="https://www.google.com.tr/" target="_blank">Google'a yeni sekmede aç/a>
-    <br>
+    <a href="https://www.google.com.tr/" target="_blank">Google'a yeni sekmede aç</a>
+    <br>Target özelliği aynı yeni sekmede açma işlemini yapar
     <br>
     <a href="olmayansayfa.html">
-        olmayan sayfa tarayıcı tarafından 404 not- found bulunamadı hatası döndürür
+        olmayan sayfa tarayıcı tarafından 404 not - found bulunamadı hatası döndürür
     </a>
     <br>
-    <h3>Sayfada resim gösterme</h3>
+    <h3>Sayfada resim gösterme img elementi</h3>
     <img src="" alt="">
     <p>
+        Klasöre resim eklemek için önce new folder - resimler adı altında sürükle bırak yöntemiyle yükleme yapılır
+        Böylece kendi projemizdeki resmi klaör belirterek seçilebilir.
         Web sayfalarında resim göstermek için img elementi kullanılır, src özelliğinden resmin konumu verilir, eğer boyutlandırma yapacaksak widht-height özellikleri de eklenebilir.
     </p>
     <img src="" alt="alt metin">
@@ -64,15 +73,15 @@
     <br>
     <img src="/Resimler/logo.avif" alt="alt metin">
     <br>
-    <img src="/Resimler/logo.avif" alt="alt metin" title="resmin üzerine gelince açıklama ekler">
+    <img src="/Resimler/logo.avif" alt="alt metin" title="resmin üzerine gelince açıklama ekler title ile">
     <br>
     <img src="/Resimler/logo.avif" alt="alt metin" title="width genişliği ayarlar" width="118">
     <br>
     <img src="/Resimler/logo.avif" alt="alt metin" title="height yüksekliği ayarlar" height="58">
     <br>
-    <img src="/Resimler/logo.avif" alt="alt metin" title="height yüksekliği ayarlar" height="85" width="134">
+    <img src="/Resimler/logo.avif" alt="alt metin" title="height width ayarlar" height="85" width="134">
     <br>
-    <h3>Sayfada Tablo ile Ekran Tasarımı</h3>
+    <h3>Sayfada Tablo ile Ekran Tasarımı TABLE elementi</h3>
     <p>
         Bir web sayfasını table tr ve td taglarıyla tasarlayabiliriz.
         <br>
@@ -81,6 +90,7 @@
     <table>
         <tr>
             <td>
+                tr satır td kaç kolon olacağını belirler
                 1 table 1 tr 1 td den oluşan tablo
             </td>
         </tr>
@@ -90,12 +100,13 @@
     <table>
         <tr>
             <th>
+                th kalın yazdırır (tablo başlığı)
                 1 table 1 tr 1 th den oluşan tablo
             </th>
         </tr>
     </table>
  
-    <br>
+    <br> Border özelliği ile çerçeve aktif edilir
     <table border="1">
         <tr>
             <td>1 table 1 tr 2 td den oluşan tablo</td>
@@ -104,6 +115,7 @@
     </table>
 
     <hr>
+    hr uzun satır bitme çizgisi olarak tanımlanır
 
     <table border="1">
         <tr>
