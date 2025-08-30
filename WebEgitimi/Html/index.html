@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,22 +8,25 @@
 </head>
 <!--Ctrl+K+C yorum satırı yapma-->
 <!-- VSC open folder ile oluşturulan klasörü açıp içine istenilen sayfadaki uzantılar yazılıp kod yazmaya başlanılır (İç klasörler açılıp alt başlık halinde işlenebilir) -->
-<!-- Eklentilerde yazılan dile ve istenilen özelliğe göre indirilip kurulum yapılabilir(auto kurulum) --> 
+<!-- Eklentilerde yazılan dile ve istenilen özelliğe göre indirilip kurulum yapılabilir(auto kurulum) -->
 <!-- Html içeriğini otomatik getirir (! tab) -->
 <!-- lang = language tr / en yapılabilir
  Title = başlık değiştirilebilir
  head = başlık kısımları düzenlenebilir
  utf-8 = türkçe yazı stili değiştirilebilir
  body = vücut kısımları kod yazılan kısımlardır -->
- <!-- bir web sayfasında sağ click - incele dendiğinde sayfa kod görünümüne gider -->
- <!--  -->
- <!--  -->
+<!-- bir web sayfasında sağ click - incele dendiğinde sayfa kod görünümüne gider -->
+
+<!-- ı karakterlerini sarı kutuya alma sorunu çözümü : 1- lang : tr yazılır 2- settings - unicode highlight - ambiguous characters : enable (işaretli değil) yapılır -->
+<!-- Shift + alt + F : kodladı windows için vsc da düzenleme yöntemi! -->
+<!-- Satır sığmama sorunu durumunda settings - word wrap : on yapılmalı -->
+
 <body>
     Html Eğitimi
     <br>html de br yazıp tab a basarak yazıyı bir alt satıra geçiriyoruz
     <br>
     ÖNEMLİ!
-    1 sayfada 1 tane html 
+    1 sayfada 1 tane html
     1 tane head
     1 tane de body etiketi olmalıdır!
     <br>
@@ -45,7 +49,8 @@
         div elementi sayfada ayrı bölümler oluşturmak için kullanılır.
     </div>
     <div>
-        her h, div ve p elementi ayrı sıralarda gösterilir, yan yana gösterilmez. Bu elementlere blok seviyesi elementleri denir
+        her h, div ve p elementi ayrı sıralarda gösterilir, yan yana gösterilmez. Bu elementlere blok seviyesi
+        elementleri denir
     </div>
     <h3>
         a elementi ile sayfalar arası bağlantı verme
@@ -66,7 +71,8 @@
     <p>
         Klasöre resim eklemek için önce new folder - resimler adı altında sürükle bırak yöntemiyle yükleme yapılır
         Böylece kendi projemizdeki resmi klaör belirterek seçilebilir.
-        Web sayfalarında resim göstermek için img elementi kullanılır, src özelliğinden resmin konumu verilir, eğer boyutlandırma yapacaksak widht-height özellikleri de eklenebilir.
+        Web sayfalarında resim göstermek için img elementi kullanılır, src özelliğinden resmin konumu verilir, eğer
+        boyutlandırma yapacaksak widht-height özellikleri de eklenebilir.
     </p>
     <img src="" alt="alt metin">
     <img src="https://framerusercontent.com/images/dovqJQBEQWVDeW48QqjakTvBHrk.png" alt="">
@@ -105,7 +111,7 @@
             </th>
         </tr>
     </table>
- 
+
     <br> Border özelliği ile çerçeve aktif edilir
     <table border="1">
         <tr>
@@ -129,9 +135,9 @@
             <td>2. satır 3. sütun</td>
         </tr>
     </table>
-    
+
     <hr>
-    
+    <!-- Tablo ile yan yana öenü oluşturma -->
     <table>
         <tr>
             <td><a href="anasayfa.html">Anasayfa</a></td>
@@ -141,7 +147,8 @@
     </table>
     <hr>
 
-    <table>
+    <!-- th, td, div, gibi elementleri çoklu yazmak için td*5 ifadeleri kullanılır -->
+    <table border=1>
         <tr>
             <th>Kategori No</th>
             <th>Kategori Adı</th>
@@ -169,8 +176,8 @@
     <h3>Tablolarda Satır ve Sütunları Birleştirme</h3>
     <table border="1">
         <tr>
-            <th rowspan="2">Kategori No</th>
-            <th rowspan="2">Kategori Adı</th>
+            <th rowspan="2">Kategori No</th> <!-- rowspan: kaç satırlık yer kaplayacağı -->
+            <th colspan="2">Kategori Adı</th> <!-- colspan: kaç sütunluk yer kaplayacağı -->
         </tr>
         <tr>
             <th>ADI</th>
@@ -193,44 +200,44 @@
         </tr>
     </table>
 
-     <hr>
-     <i>i elementi italik (eğik) yazar</i>
-     <br>
-     <b>b elementi</b>
-     <br>
-     <strong>strong elementi</strong>
-     <br>
-     <em>em elementi</em>
-     <br> 
-     <u>u lementi</u>
-     <br>
-     <mark>mark elementi</mark>
-     <br>
-     <del>del elementi</del>
-     <br>
-     <ins>ins elementi</ins>
-     <br>
-     <h2>Başlık içinde <small>small elementi</small>kullanma</h2>
-     <br>
-     <h2>Başlık içinde <sub>sub elementi</sub>kullanma</h2>
-     <br>
-     <h2>Başlık içinde <sup>sup elementi</sup>kullanma</h2>
-     <br>
+    <hr>
+    <i>i elementi italik (eğik) yazar</i>
+    <br>
+    <b>b elementi kalın yazar</b>
+    <br>
+    <strong>strong elementi kalın yazar</strong>
+    <br>
+    <em>em elementi italik yazar</em>
+    <br>
+    <u>u elementi altını çizer</u>
+    <br>
+    <mark>mark elementi yazının üstünü boyar</mark>
+    <br>
+    <del>del elementi üstünü çizer</del>
+    <br>
+    <ins>ins elementi altını ince çizgi ile çizer</ins>
+    <br>
+    <h2>Başlık içinde <small>small elementi yazıyı küçültür</small>kullanma</h2>
+    <h2>Başlık içinde <sub>sub elementi yazının altını geçerek yazar</sub>kullanma</h2>
+    <h2>Başlık içinde <sup>sup elementi yazının üst kısmına yaklaşarak yazar</sup>kullanma</h2>
+    <br>
 
-     <h3>
+    <h3>
         Html liste elementleri
-     </h3>
+    </h3>
 
-     <p>
+    <p>
         Sıralı, sırasız, acıklamalı olmak üzere 3 farklı liste elementi var
     </p>
-
+    <!-- ul - sırasız liste yapma "." -->
+    <!-- li - sıralı liste yapma "1" -->
     <ul>
         <li>Unordered list - ul - sırasız liste</li>
         <li>sırasız liste oluşturur</li>
         <li>ul elementi altına li eklenerek oluşturulur</li>
     </ul>
 
+    <!-- ol - sıralı liste -->
     <h4>Ordered List - Sıralı Liste</h4>
     <ol>
         <li>Elektronik</li>
@@ -238,27 +245,32 @@
         <li>Telefon</li>
     </ol>
 
+    <!-- dl - description list Tanım listesi tanımlar -->
+    <!-- dt - liste öğesini tanımlar, başlık misali sol ve biraz üstte olur-->
+    <!-- dd - tanım listesinde bir öğeyi tanımlamak için kullanılır, içerik tanımlamasına benzer -->
     <h4>
         Açıklamalı Liste
     </h4>
     <dl>
         <dt>Html</dt>
         <dd>Html, web sayfalarını oluşturmak için kullanılan bir işaretleme dilidir</dd>
-        <dt>css</dt>
+        <dt>Css</dt>
         <dd>Css, web sayfalarının stilini ve düzenini belirlemek için kullanılır</dd>
         <dt>JavaScript</dt>
-        <dd>JavaScript, web sayfalarının etkileşim ve dinamik özellikler eklemek için kullanılır</dd>
+        <dd>JavaScript, web sayfalarına etkileşim ve dinamik özellikler eklemek için kullanılır</dd>
     </dl>
+
     <h3>Html koduna yorum satırı ekleme</h3>
     <p>
-        kod editöründe html kodları arasına bir yorum satırı eklemek istersek ilgili metni seçiğ ctrl+k+c kısayoluyla yorum satırı yapabiliriz
+        kod editöründe html kodları arasına bir yorum satırı eklemek istersek ilgili metni seçip ctrl+k+c kısayoluyla
+        yorum satırı yapabiliriz
         <br>
-        Yorum satırını açmak için ctrl tuşuna basılı tutarken k + c tuşları yorum satırına alır metni
+        Yorum satırını açmak için ctrl tuşuna basılı tutarken k + c tuşları yorum satırını açar
     </p>
-    
+
     <!-- Burası yorum alanı kod bitişi -->
-     <h3>Fieldset elementi</h3>
-     <fieldset>
+    <h3>Fieldset elementi</h3>
+    <fieldset>
         <legend>Kullanıcı Girişi</legend>
         <form action="" method="post">
             <table>
@@ -268,37 +280,37 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                    <input type="submit" value="Giriş Yap">
+                        <input type="submit" value="Giriş Yap">
                     </td>
                 </tr>
             </table>
         </form>
-     </fieldset>
+    </fieldset>
 
-     <h2>Semantik html5 Elementleri</h2>
-     <div>
+    <h2>Semantik html5 Elementleri</h2>
+    <div>
         Htmlye sonradan eklenen ve tsasarımları daha anlaşılabilir hale getirmeyi hedefleyen elementlerdir.
-     </div>
+    </div>
 
-     <header>
+    <header>
         Web sayfalarının en üst bölümü bu element içinde yer alır.
         <nav>
             <ul>
-            <li><a href="anasayfa.html">Anasayfa</a></li>
-            <li><a href="index.html"></a>index</li>
-            <li><a href="#">iletişim</a></li>
+                <li><a href="anasayfa.html">Anasayfa</a></li>
+                <li><a href="index.html"></a>index</li>
+                <li><a href="#">iletişim</a></li>
             </ul>
         </nav>
-     </header>
+    </header>
 
-     <section>
+    <section>
         section web sayfamızın ana gövdesini tutmak için kullanılabilir.
         <aside>
             <h3>Yan Menü</h3>
-             <ul>
-            <li><a href="#">Link1</a></li>
-            <li><a href="#">Link2</a></li>
-            <li><a href="#">Link3</a></li>
+            <ul>
+                <li><a href="#">Link1</a></li>
+                <li><a href="#">Link2</a></li>
+                <li><a href="#">Link3</a></li>
             </ul>
         </aside>
     </section>
@@ -315,7 +327,8 @@
     <footer>
         footer elementi ise web sayfalarının en alt kısmını çevrelemek için kullanılabilir.
     </footer>
-    
-    
-    </body>
+
+
+</body>
+
 </html>
