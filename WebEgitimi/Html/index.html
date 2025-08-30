@@ -269,16 +269,31 @@
     </p>
 
     <!-- Burası yorum alanı kod bitişi -->
+    <!-- Fieldset elementi gropbox işlemi görür -->
+    <!-- Legend ilk iç başlık -->
+    <!-- form : form şeklinde veri göndermeye yarar, action : aksiyon alacağı başlık veri gönderiminde kullanılır , method : veri gönderim şekli (post: şifrelenmiş , get : sayfa ilk açıldığında dönen tür) -->
+    <!-- input : textbox görevi görür , type : tipine karar verilir -->
+    <!-- Placeholder : textbox-input içindeki silik yazıyı belirtir -->
+    <!-- name: bir görev verirken isimlendirmeden yararlanılır (veri gönderim) -->
+    <!-- Value : İç isimlendirme yazı -->
+
     <h3>Fieldset elementi</h3>
     <fieldset>
         <legend>Kullanıcı Girişi</legend>
         <form action="" method="post">
             <table>
                 <tr>
-                    <td>Parola:</td>
-                    <td><input type="submit" value="Giriş Yap" placeholder="Parola"></td>
+                    <!-- type=text : yazıyı gösterir string olarak -->
+                    <td>Kullanıcı Adı:</td>
+                    <td><input type="text" name="kullanici_adi" placeholder="Kullanıcı Adı"></td>
                 </tr>
                 <tr>
+                    <!-- type=password : şifreli-gizli gönderim şekli -->
+                    <td>Parola:</td>
+                    <td><input type="password" name="Parola" placeholder="Parola"></td>
+                </tr>
+                <tr>
+                    <!-- type=submit : gönderim sağla -->
                     <td colspan="2">
                         <input type="submit" value="Giriş Yap">
                     </td>
@@ -287,11 +302,15 @@
         </form>
     </fieldset>
 
-    <h2>Semantik html5 Elementleri</h2>
+    <!-- Daha görselliği olan elementler : semantik -->
+    <h2>Semantik Html5 Elementleri</h2>
     <div>
         Htmlye sonradan eklenen ve tsasarımları daha anlaşılabilir hale getirmeyi hedefleyen elementlerdir.
     </div>
 
+    <!-- Head : html içindeki baş kısmı default gelir -->
+    <!-- Header : başlık elementi -->
+    <!-- nav : navigasyon-yönlendirme (kullanıcı yönlendirilen menüler de kullanılır) -->
     <header>
         Web sayfalarının en üst bölümü bu element içinde yer alır.
         <nav>
@@ -303,6 +322,8 @@
         </nav>
     </header>
 
+    <!-- Section : gövde div benzeri kullanılabilir -->
+    <!-- Aside :  yan menü için kullanılır (nav gibi) -->
     <section>
         section web sayfamızın ana gövdesini tutmak için kullanılabilir.
         <aside>
@@ -315,20 +336,22 @@
         </aside>
     </section>
 
+    <!-- Article : bilgi kapsayıcı alan -->
     <article>
         article elementi bilgi verme amaçlı haber, makale vb gibi içerik kapsayıcısı olarak kullanılabilir
     </article>
 
+    <!-- Figure : figür alanı -->
     <figure>
         <img src="/Resimler/logo.avif" alt="Örnek Resim">
-        <figcaption>BU bir figcaption açıklama metnidir.</figcaption>
+        <!-- Figcaption : açıklama metinleri -->
+        <figcaption>bu bir figcaption açıklama metnidir.</figcaption>
     </figure>
 
+    <!-- footer : alt-ayak kısmı web de -->
     <footer>
         footer elementi ise web sayfalarının en alt kısmını çevrelemek için kullanılabilir.
     </footer>
 
-
 </body>
-
 </html>
