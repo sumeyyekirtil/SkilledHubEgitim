@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Css de Margin-Padding Kullanımı</title>
 </head>
+
 <body>
     <h1>Css de Margin-Padding Kullanımı</h1>
-    <p>Bu sayfa, Css margin(dış) ve padding(iç boşluk) özelliklerini tanıtmak için hazırkanmıştır.</p>
+    <p>Bu sayfa, Css margin(dış) ve padding(iç boşluk) özelliklerini tanıtmak için hazırlanmıştır.</p>
     <p>
-        Margin, bir öğenin dış kenarları ile diğer öğeler arasındaki boşluğu kontrol ederken, padding ise bir öğenin iç kenarlıkları ile içeriği arasındaki boşluğu kontrol eder.
+        Margin, bir öğenin dış kenarları ile diğer öğeler arasındaki boşluğu kontrol ederken, padding ise bir öğenin iç
+        kenarlıkları ile içeriği arasındaki boşluğu kontrol eder.
     </p>
+
     <h3>Margin-Dış Boşluk</h3>
     <div style="margin-top: 18px; border: 1px solid;">
         style="margin-top: 18px; border: 1px solid;
@@ -24,11 +28,14 @@
     <div style="margin-left: 18px; border: 1px solid;">
         margin-left: 18px; border: 1px solid;
     </div>
+
+    <!-- 4 Yönden dış boşluklar için margin kullanılır istenilen 4 yön px verilir -->
     <div style="margin: 18px; border: 1px solid;">
         margin: 18px; border: 1px solid;
         margin: 18px; 4 yönden de aynı boşluk sağlar.
     </div>
     <div style="margin: 18px 34px; border: 1px solid;">
+        Tek margin ile 2 yöne boşluk verme
         <br>
         style="margin: 18px 34px; border: 1px solid;"
         margin: 18px 34px; Üst ve Alt için 18px, sağ ve sol için 34px boşluk verir.
@@ -38,14 +45,14 @@
         Tek margin ile 3 yöne boşluk verme
         <br>
         style="margin: 18px 25px 34px; border: 1px solid;"
-        margin: 18px 34px; Üst için 18px, sağ ve sola 25px alta için 34px boşluk verir.
+        margin: 18px 25px 34px; Üst için 18px, sağ ve sola 25px, alta için 34px boşluk verir.
     </div>
 
-    <div style="margin: 18px 34px 41px; border: 1px solid;">
+    <div style="margin: 18px 25px 34px 41px; border: 1px solid;">
         Tek margin ile 4 yöne boşluk verme
         <br>
-        style="margin: 18px 34px  41px; border: 1px solid;"
-        margin: 18px 34px; Üst için 18px, sağa 25px alta 34px sola 41px boşluk verir verir.
+        style="margin: 18px 25px 34px 41px; border: 1px solid;"
+        margin: 18px 25px 34px 41px; Üst için 18px, sağa 25px, alta 34px, sola 41px boşluk verir
     </div>
 
     <hr>
@@ -68,6 +75,7 @@
         padding: 18px; 4 yönden de aynı boşluk sağlar.
     </div>
     <div style="padding: 18px 34px; border: 1px solid;">
+        Tek padding ile 2 yöne boşluk verme
         <br>
         style="padding: 18px 34px; border: 1px solid;"
         margin: 18px 34px; Üst ve Alt için 18px, sağ ve sol için 34px boşluk verir.
@@ -77,14 +85,15 @@
         Tek padding ile 3 yöne boşluk verme
         <br>
         style="padding: 18px 25px 34px; border: 1px solid;"
-        padding: 18px 34px; Üst için 18px, sağ ve sola 25px alta için 34px boşluk verir.
+        padding: 18px 25px 34px; Üst için 18px, sağ ve sola 25px, alta için 34px boşluk verir.
     </div>
 
-    <div style="padding: 18px 34px 41px; border: 1px solid;">
+    <div style="padding: 18px 25px 34px 41px; border: 1px solid;">
         Tek padding ile 4 yöne boşluk verme
         <br>
-        style="padding: 18px 34px  41px; border: 1px solid;"
-        padding: 18px 34px; Üst için 18px, sağa 25px alta 34px sola 41px boşluk verir verir.
+        style="padding: 18px 25px 34px 41px; border: 1px solid;"
+        padding: 18px 25px 34px 41px; Üst için 18px, sağa 25px, alta 34px, sola 41px boşluk verir verir.
     </div>
+
 </body>
 </html>
