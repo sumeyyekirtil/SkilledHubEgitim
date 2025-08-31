@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Css 05-Display Özelliği.html</title>
+    <title>Css 05 Display Özelliği</title>
 </head>
+
 <body>
-    <h1>Css05- Display Özelligi.html</h1>
+    <h1>Css Display Özelliği </h1>
+
     <p>
-        html elementlerinin display özelliği bulunur.
+        Html elementlerinin display özelliği bulunur.
     </p>
     <div>
         div elementi blok seviye bir elementtir.
     </div>
+
     <span style="border: 1px solid;">span elementi display inline dır</span>
     <span style="border: 1px solid;">bu yüzden spanlar yan yana dizilir</span>
     <ul>
         <li>Anasayfa</li>
         <li>Hakkımızda</li>
     </ul>
-    <h2>Display özelliği inline olan elementler</h2>
+
+    <h2>Display özelliği block olan elementler : içerik yeterli uzunlukta olmasa bile satırı tek kaplar</h2>
+    <div>
+        body <br>
+        div <br>
+        h1-h6 <br>
+        p <br>
+        form <br>
+        header <br>
+        footer <br>
+        section <br>
+        ul
+    </div>
+
+    <h2>Display özelliği inline olan elementler : içerik yeterli olmadığı durumda yan yana yazar</h2>
     <div>
         span, a, img
         <br>
@@ -30,6 +48,7 @@
 
     <hr>
 
+    <!-- Display özelliği değiştirerek tüm satırı ya da kendi alanını kaplatabiliriz (inline , inline-block, block) -->
     <h3>Elementlerin Display Özelliğini Değiştirme</h3>
     <p style="display:inline; border: 1px solid;">
         p elementi display: inline ile span gibi davranabilir.
@@ -47,18 +66,22 @@
     <div style="display: none;">
         style="display: none;" ile elementi sayfada gizleyebiliriz
     </div>
-    
-    <h3>Visbility ile element gizleme veya gösterme</h3>
+
+    <h3>Visibility ile element gizleme veya gösterme</h3>
     <div style="visibility: hidden;">
+        style="visibility: hidden;" elementi sayfada gizleme yapabiliriz
+    </div>
+    <div>
         style="visibility: hidden;" elementi ile gizlediğimiz elementin alanı ekranda korunur
     </div>
 
     <hr>
 
+    <!-- Display en önemli konularından biri -->
     <h2>Display Flex</h2>
     <p>
         Display özelliği flex olan elementler, içindeki elementleri esnek bir şekilde düzenler.
-        Flexbox, özelliğikle responsive tasarımlar için oldukça kullanışlıdır.
+        Flexbox, özellikle responsive tasarımlar için oldukça kullanışlıdır.
     </p>
     <div style="display: flex;">
         Bir elemente display:flex veya display: inline-flex özelliği verilerek esnek hale getirilebilir.
@@ -76,18 +99,20 @@
         <div>0</div>
     </div>
     <style>
-        #flexDiv{
+        #flexDiv {
             display: flex;
-            
             width: 300px;
             border: 1px solid black;
         }
-        #flexDiv div{
+
+        #flexDiv div {
             background-color: lightblue;
             border: 1px solid blue;
             margin: 5px;
             padding: 10px;
-            flex: 1 1 30%; /* flex-grow, flex-shrink, flex-basis*/
+            /* flex: 1 1 30%; başka hizalamayı bozuyor
+            flex-grow, flex-shrink, flex-basis
+            */
         }
     </style>
 
@@ -96,23 +121,23 @@
         Kapsayıcı elemente sığmayan içeriklerin alt satırdan devam etmesini sağlar.
     </p>
     <style>
-        #flexDiv{
-           flex-wrap: wrap;
+        #flexDiv {
+            flex-wrap: wrap; /*sığmayan içerik alttan devam etsin*/
         }
     </style>
-    
+
     <h3>Flex-direction</h3>
     <p>
         öğelerin yönünü belirlememizi sağlar, Yatay veya dikey olarak yerleşmesini ayarlayabiliriz.
     </p>
     <style>
-        #flexDiv{
-            flex-direction: column; /*varsayılan row*/
+        #flexDiv {
+            flex-direction: column;
+            /*varsayılan row*/
         }
     </style>
 
     <h3>Align-Content</h3>
-
     <p>
         Çok satırlı yapılarda öğelerin dikey eksende hizasını ayarlar.
     </p>
@@ -123,14 +148,12 @@
         center: merkeze hizala,
         space-between: ve space-evenly ile aralıklı hizalama yapabiliriz
     </p>
-
     <style>
-        #flexDiv{
+        #flexDiv {
             max-width: 700px;
             min-height: 350px;
-            flex-direction: row;
-            align-content: center;
-            /**/
+            flex-direction: row; /*satır gelinmesi istendi*/
+            align-content: center; /*hizalandığı yer : ortala*/
         }
     </style>
 
@@ -138,25 +161,27 @@
     <p>
         Öğelerin yatay eksende hizalamasını sağlar.
         <br>
-        Kullanımı için kapsayıcı öğeye Justify-content: space-evenly,flex-start, flex-end,space-araund, space-between.. şeklinde kod ayarlanır
+        Kullanımı için kapsayıcı öğeye Justify-content: space-evenly, flex-start, flex-end, space-araund, space-between..
+        şeklinde kod ayarlanır
     </p>
     <style>
-        #flexDiv{
+        #flexDiv {
             flex-direction: row;
-            justify-content: space-evenly;
+            justify-content: space-evenly; /*hizlama şekli*/
         }
-        #flexDiv div{
+        #flexDiv div {
             width: 30px;
         }
     </style>
 
     <h3>Order Özelliği ile Elemanları Sıralama</h3>
     <i>Sıralama özelliği uygulanan elemanlar sadece kendi aralarında sıralanır!</i>
+    <!-- order : verilen sayıların değerine göre sıralıyor -->
     <style>
-        .item5{
+        .item5 {
             order: 6;
         }
-        .item6{
+        .item6 {
             order: 5;
         }
     </style>
@@ -166,10 +191,11 @@
         Bir öğeyi diğerlerine göre daha büyük göstermek için kullanılır
     </p>
     <style>
-        .item5{
+        .item5 {
             flex-grow: 2;
         }
-        .item6{
+
+        .item6 {
             flex-grow: 5;
         }
     </style>
@@ -179,12 +205,14 @@
         Bir öğeyi diğerlerine göre daha küçük göstermek için kullanılır
     </p>
     <style>
-        #flexDiv div:first-child{
+        #flexDiv div:first-child {
             flex-shrink: 2;
         }
-        #flexDiv div:last-child{
+
+        #flexDiv div:last-child {
             flex-shrink: 2;
         }
     </style>
+
 </body>
 </html>
