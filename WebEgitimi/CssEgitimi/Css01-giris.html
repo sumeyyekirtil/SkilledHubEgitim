@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Css Eğitimi</title>
     <style>
-        /*Css de yorum satırı(tek veya çoklu satır)*/
-        body{
-            background-color: yellow;
+        /*
+        Css de yorum satırı(tek veya çoklu satır)
+        Renklere dokunarak rgb kodları ile seçim yapabiliriz
+        */
+        body {
+            background-color: rgb(228, 228, 33);
             color: darkblue;
         }
-        h1{
-            color: violet;
+
+        h1 {
+            color: rgb(227, 107, 227);
         }
-        h2,h3{
-            color: azure;
+
+        h2,
+        h3 {
+            color: rgb(101, 238, 238);
         }
     </style>
     <link rel="stylesheet" href="/stil.css">
 </head>
+
 <body>
     <h1>Css Giriş Eğitimi</h1>
     <h2>Css Nedir?</h2>
     <p>
         Css: Cascading style sheet in kısaltmasıdır.
         Ekrandaki html öğelerinin tasarımlarını değiştirmemizi sağlar.
+        Bağımsız bir tasarım dilidir diğer programlama dilleriyle kullanılıp tasarımlar yapılabilir.
+        /*Css de yorum satırı(tek veya çoklu satır)*/
     </p>
 
     <h3>Css Yazma Seçenekleri</h3>
@@ -33,31 +43,33 @@
             Inline: Html elementlerinin içerisine style attribute ü açılarak yazılır.
         </li>
         <li>
-            Sayfa head alanı içerisinde style etiketleri arasına yazılır
+            Sayfa head alanı içerisinde -style- etiketleri arasına yazılır
         </li>
         <li>
+            Büyük projelerde kullanımı :
             Harici bir css dosyası oluşturulup sayfa head alanı içinde çağırarak.
         </li>
     </ol>
 
-    <h4>Inline Css Yazımı</h4>
+    <h4>Inline (template css) Css Yazımı</h4>
 
     <p style="background-color: red; color: white;">
-        Elementlerin aççılış taglarına boşluk bırakıp style özelliği içine css kodu yazarak yapaprız
+        Elementlerin açılış taglarına boşluk bırakıp style özelliği içine css kodu yazarak yaparız
         <br>
         Eğer birden fazla css özelliği uygulayacaksak özellikler arasına ; koyarız.
         <br>
         En sondakine ; koymaya gerek yoktur.
     </p>
 
-    <h4>Head Tagları Arasına Css Yazımı</h4>
+    <h4>Head Tagları Arasına Css Yazımı (Proje başı)</h4>
     <p>
         Sayfa head alanı içerisinde style etiketleri arasına yazılarak sayfadaki elementlere stil uygulanabilir
     </p>
 
     <h4>Harici Css Dosyası Kullanarak Tasarım Uygulama</h4>
     <p>
-        Harici bir css dosyası oluşturup (style.css gibi) sayfa head alanı içinde link özelliği ile çapırarak sayfa tasarımını şekillendirebiliriz.
+        Harici bir css dosyası oluşturup (style.css gibi) sayfa head alanı içinde link özelliği ile çağırarak sayfa
+        tasarımını şekillendirebiliriz.
     </p>
 
     <h3>Css Seçiciler</h3>
@@ -78,9 +90,11 @@
         <br>
         Örnek: #idSecici{}
     </div>
+
     <h4>3-Class-Sınıf Seçici</h4>
     <div class="sinifSecici">
-        Web sayfasında veya uygulama genelinde birden fazla elemente aynı stil ayarlarını uygulamak için class ceçicileri kullanırız.
+        Web sayfasında veya uygulama genelinde birden fazla elemente aynı stil ayarlarını uygulamak için class
+        seçicileri kullanırız.
     </div>
 
     <p class="sinifSecici">
@@ -93,22 +107,24 @@
         Örneğin: .sinifSecici{}
     </div>
     <style>
-        .sinifSecici{
-            /*SinifSecici classı eklenmiş tüm elementlere uygulanır*/
+        .sinifSecici {
+            /*sinifSecici class ı eklenmiş tüm elementlere uygulanır*/
 
             background-color: green;
             color: white;
         }
-         p.sinifSecici{
-            /*SinifSecici classı eklenmiş p elementlerine uygulanır*/
+
+        p.sinifSecici {
+            /*sinifSecici classı eklenmiş p elementlerine uygulanır*/
             background-color: white;
             color: green;
         }
-        .center{
+
+        .center {
             text-align: center;
         }
     </style>
-    
+
     <p class="sinifSecici center">
         Bir elemente class özelliği içerisine aralarına boşluk bırakarak birden fazla class uygulayabiliriz.
     </p>
@@ -130,32 +146,34 @@
     </div>
 
     <style>
-            div#anaDiv p{
+        div#anaDiv p {
 
-                /*div lerden id değeri anaDiv olan elementin altındaki tüm p leri seç*/
-                background-color: purple;
-                color: azure;
-            }
-            #anaDiv p:first-child{
-                background-color: gray;
-                color: antiquewhite;
-            }
-            #anaDiv p:last-child{
-                background-color: fuchsia;
-                color: mediumblue;
-            }
+            /*div lerden id değeri anaDiv olan elementin altındaki tüm p leri seç*/
+            background-color: purple;
+            color: azure;
+        }
+
+        #anaDiv p:first-child {
+            background-color: gray;
+            color: antiquewhite;
+        }
+
+        #anaDiv p:last-child {
+            background-color: fuchsia;
+            color: mediumblue;
+        }
     </style>
-    
+
     <h3>1 Elemente 1 den fazla Css Uygulanırsa</h3>
     <ol>
         <li>
-            Satır içi stil (elemente inline css yazımı) geçerli olur
+            İlk geçerli css Satır içi stil (elemente inline css yazımı) geçerli olur
         </li>
         <li>
-            Dış css dosyası veya sayfa içindeki style alanındaki css ler
+            Sonraki geçerli olan Dış css dosyası veya sayfa içindeki style alanındaki css ler
         </li>
         <li>
-            Tarayıcının varsayılan css kodları
+            Son tanınan css Tarayıcının varsayılan css kodları
         </li>
     </ol>
 
@@ -173,5 +191,6 @@
     <h5 style="border: 5px groove tomato;">Border groove: groove çizgi></h5>
     <h6 style="border: 5px inset tomato;">Border inset: içeri doğru çizgi></h6>
     <h6 style="border: 5px outset tomato;">Border outset: dışarı doğru çizgi></h6>
+
 </body>
 </html>
