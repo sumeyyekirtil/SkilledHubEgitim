@@ -35,10 +35,11 @@ product - edit top 200 rows - ürünleri ekle
 //ürün takibi için (ortak metotları ortak class a al) add - class : Productdal using System; using System.Collections.Generic; using System.Data; //vt işlemleri için using System.Data.SqlClient; //ADO.NET kütüphaneleri (ortak metotları ortak class a al)
 
 /*
- * Çalışma Yapısı ->
+ * Çalışma Yapısı -> AdoNet
  * Form desing yapıları create edildi.
  * Project - Class added. Class - prop yapıları oluşturulunca aynı sınıfın DAL(data access layer) sınıfı açılır.
- * DAL -> Bağlantı nesnesi (connection string) oluşturulunca Add-Update-Delete komutlarına bağlantı - sonuç adresleri yazılıp veri türleri tanımlanır.
+ * DAL -> Bağlantı nesnesi (connection string) oluşturulup,
+ * _dal sınıflarında Add-Update-Delete komutlarına bağlantı - sonuç adresleri yazılıp metot olarak tanımlanır.
  * Desing - form.cs sayfalarında 1- Class nesnesi oluşturulup, 2- DAL class da oluşturulan yükleme işlemleri button lara event yoluyla verilir.
  */
 namespace WindowsFormsAppAdoNet
