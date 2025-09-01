@@ -14,9 +14,15 @@ using WindowsFormsAppAdoNet;
 //DB - VT işlemleri : project - sağ tık - add class -  UrunDbModel
 //UrunDbModel : kütüphane import - using System.Data.Entity;
 //Referans almak : project - referance - add referance - istenilen projeyi ekleme yapılır
-//app.config : ayarların tutulduğu yer - proje bilgileri bulunur
-//app.config connection string ekleme : connectionString tagleri aç/kapat add ekleyip name özelliği ile base kısmındaki ismi import edilir. connectionString bağlantı adresi string olarak yazılır. İçine provider adı ekleme using sqlclient adresini yazmak
 
+/*
+ * Çalışma Yapısı -> EntityFramework
+ * Proje oluşturulup manage nuget package - entity framework added.
+ * UrunDbModel : ortak model de hem diğer class hem bağlantı adını dbcontext sınıfındaki base ile gönderilir. 2- class burada prop ile tanımlanır tanımlanmış class var ise başka projeyi referance almalıyız ve DbSet<> ile kullanıma hazır hale getirmeliyiz
+ * app.config : ayarların tutulduğu yer - proje bilgileri bulunur
+ * app.config connection string ekleme : connectionString tagleri aç/kapat add ekleyip name özelliği ile base kısmındaki ismi import edilir. connectionString bağlantı adresi string olarak yazılır. İçine provider adı ekleme using sqlclient adresini yazmak
+ * Desing - form.cs sayfalarında 1- Class nesnesi oluşturulup, 2- yükleme metotları button lara event yoluyla verilir.
+ */
 namespace WindowsFormsAppEntityFramework
 {
 	//ENTITY FRAMEWORK : Ado Net işlemlerini daha kolay ve hızlı yapabilen kütüphanedir
