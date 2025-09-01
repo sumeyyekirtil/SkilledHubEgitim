@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Css07-FloatOzelligi</title>
+    <title>Css Float Özelliği</title>
 </head>
+
+<!-- Float özelliği verilen div hala yer kaplar sadece inline gibi hareket edip devamına yazdırır diğer divi yani aynı alanı kullanır-->
+
 <body>
     <h1>Css Float Özelliği</h1>
     <div>
@@ -12,7 +16,8 @@
             Css Float Özelliği
         </div>
         <div style="float: left; background-color: yellowgreen; border: 1px solid;">
-            float: left özelliği verilen div sola yapışır, içeriği kadar yer kaplar, sonrasında gelen element buradan hizalanarak akışa katılır.
+            float: left özelliği verilen div sola yapışır, içeriği kadar yer kaplar, sonrasında gelen element buradan
+            hizalanarak akışa katılır.
         </div>
         <div>
             float: left verilen elementten sonraki
@@ -23,6 +28,22 @@
         <div>
             float: left verilen elementten sonraki 3.
         </div>
+    </div>
+
+    <hr>
+
+    <div style="float: right; background-color: yellowgreen; border: 1px solid;">
+        float: right özelliği verilen div sağa yapışır, içeriği kadar yer kaplar, sonrasında gelen element buradan
+        hizalanarak akışa katılır.
+    </div>
+    <div style="background-color: yellow; border: 1px solid;">
+        float: right verilen elementten sonraki
+    </div>
+    <div>
+        float: right verilen elementten sonraki 2.
+    </div>
+    <div>
+        float: right verilen elementten sonraki 3.
     </div>
 
     <div id="urunler">
@@ -39,6 +60,7 @@
             background-color: lightblue;
             border: 1px solid black;
         }
+
         #urunler div {
             width: 100px;
             height: 100px;
@@ -46,12 +68,14 @@
             margin: 10px;
             background-color: lightcoral;
             text-align: center;
-            line-height: 100px; /* Verticallt center the text */
+            line-height: 100px;
+            /* Vertically center the text */
         }
     </style>
 
     <hr>
 
+    <!-- Float özelliği ile yanına yazılmaması için both kullanılır satırı sağ ve sol olarak temizleyip alt satırdan devam eder (float önceki alanda geçerliliğini sürdürür both öncelikli olana uygulanır) -->
     <div style="clear: both;">
         <h3>Float-Clear</h3>
         <p>
@@ -76,37 +100,39 @@
         </p>
     </div>
 
+    <!-- img içine son link bittiği yere /_ /_ sayı tanımlarsak width/height verilmiş olur-->
     <div id="kapsayici">
         <div id="resim">
-            <img src="https://www.kendinyaphobi.com/sayilarla-boyama-seti-manzara-iskelesi?srsltid=AfmBOorDROrrSsmfH_AIcvVLlkRcE_tdYhR95Ntcwai0uDfPmTG5ahkt" alt="Resim"/>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbzb-hrZ-aZa3UDjlpt4b_A29corb8PRDyLg&amp;s" alt="Resim" />
         </div>
         <div id="yazi">
-                    <p>
-            float özelliği uygulanmış bir elementten sonraki elementi yapışma olayından kurtarmak için
-            clear:left - right
-            both seçeneklerinden birini kullanırız.
-            <br>
-            clear: left - float: left in etkisini kaldırır
-            <br>
-            clear: right- float: right in etkisini kaldırır
-            <br>
-            clear: both - hem float: left in hem float:right in etkisini kaldırır
-        </p>
+            <p>
+                float özelliği uygulanmış bir elementten sonraki elementi yapışma olayından kurtarmak için
+                clear:left - right
+                both seçeneklerinden birini kullanırız.
+                <br>
+                clear: left - float: left in etkisini kaldırır
+                <br>
+                clear: right- float: right in etkisini kaldırır
+                <br>
+                clear: both - hem float: left in hem float:right in etkisini kaldırır
+            </p>
         </div>
     </div>
-
     <style>
-        #kapsayici{
+        #kapsayici {
             width: 500px;
             background-color: antiquewhite;
             border: 5px outset red;
             padding: 1em;
         }
-        #resim{
+
+        #resim {
             float: right;
             padding: 1em;
             border: 1px solid black;
         }
     </style>
+
 </body>
 </html>
