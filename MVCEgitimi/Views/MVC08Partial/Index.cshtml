@@ -27,7 +27,7 @@
 
 <h3>RenderPartial</h3>
 @{
-    Html.RenderPartial("_PartialModelKullanimi", Model);
+    Html.RenderPartial("_PartialModelKullanimi", "Model");
 }
 
 <p>
@@ -56,10 +56,10 @@
 
 <h3>PartialİN asenkron Çağrılması</h3>
 
-@await Html.PartialAsync("_PartialModelKullanimi", Model)
+@await Html.PartialAsync("_PartialModelKullanimi", "Model")
 
 
 <h3>Render Partial Async</h3>
 @{
-    await Html.RenderPartialAsync("_PartialModelKullanimi", Model);
+    await Html.RenderPartialAsync("_PartialModelKullanimi", "Model");
 }

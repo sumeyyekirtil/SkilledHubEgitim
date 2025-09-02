@@ -1,35 +1,3 @@
-                   --SQL SERVER PROGRAMI TANITIMI
-
---Microsoft un ürünüdür.
---Veri takibi için genellikle sql kullanýlýr.
---SQL Server vs gibi bir veritabaný yönetim sistemi olup (SSMS)Management Studio ile çalýþýr.
---SSMS bir veritabaný yönetim sistemini yönetmek için kullanýlan bir GUI aracýdýr.
-/*
-Download iþlemi: Google - Sql Server Download 2022 - Download Developer Sql
-Sql Server Kurulum (EXE): Basic - install
-SSMS (Sql Server Management Studio) Download:
-   1- Sql Server - Basic - install ssms - google ssms - 21 ssms install
-   2-google ssms download - 21 ssms install
-SSMS Kurulum (EXE): Yapay zeka 
-*/
-
-                        --Baðlantý Ekraný
-/*
-Baðlantý adresine : Localhost / .  yazýlýp baðlanýlýr.
-
-Authentication (Yetkinlik) : Kiþisel Bilgisayar ým demek için -> Windows Authentication
-          Baþka server a baðlanmak için ip / sap no name girilerek baðlantý saðlanýr.
-*/
-
-            --Object Explorer ve Menü Tanýmý
-/*
-Daha önce iþlem yapýlmadýysa veritabaný boþ gelebilir.
-Yeni veritabaný oluþturmak için -> Databases - New databases
-Deðiþken isimleri oluþtururken Türkçe isimler kullanabiliriz fakat boþluk ve Türkçe karakterler kullanmamalýyýz.
-Limited - Vt boyutu ne olmalý? Verilen alan önemli çünkü yer yetersizse vt çalýþmaz ve durur.
-Path : Dosya yolu
-*/
-
 /*
 sað týk - desing ->
 Tablo dizayn alaný : 3 alan var
