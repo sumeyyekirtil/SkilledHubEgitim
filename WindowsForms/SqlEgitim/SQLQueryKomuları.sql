@@ -11,7 +11,7 @@
 --Insert Into Personel values (4, 'Memet', 'alii', null, null, null)
 
 --Tabloda Güncelleme Yapma
---Update Personel set Adi = 'Alp', Soyadi = 'Arslan' where PersonelID = 2 --þart koyulmazsa hepsini günceller 
+--Update Personel set Adi = 'Alp', Soyadi = 'Arslan' where PersonelID = 2 --þart koyulmazsa hepsini günceller
 
 --Kayýt Silme
 --delete from Personel where PersonelID = 4
