@@ -171,6 +171,7 @@ UNION --her select deyimi ayný satýra sahip olacak,tekrar eden kayýtlar engellen
 SELECT City FROM Suppliers
 ORDER BY City;
 
+
 SELECT City FROM Customers
 UNION All --tekrar eden kayýtlar için all kullanýlýr
 SELECT City FROM Suppliers
