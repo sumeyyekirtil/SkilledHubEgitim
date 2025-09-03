@@ -134,7 +134,7 @@ join    --categoryname i çekip yanýna yazdý
 Categories
 on Products.CategoryID = Categories.CategoryID --categoryname olmadýðý için join edip birleþtirdik
 
-SELECT Orders.OrderID, Customers.ContactName, OrderDate 
+SELECT Orders.OrderID, Customers.ContactName, OrderDate
 FROM Orders
 INNER JOIN
 Customers ON Orders.CustomerID=Customers.CustomerID;
