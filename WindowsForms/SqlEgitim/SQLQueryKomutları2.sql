@@ -76,7 +76,7 @@ komutlarý kullanýlýr.
 --Önce db adý sonra tablo adý yazýlýp komut seçilir. Db adý seçiliyse tablo adý yazýlarak istenilen iþlem komutu yazýlýp çalýþtýrýlýr. 
 
                 --Sql Kod ile Veritabanýna Tablo Ekleme
---Mause ile yapýlabilen kýsmýn kod ile yapýlan þekli:
+--Mouse ile yapýlabilen kýsmýn kod ile yapýlan þekli:
 /*
 create database OrnekDb
 go
@@ -95,7 +95,7 @@ Alter Table Personel Add Email varchar(250) --kolon ekleme yapýldý
 
 Alter Table Personel Alter Column Email varchar(50) --kolonu güncelledik 250 - 50
 
-Alter Table Personel Add Ders varchar(50), Konu(50) --Tek seferde 1 den fazla kolon eklemek istenirse
+Alter Table Personel Add Ders varchar(50), Konu varchar(50) --Tek seferde 1 den fazla kolon eklemek istenirse
 
 Alter Table Personel Alter Column PersonelId int not null --kolonda güncelleme yaptýk
 

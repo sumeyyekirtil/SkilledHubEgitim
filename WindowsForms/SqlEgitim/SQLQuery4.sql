@@ -19,7 +19,7 @@
 
 SELECT TOP (50) * FROM Products --50 veri alýr
 
-select top (10) ProductName, UnitPrice, UnitsInStock from Products  --ürünler tablosundan üðstten 10 ürünü seç ve ProductName, UnitPrice, UnitsInStock alanlarý getir
+select top (10) ProductName, UnitPrice, UnitsInStock from Products  --ürünler tablosundan üstten 10 ürünü seç ve ProductName, UnitPrice, UnitsInStock alanlarý getir
 */
 /*
                    Order By ile sýralama 
@@ -81,24 +81,24 @@ Select * from Products Where  not SupplierID = 1 and CategoryID = 1
 
 	               4- Diðer Operatörler
 
---SQL BETWEEN Operatörü 
+           --SQL BETWEEN Operatörü 
 SELECT * FROM Products Where UnitPrice BETWEEN 10 AND 20; --arasýnda olan deðerleri getir
 SELECT * FROM Products Where UnitPrice NOT BETWEEN 10 AND 20; --deðerler dýþýnda kalan verileri getir
 
---Like Operatörü Ýle Arama, Filtreleme Ýþlemi
+           --Like Operatörü Ýle Arama, Filtreleme Ýþlemi
 --select * from Products where ProductName like 'a%'; --ürünlerden ürün adý a ile baþlayanlarý getir
 --select * from Customers where ContactName LIKE 'a%';-- müþterilerden adý a ile baþlayanlarý getir
 --SELECT * FROM Customers WHERE ContactName LIKE '%a'; --müþterilerden adý a ile bitenleri getir
 --select * from Customers where ContactName LIKE '%or%'; --müþterilerden adý or içerenleri getir
      
-	       SQL IN-Not IN Operatörü
+	       --SQL IN-Not IN Operatörü
 Ýlgili sütunda istediðimiz deðerleri içerenleri in ile içermeyenleri not in ile filtreleyebilirsiniz
 
 SELECT * FROM Customers Where Country IN ('Germany', 'France', 'UK'); --customers tablosundaki müþterilerden country kolonu 'Germany', 'France', 'UK' deðerlerini getirir.
 
 --SELECT * FROM Customers Where Country Not IN ('Germany', 'France', 'UK'); --deðerleri içermeyen verileri getirir
    
-        --Ýç içe iliþkili veri okuma
+          --Ýç içe iliþkili veri okuma
 SELECT * FROM Customers WHERE Country in (select Country from Suppliers)--müþterilerden country alanýnda Suppliers(tedarikçi) tablosunun ülke alanýnda geçenleri getir
 
         -- Tablodan Veri Okurken Hesaplama
@@ -107,10 +107,10 @@ SELECT * FROM Customers WHERE Country in (select Country from Suppliers)--müþter
 select p.ProductName as [Ürün Adý], p.UnitPrice as [Ürün Fiyatý], p.UnitsInStock as [Stok Miktarý], p.UnitsInStock * p.UnitPrice as [Toplam Kazanç]
 from Products p --toplam kazanç kolonu ekleyip çarpma operatörü kullanýp hesaplama yapar
 
-        --SQL NULL DEÐERLER
+         --SQL NULL DEÐERLER
 select ShipName, ShipRegion from Orders where ShipRegion is null --sipariþlerden shipname ve shipregion alanlarýný shipregion alaný null olanlara göre çek
 
-select ShipName, ShipRegion from Orders where ShipRegion is not null --kolondaki deðer null deðilmi
+select ShipName, ShipRegion from Orders where ShipRegion is not null --kolondaki deðer null olmayan
 
          --SQL SELECT DISTINCT Kullanýmý : sorgu sonucunda kayýt tekrarýný engellemeyi saðlar
 SELECT Country FROM Customers order by Country --hepsini getirir
@@ -119,7 +119,7 @@ SELECT DISTINCT Country FROM Customers --ayný olan verilerden seçerek 1 tane get
 
          --SQL Joins ile Tablolarda Birleþik Sorgu Oluþturma
                      --SQL JOIN Türleri
-   1-(INNER)JOIN: her iki tabloda da eþleþen deðerlere sahip kayýtlarý döndürür
+   1-(INNER) JOIN: her iki tabloda da eþleþen deðerlere sahip kayýtlarý döndürür
    2-LEFT (OUTER)JOIN: Soldaki tablodan tüm kayýtlarý ve sað tablodan eþleþen kayýtlarý döndürür
    3-RÝGHT (OUTER)JOIN: sað tablodan tüm kayýtlarý ve soldaki tablodan eþleþen kayýtlarý döndürür
    4-FULL (OUTER)JOIN: Sol ve sað tabloda bir eþleþme olduðunda tüm kayýtlarý döndürür

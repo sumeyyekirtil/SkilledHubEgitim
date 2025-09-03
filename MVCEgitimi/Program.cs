@@ -12,6 +12,7 @@ namespace MVCEgitimi
 
 			// Add services to the container.
 			builder.Services.AddControllersWithViews(); //Uygulamada MVC controller view yapýsýný kullanacaðýz
+			builder.Services.AddSession(); //bu ýygulamada session kullanýmýný aktif et
 
 			var app = builder.Build(); //builder nesnesi üzerinden eklenen servislerle beraber app nesnesi oluþturuluyor
 
@@ -27,6 +28,8 @@ namespace MVCEgitimi
 			app.UseRouting(); //uygulamada routing mekanizmasýný aktif et
 
 			app.UseAuthorization(); //uygulamada yetkilendirme kullanýmýný aktif et
+
+			app.UseSession(); //uygulamada session kullanýlmasý için hem builder hem app olarak tanýmlama yapýlmalý
 
 			app.MapStaticAssets(); //wwwroot klasöründeki statik dosyalarý haritala
 			app.MapControllerRoute( //route yapýsýný aþaðýdaki ayarlarla kullan

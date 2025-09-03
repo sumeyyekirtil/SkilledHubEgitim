@@ -1,4 +1,4 @@
-                   --CRUD ÝÞLEMLERÝ
+                    --CRUD ÝÞLEMLERÝ
 --Tablolara kayýt ekleme, kayýtlarý çekme, kayýt güncelleme ve silme iþlemlerine kýsaca C(Create), R(Read), U(Update), D(Delete) deriz.
 
 --Tabloya veri ekleme
@@ -18,8 +18,10 @@
 
 --Veritabanýnýn Yedeðini Alma (Veri kurtarmak için)
 --BACKUP DATABASE OrnekDb TO DISK = 'C:\DBYedek.bak';
---Veritabaný Yedekten Geri Yükleme
+
 /*
+--Veritabaný Yedekten Geri Yükleme
+
 USE master; --Geri yükleme için master veritabanýný kullanýyoruz
 GO
 RESTORE DATABASE OrnekDb
