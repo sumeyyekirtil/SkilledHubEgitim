@@ -1,3 +1,64 @@
+                   --SQL SERVER PROGRAMI TANITIMI
+
+--Microsoft un ürünüdür.
+--Veri takibi için genellikle sql kullanýlýr.
+--SQL Server VS gibi bir veritabaný yönetim sistemi olup (SSMS)Management Studio ile çalýþýr.
+--SSMS bir veritabaný yönetim sistemini yönetmek için kullanýlan bir GUI aracýdýr.
+/*
+Download iþlemi: Google - Sql Server Download 2022 - Download Developer Sql
+Sql Server Kurulum (EXE): Basic - install
+SSMS (Sql Server Management Studio) Download:
+   1- Sql Server - Basic - install ssms - google ssms - 21 ssms install
+   2- google ssms download - 21 ssms install
+SSMS Kurulum (EXE): Yapay zeka 
+*/
+
+                        --Baðlantý Ekraný
+/*
+Baðlantý adresine : Localhost / .  yazýlýp baðlanýlýr.
+
+Authentication (Yetkinlik) : Kiþisel Bilgisayar ým demek için -> Windows Authentication
+          Baþka server a baðlanmak için ip / sap no name girilerek baðlantý saðlanýr.
+*/
+
+            --Object Explorer ve Menü Tanýtýmý
+/*
+Daha önce iþlem yapýlmadýysa veritabaný boþ gelebilir.
+Yeni veritabaný oluþturmak için -> Databases - New databases
+Deðiþken isimleri oluþtururken Türkçe isimler kullanabiliriz fakat boþluk ve Türkçe karakterler kullanmamalýyýz.
+Limited - Vt boyutu ne olmalý? Verilen alan önemli çünkü yer yetersizse vt çalýþmaz ve durur.
+Path : Dosya yolu
+*/
+
+-- sql de tek satýrlýk yorum için 2 tire kulanýlýr
+/*
+çoklu yorum satýrý
+için
+yine / * * / kullanýlýr.
+*/
+
+/*
+Database oluþturma ve ekleme, silmeden sonra Databases kýsýmlarýný refresh edilmeli, refresh yapýlmazsa vt yok gibi hatalar çýkabilir.
+
+Komutlarda Büyük-Küçük harf farketmez!
+Vt isimleri isimlendirme kurallarýna uygun yazýlmalý
+
+Veri tanýmlama (veri saklanmasý için nesneler, prosödür, fonksiyonlarýn) tablolarýnda yapýlan deðiþiklik türleri:
+Yeni tablo oluþturma : CREATE TABLE
+Tabloda deðiþiklik yapma : ALTER TABLE
+Tabloyu silmek : DROP TABLE
+komutlarý kullanýlýr.
+*/
+
+/*
+--Uzun yazýlarý ekrana sýðdýrýp, alt satýrdan devam etmesi : Tools - Options -Text Editor - All Languages - Word Wrap (Sarmalama) - Active
+
+  SQL komutlarý kullaným amaçlarýna göre üç genel kategoriye ayrýlýr. Bunlar:
+        1-Veri Tanýmlama Dili (DDL - Data Definition Language): Tablo oluþturma, deðiþtirme ve silme iþlemleri için kullanýyoruz.
+        2-Veri Ýþleme Dili (DML - Data Manipulation Language): Veri girmek, deðiþtirmek, silmek ve verileri almak için kullanýlan komutlardýr.
+        3-Veri Kontrol Dili (DCL - Data Control Language): Veritabaný kullanýcýsý veya rolü ile ilgili izinlerin düzenlenmesini saðlar.
+*/
+
 /*
 sað týk - desing ->
 Tablo dizayn alaný : 3 alan var
@@ -373,7 +434,7 @@ BEGIN
 INSERT INTO Bolumler(Bolum_Adi) VALUES (@BolumAdi)
 END
 
-      --KULLANIMI
+                 --KULLANIMI
 EXEC sp_BolumEkle 'Aksesuar' --bolum no alaný için deðer bekliyor (hata için : identity yes yapmamýz lazým)
 */
 /*
@@ -395,6 +456,15 @@ EXEC sp_BolumEkle 'Aksesuar' --bolum no alaný için deðer bekliyor (hata için : i
     CREATE FUNCTION : Fonksiyon oluþturmak için kullanýlýr
 	ALTER FUNCTION : Fonksiyonda deðiþiklik yapmak için kullanýlýr
 	DROP FUNCTION : Mevcut olan fonksiyonu silmek için kullanýlýr
+
+	--Example:
+	Alter Table Personel Add Email varchar(250) --kolon ekleme yapýldý
+
+    Alter Table Personel Alter Column Email varchar(50) --kolonu güncelledik 250 - 50
+
+    Alter Table Personel Add Ders varchar(50), Konu varchar(50) --Tek seferde 1 den fazla kolon eklemek istenirse
+
+	Alter TABLE Personel DROP COLUMN Email; --kolon silinir
 
 CREATE FUNCTION UrunAdet(@urunAdi nvarchar(50))
 RETURNS int

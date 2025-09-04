@@ -271,9 +271,10 @@ end
      1-Ardý sýra tetikleyiciler; iþlem den sonra iþlem tetikleyici
      2-Yerine Tetikleyiciler; bir iþlem yerine tetikleyici
 
-       --STORED PROSEDURE(Saklý Yordam) ve Fonksiyon Kullanýmý
+       --STORED PROCEDURE(Saklý Yordam) ve Fonksiyon Kullanýmý
 --Table - stored procedure (default olarak içindekiler gelir) - sistem procedure - db oluþtuðunda eklenir otomatik
 --Örn: Crud iþlemleri komutlarý (insert - update - delete), try catch kullanýlabilir
+
 --Yeni Stored Procedure(Saklý Yordam Oluþturma)
 
 CREATE PROCEDURE sp_CalisanBolum --sp_CalisanBolum isminde bir SP oluþturduk
@@ -288,16 +289,16 @@ exec sp_CalisanBolum --STORED PROCEDURE Çalýþtýrma
 CREATE PROCEDURE sp_UrunListele(@UrunSayisiParametresi int)--SP ye dýþarýdan gelecek ürün sayýsý paremetresine göre ürünleri listeleyeceðiz
 AS
 BEGIN
-select * from Urunler where Urun_Sayisi > @UrunSayisiParametresi
+select * from Urunler where Stock > @UrunSayisiParametresi
 END
 
 exec sp_UrunListele 18--deðer vermemizi isterse sayýsal deðer verme biçimi
 
          --SP Güncelleme Yapma
 ALTER PROCEDURE sp_UrunListele(@UrunSayisiParametresi int = 0)--SP ye dýþarýdan gelecek ürün sayýsý paremetresine göer ürünleri liseleyeceðiz
-AS --=0 eklendi fakar alter kullanýlmsaý gerekiyor
+AS --=0 eklendi fakat alter kullanýlmsaý gerekiyor
 BEGIN
-select * from Urunler where Urun_Sayisi > @UrunSayisiParametresi
+select * from Urunler where Stock > @UrunSayisiParametresi
 END
 
 exec sp_UrunListele -- deðer göndermesekde artýk hata getirmiyor
@@ -313,9 +314,9 @@ INSERT INTO Bolumler(Bolum_Adi) VALUES (@BolumAdi)
 END
 
           --KULLANIMI
-EXEC sp_BolumEkle 'Aksesuar' --bolum no alaný için deðer bekliyor  (identity yes yapmamýz lazým)
-
+EXEC sp_BolumEkle 'Klavye' --bolum no alaný için deðer bekliyor  (identity yes yapmamýz lazým)
 */
+
 /*
                         --FONKSÝYONLAR
 --Kullanýcý tanýmlý fonksiyonlar, kullanýcýlar tarafýndan tanýmlanan tek bir deðer veya tablo döndürmek için kullanýlan iliþkisel veritabaný nesneleridir
@@ -331,8 +332,8 @@ RETURNS int
 AS
 BEGIN
 DECLARE @urunAdedi int --veri tipi int olan bir deðiþken oluþturduk
-SET @urunAdedi=(SELECT Urun_Sayisi FROM Urunler WHERE Urun_Adi=@urunAdi)
-RETURN @urunAdedi--selecet sorgusuyla bulunan urunadedi deðiþken deðerini döndürür
+SET @urunAdedi=(SELECT Stock FROM Urunler WHERE Name=@urunAdi)
+RETURN @urunAdedi--select sorgusuyla bulunan urunadedi deðiþken deðerini döndürür
 END
 
                    --Fonksiyon kullanýmý:
@@ -342,7 +343,7 @@ select dbo.UrunAdet('Bilgisayar') as UrunAdedi
 create function fn_CalisanlariListele()
 returns table
 as
-return select * from Calisanlar
+return select * from Kullanicilar
 
                  --Fonksiyon Kullanýmý:
 select * from fn_CalisanlariListele()
@@ -368,6 +369,5 @@ SELECT ProductName, UPPER(ProductName) as [Ürün adýný büyük harfe çevir] from Pr
 --AVG() Fonksiyonu : bir ifadenin ortalama deðerini döndürür
 SELECT AVG(UnitPrice) AS OrtalamaÜrünFiyatý FROM Products;
 SELECT Min(UnitPrice) AS EnDüþükÜrünFiyatý FROM Products;
-
 SELECT Max(UnitPrice) AS EnYüksekÜrünFiyatý FROM Products;
 */
