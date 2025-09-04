@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using MVCEgitimi.Models;
 
 namespace MVCEgitimi
@@ -14,6 +15,11 @@ namespace MVCEgitimi
 			builder.Services.AddControllersWithViews(); //Uygulamada MVC controller view yapýsýný kullanacaðýz
 			builder.Services.AddSession(); //bu ýygulamada session kullanýmýný aktif et
 
+			//Schema hatasu çözümü
+			builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
+			{
+				x.LoginPath = "/MVC15FilterUsing/Login"; //admin oturum açma sayfamýzý belirttik
+			});
 			var app = builder.Build(); //builder nesnesi üzerinden eklenen servislerle beraber app nesnesi oluþturuluyor
 
 			// Configure the HTTP request pipeline.
