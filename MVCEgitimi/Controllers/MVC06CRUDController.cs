@@ -4,7 +4,7 @@ using MVCEgitimi.Models;
 
 namespace MVCEgitimi.Controllers
 {
-	//Get açıldığında gelen gönderim yolu, Post tıklandığındaki gönderim yolu
+	//Get açıldığında gelen gönderim yolu, Post tıklandığındaki gönderim yoludur
 	//Get metodunda liste tanımlanıp gösterime açılır
 	//Post metodu olan kısma yapılacak işlem detayı girilir
 	public class MVC06CRUDController : Controller
