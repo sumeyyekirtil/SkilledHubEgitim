@@ -21,6 +21,7 @@ namespace MVCEgitimi.Controllers
 		{
 			return View();
 		}
+
 		[UserControl]
 		public IActionResult UyelikBilgilerim()
 		{//UserControl sınıfında filter ile override metot kullandığımız içi bu kısımda kod sadeliğine yapılır

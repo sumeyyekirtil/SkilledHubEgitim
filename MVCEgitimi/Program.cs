@@ -15,7 +15,7 @@ namespace MVCEgitimi
 			builder.Services.AddControllersWithViews(); //Uygulamada MVC controller view yapýsýný kullanacaðýz
 			builder.Services.AddSession(); //bu ýygulamada session kullanýmýný aktif et
 
-			//Schema hatasu çözümü
+			//Schema hatasý çözümü
 			builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
 			{
 				x.LoginPath = "/MVC15FilterUsing/Login"; //admin oturum açma sayfamýzý belirttik

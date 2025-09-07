@@ -76,7 +76,6 @@ namespace MVCEgitimi.Controllers
 			catch
 			{
 				ModelState.AddModelError("", "Hata Oluştu!"); //hata oluşursa yazdır
-
 			}
 			return View(collection);
 		}

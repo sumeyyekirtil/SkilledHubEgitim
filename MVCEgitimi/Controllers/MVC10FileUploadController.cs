@@ -8,6 +8,7 @@ namespace MVCEgitimi.Controllers
 		{
 			return View();
 		}
+
 		[HttpPost]
 		public IActionResult Index(IFormFile? dosya) //? null gelebilir
 			//Mvc de dosya yükleme IFormFile interface i ile yapılıyor. Burada dosya isminin ekrandaki file upload name i ile aynı olması gerekir yoksa dosya yüklenmez!
