@@ -26,7 +26,7 @@ namespace MVCEgitimi
 			if (!app.Environment.IsDevelopment()) //uygulama development yani lokaldeki geliþtirme ortamýnda deðilse
 			{
 				app.UseExceptionHandler("/Home/Error"); //global hata yakalamayý kullan ve oluþan hatalarda kullanýcýya burada yazan ekrana yönlendir
-				// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+														// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
 				app.UseHsts();
 			}
 			//app import
@@ -38,6 +38,12 @@ namespace MVCEgitimi
 			app.UseSession(); //uygulamada session kullanýlmasý için hem builder hem app olarak tanýmlama yapýlmalý
 
 			app.MapStaticAssets(); //wwwroot klasöründeki statik dosyalarý haritala
+
+			app.MapControllerRoute(
+			name: "areas",
+			pattern: "{area:exists}/{controller=Main}/{action=Index}/{id?}"
+			); //bu route kodlarý admin areasýna gelecek olan istekleri karþýlayýp, ilgili controller ve action lara yönlendirme yapacak.
+
 			app.MapControllerRoute( //route yapýsýný aþaðýdaki ayarlarla kullan
 				name: "default",
 				pattern: "{controller=Home}/{action=Index}/{id?}") //adres çubuðunda beklediðimiz url yapýsý
