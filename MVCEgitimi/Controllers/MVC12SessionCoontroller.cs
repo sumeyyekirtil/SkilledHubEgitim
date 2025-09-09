@@ -15,6 +15,7 @@ namespace MVCEgitimi.Controllers
 		{
 			return View();
 		}
+
 		[HttpPost]
 		public IActionResult SessionOlustur(string kullaniciAdi, string sifre)
 		{
