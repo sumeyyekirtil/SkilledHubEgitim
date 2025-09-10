@@ -18,6 +18,8 @@
   <ItemGroup>
     <Folder Include="Areas\area\Data\" />
     <Folder Include="Areas\area\Models\" />
+    <Folder Include="Areas\Blog\Data\" />
+    <Folder Include="Areas\Blog\Models\" />
   </ItemGroup>
 
 </Project>
