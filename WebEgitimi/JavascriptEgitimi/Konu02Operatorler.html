@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Operatörler</title>
 </head>
+
 <body>
     <h1>Konu 02 Operatörler</h1>
     <h2>Aritmetik Operatörler</h2>
@@ -13,12 +15,14 @@
     </p>
     <script>
         let sayi1 = 10, sayi2 = 8;
-        console.error("Sayı 1 : " + sayi1 + " - Sayi 2 : " + sayi2);
-        console.log("Sayi 1 + sayi 2 = ", sayi1 + sayi2);
+        console.error("Sayı 1 : " + sayi1 + " - Sayi 2 : " + sayi2); //sayısal toplama
+        console.log("Sayi 1 + sayi 2 = ", sayi1 + sayi2); //string birleştirme
         console.log("Sayi 1 + sayi 2 = " + sayi1 + sayi2); //burada string değerle sayısal değeri birleştiriyoruz.
 
         console.log("Sayı (Sayi 1 + sayi 2) = " + (sayi1 + sayi2)); //birleştirmeyi engellemek için kullanılan yöntem
 
+        //, öncesi parantez varmış gibi değerlendirilir
+        //, kullanılmazsa paranteze alma yapılmalı
         console.log("Sayı 1 - sayı 2 =", sayi1 - sayi2);
         console.log("Sayı 1 * sayı 2 =", sayi1 * sayi2);
         console.log("Sayı 1 / sayı 2 =", sayi1 / sayi2);
@@ -31,7 +35,7 @@
     </p>
     <script>
         console.warn("Atama Operatörleri");
-        console.log("Çalışması :>> Normal değişken kullanım mantığında = operatörü değişkenin değeri ezip yeni değeri atarken += ve diğer operatörler değişkeninin bir önceki değerini koruyarak yeni değeri onun üzerine ekler.");
+        console.log("Çalışması :>> Normal değişken kullanım mantığında = operatörü değişkenin değerini ezip yeni değeri atarken += ve diğer operatörler değişkenin bir önceki değerini koruyarak yeni değeri onun üzerine ekler.");
         console.error("Sayı 1: " + sayi1 + "- Sayı 2 : " + sayi2);
 
         console.log("Sayı 1 += sayi 2 = ", sayi1 += sayi2);
@@ -48,32 +52,32 @@
         != eşit değilse,
         !== değerler ve tipler eşit değilse,
         > büyüktür,
-        < kuçüktür, >= büyük veya eşitse,
-          <= küçük veya eşitse
-    </p>
+        < kuçüktür,
+        >= büyük veya eşitse,
+        <= küçük veya eşitse 
+    </p>    
     <script>
         console.warn("Karşılaştırma Operatörleri");
-        sayi2 = 10;
+        sayi2 = 2;
         console.error("Sayı 1: " + sayi1 + "- Sayı 2 : " + sayi2);
-        console.log("Sayı 1 == sayi2 ; " , sayi1 == sayi2);
-        console.log("Sayı 1 === sayi2 ; " , sayi1 === sayi2);
-        console.log("Sayı 1 != sayi2 ; " , sayi1 != sayi2);
-        console.log("Sayı 1 !== sayi2 ; " , sayi1 !== sayi2);
-        console.log("Sayı 1 > sayi2 ; " , sayi1 > sayi2);
-        console.log("Sayı 1 < sayi2 ; " , sayi1 < sayi2);
-        console.log("Sayı 1 <= sayi2 ; " , sayi1 <= sayi2);
-        console.log("Sayı 1 >= sayi2 ; " , sayi1 >= sayi2);
+        console.log("Sayı 1 == sayi2 ; ", sayi1 == sayi2); //ikisi eşit sayı olarak
+        console.log("Sayı 1 === sayi2 ; ", sayi1 === sayi2); //değeri eşit fakat veri tipi eşit değil
+        console.log("Sayı 1 != sayi2 ; ", sayi1 != sayi2);
+        console.log("Sayı 1 !== sayi2 ; ", sayi1 !== sayi2); //veri tipi kontrolü
+        console.log("Sayı 1 > sayi2 ; ", sayi1 > sayi2);
+        console.log("Sayı 1 < sayi2 ; ", sayi1 < sayi2);
+        console.log("Sayı 1 <= sayi2 ; ", sayi1 <= sayi2);
+        console.log("Sayı 1 >= sayi2 ; ", sayi1 >= sayi2);
     </script>
-
+    
     <h2>Mantıksal Operatörler</h2>
-    <p>&& And(Ve) Operatörü - || Or (Veya) Operatörü</p>
-    <script>
-        console.warn("Mantıksal Operatörler");
+        <p>&& And(Ve) Operatörü - || Or (Veya) Operatörü</p>      
+        <script>
+            console.warn("Mantıksal Operatörler");
+            console.error("Sayı 1 : " + sayi1 + " - Sayı 2 : " + sayi2);
+            console.log("Sayı 1 < sayı 2 && sayi1 == sayi2 : ", sayi1 < sayi2 && sayi1 == sayi2);
+            console.log("Sayı 1 < sayı 2 || sayi1 == sayi2 : ", sayi1 < sayi2 || sayi1 == sayi2);
+        </script>
 
-        console.error("Sayı 1 : " + sayi1 + " - Sayı 2 : " + sayi2);
-
-        console.log("Sayı 1 < sayı2 && sayi1 == sayi2 : ", Sayı1 < sayı2 && sayi1 == sayi2);
-        console.log("Sayı 1 < sayı2 || sayi1 == sayi2 : ", Sayı1 < sayı2 || sayi1 == sayi2);
-    </script>
 </body>
 </html>
