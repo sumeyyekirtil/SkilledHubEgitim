@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript Eğitimi Giriş</title>
 </head>
+
 <!-- Javascript tarafında frontend programlama yapılabilir -->
- <!-- Node.js ile backend işlemleri yapılabilir -->
-  <!-- Jquery js kütüphanesidir -->
-   <!-- Oyun yazma, mobil - masaüstü uygulama yapılabilir -->
-    <!-- React, angular, node, vue js kütüphaneleri (frontend için) -->
-     <!--  -->
+<!-- Node.js ile backend işlemleri yapılabilir -->
+<!-- Jquery js kütüphanesidir -->
+<!-- Oyun yazma, mobil - masaüstü uygulama yapılabilir -->
+<!-- React, angular, node, vue js kütüphaneleri (frontend için) -->
+<!-- Javascript notları !!! -->
 
 <body>
     <h1>Konu01 JavaScript Giriş</h1>
@@ -30,56 +32,73 @@
         yorum 
         satırı
         */
-       document.write("Bu yazı js ile ekrana yazdırıldı"); //js ile ekrana metin yazdırma
-       document.writeln("<h3>Bu yazı js ile ekrana yazdırıldı</h3>"); //js ile ekrana html yazdırma
-       console.log("konsola hata mesajı yazdırmak için kullanabilriz!");
-       console.error("konsola hata mesajı yazdırmak için kullanırız!");
-       console.warn("konsola uyarı mesajı yazdırmak için kullanabiliriz!");
 
-       //javascript ile değişken yazdırma
-       //js de değişken tipleri : Any, number, string, undefined
-       var urunAdi, marka = "Monster";
-       var urunFiyati = 18000, kdv = 20;
+        /*
+        Script taglari içine yazılır body içine entegredir
+        .html uzantılı klasör gibi ana klasörün içine eklenir
+        */
 
-       console.log("Ürün Adı: ", urunAdi);
-       console.log("Ürün Marka: ", marka);
-       console.log("Ürün Fiyati: ", urunFiyati);
-       console.log("Ürün Kdv: ", kdv);
+        //document.write() -> dosyaya yazı yazdırma 
+        //document.writeIn() -> dosyaya html yazı yazdırma parantezlerin içine html taglari ile yazı yazılabilir
+        //console.log() -> console yazılan kodu kullanıcı göremez kod  yazanlar görebilir (veri test amaçlı)
+        //console.error() -> hata yazdırmak için (kullanıcı göremez)
+        //console.warn() -> uyarı yazdırır (kullanıcı göremez - developer için)
 
-       //let ile değişken tanımlama
-       //console.warn("meslek : ", meslek); //meslek değişkenini burada henüz tanımlamadığımız için undefined geliyor
+        document.write("Bu yazı js ile ekrana yazdırıldı"); //js ile ekrana metin yazdırma
+        document.writeln("<h3>Bu yazı js ile ekrana yazdırıldı</h3>"); //js ile ekrana html yazdırma
+        console.log("konsola hata mesajı yazdırmak için kullanabilriz!");
+        console.error("konsola hata mesajı yazdırmak için kullanırız!");
+        console.warn("konsola uyarı mesajı yazdırmak için kullanabiliriz!");
 
-       let isim; let soyisim; let meslek;
-       isim = "Murat"; soyisim = "Yılmaz"; meslek = "Kaldırma mühendisi"
+        //javascript ile değişken yazdırma
+        //js de değişken tipleri : Any (boş - null), number (sayı), string (yazı), undefined (tanımsız)
+        var urunAdi, marka = "Monster";
+        var urunFiyati = 18000, kdv = 20;
 
-       console.log("Kişi Bilgileri :", isim + " " + soyisim);
-       console.warn("meslek :", meslek);
+        //verileri console basıp oradan ekrana basma işlemine geçilir
+        console.log("Ürün Adı: ", urunAdi); //bir atama yapılmaz ise değer undifined döndürür consolda
+        console.log("Ürün Marka: ", marka);
+        console.log("Ürün Fiyati: ", urunFiyati);
+        console.log("Ürün Kdv: ", kdv);
 
-       //javascript de sabitler
-       //tanımlandıktan sonra değiştirilmemesi gereken değerler için"
-       const sabitDeger = "Bu veri sabittir, değiştirilemez, değiştirilmesi teklif dahi edilemez!"
-       const yeniTRkdv = 20;
+        //let ile değişken tanımlama
+        
+        //console.warn("meslek : ", meslek); //meslek değişkenini burada henüz tanımlamadığımız için aşağıda let ile çağırıldığında hata fırlatır / var undifined olarak tanımlar
 
-       console.warn("sabitDeger : ", sabitDeger);
-       
-       //sabitDeger = "sabit deger"; //Uncaught TypeError: Assignment to constant variable.
+        let isim; let soyisim; let meslek;
+        isim = "Murat"; soyisim = "Yılmaz"; meslek = "Kaldırım mühendisi"
+
+        console.log("Kişi Bilgileri :", isim + " " + soyisim);
+        console.warn("meslek :", meslek);
+
+        //javascript de sabitler
+        //tanımlandıktan sonra değiştirilmemesi gereken değerler için"
+        const sabitDeger = "Bu veri sabittir, değiştirilemez, değiştirilmesi teklif dahi edilemez!"
+        const yeniTRkdv = 20;
+
+        console.warn("sabitDeger : ", sabitDeger);
+
+        //sabitDeger = "sabit deger"; //Uncaught TypeError: Assignment to constant variable ("geçersiz atama")
     </script>
-
 
     <h3>
         Javascript de nesneler
     </h3>
 
     <p>
-        c# daki sınıflardan oluşturduğumuz nesne yapısına benzer.
+        C# daki sınıflardan oluşturduğumuz nesne yapısına benzer.
     </p>
 
     <script>
-        let araba = { marka: "TOGG", model: "T10X", yil: 2023, renk: "Kırmızı"} //örnek nesne tanımlaması
-        var kisi = { adi: "Alp", soyadi: "Arslan", yas: 18, meslek: "Mühendis"} //let veya var ile nesne tanımlayabiliriz
+        let araba = { marka: "TOGG", model: "T10X", yil: 2023, renk: "Kırmızı" } //örnek nesne tanımlaması
+        var kisi = { adi: "Alp", soyadi: "Arslan", yas: 18, meslek: "Mühendis" } //let veya var ile nesne tanımlayabiliriz
 
-        console.log('araba bilgisi: >> ', araba. marka);
-        console.log('kisi bilgisi: >> ', kisi.adi + " " + kisi.soyadi);
+        console.log('araba :>> ', araba);
+        console.log('kisi :>> ', kisi);
+        
+        console.log('araba bilgisi :>> ', araba.marka);
+        console.log('kisi bilgisi :>> ', kisi.adi + " " + kisi.soyadi);
     </script>
+
 </body>
 </html>
