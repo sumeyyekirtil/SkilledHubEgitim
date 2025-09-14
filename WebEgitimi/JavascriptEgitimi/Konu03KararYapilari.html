@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konu03 Karar Yapıları</title>
 </head>
+
+<!-- JavaScript (ES6) code snippets install edilip kısayol kullanabiliriz -->
 <body>
     <h1>Js Karar Yapıları</h1>
     <p>
-        Program kodlarımızı içeriğe göre yönlendirmemizi sağlayan if, else if, else switch case yapısı
+        Program kodlarımızı içeriğe göre yönlendirmemizi sağlayan if, else if, else switch case yapıları
     </p>
     <script>
         var sayi = 18
         if (sayi > 0) {
             console.log("Sayı pozitiftir");
         }
-        else if (sayi == 0){
+        else if (sayi == 0) {
             console.log("Sayı sıfır");
         }
         else {
             console.log("Sayı negatiftir");
         }
 
-        console.log('js 6 code snippets :>> ', deneme);
+        //console.log('js 6 code snippets :>> ', deneme);
+
         //Ternary operatörü kullanımı
-        console.log('Ternary operatörü kullanımı :>>');
+        console.log('Ternary operatörü kullanımı :>> ');
         console.warn(sayi > 0 ? "Sayı pozitif" : "Sayı negatif");
 
         //switch case
         switch (sayi) {
-            case 18: console.log("Sayı pozitiftir")
+            case 18: console.log("Sayı pozitif")
                 break;
             case -18: console.log("Sayı negatif")
-            break
+                break;
             default: console.log("Sayı sıfır")
                 break;
         }
     </script>
+    
 </body>
 </html>
