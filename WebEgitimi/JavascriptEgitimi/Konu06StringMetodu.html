@@ -1,34 +1,59 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konu 06 String Metodu</title>
 </head>
-<body>
-    <h1>Js String Metodları</h1>
-    <script>
-        var baslik = "String nesnesine ait metotlar: "
-        document.write("baslik = " + baslik, "<br>") 
-        document.write("baslik.lenght = " + baslik.length, "<br>") 
-        document.write("baslik.bold = " + baslik.bold(), "<br>") 
-        document.write("baslik.italics = " + baslik.italics(), "<br>") 
-        document.write("baslik.charAt(7) = " + baslik.charAt(7), "<br>") 
 
+<body>
+    <h1>Js String Metotları</h1>
+    <script>
+        /*
+        önce değişken tanımlanır
+        length : uzunluk buldurma
+        bold : kalın yazdırma
+        italics : eğik yazdırma
+        charAt() : istenilen indexi yazdırma
+        */
+        var baslik = "String nesnesine ait metotlar:"
+        document.write("baslik = " + baslik, "<br>")
+        document.write("baslik.lenght = " + baslik.length, "<br>")
+        document.write("baslik.bold = " + baslik.bold(), "<br>")
+        document.write("baslik.italics = " + baslik.italics(), "<br>")
+        document.write("baslik.charAt(7) = " + baslik.charAt(7), "<br>")
+
+        document.write("<br>")
+        
+        /*
+        toLowerCase : küçük yazdırma
+        toLocaleLowerCase : küçük yazdırma lokasyona göre
+        toUpperCase : büyük yazdırma
+        toLocaleUpperCase : büyük yazdırma lokasyona göre
+        */
         document.write("baslik.toLowerCase() = " + baslik.toLocaleLowerCase(), "<br>")
         document.write("baslik.toLocaleLowerCase() = " + baslik.toLocaleLowerCase(), "<br>")
         document.write("baslik.toUpperCase() = " + baslik.toUpperCase(), "<br>")
         document.write("baslik.toLocaleUpperCase() = " + baslik.toLocaleUpperCase(), "<br>")
 
+        document.write("<br>")
 
+        /*
+        slice() : istenilen indexten itibaren kesip getirir, aralıkta olabilir
+        substring : slice benzer işlev
+        replace( , ) : istenilen ilk değere ikinci değer yazılanı ekler
+        concat( , ) : ilgili değişkene ekleme yapma
+        split : belirtilen karakterden itibaren parçalara ayırma işlemi yapar
+        */
         document.write("baslik.slice(7) = " + baslik.slice(7), "<br>")
-        document.write("baslik.baslik.slice(7,15) = " + baslik.slice(7,15), "<br>")
+        document.write("baslik.baslik.slice(7,15) = " + baslik.slice(7, 15), "<br>")
         document.write("baslik.substring(7) = " + baslik.substring(7), "<br>")
-        document.write("baslik.substring(7,15) = " + baslik.substring(7,15), "<br>")
+        document.write("baslik.substring(7,15) = " + baslik.substring(7, 15), "<br>")
         document.write("baslik.replace(' ', '-') = " + baslik.replace(' ', '-'), "<br>")
-        document.write("baslik.concat(' ','-concat ile ekleme') = " + baslik.concat(' ','-concat ile ekleme'), "<br>")
+        document.write("baslik.concat(' ','-concat ile ekleme') = " + baslik.concat(' ', '-concat ile ekleme'), "<br>")
         document.write("baslik.split(' ') = " + baslik.split(' '), "<br>")
-        
     </script>
+
 </body>
 </html>
