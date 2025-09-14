@@ -1,37 +1,48 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konu04 Döngüler</title>
 </head>
+
 <body>
     <h1>Konu04 Döngüler</h1>
-    
+
+    <!-- 5 küçük sayıları yazdır -->
     <h2>For Döngüsü</h2>
     <script>
         for (var i = 0; i < 5; i++) {
-            document.write = ("<h5> i nin değeri : "+ i + "</h5>");    
+            document.write("<h5>i nin değeri : " + i + "</h5>")
         }
     </script>
 
     <hr>
 
+    <!-- i değeri 5 den küçük olarak say -->
     <h2>While Döngüsü</h2>
     <script>
-        var i = 0 = toplam = 0;
-        while (i < 5){
-            
+        var i = 0; toplam = 0;
+        while (i < 5) {
+            toplam += i;
+            document.write("<h5>i nin değeri : " + i + "</h5>")
+            i++
         }
     </script>
+
     <hr>
-    <h2>D0-While döngüsü</h2>
+
+    <!-- şart olmasa bile bir kere çalıştırılır -->
+    <!-- i değeri output -->
+    <h2>Do - While döngüsü</h2>
     <script>
-        var i = 5;
-        do{
-            document.write = ("<h5> i nin değeri : "+ sayi + "</h5>")
+        var sayi = 5;
+        do {
+            document.write("<h5> i nin değeri : " + sayi + "</h5>")
             sayi++
-        }while (sayi < 5);
+        } while (sayi < 5);
     </script>
+
 </body>
 </html>
