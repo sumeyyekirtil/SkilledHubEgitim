@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konu 07 Olaylar</title>
+    <title>Olaylar</title>
 </head>
+
+<!-- Ctrl K C : yorum satırı -->
+<!-- shift alt f : kod bloğu düzenle -->
+
+<!-- javascriptin en güçlü yanlarından biri olaylar -> -->
+<!-- Nesnelere herhangi yapılacak bir işleme (üzerine gelme, tıklama...) js ile kolayca müdahale edilebilir -->
+
 <body>
     <h1>Konu 07 Olaylar</h1>
     <p>
         Javascript ile ekranda kullanıcının yaptığı eylemleri yakalayıp aksiyon almamızı sağlar.
     </p>
 
-    <h2>onClick Olayı</h2>
+    <!-- C# da click eventi ile yapılır, web tarafında js de onclick olayı kullanılır -->
+    <h2>onClick Olayı : tanımlanan fonksiyonu butonlar ile onClick olayı ile tetikleyip metotu verip değişim istenebilir
+    </h2>
     <script>
         function renkDegistir(arkaplanRengi, yaziRengi) {
             document.bgColor = arkaplanRengi
             document.fgColor = yaziRengi
         }
     </script>
-    <input type="button" value="Kırmızı Beyaz" onclick="renkDegistir('red', 'white')"/>
-    <input type="button" value="Siyah Beyaz" onclick="renkDegistir('black', 'white')"/>
-    <input type="button" value="Beyaz Siyah" onclick="renkDegistir('white', 'black')"/>
-    <input type="button" value="Mavi Sari" onclick="renkDegistir('blue', 'yellow')"/>
+    <input type="button" value="Kırmızı Beyaz" onclick="renkDegistir('red', 'white')" />
+    <input type="button" value="Siyah Beyaz" onclick="renkDegistir('black', 'white')" />
+    <input type="button" value="Beyaz Siyah" onclick="renkDegistir('white', 'black')" />
+    <input type="button" value="Mavi Sari" onclick="renkDegistir('blue', 'yellow')" />
     <hr>
 
     <h2>onClick Olayı - Cinsiyet Seçme</h2>
     <form name="cinsiyet">
-    <input type="radio" name="cins"/> Kadın
-    <input type="radio" name="cins"/> Erkek
-    <input type="button" value="Seç" onclick="Goster()"/>
+        <input type="radio" name="cins" /> Kadın
+        <input type="radio" name="cins" /> Erkek
+        <input type="button" value="Seç" onclick="Goster()" />
     </form>
     <script>
         function Goster() {
             var secilenCinsiyet = ""
             if (document.cinsiyet.cins[0].checked) {
-                secilenCinsiyet = "Kadın"   
+                secilenCinsiyet = "Kadın"
             }
             if (document.cinsiyet.cins[1].checked) {
                 secilenCinsiyet = "Erkek"
@@ -42,7 +52,6 @@
             alert("Seçilen Cinsiyet : " + secilenCinsiyet) //alert metodu kullanıcıya pencere ile mesaj vermemizi sağlar
         }
     </script>
-
     <hr>
 
     <h2>onClick Confirm Olayı</h2>
@@ -54,21 +63,21 @@
             if (confirm("Sayfadan ayrılmak istiyor musun?")) { //confirm ile tamam-iptal seçeneği sunulur
                 //location.href = "Konu06StringMetorlari.html" //eğer tamam derse sayfayı js ile bu sayfaya yönlendir
                 location.href = "https://www.google.com.tr/" //kullanıcıyı dış siteye yönlendirme
-                //window.open("https://www.google.com.tr/") //bu sayfayı yeni sekmede açtırmak için
+                    //window.open("https://www.google.com.tr/") //bu sayfayı yeni sekmede açtırmak için
             }
         }
 
         function urunSil() {
-                if (confirm("Ürünü silmek ister misiniz?")) { //confirm ile tamam-iptal seçeneği sunulur
-                    //burada ürün sildirilir
-                    alert("Ürün Silindi!")
+            if (confirm("Ürünü silmek ister misiniz?")) { //confirm ile tamam-iptal seçeneği sunulur
+                //burada ürün sildirilir
+                alert("Ürün Silindi!")
             }
         }
     </script>
-    <input type="button" value="Sayfadan Ayrıl" onclick="kontrol()"/>
-    <input type="button" value="Ürün Sil" onclick="urunSil()"/>
-    <input type="button" value="Selam Ver" onclick="alert('selam merhaba')"/>
-    
+    <input type="button" value="Sayfadan Ayrıl" onclick="kontrol()" />
+    <input type="button" value="Ürün Sil" onclick="urunSil()" />
+    <input type="button" value="Selam Ver" onclick="alert('selam merhaba')" />
+
     <hr>
 
     <h2>onMouseOver Olayı</h2>
@@ -82,11 +91,11 @@
 
     <h2>onFocus Olayı</h2>
     <p>
-        Ekrandaki herhangi bir element seçildiğinde çalışır.
+        Ekrandaki herhangi bir element seçildiğinde, tıklandığında çalışır.
     </p>
-    <input type="text" name="name" value="Buraya Tıkla" onfocus="this.value='Focus çalıştı'"/>
+    <input type="text" name="name" value="Buraya Tıkla" onfocus="this.value='Focus çalıştı'" />
 
-    <input type="text" name="name" value="Buraya Tıkla" onfocus="value='Focus çalıştı'"/>
+    <input type="text" name="name" value="Buraya Tıkla" onfocus="value='Focus çalıştı'" />
 
     <hr>
 
@@ -94,7 +103,7 @@
     <p>
         Ekrandaki herhangi bir element seçilip elementten çıkılınca çalışır.
     </p>
-    <input type="text" name="name" value="Buraya Tıkla" onfocus="this.value='Focus çalıştı'" onblur="this.value='Focus çalıştı'"/>
+    <input type="text" name="name" value="Buraya Tıkla" onfocus="this.value='Focus çalıştı'" onblur="this.value='Focus çalıştı'" />
 
     <h2>onChange Olayı</h2>
     <p>
@@ -126,12 +135,14 @@
         function myfunction() {
             alert('AddEventListener çalıştı!')
         }
-        document.getElementById("olayBaslik").AddEventListener("click",myfunction)
-        
+        document.getElementById("olayBaslik").AddEventListener("click", myfunction)
+
         function removeHandler() {
-        document.getElementById("olayBaslik").AddEventListener("click",myfunction)
+            document.getElementById("olayBaslik").AddEventListener("click", myfunction)
         }
     </script>
     <button onclick="removeHandler()">removeEventListener</button>
+
 </body>
+
 </html>
