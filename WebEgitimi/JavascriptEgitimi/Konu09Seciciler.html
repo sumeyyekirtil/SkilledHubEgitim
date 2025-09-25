@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konu 09 Seçiciler</title>
 </head>
+
 <body>
     <h1>Js Seçiciler</h1>
     <p>
@@ -12,67 +14,74 @@
     </p>
 
     <h2>Elementleri Id Değerine Göre Seçme</h2>
+
     <p id="idyegoresec">
-        merhaba
+        Merhaba
     </p>
     <p id="jsidSeciciTest" style="border: 1px solid;"></p>
     <script>
-        const icerik = document.getElementById("idyegoresec") //getElementById metodu sayfadaki id si verile elementi getirir
+        const icerik = document.getElementById("idyegoresec") //getElementById metodu sayfadaki id si verilen elementi getirir
         document.getElementById("jsidSeciciTest").innerText = "idyegoresec elementinden gelen icerik : " + icerik.innerText
     </script>
 
     <hr>
 
     <h2>Elementleri Etiket Adına (Tag Name) Göre Seçme</h2>
-        <div>
-            1.div içeriği
-        </div>
-        <div>
-            2.div içeriği
-        </div>
-        <div id="bosDiv" style="border: 1px solid;">
 
-        </div>
-        <script>
-            var divler = document.getElementsByTagName("div") //bu metot sayfadaki elementleri tag ına göre seçer
-            console.log(divler);
-            document.getElementById("bosDiv").innerText = "sayfadaki ilk divin içeriği : " + divler[0].innerText
-        </script>
+    <p>
+        Sayfadaki html elementlerini div, p, select, vb kullanılan tag a göre seçebiliriz
+    </p>
+    <div>
+        1.div içeriği
+    </div>
+    <div>
+        2.div içeriği
+    </div>
+    <div id="bosDiv" style="border: 1px solid;">
 
-        <hr>
+    </div>
+    <script>
+        var divler = document.getElementsByTagName("div") //bu metot sayfadaki elementleri tag ına göre seçer
+        console.log(divler);
+        document.getElementById("bosDiv").innerText = "sayfadaki ilk divin içeriği : " + divler[0].innerText //boş olan div e dolu divin içeriğini yazdırdık
+    </script>
 
-        <h2 class="sinifSeciciBaslik">Elementleri Class Adın Göre Seçme</h2>
+    <hr>
 
-        <p class="sinifSeciciBaslik">
-            css deki class değerine göre elementleri seçmemizi sağlar.
-        </p>
+    <h2 class="sinifSeciciBaslik">Elementleri Class Adına Göre Seçme</h2>
 
-        <p id="sinifSecici" style="border: 1px solid;">
+    <p class="sinifSeciciBaslik">
+        css deki class değerine göre elementleri seçmemizi sağlar.
+    </p>
 
-        </p>
-        <script>
-            var sinifaGoreSecilenEleman = document.getElementsByClassName("sinifSeciciBaslik") //getEelementByClassName metodu bize class özelliği veriler html elementşerini dizi formatında getirir
+    <p id="sinifSecici" style="border: 1px solid;">
+
+    </p>
+    <script>
+        var sinifaGoreSecilenEleman = document.getElementsByClassName("sinifSeciciBaslik") //getElementByClassName metodu bize class özelliği verilen html elementlerini dizi formatında getirir
+        console.log(sinifaGoreSecilenEleman);
+
+        document.getElementById("sinifSecici").innerText = "<br> sinifSecici ile secilen 1. element değeri: " + sinifaGoreSecilenEleman[0].innerText
+        document.getElementById("sinifSecici").innerText += "<br> sinifSecici ile secilen 2. element değeri: " + sinifaGoreSecilenEleman[1].innerText //ikinciye += koyulmazsa sadece 1.index yazdırılır
+    </script>
 
 
+    <h2 id="sorguSecici">Elementleri Css Sorgularına Göre Seçme</h2>
+    <p>
+        Css de kullandığımız element seçme yöntemlerini kullanarak sayfadan element seçmemizi sağlar.
+    </p>
 
-            
+    <p id="ilkElemanicerigi" style="border: 1px solid;">
 
+    </p>
+    <script>
+        var ilkEleman = document.querySelector("p") //guerySelector metodu css sorgularıyla eleman seçmemizi sağlar.
+        console.log(ilkEleman);
+        document.querySelector("#ilkElemanicerigi").innerText = ilkEleman.innerText
 
-        </script>
-
-        <h2 id="sorguSecici">Elementleri Css Sorgularına Göre Seçme</h2>
-        <p>
-            Css de kullandığımız element seçme yöntemlerini kullanarak sayfadan element seçmemizi sağlar.
-        </p>
-        <p id="ilkElemanicerigi" style="border: 1px solid;">
-
-        </p>
-        <script>
-            var ilkEleman = document.querySelector("p") //guerySelector metodu css sorgularıyla eleman seçmemizi sağlar.
-            console.log(ilkEleman);
-            
-            var pler = document.querySelectorAll("p") //querySelectorAll metodu css sorgularıyla eşleşen tüm elementleri getirir
-            console.log(pler);
-        </script>
+        var pler = document.querySelectorAll("p") //querySelectorAll metodu css sorgularıyla eşleşen tüm elementleri getirir
+        console.log(pler); //p içeriğini seçmiş olduk
+    </script>
 </body>
+
 </html>
