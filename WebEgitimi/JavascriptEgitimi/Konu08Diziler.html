@@ -7,8 +7,11 @@
     <title>Konu 08 Diziler</title>
 </head>
 
+<!-- Diziler: listeler dizi olarak kullanılır -->
+
 <body>
     <h1>Konu 08 Diziler</h1>
+    <!-- her bir sayı i değişkenine atanır döngü her döndüğünde i. değer yazdırılır, döngü bittiğinde toplam yazdırılır -->
     <script>
         var sayilar = [3, 5, 7, 9]
         var toplam = 0
@@ -16,8 +19,8 @@
             toplam += sayilar[i]
             document.write("i nin değeri : " + i + " - sayilar[i] : " + sayilar[i], "<br>")
         }
-
         document.write("toplam in değeri : " + toplam)
+        document.write("<hr>") //script tag açıkken html hr yazılmasına izin vermez!
 
         for (var i of sayilar) { //js de for of döngü türü c# taki foreach gibi çalışır
             document.write("<br> i nin değeri : " + i)
@@ -37,15 +40,17 @@
         var meyveler = new Array("Elma", "Armut", "Kiraz", "Mandalina", "Portakal");
         console.log(meyveler);
         for (var i in meyveler) {
-            document.write("<h3> meyve i : " + i + "<hr>")
-            document.write("<h3> meyve meyveler [i] : " + meyveler[i] + "</h3>")
+            document.write("<h3> meyve i : " + i + "</h3>") //meyve index yazdırır
+            document.write("<h3> meyve meyveler [i] : " + meyveler[i] + "</h3>") //meyve ismi yazdırır
         }
+
+        document.write("<hr>")
+
         document.write("<h3> listedeki ilk meyve meyveler [0] : " + meyveler[0] + "</h3>")
         for (var meyve of meyveler) {
             document.write("<h3>" + meyve.toUpperCase() + "</h3>")
         }
     </script>
-
 </body>
 
 </html>
