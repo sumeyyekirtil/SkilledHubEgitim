@@ -63,7 +63,8 @@
             if (confirm("Sayfadan ayrılmak istiyor musun?")) { //confirm ile tamam-iptal seçeneği sunulur
                 //location.href = "Konu06StringMetorlari.html" //eğer tamam derse sayfayı js ile bu sayfaya yönlendir
                 location.href = "https://www.google.com.tr/" //kullanıcıyı dış siteye yönlendirme
-                    //window.open("https://www.google.com.tr/") //bu sayfayı yeni sekmede açtırmak için
+
+                //window.open("https://www.google.com.tr/") //bu sayfayı yeni sekmede açtırmak için
             }
         }
 
@@ -93,6 +94,7 @@
     <p>
         Ekrandaki herhangi bir element seçildiğinde, tıklandığında çalışır.
     </p>
+    <!-- onfocus için this.value -->
     <input type="text" name="name" value="Buraya Tıkla" onfocus="this.value='Focus çalıştı'" />
 
     <input type="text" name="name" value="Buraya Tıkla" onfocus="value='Focus çalıştı'" />
@@ -101,22 +103,22 @@
 
     <h2>onBlur Olayı</h2>
     <p>
-        Ekrandaki herhangi bir element seçilip elementten çıkılınca çalışır.
+        Ekrandaki herhangi bir element seçilip elementten çıkılınca çalışır. Yani focus olayından çıkılınca çalışır
     </p>
-    <input type="text" name="name" value="Buraya Tıkla" onfocus="this.value='Focus çalıştı'" onblur="this.value='Focus çalıştı'" />
+    <input type="text" name="name" value="Buraya Tıkla" onfocus="this.value='Focus çalıştı'" onblur="this.value='onblur çalıştı'" />
 
+    <hr>
     <h2>onChange Olayı</h2>
     <p>
         Sayfadaki elementlerde değişiklik olduğunda çalışır
     </p>
-
     <form>
         <select name="liste" onchange="window.open(sec(this))">
             <option value="#">Bir arama motoru seçiniz</option>
-            <option value="https:www.google.com.tr/"></option>
-            <option value="https:www.bind.com.tr/"></option>
-            <option value="https:www.yahoo.com.tr/"></option>
-            <option value="https:www.yandex.com.tr/"></option>
+            <option value="https:www.google.com.tr/">google</option>
+            <option value="https:www.bing.com.tr/">bing</option>
+            <option value="https:www.yahoo.com.tr/">yahoo</option>
+            <option value="https:www.yandex.com.tr/">yandex</option>
         </select>
     </form>
     <script>
@@ -135,10 +137,11 @@
         function myfunction() {
             alert('AddEventListener çalıştı!')
         }
-        document.getElementById("olayBaslik").AddEventListener("click", myfunction)
+        document.getElementById("olayBaslik").addEventListener("click", myfunction)
 
+        //sürekli click işleminde bildirim vermk istenmezse kapatma yolu:
         function removeHandler() {
-            document.getElementById("olayBaslik").AddEventListener("click", myfunction)
+            document.getElementById("olayBaslik").addEventListener("click", myfunction)
         }
     </script>
     <button onclick="removeHandler()">removeEventListener</button>
