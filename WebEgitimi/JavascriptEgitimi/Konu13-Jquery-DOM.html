@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konu13-Jquery-DOM</title>
-    <script src="/jquery-3.7.1.min.js"></script>
     <style>
         .baslik {
             color: red;
             font-size: larger;
         }
+        
         .renk {
             color: crimson;
         }
+        
         .brd {
             border: 1px dashed blue;
             min-height: 1rem;
         }
     </style>
+    <script src="/jquery-3.7.1.min.js"></script>
 </head>
+
 <body>
-    <h1>Konu13-Jquery-DOM İşlemleri</h1>
+    <h1>Jquery-DOM İşlemleri</h1>
     <h2>Html Input Değerlerini Alma</h2>
     <form action="">
-        <input type="text" id="metin" value="textbox içindeki değer"/>
+        <input type="text" id="metin" value="textbox içindeki değer" />
         <hr>
         <textarea name="urunAciklama" id="urunAciklama"></textarea>
         <hr>
@@ -35,69 +39,76 @@
             <option value="Telefon">Telefon</option>
         </select>
         <hr>
-        <input type="radio" name="cinsiyet" id="Kadın"/> Kadın
-        <input type="radio" name="cinsiyet" id="Erkek"/> Erkek
+        <input type="radio" name="cinsiyet" id="Kadın" /> Kadın
+        <input type="radio" name="cinsiyet" id="Erkek" /> Erkek
         <hr>
         <a href="index.html" title="Anasayfa">Anasayfa</a>
     </form>
     <p id="sonuclar"></p>
-    <input type="button" id="button1" value="Sonuclar"/>
-    <input type="button" id="button2" value="Attribute Değerleri"/>
+    <input type="button" id="button1" value="Sonuçlar" />
+    <input type="button" id="button2" value="Attribute Değerleri" />
     <script>
-        $("#button1").click(function () {
-            //ekrandaki button1id li elemente tıklandığında
+        $("#button1").click(function() {
+            //ekrandaki button1 id li elemente tıklandığında
             var degerler = "";
             degerler += "Input Değeri : " + $("metin").val() //jquery val metoduyla veriye ulaşıyoruz
             degerler += "<hr> Ürün Açıklama Değeri : " + $("#urunAciklama").val()
-            degerler += "<hr> Checkbox Değeri :" + $("metin").val()
-            degerler += "<hr>  dropdownlist Değeri : " + $("metin").val()
-            degerler += "<hr> Cinsiyet Değeri :" + $("metin").val()
+            degerler += "<hr> Checkbox Değeri :" + $("input#checkbox1:checkbox:checked").val()
+            degerler += "<hr>  dropdownlist Değeri : " + $("#dropdownlist").val()
+            degerler += "<hr> Cinsiyet Değeri :" + $("input[name=cinsiyet]:checked").val()
+            $("#sonuclar").html(degerler) //değerleri butona basıp yazdırmayı sağlar
         });
-        $("#button2").on("click", function () {
+        $("#button2").on("click", function() {
+            //buton2 üzerindeki click işlemini yakala
             var degerler = ""
             degerler += "<hr> Attribute href Değeri :" + $("form a").attr("href")
             degerler += "<hr> Attribute title Değeri :" + $("form a").attr("title")
             $("#sonuclar").html(degerler)
-        });
+        })
     </script>
+
     <hr>
+
     <h2>Jquery ile Html Elementleri Ekleme</h2>
     <div id="eleman" class="brd">
-    append:
-    prepend:
-    after:
-    before:
+        <br> append: seçili elemanın sonuna
+        <br> prepend: seçili elemanın başına
+        <br> after: seçili elemanın sonrasına
+        <br> before: seçili elemanın öncesine element eklememizi sağlar
     </div>
+
     <input type="button" id="button3" value=" Html Elementleri Ekleme">
     <script>
-    $("#button2").on("click", function () {
-            $("#eleman").append("<h3 style= 'color:red' append ile eklendi></h3>")
-            $("#eleman").prepend("<h3 style= 'color:red' prepend ile eklendi></h3>")
-            $("#eleman").after("<h3 style= 'color:red' after ile eklendi></h3>")
-            $("#eleman").before("<h3 style= 'color:red' before ile eklendi></h3>")
+        $("#button3").on("click", function() {
+            $("#eleman").append("<h3 style= 'color:red'>append ile eklendi</h3>")
+            $("#eleman").prepend("<h3 style= 'color:red'>prepend ile eklendi</h3>")
+            $("#eleman").after("<h3 style= 'color:red'>after ile eklendi</h3>")
+            $("#eleman").before("<h3 style= 'color:red'>before ile eklendi</h3>")
         });
     </script>
+
     <hr>
+
     <h2>Jquery ile Html Elementleri Kaldırma</h2>
     <div id="silinecek">silinecek</div>
-    <input type="button" id="button4" value="Html elementleri sil"/>
+    <input type="button" id="button4" value="Html elementleri sil" />
     <script>
-        $("#button4").on("click", function (){
-           //  $("#silinecek").remove() //silinecek id li elementi sil
-           // $("#silinecek").empty() //silinecek id li elementi boşalt (içini boşaltarak gizler)
+        $("#button4").on("click", function() {
+            // $("#silinecek").remove() //silinecek id li elementi sil
+            // $("#silinecek").empty() //silinecek id li elementi boşalt (içini boşaltarak gizler)
 
-           document.getElementById("silinecek").remove() //js ile kaldırma
+            document.getElementById("silinecek").remove() //js ile kaldırma
         });
     </script>
 
     <hr>
 
-    <h2>Jquery ile Html Elementleri Gçzleme/Gösterme</h2>
+    <h2>Jquery ile Html Elementleri Gizleme/Gösterme</h2>
     <ul>
         <li id="anasayfaLink">Anasayfa</li>
         <li id="hakkimizdaLink">Hakkımızda</li>
         <li id="urunlerimizLink">Ürünlerimiz</li>
-        <li id="iletsimLink">İletişim</li>
+        <li id="iletisimLink">İletişim</li>
     </ul>
     <div id="anasayfa" style="border: 1px dashed red;">
         Anasayfa İçeriği
@@ -112,23 +123,35 @@
         İletişim Sayfası İçeriği
     </div>
     <script>
-        $("#hakkimizdaLink").on("click", function (){
-           $("#anasayfa").hide()
-           $("#hakkimizda").show()
-           $("#iletisim").hide()
-           $("#urunlerimiz").hide()
+        $("#anasayfaLink").on("click", function() {
+            $("#anasayfa").show()
+            $("#hakkimizda").hide()
+            $("#iletisim").hide()
+            $("#urunlerimiz").hide()
         });
-        $("#urunlerimizLink").on("click", function (){
-           $("#anasayfa").hide()
-           $("#hakkimizda").hide()
-           $("#iletisim").hide()
-           $("#urunlerimiz").show()
+        $("#hakkimizdaLink").on("click", function() {
+            $("#anasayfa").hide()
+            $("#hakkimizda").show()
+            $("#iletisim").hide()
+            $("#urunlerimiz").hide()
+        });
+        $("#urunlerimizLink").on("click", function() {
+            $("#anasayfa").hide()
+            $("#hakkimizda").hide()
+            $("#iletisim").hide()
+            $("#urunlerimiz").show()
+        });
+        $("#iletisimLink").on("click", function() {
+            $("#anasayfa").hide()
+            $("#hakkimizda").hide()
+            $("#iletisim").show()
+            $("#urunlerimiz").hide()
         });
     </script>
 
     <hr>
 
-    <h2>Jquery ile Change Olayı Yakalama</h2>
+    <h2>Jquery ile Change Olayını Yakalama</h2>
     <input type="text" id="degisim">
     <h3 id="jqchange"></h3>
 
@@ -140,15 +163,16 @@
         <option value="Televizyon">Televizyon</option>
     </select>
     <script>
-        $(".degisim").on("change", function () {
-            $("#jqchange").html($(this).val())
+        $(".degisim").on("change", function() {
+            $("#jqchange").html($(this).val()) //seçili değeri yazdır
         });
-        $(".degisim").change( function () {
-            $("#jqchange").text($(this).val())
+        $("#degisim").change(function() {
+            $("#jqchange").text($(this).val()) //change olduğu anda text ile
         });
-        $(".degisim").on("keyup", function () {
-            $("#jqchange").text($(this).val())
+        $("#degisim").on("keyup", function() {
+            $("#jqchange").text($(this).val()) //keyup: txtbox yazılıp tuştan çekildiği anda yansıtır
         });
     </script>
 </body>
+
 </html>
