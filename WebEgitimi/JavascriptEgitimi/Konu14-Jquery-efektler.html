@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konu14-Jquery-Efektler</title>
     <script src="/jquery-3.7.1.min.js"></script>
 </head>
-<body>
-    <h1>Konu14-Jquery-Efektler</h1>
 
-    <input type="button" value="Fade out" id="buton1"/>
-    <input type="button" value="Fade in" id="buton2"/>
-    <input type="button" value="Fade to" id="buton3"/>
+<body>
+    <h1>Jquery-Efektler</h1>
+
+    <!-- Basit işlemler input buton -->
+    <!-- Şekilli işlemler button kullanılır -->
+    <!-- Fade out: şekli kapat -->
+    <!-- Fade in: şekil açar -->
+    <!-- Fade to: efekli şekilde soldur opacity , süre özelliği var -->
+    <!-- Fade toggle bir kere basınca gizler, ikincide getirir -->
+    <input type="button" value="Fade out" id="buton1" />
+    <input type="button" value="Fade in" id="buton2" />
+    <input type="button" value="Fade to" id="buton3" />
     <button id="buton4">Fade Toggle</button>
 
     <div id="box" style="background-color: green; height: 100px; width: 100px; margin: 1rem; padding: 1rem; color: beige;">
@@ -19,19 +27,19 @@
     </div>
 
     <script>
-        $("#buton1").on("click", function () {
+        $("#buton1").on("click", function() {
             $("h1").fadeOut()
             $("#box").fadeOut()
         });
-        $("#buton2").on("click", function () {
+        $("#buton2").on("click", function() {
             $("h1").fadeIn()
             $("#box").fadeIn()
-        }); 
-        $("#buton3").on("click", function () {
+        });
+        $("#buton3").on("click", function() {
             $("h1").fadeTo(1000, 0.7) //opacity özelliği nasıl ayarlansın?
             $("#box").fadeTo(1000, 0.3) //süre-milisaniye, opacity
-        }); 
-        $("#buton4").on("click", function () {
+        });
+        $("#buton4").on("click", function() {
             $("h1").fadeToggle()
             $("#box").fadeToggle()
         });
@@ -43,14 +51,18 @@
     <input type="button" id="buton6" value="animasyonu sıfırla">
 
     <script>
-        $("#buton5").on("click", function () {
-            $("#box").animate({"height" : "200px"})
+        $("#buton5").on("click", function() {
+            $("#box").animate({
+                "height": "200px",
+                "width": "250px"
+            })
         });
-        $("#buton6").on("click", function () {
-            $("#box").animate({"height" : "100px"})
+        $("#buton6").on("click", function() {
+            $("#box").animate({
+                "height": "100px"
+            })
         });
     </script>
-
-    
 </body>
+
 </html>
