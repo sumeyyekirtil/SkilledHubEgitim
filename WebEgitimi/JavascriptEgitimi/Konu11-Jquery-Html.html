@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konu11-Jquery-Html</title>
     <script src="/jquery-3.7.1.min.js"></script>
 </head>
+
 <body>
-    <h1>Konu11-Jquery-Html İşlemleri</h1>
+    <h1>Jquery-Html İşlemleri</h1>
     <h2>Metin içeriğini değiştirme</h2>
     <p id="degistir" style="border: 1px inset red;"></p>
     <p id="jsiledegistir" style="border: 1px inset red;"></p>
     <script>
-        $(function () { //$(function () yapısı da döküman hazır olduğunda kodları işletir.
+        $(function() { //$(function () yapısı da döküman hazır olduğunda kodları işletir.
             var secilecekEleman = $("#degistir")
             secilecekEleman.text("degistir id li elemandan gelen içerik text metoduyla değiştirildi")
-            //sayfayı çalıştırdığımızda işlem yapmazsa sağ tık incele diyoruz eğer bir hata varsa kırmızı x1 şeklinde tarayıcı gösteriyor ona tıklayınca $ is not defined yazıyorsa sayfada jquery kütüphanesi kullanılmamış demektir
-            //Element içeriğini javascript ile değiştirme
+                //sayfayı çalıştırdığımızda işlem yapmazsa sağ tık incele diyoruz eğer bir hata varsa kırmızı x1 şeklinde tarayıcı gösteriyor ona tıklayınca $ is not defined yazıyorsa sayfada jquery kütüphanesi kullanılmamış demektir
+                //Element içeriğini javascript ile değiştirme
             var secilecekEleman2 = document.getElementById("jsiledegistir")
-                secilecekEleman2.textContent = "bu elementin içi normal js ile değiştirildi"
+            secilecekEleman2.textContent = "bu elementin içi normal js ile değiştirildi"
 
         });
     </script>
@@ -27,14 +29,14 @@
 
     <h2>Metin içeriğini Alma</h2>
     <p id="jqileal">jq ile al</p>
-    <p id="js ile al">js ile al</p>
-    <h3 id="jqmetin">jq ile al</h3>
-    <h3 id="jsmetin">jq ile al</h3>
+    <p id="jsileal">js ile al</p>
+    <h3 id="jqmetin"></h3>
+    <h3 id="jsmetin"></h3>
     <script>
         //Element içeriğini jquery ile alma
         var yazi = $("#jqileal").text()
         $("#jqmetin").text(yazi) //jquery ile elemente yazı yazma
-        //js ile metin alma
+            //js ile metin alma
         var metin = document.getElementById("jsileal").textContent
         document.getElementById("jsmetin").textContent = metin
     </script>
@@ -51,10 +53,10 @@
         //Jquery ile
         $("#texticerik").text("<h2>Elementlere İçeriği Html Olarak Ekleme</h2>")
         $("#htmlicerik").html("<h2>Elementlere İçeriği Html Olarak Ekleme</h2>")
-        //Js ile
-       document.getElementById("jstexticerik").textContent = "<h2>Elementlere İçeriği Html Olarak Ekleme</h2>" //text olarak basar
-       document.getElementById("jsinnertexticerik").innerText = "<h2>Elementlere İçeriği Html Olarak Ekleme</h2>" //text olarak basar
-       document.getElementById("jshtmlicerik").innerHTML = "<h2>Elementlere İçeriği Html Olarak Ekleme</h2>" //html elementleri işleviyle basar
+            //Js ile
+        document.getElementById("jstexticerik").textContent = "<h2>Elementlere İçeriği Html Olarak Ekleme</h2>" //text olarak basar
+        document.getElementById("jsinnertexticerik").innerText = "<h2>Elementlere İçeriği Html Olarak Ekleme</h2>" //text olarak basar
+        document.getElementById("jshtmlicerik").innerHTML = "<h2>Elementlere İçeriği Html Olarak Ekleme</h2>" //html elementleri işleviyle basar
     </script>
 
     <hr>
@@ -68,9 +70,10 @@
         //Jquery ile
         var icerik = $("#htmlicerik").html() //htmlicerik id li elementin içindeki html yi al
         $("#jqueryileal").html(icerik) //jqueryileal id li elementin içindeki html yi ekle
-        //Js ile
-        var content
+            //Js ile
+        var content = document.getElementById("jshtmlicerik").innerHTML
+        document.getElementById("javascriptileal").innerHTML = content
     </script>
-
 </body>
+
 </html>
