@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
+    @*Projeyi çalıştıracak ana html, css, bootstrap kod blokları (her seferinde html başlıkları atmıyoruz,  kütüphaneler de buraya import edilir)*@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - MVCEgitimi</title>
@@ -15,6 +16,7 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MVC Eğitimi</a>
+                @*asp-controller : a href gibi yönlendirme yapar*@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -23,6 +25,9 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">İletişim</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="MVC01RazorSyntax" asp-action="Index">RazorSyntax</a>
@@ -54,10 +59,11 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            @RenderBody() @*gelen sayfa isteğine göre burada çalıştır metodu : RenderBody()*@
+            @RenderBody() 
+            @*gelen sayfa isteğine göre burada çalıştır metodu : RenderBody()*@
         </main>
     </div>
-
+    @*footer kısımları ile ilgili import yeri*@
     <footer class="border-top footer text-muted">
         @await RenderSectionAsync("OzelIcerik", required: false)
 
@@ -65,6 +71,7 @@
             &copy; 2025 - MVCEgitimi - <a asp-area="" asp-controller="Home" asp-action="Privacy">Gizlilik</a>
         </div>
     </footer>
+    @*kütüphaneler*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script> @*jq kütüphanesi*@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> @*bootstrap kütüphanesi*@
     <script src="~/js/site.js" asp-append-version="true"></script> @*js küyüphanesi*@

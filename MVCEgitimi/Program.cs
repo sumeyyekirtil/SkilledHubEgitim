@@ -11,7 +11,7 @@ namespace MVCEgitimi
 
 			builder.Services.AddDbContext<UyeContext>(); //projede kullanacaðýmýz dbcontext sýnýfýmýzý uygulamaya tanýtýyoruz.
 
-			// Add services to the container.
+			// Add services to the container. (kullanýlacak servisleri ekleme)
 			builder.Services.AddControllersWithViews(); //Uygulamada MVC controller view yapýsýný kullanacaðýz
 			builder.Services.AddSession(); //bu ýygulamada session kullanýmýný aktif et
 
@@ -22,11 +22,12 @@ namespace MVCEgitimi
 			});
 			var app = builder.Build(); //builder nesnesi üzerinden eklenen servislerle beraber app nesnesi oluþturuluyor
 
-			// Configure the HTTP request pipeline.
+			// Configure the HTTP request pipeline. (sorguyu configure etme)
 			if (!app.Environment.IsDevelopment()) //uygulama development yani lokaldeki geliþtirme ortamýnda deðilse
 			{
 				app.UseExceptionHandler("/Home/Error"); //global hata yakalamayý kullan ve oluþan hatalarda kullanýcýya burada yazan ekrana yönlendir
-														// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+				
+				// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
 				app.UseHsts();
 			}
 			//app import
@@ -45,7 +46,7 @@ namespace MVCEgitimi
 			); //bu route kodlarý admin areasýna gelecek olan istekleri karþýlayýp, ilgili controller ve action lara yönlendirme yapacak.
 
 			app.MapControllerRoute( //route yapýsýný aþaðýdaki ayarlarla kullan
-				name: "default",
+				name: "default", //uygulamaya controller / action adý gelecek / id de gelebilir (gelmezse varsayýlan ayarý home ýndex e veriyor)
 				pattern: "{controller=Home}/{action=Index}/{id?}") //adres çubuðunda beklediðimiz url yapýsý
 				.WithStaticAssets();
 
