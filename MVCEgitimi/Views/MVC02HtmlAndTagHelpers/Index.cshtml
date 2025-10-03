@@ -2,9 +2,9 @@
     ViewBag.Title = "MVC02 Html Helpers";
 }
 
-<h2>MVC02 Html Helpers</h2>
+<h2>MVC Html Helpers</h2>
 
-@Html.ActionLink("Anasayfa", "Index", "Home")
+@Html.ActionLink("Anasayfa", "Index", "Home") @*linkText, actionName, controllerName parametreleri ile yönlendirme sağlar*@
 
 @Html.ActionLink("MVC01 Razor Syntax", "Index", "MVC01RazorSyntax")
 
@@ -17,13 +17,13 @@
 <label>
     <input type="checkbox" name="cbOnay" />Onaylıyorum
 </label>
-
+@*mvc nin checkboxı*@
 <label>
     @Html.CheckBox("Onay") Onaylıyorum
 </label>
 <hr>
 
-<h3>Html TextBox OLuşturma</h3>
+<h3>Html TextBox OLuşturma : veri giriş</h3>
 
 <input id="txtSoyad" name="txtSoyad" type="text" value="" />
 <br>
@@ -55,22 +55,22 @@
 <hr>
 
 <h3>Html Password Oluşturma</h3>
-@Html.Password("txtAdres", "Html Textarea(Çok Satırlı input) Oluşturma")
+@Html.Password("txtPassword")
 <hr>
 
 <h3>Html Helpers ile Form Oluşturma</h3>
-
 @using (Html.BeginForm())
 {
     <h4>Kullanıcı Adı</h4>
-    @Html.Editor("txtKullaniciAdi")
+    @Html.Editor("txtKullaniciAdi") @*textbox da kullanılabilir*@
     <h4>Şifre</h4>
     @Html.Password("txtPassword")
+    <br>
+    <input type="submit" value="Giriş"/>
 }
 <hr>
 
-<h3>ListBox ve DropDownList Elementi Kullanımı</h3>
-
+<h3>ListBox(Çoklu Seçimli Liste) ve DropDownList(Aşağı Açılır Menu) Elementi Kullanımı</h3>
 @{
     var liste = new SelectListItem[]{
         new SelectListItem()
@@ -87,15 +87,13 @@
         }
     };
 }
-
 @Html.ListBox("lbListe", liste)
 <br>
 
 @Html.DropDownList("ddListe", liste)
 <hr>
 
-<h3>RadioButton Elementi Kullanımı</h3>
-
+<h3>RadioButton(Seçim) Elementi Kullanımı</h3>
 <h5>Sözleşmeyi</h5>
 <label>
     @Html.RadioButton("rbOnay", "Onay") Onaylıyorum
@@ -105,18 +103,19 @@
 </label>
 <hr />
 
+@*Raw: Html de ekrana css ile içerik yazdırma*@
 @{
     string htmlRawOrnek = "<h5>Html ile Ekrana İçerik Yazdırma</h5>";
 }
 <h3>Html Raw ile Ekrana Html İçerik Yazdırma</h3>
-@htmlRawOrnek
 
+@htmlRawOrnek
 @Html.Raw(htmlRawOrnek)
 @Html.Raw("<b style = 'color: red'> Html Raw ile Ekrana Html İçerik Yazdırma</b>")
 <hr>
 
 <h2>Tag Helpers</h2>
-
+@*form - a elementlerinde kullanılır asp- ler tag helpers*@
 <h3>a elementi</h3>
 <a asp-action="Index" asp-controller="Home" asp-route-id="18">Anasayfa</a>
 
@@ -129,4 +128,3 @@
     <br>
     <input type="submit" value="Giriş"/>
 </form>
-<hr/>
