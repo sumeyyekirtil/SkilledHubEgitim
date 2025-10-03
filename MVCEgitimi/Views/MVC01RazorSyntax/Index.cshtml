@@ -1,6 +1,8 @@
 ﻿@{
     //title bir noktadan bir noktaya veri gönderir.
-    ViewData["Title"] = "MVC 01 Razor Syntax"; //controller sayfasında contact metot - sağ tık - add view - razor view - name : contact - add (hata çözülür sayfa açılmış ve eklenmiş oldu)
+    ViewData["Title"] = "MVC Razor Syntax";  //view yazarken uyulması gereken kurallar @ ile: razor syntax
+    //controller sayfasında contact metot - sağ tık - add view - razor view - name : contact - add (hata çözülür sayfa açılmış ve eklenmiş oldu)
+
     //bu razor syntax sayesinde view lerde c# kodu yazabiliyoruz
 
     string urunAdi = "Bilgisayar";
@@ -10,22 +12,23 @@
     var tarih = DateTime.Now; //yorum satırı
 }
 
-<h2>MVC 01 Razor Syntax</h2>
+<h2>MVC Razor Syntax</h2>
 <h6>Title: @ViewBag.Title</h6>
 <p>
     C# kodu ile html kodlarını karışık yazabiliyoruz. Ekrandaki metnin c# kodu olduğunu başına eklenen at ifadesinden anlıyor sistem. Bu yazım şekline de razor syntax ı deniliyor.
 </p>
 <div class="row">
     <div class="col-sm-6">
-        <img src="/css/mvc yaşam döngüsü.png" class="img-fluid" />
+        <img src="/Images/mvc yaşam döngüsü.png" class="img-fluid" />
     </div>
     <div class="col-sm-6">
         <h4>Ürün Adı : @urunAdi</h4>
         <h4>Ürün Fiyatı : @fiyat</h4>
-        <h4>Kdv Dahil : @kdv</h4>
+        <h4>Kdv Dahil : @(fiyat* kdv) ₺</h4> @*₺ : alt gr - T*@
     </div>
 </div>
-<>
+
+<hr>
 
 <h4>
     Tarih ve Saat: @tarih
@@ -35,11 +38,11 @@
     Kısa Tarih: @tarih.ToShortDateString()
 </h4>
 
-@if (tarih.Hour > 10)
+@if (tarih.Hour > 17)
 {
     <h5>İyi Akşamlar</h5>
 }
-else if (tarih.Hour > 12 && tarih.Hour < 18)
+else if (tarih.Hour > 12 && tarih.Hour < 17)
 {
     <h5>İyi Günler</h5>
 }
@@ -63,6 +66,7 @@ else
 }
 
 <hr />
+
 Listedeki 2. isim : @isimler[1]
 <hr>
 @foreach (var isim in isimler)
@@ -71,33 +75,35 @@ Listedeki 2. isim : @isimler[1]
 }
 <hr>
 
+@*html elementi kullanmadan çıktı üretmek için taktikler*@
 @foreach (var isim in isimler)
 {
     @(isim + " ")
-    //isimleri aralarına boşluk bırakarak yazdırır
+    //isimleri aralarına boşluk bırakarak yazdırır 1.yol
     @:İsim : @isim -
 }
 
 <h3>For Örneği</h3>
 @for (var i = 0; i < isimler.Length; i++)
-{
+//isimler dizisinde 0 dan fazla eleman varsa (length ile ulaşılır) döner
+{//text tag ları string yazdırmak için (html değil - razor syntax da var) : 2.yol
     <text>İsim : @isimler[i]</text>
-    <hr>
     <hr />
 }
 
 <h3>For Örneği 2</h3>
 @for (var i = 0; i < isimler.Length; i++)
 {
+    //text kullanmadan yazdırma @ ile
     @:İsim : @isimler[i]
-    <hr>
     <hr />
 }
 
 <p>
-    info@deneme.com şeklinde at ifadesinden ince yapışık metin varsa bunun c# kodu olmadığını razor syntax anlar.
+    info@deneme.com şeklinde at ifadesinden ince yapışık metin varsa bunun C# kodu olmadığını razor syntax anlar.
 </p>
 
+@*html de @ normal algılanırken - mvc de @ sonra kullanılanı değişken olarak algıladığı için hata veriyor - C# da dahil*@
 <h5>
     Kullanıcı Adı : @@aspnet iki at kullanımı
 </h5>
@@ -107,11 +113,10 @@ Listedeki 2. isim : @isimler[1]
 </p>
 
 <h3>Üretim Yılı</h3>
-
 <select>
     <option value="">Seçiniz</option>
     @for (int i = DateTime.Now.Year; i > 2000; i--)
-    {
+    {//2000 den bulunulan yıla kadar döner
         <option value="@i">@i</option>
     }
 </select>
