@@ -1,7 +1,8 @@
 ﻿namespace MVCEgitimi.Models
 {
+	//added kullanici(user) class for model binding controller
 	public class Kullanici
-	{
+	{//kullanici özellikleri için property oluşturma
 		public int Id { get; set; }
 		public string Ad { get; set; }
 		public string? Soyad { get; set; }

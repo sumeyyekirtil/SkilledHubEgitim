@@ -1,15 +1,16 @@
 ﻿@model UyeSayfasiViewModel
+@*2 model eklemek için yeni bir model oluşturup import edilir*@
 @{
     ViewData["Title"] = "Kullanıcı Detayı";
 }
+
 <h1>Kullanıcı Detayı</h1>
 
 <h3> Model içerisinden gelen verileri ekranda gösterme</h3>
-
 <table class="table">
     <tr>
         <td>Ad</td>
-        <td>@Model.Kullanici.Ad</td>
+        <td>@Model.Kullanici.Ad</td> @*yeni oluşturulan model deki kullanıcı içindeki adı yazdır*@
     </tr>
     <tr>
         <td>Soyad</td>
@@ -27,13 +28,13 @@
 
 <h1>Adres Bilgileri</h1>
 
-null referans hatasındn kurtulma bloğu
+@* null referans hatasından kurtulma bloğu *@
 @if (Model is not null)
 {
     <table>
         <tr>
             <td>Şehir</td>
-            <td>@Model.Adres.Sehir</td>
+            <td>@Model.Adres.Sehir</td> @*yeni oluşturulan model deki adres içindeki sehir yazdır*@
         </tr>
         <tr>
             <td>İlçe</td>

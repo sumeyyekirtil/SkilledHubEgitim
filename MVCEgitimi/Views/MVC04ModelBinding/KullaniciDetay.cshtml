@@ -1,8 +1,7 @@
-﻿@*
-    Yorum satırı
-*@
+﻿@model Kullanici 
+@*sayfada kullanılcak model class*@
+@*bu sayfada model kullanabilmek için içi dolu bir backend göndermemiz lazım*@
 
-@model Kullanici
 @{
     ViewData["Title"] = "Kullanıcı Detayı";
 }
@@ -13,7 +12,7 @@
 <table class="table">
     <tr>
         <td>Ad</td>
-        <td>@Model.Ad</td>
+        <td>@Model.Ad</td> @*çağırılan model yoluyla prop çağırma*@
     </tr>
     <tr>
         <td>Soyad</td>
@@ -32,25 +31,29 @@
 <h3>
     Model içerisinden gelen verileri düzenleme
 </h3>
-
 <form asp-action="KullaniciDetay" method="post">
     <table class="table table-bordered">
         <tr>
             <td>Ad</td>
-            <td>@Html.TextAreaFor(model => model.Ad)</td>
+            <td>@Html.TextBoxFor(model => model.Ad)</td> @*ilgili propert ile html üzerinden veri gönderme işlemi yapılabilir - modeldeki ad için textbox oluştur*@
         </tr>
         <tr>
             <td>Soyad</td>
-            <td>@Html.TextAreaFor(model => model.Soyad)</td>
+            <td>@Html.EditorFor(model => model.Soyad)</td> @*düzenle*@
         </tr>
         <tr>
             <td>Email</td>
-            <td>@Html.TextAreaFor(model => model.Email)</td>
+            <td>@Html.EditorFor(model => model.Email)</td> @* modeldeki email için email formatını kontrol et oluştur *@
         </tr>
         <tr>
             <td>Sifre</td>
-            <td>@Html.TextAreaFor(model => model.Sifre)</td>
+            <td>@Html.EditorFor(model => model.Sifre)</td>
         </tr>
-
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Kaydet" class="btn btn-success" />
+            </td>
+        </tr>
     </table>
 </form>

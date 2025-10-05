@@ -3,15 +3,19 @@ using MVCEgitimi.Models;
 
 namespace MVCEgitimi.Controllers
 {
+	//model-views-controller: MVC -> Model Binding = Model kullanımı
 	public class MVC04ModelBindingController : Controller
 	{
-		public IActionResult Index()
+		public IActionResult Index() //add view - empty
 		{
 			return View();
 		}
-		public IActionResult KullaniciDetay() //ilk sayfa açıldığında get varsayılan olarak gelir
+
+		//added is Model - kullanici
+		public IActionResult KullaniciDetay() //bu isimde view açılmalı görünm için
+			//ilk sayfa açıldığında get varsayılan olarak gelir
 		{
-			var kullanici = new Kullanici()
+			var kullanici = new Kullanici() //nesne oluşturuldu
 			{
 				Id = 25,
 				Ad = "Murat",
@@ -23,20 +27,23 @@ namespace MVCEgitimi.Controllers
 			return View(kullanici); //yukarıdaki kullanici nesnesinin view da model olarak kullanılabilmesi için bu şekilde view a göndermemiz gerekir.
 		}
 
-		[HttpPost]
+		[HttpPost] //kullanıcı detayı karşılayacak post metodu açıldı
 		public IActionResult KullaniciDetay(Kullanici kullanici) //Burada belirttiğimiz kullanici nesnesi view sayfasındaki model kullanan form içerisindeki verileri model binding yöntemiyle yakalıyor.
 		{
-			return View(kullanici); //Post işleminden sonra meetoda parametreyle gelen kullanici nesnesini tekrar ekrana yazdır
+			//bu kısımda istenilirse db kayıt yapılabilir, CRUD işlemleri yapılabilir
+
+			return View(kullanici); //Post işleminden sonra metoda parametreyle gelen kullanici nesnesini tekrar ekrana yazdır
 		}
 
-		public IActionResult AdresDetay()
+		public IActionResult AdresDetay() //add view - empty
 		{
+			//modelin içini boş göndermemek için nesne tanımlaması (db veri çekme) yaptık - null referance exception error solved
 			var model = new Adres()
 			{
 				Id = 25,
 				Ilce = "Keçiören",
 				Sehir = "Ankara",
-				AcikAdres = "Köy"
+				AcikAdres = "Başkent"
 			};
 			return View(model); //model nesnesini view a yollamazsak sayfada hata almaya devam ederiz
 		}
@@ -45,7 +52,8 @@ namespace MVCEgitimi.Controllers
 		{
 			return View(adres);
 		}
-		//iki şekilde görünüm oluşturmak istenirse
+
+		//iki şekilde view da model oluşturmak istenirse
 		public IActionResult KullaniciAdresDetay()
 		{
 			var kullanici = new Kullanici()
@@ -57,17 +65,18 @@ namespace MVCEgitimi.Controllers
 				KullaniciAdi = "muro25",
 				Sifre = "muroÇeto123",
 			};
-			var model = new UyeSayfasiViewModel
+			var model = new UyeSayfasiViewModel //bu modelden nesne oluşturduk çünkü yeni modeli tanımıyor
 			{
+				//var olan class ları birleştirilip sunucudaki get hatası çözüldü
 				Kullanici = kullanici,
 				Adres = new Adres
 				{
 					Sehir = "Çankırı",
-					Ilce = "Atlakaracalar",
+					Ilce = "Atkaracalar",
 					AcikAdres = "Asker balıkları ılıpınar köyü"
 				}
 			};
-			return View(kullanici);
+			return View(model);
 		}
 	}
 }
